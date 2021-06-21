@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>817741500378-b37d9l00lahsv9cnci5b9b92mivm2g0q.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.817741500378-b37d9l00lahsv9cnci5b9b92mivm2g0q</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBJTh5n_q_0eRU4ILm-KDCaxy6_UqSXg80</string>
+	<key>GCM_SENDER_ID</key>
+	<string>817741500378</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.anthonybyrd.TeamyApp</string>
+	<key>PROJECT_ID</key>
+	<string>teamy-811c8</string>
+	<key>STORAGE_BUCKET</key>
+	<string>teamy-811c8.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:817741500378:ios:d8c8fa683654a7c37f3ae3</string>
+</dict>
+</plist>
