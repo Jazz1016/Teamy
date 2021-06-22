@@ -40,11 +40,13 @@ class SignUpViewController: UIViewController {
                 }
                 if result != nil {
                     print("Successfully created account")
-//                    self.transitionToHome()
+                    let newUser = User(email: email, firstName: firstName, lastName: lastName, userId: result!.user.uid)
+                    UserController.shared.createUser(user: newUser)
+                    self.transitionToHome()
                 }
             }
         } else {
-            //present alert saying passwords don't match.
+            
             let alert = UIAlertController(title: "Sign Up Error", message: "Passwords are not identical", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
             alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -53,21 +55,12 @@ class SignUpViewController: UIViewController {
     }
     
     func transitionToHome() {
-            let homeViewController = storyboard?.instantiateViewController(identifier: "HomeVC")
+//            let homeViewController = storyboard?.instantiateViewController(identifier: "HomeVC")
             
-            view.window?.rootViewController = homeViewController
-            view.window?.makeKeyAndVisible()
+//            view.window?.rootViewController = homeViewController
+//            view.window?.makeKeyAndVisible()
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+    
 }
