@@ -9,5 +9,6 @@ import Foundation
 
 enum Strings {
     static let name = "aadsf"
+    static let homeVC = "HomeVC"
     
 }
