@@ -264,7 +264,7 @@
         <!--Home View Controller-->
         <scene sceneID="Z5Z-a2-ky8">
             <objects>
-                <viewController id="QfJ-ed-lJ7" customClass="HomeViewController" customModule="TeamyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" id="QfJ-ed-lJ7" customClass="HomeViewController" customModule="TeamyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tMW-bh-vw2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
