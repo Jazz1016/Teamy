@@ -53,7 +53,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="Txp-3A-Jf0">
             <objects>
-                <viewController id="BN9-e0-v64" customClass="SignUpViewController" customModule="TeamyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpVC" id="BN9-e0-v64" customClass="SignUpViewController" customModule="TeamyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jpr-Ag-FRF">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -564,7 +564,7 @@
         <!--Login View Controller-->
         <scene sceneID="O7O-6O-3oC">
             <objects>
-                <viewController id="mk3-AR-dSw" customClass="LoginViewController" customModule="TeamyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" id="mk3-AR-dSw" customClass="LoginViewController" customModule="TeamyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EIf-G7-jG8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
