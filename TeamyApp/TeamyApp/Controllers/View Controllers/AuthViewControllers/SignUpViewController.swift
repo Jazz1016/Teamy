@@ -40,7 +40,7 @@ class SignUpViewController: UIViewController {
                 }
                 if result != nil {
                     print("Successfully created account")
-//                    self.transitionToHome()
+                    self.transitionToHome()
                 }
             }
         } else {
@@ -53,7 +53,7 @@ class SignUpViewController: UIViewController {
     }
     
     func transitionToHome() {
-            let homeViewController = storyboard?.instantiateViewController(identifier: "HomeVC")
+        let homeViewController = storyboard?.instantiateViewController(identifier: Strings.homeVC)
             
             view.window?.rootViewController = homeViewController
             view.window?.makeKeyAndVisible()
