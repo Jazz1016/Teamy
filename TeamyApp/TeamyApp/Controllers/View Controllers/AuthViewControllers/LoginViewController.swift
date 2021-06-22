@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class LoginViewController: UIViewController {
     // MARK: - Outlets
@@ -19,8 +20,39 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func loginButtonWasTapped(_ sender: Any) {
-        
+        login()
     }
+    
+    func login() {
+        guard let email = emailTextField.text, !email.isEmpty,
+              let password = passwordTextField.text, !password.isEmpty else {return}
+        
+        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+            }
+            if result != nil {
+                print("Sign In Successful")
+                self.transitionToHome()
+            } else {
+                let alert = UIAlertController(title: "Sign In Error", message: "Sign in credentials not found. Would you like to create a new account?", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { action in
+//                    let signUpVC = self.storyboard?.instantiateViewController(identifier: "SignUpVC")
+                    //Change view to sign up view controller
+                    
+                }))
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    func transitionToHome() {
+            let homeViewController = storyboard?.instantiateViewController(identifier: "HomeVC")
+            
+            view.window?.rootViewController = homeViewController
+            view.window?.makeKeyAndVisible()
+        }
     
     
     

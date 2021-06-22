@@ -46,7 +46,6 @@ class UserController {
                     "teams" : teams,
                     "userId" : userId
                 ])
-                
             }
         }
     }
