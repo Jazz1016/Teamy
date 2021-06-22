@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gOV-f5-tae">
-                                <rect key="frame" x="41.5" y="441" width="331" height="68"/>
+                                <rect key="frame" x="41.5" y="419" width="331" height="68"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liC-rs-01o">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="30"/>
@@ -48,18 +48,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUn-ha-Vaq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="435" y="43"/>
+            <point key="canvasLocation" x="1344.9275362318842" y="42.857142857142854"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="Txp-3A-Jf0">
             <objects>
                 <viewController storyboardIdentifier="SignUpVC" id="BN9-e0-v64" customClass="SignUpViewController" customModule="TeamyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jpr-Ag-FRF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fan-1O-gEv">
-                                <rect key="frame" x="41.5" y="365" width="331" height="220"/>
+                                <rect key="frame" x="41.5" y="294" width="331" height="220"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter first name.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VAF-lp-N6d">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="30"/>
@@ -133,7 +133,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jBd-fP-Y7K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1244.9275362318842" y="-232.36607142857142"/>
+            <point key="canvasLocation" x="2155.072463768116" y="-232.36607142857142"/>
         </scene>
         <!--Create New Team View Controller-->
         <scene sceneID="aG2-cu-nGh">
@@ -314,12 +314,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dTe-Rp-WPT">
-                        <barButtonItem key="leftBarButtonItem" title="Create New Team" id="ZoR-7e-oZY">
+                        <barButtonItem key="leftBarButtonItem" title="Create Team" id="ZoR-7e-oZY">
                             <connections>
                                 <segue destination="jSw-3C-LLC" kind="show" id="UPr-bF-kQL"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Invites / Join Team" id="hIB-1k-voe">
+                        <barButtonItem key="rightBarButtonItem" title="Join Team" id="hIB-1k-voe">
                             <connections>
                                 <segue destination="XW4-KN-bqL" kind="show" id="Mqh-4h-ZlP"/>
                             </connections>
@@ -327,12 +327,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="userTeamsTableView" destination="XZX-mw-DTf" id="S2L-lI-ufe"/>
-                        <segue destination="K8V-NX-lGa" kind="show" id="B5i-0u-bbS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bbc-0G-Xec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3506" y="43"/>
+            <point key="canvasLocation" x="4415.9420289855079" y="42.857142857142854"/>
         </scene>
         <!--Team View Controller-->
         <scene sceneID="rOJ-4X-bSR">
@@ -392,7 +391,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="85f-9Y-c8C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5105.7971014492759" y="49.553571428571423"/>
+            <point key="canvasLocation" x="6015.9420289855079" y="49.553571428571423"/>
         </scene>
         <!--Admin Team View Controller-->
         <scene sceneID="C4b-Xd-3JU">
@@ -566,11 +565,11 @@
             <objects>
                 <viewController storyboardIdentifier="LoginVC" id="mk3-AR-dSw" customClass="LoginViewController" customModule="TeamyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EIf-G7-jG8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1mm-vD-t3h">
-                                <rect key="frame" x="41.5" y="422" width="331" height="106"/>
+                                <rect key="frame" x="41.5" y="351" width="331" height="106"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oit-YD-Hqz">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="30"/>
@@ -617,7 +616,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5tZ-85-s6b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1245" y="441"/>
+            <point key="canvasLocation" x="2155.072463768116" y="440.625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CRQ-eO-1HY">
@@ -635,7 +634,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="APa-Jt-cUD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2645" y="43"/>
+            <point key="canvasLocation" x="3555.072463768116" y="42.857142857142854"/>
         </scene>
     </scenes>
     <resources>

@@ -33,12 +33,22 @@ class LoginViewController: UIViewController {
             }
             if result != nil {
                 print("Sign In Successful")
+                guard let result = result else {return}
+                DispatchQueue.main.async {
+                    
+                    UserController.shared.fetchUser(userId: result.user.uid) { result in
+                        
+                        
+                        print(result)
+                        // JAMLEA:
+                        
+                    }
+                }
                 self.transitionToHome()
             } else {
                 let alert = UIAlertController(title: "Sign In Error", message: "Sign in credentials not found. Would you like to create a new account?", preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { action in
-//                    let signUpVC = self.storyboard?.instantiateViewController(identifier: "SignUpVC")
-                    //Change view to sign up view controller
+                    let signUpVC = self.storyboard?.instantiateViewController(identifier: "SignUpVC")
                     
                 }))
                 alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
@@ -48,22 +58,12 @@ class LoginViewController: UIViewController {
     }
     
     func transitionToHome() {
-        let homeViewController = storyboard?.instantiateViewController(identifier: Strings.homeVC)
-            
-            view.window?.rootViewController = homeViewController
-            view.window?.makeKeyAndVisible()
+
+//            let homeViewController = storyboard?.instantiateViewController(identifier: "HomeVC")
+//
+//            view.window?.rootViewController = homeViewController
+//            view.window?.makeKeyAndVisible()
+        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+
         }
-    
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

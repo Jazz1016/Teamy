@@ -13,7 +13,6 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
         do {
             try Auth.auth().signOut()
@@ -26,7 +25,14 @@ class HomeViewController: UIViewController {
             let VC = storyboard.instantiateViewController(identifier: "AuthVC")
             VC.modalPresentationStyle = .fullScreen
             self.present(VC, animated: true, completion: nil)
+        } else {
+            guard let user = UserController.shared.user else {return}
+            
+            TeamController.shared.fetchTeamsForUser(teamIds: user.teams)
+
         }
+        
+        
     }
 }
 

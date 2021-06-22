@@ -15,8 +15,7 @@ class User {
     let teams: [String]
     let userId: String
     
-    init(email: String, firstName: String, lastName: String, teams: [String], invites: [String] = [], userId: String){
-        
+    init(email: String, firstName: String, lastName: String, teams: [String] = [], invites: [String] = [], userId: String){
         self.email = email
         self.firstName = firstName
         self.lastName = lastName
