@@ -24,6 +24,8 @@
 		0D94E18926824018005602ED /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E18826824018005602ED /* User.swift */; };
 		0D94E18B26824025005602ED /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E18A26824025005602ED /* Team.swift */; };
 		0D94E18D2682402E005602ED /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E18C2682402E005602ED /* Event.swift */; };
+		0D94E18F2682762B005602ED /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E18E2682762B005602ED /* Strings.swift */; };
+		0D94E19326827AE4005602ED /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E19226827AE4005602ED /* UserController.swift */; };
 		344A556C1CC49A28C2069EF5 /* Pods_TeamyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB8089433EFD9BD3ACCEF72 /* Pods_TeamyApp.framework */; };
 		ACC9759726810FBA000C3593 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC9759626810FBA000C3593 /* AppDelegate.swift */; };
 		ACC9759926810FBA000C3593 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC9759826810FBA000C3593 /* SceneDelegate.swift */; };
@@ -55,6 +57,8 @@
 		0D94E18826824018005602ED /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		0D94E18A26824025005602ED /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		0D94E18C2682402E005602ED /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		0D94E18E2682762B005602ED /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		0D94E19226827AE4005602ED /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		ACC9759326810FBA000C3593 /* TeamyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC9759626810FBA000C3593 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACC9759826810FBA000C3593 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 				ACC9759F26810FBC000C3593 /* Assets.xcassets */,
 				ACC975A426810FBC000C3593 /* Info.plist */,
 				ACC975BD26811868000C3593 /* GoogleService-Info.plist */,
+				0D94E18E2682762B005602ED /* Strings.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -198,6 +203,7 @@
 				ACC975B326811271000C3593 /* ModelControllersPlaceholder.swift */,
 				0D94E17B26823061005602ED /* AuthController.swift */,
 				0D94E18626823F8E005602ED /* TeamController.swift */,
+				0D94E19226827AE4005602ED /* UserController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -372,10 +378,12 @@
 				0D94E18126823841005602ED /* EventTableViewCell.swift in Sources */,
 				0D94E17F2682336B005602ED /* TeamTableViewCell.swift in Sources */,
 				0D1032492681515100136C9A /* HomeViewController.swift in Sources */,
+				0D94E19326827AE4005602ED /* UserController.swift in Sources */,
 				0D10324126814FF600136C9A /* TeamViewController.swift in Sources */,
 				0D10324B268152B900136C9A /* AdminTeamViewController.swift in Sources */,
 				0D94E18326823864005602ED /* CreateEventViewController.swift in Sources */,
 				0D94E18926824018005602ED /* User.swift in Sources */,
+				0D94E18F2682762B005602ED /* Strings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
