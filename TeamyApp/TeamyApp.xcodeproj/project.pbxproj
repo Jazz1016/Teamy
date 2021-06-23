@@ -29,6 +29,7 @@
 		0D94E19526828E3C005602ED /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E19426828E3C005602ED /* UserError.swift */; };
 		344A556C1CC49A28C2069EF5 /* Pods_TeamyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB8089433EFD9BD3ACCEF72 /* Pods_TeamyApp.framework */; };
 		AA662E6926838F670061145E /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA662E6826838F670061145E /* EventController.swift */; };
+		AA662E6B2683DC930061145E /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA662E6A2683DC930061145E /* DateFormatter.swift */; };
 		ACC9759726810FBA000C3593 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC9759626810FBA000C3593 /* AppDelegate.swift */; };
 		ACC9759926810FBA000C3593 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC9759826810FBA000C3593 /* SceneDelegate.swift */; };
 		ACC9759E26810FBA000C3593 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACC9759C26810FBA000C3593 /* Main.storyboard */; };
@@ -63,6 +64,7 @@
 		0D94E19226827AE4005602ED /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		0D94E19426828E3C005602ED /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
 		AA662E6826838F670061145E /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
+		AA662E6A2683DC930061145E /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		ACC9759326810FBA000C3593 /* TeamyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC9759626810FBA000C3593 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACC9759826810FBA000C3593 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 			children = (
 				ACC975AC26811157000C3593 /* HelpersPlaceholders.swift */,
 				0D94E19426828E3C005602ED /* UserError.swift */,
+				AA662E6A2683DC930061145E /* DateFormatter.swift */,
 			);
 			path = "Helpers and Extensions";
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA662E6B2683DC930061145E /* DateFormatter.swift in Sources */,
 				ACC975B926811389000C3593 /* CustomViewsPlaceholder.swift in Sources */,
 				ACC975AD26811157000C3593 /* HelpersPlaceholders.swift in Sources */,
 				0D1032452681502200136C9A /* JoinTeamViewController.swift in Sources */,

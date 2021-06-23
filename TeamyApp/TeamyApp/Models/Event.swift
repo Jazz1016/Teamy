@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 
 class Event {
     
@@ -17,7 +18,7 @@ class Event {
     var eventID: String
     
     
-    init(date: Date, name: String, locationAddress: String, locationName: String, notes: String, eventID: String = UUID().uuidString) {
+    init(date: Date?, name: String, locationAddress: String, locationName: String, notes: String, eventID: String = UUID().uuidString) {
         self.date = date
         self.name = name
         self.locationAddress = locationAddress

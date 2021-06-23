@@ -8,36 +8,53 @@
 import UIKit
 
 class TeamViewController: UIViewController {
-    @IBOutlet weak var eventsTableViewController: UITableView!
+    @IBOutlet weak var eventsTableView: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        eventsTableView.delegate = self
+        eventsTableView.dataSource = self
     }
     
     // MARK: - Properties
     var team: Team? {
         didSet {
-            
+            DispatchQueue.main.async {
+                EventController.shared.team = self.team
+            }
+            fetchEvents()
         }
     }
     
     // MARK: - Methods
-    
+    func fetchEvents() {
+        guard let team = team else {return}
+        EventController.shared.fetchEvents(teamID: team.teamId) { [weak self] success in
+            DispatchQueue.main.async {
+                if success {
+                    self?.eventsTableView.reloadData()
+                    print("Successfully fetched events")
+                }
+            }
+        }
+    }
 
 }//End of class
 
 extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // JAMLEA: Placeholder
-        return 1
+        return EventController.shared.events.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
         
+        let event = EventController.shared.events[indexPath.row]
+        cell.textLabel?.text = event.name
+        cell.detailTextLabel?.text = event.locationName
         
-        
-        return UITableViewCell()
+        return cell
     }
     
     
