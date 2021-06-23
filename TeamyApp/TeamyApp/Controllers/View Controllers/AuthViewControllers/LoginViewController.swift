@@ -38,7 +38,13 @@ class LoginViewController: UIViewController {
                     
                     UserController.shared.fetchUser(userId: result.user.uid) { result in
                         
-                        
+                        switch result {
+                        case .success(let user):
+                            UserController.shared.user = user
+                            TeamController.shared.fetchTeamsForUser(teamIds: user.teams)
+                        case .failure(let error):
+                            print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                        }
                         print(result)
                         // JAMLEA:
                         
@@ -64,17 +70,4 @@ class LoginViewController: UIViewController {
 //            view.window?.makeKeyAndVisible()
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         }
-    
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

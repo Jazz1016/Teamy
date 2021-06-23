@@ -12,6 +12,7 @@ class Team {
     let admins: [String]
     let members: [String]
     let teamId: String
+//    let teamCode: Int
     
     init(name: String, admins: [String], members: [String], teamId: String = UUID().uuidString){
         self.name = name

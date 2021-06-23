@@ -8,7 +8,20 @@
 import UIKit
 
 class TeamTableViewCell: UITableViewCell {
+    // MARK: - Outlets
     @IBOutlet weak var teamNameTableView: UILabel!
     
+    // MARK: - Properties
+    var team: Team? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    func updateViews(){
+        guard let team = team else {return}
+        
+        teamNameTableView.text = team.name
+    }
     
 }
