@@ -22,6 +22,7 @@ class CreateNewTeamViewController: UIViewController {
     var randomNumString = "\(Int.random(in: 1...999999))"
     
     
+    ///Creates a new team and adds creating user as an admin
     @IBAction func createNewTeamTapped(_ sender: Any) {
         guard let name = teamNameTextField.text,
               let userId = Auth.auth().currentUser?.uid
@@ -37,9 +38,10 @@ class CreateNewTeamViewController: UIViewController {
         
         addZeros()
         
-        let newTeam = Team(name: name, admins: [], members: [], teamCode: randomNumString)
+        let defaultAdmin = [userId]
+        
+        let newTeam = Team(name: name, admins: defaultAdmin, members: [], teamCode: randomNumString)
         TeamController.shared.addTeamToUser(userId: userId, teamId: newTeam.teamId)
         TeamController.shared.createTeam(team: newTeam)
     }
-    
 }

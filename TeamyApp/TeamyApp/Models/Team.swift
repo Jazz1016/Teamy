@@ -11,6 +11,7 @@ class Team {
     let name: String
     let admins: [String]
     let members: [String]
+//    let blocked: [String]
     let teamId: String
     let teamCode: String
     
