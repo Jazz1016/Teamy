@@ -18,13 +18,26 @@ class CreateNewTeamViewController: UIViewController {
         
     }
     
+    // MARK: - Properties
+    var randomNumString = "\(Int.random(in: 1...999999))"
+    
     
     @IBAction func createNewTeamTapped(_ sender: Any) {
         guard let name = teamNameTextField.text,
               let userId = Auth.auth().currentUser?.uid
               else {return}
         
-        let newTeam = Team(name: name, admins: [], members: [])
+        func addZeros(){
+            if randomNumString.count < 6 {
+                randomNumString = "0" + randomNumString
+                print(randomNumString)
+                addZeros()
+            }
+        }
+        
+        addZeros()
+        
+        let newTeam = Team(name: name, admins: [], members: [], teamCode: randomNumString)
         TeamController.shared.addTeamToUser(userId: userId, teamId: newTeam.teamId)
         TeamController.shared.createTeam(team: newTeam)
     }

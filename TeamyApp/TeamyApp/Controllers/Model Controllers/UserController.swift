@@ -46,11 +46,10 @@ class UserController {
                 let email = userData["email"] as? String ?? ""
                 let firstName = userData["firstName"] as? String ?? ""
                 let lastName = userData["lastName"] as? String ?? ""
-                let invites = userData["invites"] as? Array<String> ?? []
                 let teams = userData["teams"] as? Array<String> ?? []
                 let userId = userData["userId"] as? String ?? ""
                 
-                let userToReturn = User(email: email, firstName: firstName, lastName: lastName, teams: teams, invites: invites, userId: userId)
+                let userToReturn = User(email: email, firstName: firstName, lastName: lastName, teams: teams, userId: userId)
                 
                 completion(.success(userToReturn))
                 
@@ -98,11 +97,9 @@ class UserController {
         }
     }
     
-    
-    func acceptTeamInvite(userId: String, teamId: String){
-        fetchUser(userId: userId) { result in
-            
-            print(result)
-        }
+    func userjoinsTeam(teamCode: String){
+        let queriedTeam = db.collection("teams").whereField("teamCode", isEqualTo: teamCode)
+        
+//        queriedTeam.getDocuments(completion: ``completion: <#FIRQuerySnapshotBlock#>)
     }
 }//End of class

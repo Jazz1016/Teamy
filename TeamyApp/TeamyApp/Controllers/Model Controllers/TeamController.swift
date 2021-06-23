@@ -33,13 +33,16 @@ class TeamController {
                     let admins = teamData["admins"] as? Array<String>
                     let members = teamData["members"] as? Array<String>
                     let teamId = teamData["teamId"] as? String
+                    let teamCode = teamData["teamCode"] as? String
                     
                     guard let name1 = name,
                           let admins1 = admins,
                           let teamId1 = teamId,
-                          let members1 = members else {return}
+                          let members1 = members,
+                          let teamCode1 = teamCode
+                          else {return}
                     
-                    let teamToAdd = Team(name: name1, admins: admins1, members: members1, teamId: teamId1)
+                    let teamToAdd = Team(name: name1, admins: admins1, members: members1, teamId: teamId1, teamCode: teamCode1)
                     print(self.teams)
                     self.teams.append(teamToAdd)
                     self.delegate?.updateTableView()
@@ -58,7 +61,8 @@ class TeamController {
             "name" : team.name,
             "admins" : team.admins,
             "members" : team.members,
-            "teamId" : team.teamId
+            "teamId" : team.teamId,
+            "teamCode" : team.teamCode
         ])
         teams.append(teamToAdd)
     }
