@@ -64,10 +64,12 @@ class LoginViewController: UIViewController {
     }
     
     func transitionToHome() {
+
 //            let homeViewController = storyboard?.instantiateViewController(identifier: "HomeVC")
 //
 //            view.window?.rootViewController = homeViewController
 //            view.window?.makeKeyAndVisible()
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+
         }
 }
