@@ -9,11 +9,15 @@ import UIKit
 import FirebaseAuth
 
 class HomeViewController: UIViewController {
+    // MARK: - Outlets
     @IBOutlet weak var userTeamsTableView: UITableView!
     
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        userTeamsTableView.delegate = self
+        userTeamsTableView.dataSource = self
+        TeamController.shared.delegate = self
         do {
             try Auth.auth().signOut()
         } catch {
@@ -25,26 +29,36 @@ class HomeViewController: UIViewController {
             let VC = storyboard.instantiateViewController(identifier: "AuthVC")
             VC.modalPresentationStyle = .fullScreen
             self.present(VC, animated: true, completion: nil)
-        } else {
-            guard let user = UserController.shared.user else {return}
-            
-            TeamController.shared.fetchTeamsForUser(teamIds: user.teams)
-
         }
-        
-        
     }
-}
+    
+    override func viewDidAppear(_ animated: Bool) {
+        reloadTeamsTable()
+    }
+    
+    // MARK: - Properties
+    
+    // MARK: - Functions
+    func reloadTeamsTable(){
+        
+        userTeamsTableView.reloadData()
+    }
+    
+}//End of class
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return TeamController.shared.teams.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = userTeamsTableView.dequeueReusableCell(withIdentifier: "teamCell", for: indexPath) as? TeamTableViewCell
         
+        let team = TeamController.shared.teams[indexPath.row]
         
-        return UITableViewCell()
+        cell?.team = team
+        
+        return cell ?? UITableViewCell()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -54,5 +68,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             
             destination.team = TeamController.shared.teams[indexPath.row]
         }
+    }
+}//End of extension
+
+extension HomeViewController: reloadHomeTableView {
+    func updateTableView() {
+        self.reloadTeamsTable()
     }
 }

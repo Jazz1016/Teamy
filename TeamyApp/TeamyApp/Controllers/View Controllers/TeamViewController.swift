@@ -12,15 +12,18 @@ class TeamViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
     }
     
     // MARK: - Properties
-    var team: Team?
+    var team: Team? {
+        didSet {
+            
+        }
+    }
     
     // MARK: - Methods
- 
+    
 
 }//End of class
 
@@ -31,7 +34,9 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        // JAMLEA: Placeholder
+        
+        
+        
         return UITableViewCell()
     }
     

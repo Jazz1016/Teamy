@@ -38,7 +38,13 @@ class LoginViewController: UIViewController {
                     
                     UserController.shared.fetchUser(userId: result.user.uid) { result in
                         
-                        
+                        switch result {
+                        case .success(let user):
+                            UserController.shared.user = user
+                            TeamController.shared.fetchTeamsForUser(teamIds: user.teams)
+                        case .failure(let error):
+                            print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                        }
                         print(result)
                         // JAMLEA:
                         
