@@ -12,12 +12,13 @@ class Team {
     let admins: [String]
     let members: [String]
     let teamId: String
-//    let teamCode: Int
+    let teamCode: String
     
-    init(name: String, admins: [String], members: [String], teamId: String = UUID().uuidString){
+    init(name: String, admins: [String], members: [String], teamId: String = UUID().uuidString, teamCode: String){
         self.name = name
         self.admins = admins
         self.members = members
         self.teamId = teamId
+        self.teamCode = teamCode
     }
 }
