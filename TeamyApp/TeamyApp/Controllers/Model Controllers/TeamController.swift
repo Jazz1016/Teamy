@@ -8,15 +8,20 @@
 import Foundation
 import FirebaseFirestore
 
+protocol reloadHomeTableView: AnyObject {
+    func updateTableView()
+}
+
 class TeamController {
     static let shared = TeamController()
     
     var teams: [Team] = []
     let db = Firestore.firestore()
+    weak var delegate: reloadHomeTableView?
     
     func fetchTeamsForUser(teamIds: [String]) {
+        self.teams = []
         for i in teamIds {
-            self.teams = []
             let fetchedTeam = db.collection("teams").whereField("teamId", isEqualTo: i)
             
             fetchedTeam.getDocuments { snap, error in
@@ -35,12 +40,14 @@ class TeamController {
                           let members1 = members else {return}
                     
                     let teamToAdd = Team(name: name1, admins: admins1, members: members1, teamId: teamId1)
-                    
+                    print(self.teams)
                     self.teams.append(teamToAdd)
-                    
+                    self.delegate?.updateTableView()
                 }
             }
         }
+        
+        print(self.teams, "2")
     }
     
     func createTeam(team: Team){
@@ -86,6 +93,6 @@ class TeamController {
         }
     }
     
-    
-    
 }//End of class
+
+

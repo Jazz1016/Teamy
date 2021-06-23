@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gOV-f5-tae">
-                                <rect key="frame" x="41.5" y="441" width="331" height="68"/>
+                                <rect key="frame" x="41.5" y="419" width="331" height="68"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liC-rs-01o">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="30"/>
@@ -48,18 +49,18 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GUn-ha-Vaq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="435" y="43"/>
+            <point key="canvasLocation" x="1344.9275362318842" y="42.857142857142854"/>
         </scene>
         <!--Sign Up View Controller-->
         <scene sceneID="Txp-3A-Jf0">
             <objects>
                 <viewController storyboardIdentifier="SignUpVC" id="BN9-e0-v64" customClass="SignUpViewController" customModule="TeamyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jpr-Ag-FRF">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fan-1O-gEv">
-                                <rect key="frame" x="41.5" y="365" width="331" height="220"/>
+                                <rect key="frame" x="41.5" y="294" width="331" height="220"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter first name.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VAF-lp-N6d">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="30"/>
@@ -91,7 +92,7 @@
                                             <constraint firstAttribute="height" constant="30" id="yYt-tN-AN2"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password confirm..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ych-6R-RGt">
                                         <rect key="frame" x="0.0" y="152" width="331" height="30"/>
@@ -99,7 +100,7 @@
                                             <constraint firstAttribute="height" constant="30" id="3UU-Im-yoq"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLp-2Q-1dt">
                                         <rect key="frame" x="0.0" y="190" width="331" height="30"/>
@@ -133,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jBd-fP-Y7K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1244.9275362318842" y="-232.36607142857142"/>
+            <point key="canvasLocation" x="2155.072463768116" y="-232.36607142857142"/>
         </scene>
         <!--Create New Team View Controller-->
         <scene sceneID="aG2-cu-nGh">
@@ -195,66 +196,35 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FN6-Fk-DBl">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="joinTeamCell" rowHeight="99" id="m3h-Lv-289" customClass="JoinTeamTableViewCell" customModule="TeamyApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="99"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="m3h-Lv-289" id="Adb-xB-A0T">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="99"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="nyE-LA-wOr">
-                                                    <rect key="frame" x="41.5" y="29.5" width="331" height="40"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVS-Od-5vb">
-                                                            <rect key="frame" x="0.0" y="0.0" width="283" height="40"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3w1-TO-Cw7">
-                                                            <rect key="frame" x="291" y="0.0" width="40" height="40"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" secondItem="3w1-TO-Cw7" secondAttribute="height" multiplier="1:1" id="Zzk-JM-ege"/>
-                                                                <constraint firstAttribute="height" constant="40" id="ohF-zy-fL4"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                            <state key="normal" title="Join"/>
-                                                            <connections>
-                                                                <action selector="joinButtonTapped:" destination="m3h-Lv-289" eventType="touchUpInside" id="K91-sG-Wno"/>
-                                                            </connections>
-                                                        </button>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="nyE-LA-wOr" firstAttribute="centerX" secondItem="Adb-xB-A0T" secondAttribute="centerX" id="5YK-3P-zyV"/>
-                                                <constraint firstItem="nyE-LA-wOr" firstAttribute="width" secondItem="Adb-xB-A0T" secondAttribute="width" multiplier="0.8" id="dk4-BE-UP9"/>
-                                                <constraint firstItem="nyE-LA-wOr" firstAttribute="centerY" secondItem="Adb-xB-A0T" secondAttribute="centerY" id="o6f-zn-o5u"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4qZ-JH-voE">
+                                <rect key="frame" x="41.5" y="104" width="331" height="72"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Code..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uGD-rB-bqx">
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="34"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JUE-KA-tMS">
+                                        <rect key="frame" x="0.0" y="42" width="331" height="30"/>
+                                        <state key="normal" title="Confirm"/>
                                         <connections>
-                                            <outlet property="teamNameLabel" destination="NVS-Od-5vb" id="0tj-Fv-9Ur"/>
+                                            <action selector="confirmCodeButtonTapped:" destination="XW4-KN-bqL" eventType="touchUpInside" id="bYT-cc-AkN"/>
                                         </connections>
-                                    </tableViewCell>
-                                </prototypes>
-                            </tableView>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="MSz-OD-0wp"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="FN6-Fk-DBl" firstAttribute="top" secondItem="MSz-OD-0wp" secondAttribute="top" id="QKH-Xe-wCz"/>
-                            <constraint firstItem="FN6-Fk-DBl" firstAttribute="leading" secondItem="MSz-OD-0wp" secondAttribute="leading" id="Zos-TP-ZQ8"/>
-                            <constraint firstItem="FN6-Fk-DBl" firstAttribute="centerY" secondItem="MSz-OD-0wp" secondAttribute="centerY" id="hDk-pK-Icd"/>
-                            <constraint firstItem="MSz-OD-0wp" firstAttribute="trailing" secondItem="FN6-Fk-DBl" secondAttribute="trailing" id="jXU-iq-fdF"/>
+                            <constraint firstItem="4qZ-JH-voE" firstAttribute="centerX" secondItem="MSz-OD-0wp" secondAttribute="centerX" id="Hqd-Mf-PJ0"/>
+                            <constraint firstItem="4qZ-JH-voE" firstAttribute="width" secondItem="qB6-Ot-lPO" secondAttribute="width" multiplier="0.8" id="Sp1-9Y-4Mh"/>
+                            <constraint firstItem="4qZ-JH-voE" firstAttribute="top" secondItem="MSz-OD-0wp" secondAttribute="top" constant="16" id="W4x-GW-p9E"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MRr-LN-Fmc"/>
                     <connections>
-                        <outlet property="joinTeamTableView" destination="FN6-Fk-DBl" id="Nfb-hM-jwK"/>
+                        <outlet property="codeTextField" destination="uGD-rB-bqx" id="m5b-FD-MJ3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCG-hP-2td" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -314,12 +284,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="dTe-Rp-WPT">
-                        <barButtonItem key="leftBarButtonItem" title="Create New Team" id="ZoR-7e-oZY">
+                        <barButtonItem key="leftBarButtonItem" title="Create Team" id="ZoR-7e-oZY">
                             <connections>
                                 <segue destination="jSw-3C-LLC" kind="show" id="UPr-bF-kQL"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Invites / Join Team" id="hIB-1k-voe">
+                        <barButtonItem key="rightBarButtonItem" title="Join Team" id="hIB-1k-voe">
                             <connections>
                                 <segue destination="XW4-KN-bqL" kind="show" id="Mqh-4h-ZlP"/>
                             </connections>
@@ -327,12 +297,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="userTeamsTableView" destination="XZX-mw-DTf" id="S2L-lI-ufe"/>
-                        <segue destination="K8V-NX-lGa" kind="show" id="B5i-0u-bbS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bbc-0G-Xec" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3506" y="43"/>
+            <point key="canvasLocation" x="4415.9420289855079" y="42.857142857142854"/>
         </scene>
         <!--Team View Controller-->
         <scene sceneID="rOJ-4X-bSR">
@@ -392,7 +361,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="85f-9Y-c8C" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5105.7971014492759" y="49.553571428571423"/>
+            <point key="canvasLocation" x="6015.9420289855079" y="49.553571428571423"/>
         </scene>
         <!--Admin Team View Controller-->
         <scene sceneID="C4b-Xd-3JU">
@@ -480,6 +449,10 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OF0-GR-4mh">
                                 <rect key="frame" x="162" y="191" width="90" height="30"/>
                                 <state key="normal" title="Add Location"/>
+                                <connections>
+                                    <action selector="addLocationButtonTapped:" destination="YXJ-wP-eEm" eventType="touchUpInside" id="yO8-2M-xfs"/>
+                                    <segue destination="BCn-yH-e6G" kind="show" id="sJp-U7-4h0"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hMh-5H-dcC">
                                 <rect key="frame" x="41.5" y="237" width="331" height="21"/>
@@ -535,6 +508,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UED-BN-6yi"/>
+                    <connections>
+                        <outlet property="eventAddressLabel" destination="hMh-5H-dcC" id="Fah-xB-RtB"/>
+                        <outlet property="eventNameTextField" destination="KCg-uq-PnG" id="nXu-tz-Qv4"/>
+                        <outlet property="eventNotesTextView" destination="5ou-OR-bj3" id="0MC-Pw-Wa2"/>
+                        <outlet property="mapView" destination="JL7-Ch-7yz" id="bjV-ty-IF7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hQ2-nV-UTd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -556,6 +535,7 @@
                         <viewLayoutGuide key="safeArea" id="dMp-gz-cRN"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="H0v-5J-xk4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LO6-lg-kbj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -566,11 +546,11 @@
             <objects>
                 <viewController storyboardIdentifier="LoginVC" id="mk3-AR-dSw" customClass="LoginViewController" customModule="TeamyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EIf-G7-jG8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1mm-vD-t3h">
-                                <rect key="frame" x="41.5" y="422" width="331" height="106"/>
+                                <rect key="frame" x="41.5" y="351" width="331" height="106"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oit-YD-Hqz">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="30"/>
@@ -586,7 +566,7 @@
                                             <constraint firstAttribute="height" constant="30" id="nby-HC-SlD"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2UO-qB-EeS">
                                         <rect key="frame" x="0.0" y="76" width="331" height="30"/>
@@ -617,7 +597,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5tZ-85-s6b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1245" y="441"/>
+            <point key="canvasLocation" x="2155.072463768116" y="440.625"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="CRQ-eO-1HY">
@@ -635,7 +615,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="APa-Jt-cUD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2645" y="43"/>
+            <point key="canvasLocation" x="3555.072463768116" y="42.857142857142854"/>
         </scene>
     </scenes>
     <resources>

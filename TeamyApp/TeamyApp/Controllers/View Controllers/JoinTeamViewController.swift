@@ -8,7 +8,10 @@
 import UIKit
 
 class JoinTeamViewController: UIViewController {
-    @IBOutlet weak var joinTeamTableView: UITableView!
+  
+    //MARK: - Outlets
+    @IBOutlet weak var codeTextField: UITextField!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -16,7 +19,11 @@ class JoinTeamViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-
+    //MARK: - Actions
+    @IBAction func confirmCodeButtonTapped(_ sender: Any) {
+        
+    }
+    
     /*
     // MARK: - Navigation
 

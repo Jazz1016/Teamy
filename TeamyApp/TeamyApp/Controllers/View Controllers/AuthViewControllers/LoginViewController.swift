@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
     }
     
@@ -33,38 +33,41 @@ class LoginViewController: UIViewController {
             }
             if result != nil {
                 print("Sign In Successful")
-                self.transitionToHome()
+                guard let result = result else {return}
+                DispatchQueue.main.async {
+                    
+                    UserController.shared.fetchUser(userId: result.user.uid) { result in
+                        
+                        switch result {
+                        case .success(let user):
+                            UserController.shared.user = user
+                            TeamController.shared.fetchTeamsForUser(teamIds: user.teams)
+                        case .failure(let error):
+                            print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                        }
+                        print(result)
+                        // JAMLEA:
+                        
+                    }
+                }
+                transitionToHome()
             } else {
                 let alert = UIAlertController(title: "Sign In Error", message: "Sign in credentials not found. Would you like to create a new account?", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { _ in
-//                    let signUpVC = self.storyboard?.instantiateViewController(identifier: "SignUpVC")
-                    //Change view to sign up view controller
-//                    self.navigationController?.popToViewController(SignUpViewController(), animated: true)
                     
-                }))
-                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-            }
+                    alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { action in
+                        let signUpVC = self.storyboard?.instantiateViewController(identifier: "SignUpVC")
+                        
+                        
+                    }))
+                    alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+                    self.present(alert, animated: true, completion: nil)
+                }
+                
         }
-    }
-    
-    func transitionToHome() {
-        let homeViewController = storyboard?.instantiateViewController(identifier: Strings.homeVC)
+        
+        func transitionToHome() {
+            self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
             
-            view.window?.rootViewController = homeViewController
-            view.window?.makeKeyAndVisible()
         }
-    
-    
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
     }
-    */
-
 }
