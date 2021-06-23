@@ -77,12 +77,15 @@ class UserController {
                 let lastName = userData["lastName"] as? String
                 var invites = userData["invites"] as? Array<String> ?? []
                 let teams = userData["teams"] as? Array<String> ?? []
+
                 let userId = userData["userId"] as? String
+
                 
                 invites.append(teamId)
                 
                 
                 self.db.collection("users").document(userId!).setData([
+
                     "email" : email,
                     "firstName" : firstName,
                     "lastName" : lastName,
@@ -99,6 +102,4 @@ class UserController {
         
 //        queriedTeam.getDocuments(completion: ``completion: <#FIRQuerySnapshotBlock#>)
     }
-    
-    
 }//End of class

@@ -40,8 +40,10 @@ class SignUpViewController: UIViewController {
                 }
                 if result != nil {
                     print("Successfully created account")
+                   
                     let newUser = User(email: email, firstName: firstName, lastName: lastName, userId: result!.user.uid)
                     UserController.shared.createUser(user: newUser)
+
                     self.transitionToHome()
                 }
             }
