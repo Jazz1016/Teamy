@@ -40,6 +40,8 @@ class SignUpViewController: UIViewController {
                 }
                 if result != nil {
                     print("Successfully created account")
+                    guard let uid = Auth.auth().currentUser?.uid else {return}
+                    let user = User(email: email, firstName: firstName, lastName: lastName, userId: uid)
                     self.transitionToHome()
                 }
             }

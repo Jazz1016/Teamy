@@ -36,9 +36,10 @@ class LoginViewController: UIViewController {
                 self.transitionToHome()
             } else {
                 let alert = UIAlertController(title: "Sign In Error", message: "Sign in credentials not found. Would you like to create a new account?", preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { action in
+                alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { _ in
 //                    let signUpVC = self.storyboard?.instantiateViewController(identifier: "SignUpVC")
                     //Change view to sign up view controller
+//                    self.navigationController?.popToViewController(SignUpViewController(), animated: true)
                     
                 }))
                 alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
