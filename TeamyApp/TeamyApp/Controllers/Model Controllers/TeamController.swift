@@ -54,9 +54,8 @@ class TeamController {
     }
     
     func createTeam(team: Team){
-        let teamToAdd: Team = team
         
-        let teamRef = db.collection("teams").document(teamToAdd.teamId)
+        let teamRef = db.collection("teams").document(team.teamId)
         teamRef.setData([
             "name" : team.name,
             "admins" : team.admins,
@@ -64,7 +63,7 @@ class TeamController {
             "teamId" : team.teamId,
             "teamCode" : team.teamCode
         ])
-        teams.append(teamToAdd)
+        teams.append(team)
     }
     
     func addTeamToUser(userId: String, teamId: String){
@@ -78,7 +77,6 @@ class TeamController {
                 
                 let firstName = userData["firstName"] as? String
                 let lastName = userData["lastName"] as? String
-                let invites = userData["invites"] as? Array<String>
                 var teams = userData["teams"] as? Array ?? []
                 let userId = userData["userId"] as? String
                 
@@ -87,7 +85,6 @@ class TeamController {
                 self.db.collection("users").document(userId!).setData([
                     "firstName" : firstName,
                     "lastName" : lastName,
-                    "invites" : invites,
                     "teams" : teams,
                     "userId" : userId
                 ])
@@ -98,5 +95,3 @@ class TeamController {
     }
     
 }//End of class
-
-

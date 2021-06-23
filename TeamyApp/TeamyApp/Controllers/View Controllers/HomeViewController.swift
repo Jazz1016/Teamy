@@ -33,6 +33,22 @@ class HomeViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        guard let user = Auth.auth().currentUser else {return}
+        
+        UserController.shared.fetchUser(userId: user.uid) { result in
+            switch result {
+            case .success(let user):
+                UserController.shared.user = user
+                
+                DispatchQueue.main.async {
+                    TeamController.shared.fetchTeamsForUser(teamIds: user.teams)
+                }
+            case .failure(let error):
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+            }
+            
+            
+        }
         reloadTeamsTable()
     }
     

@@ -11,7 +11,7 @@ class User {
     let email: String
     let firstName: String
     let lastName: String
-    let teams: [String]
+    var teams: [String]
     let userId: String
     
     init(email: String, firstName: String, lastName: String, teams: [String] = [], userId: String){
