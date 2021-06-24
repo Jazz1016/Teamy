@@ -79,7 +79,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let team = TeamController.shared.teams[indexPath.row]
-            TeamController.shared.deleteTeam(team: team)
+            TeamController.shared.deleteTeam(with: team)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }

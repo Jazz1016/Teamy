@@ -60,7 +60,8 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let eventToDelete = EventController.shared.events[indexPath.row]
-            EventController.shared.deleteEvent(with: eventToDelete)
+            guard let teamID = self.team?.teamId else {return}
+            EventController.shared.deleteEvent(with: eventToDelete, teamID: teamID)
             
             tableView.deleteRows(at: [indexPath], with: .fade)
         }

@@ -31,11 +31,11 @@ class CreateEventViewController: UIViewController {
     
     @IBAction func saveEventButtonTapped(_ sender: Any) {
         guard let eventName = eventNameTextField.text, !eventName.isEmpty,
-              let eventAddress = eventAddressLabel.text, !eventAddress.isEmpty else {return}
+              let eventAddress = eventAddressLabel.text else {return}
         
         let date = Timestamp(date: datePicker.date)
         
-        let event = Event(date: date, name: eventName, locationAddress: eventAddress, locationName: "Event Location", notes: eventNotesTextView.text)
+        let event = Event(date: date, name: eventName, locationAddress: eventAddress, locationName: "Devmountain", notes: eventNotesTextView.text)
      
         guard let team = EventController.shared.team else {return}
         EventController.shared.createEvent(event: event, teamID: team.teamId)
