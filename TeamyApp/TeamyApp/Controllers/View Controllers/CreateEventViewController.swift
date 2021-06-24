@@ -7,6 +7,7 @@
 
 import UIKit
 import MapKit
+import Firebase
 
 class CreateEventViewController: UIViewController {
     
@@ -32,10 +33,14 @@ class CreateEventViewController: UIViewController {
         guard let eventName = eventNameTextField.text, !eventName.isEmpty,
               let eventAddress = eventAddressLabel.text, !eventAddress.isEmpty else {return}
         
-        let event = Event(date: datePicker.date, name: eventName, locationAddress: eventAddress, locationName: "Event Location", notes: eventNotesTextView.text)
+        let date = Timestamp(date: datePicker.date)
+        
+        let event = Event(date: date, name: eventName, locationAddress: eventAddress, locationName: "Event Location", notes: eventNotesTextView.text)
      
         guard let team = EventController.shared.team else {return}
         EventController.shared.createEvent(event: event, teamID: team.teamId)
+        
+        navigationController?.popViewController(animated: true)
     }
     
     

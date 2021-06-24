@@ -52,7 +52,7 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
         
         let event = EventController.shared.events[indexPath.row]
         cell.textLabel?.text = event.name
-        cell.detailTextLabel?.text = event.locationName
+        cell.detailTextLabel?.text = event.date.dateValue().formatToString()
         
         return cell
     }
