@@ -93,7 +93,7 @@ class TeamController {
         }
     }
     
-    func deleteTeam(team: Team) {
+    func deleteTeam(with team: Team) {
         guard let index = teams.firstIndex(of: team) else { return }
         teams.remove(at: index)
         

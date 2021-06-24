@@ -131,6 +131,13 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		AA5E560D2685433A00A8C3E7 /* ManageTeamTVCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ManageTeamTVCells;
+			sourceTree = "<group>";
+		};
 		ACC9758A26810FBA000C3593 = {
 			isa = PBXGroup;
 			children = (
@@ -241,6 +248,7 @@
 		ACC975B726811332000C3593 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				AA5E560D2685433A00A8C3E7 /* ManageTeamTVCells */,
 				0D94E17D26823323005602ED /* Custom Cells */,
 				ACC975B826811389000C3593 /* CustomViewsPlaceholder.swift */,
 			);
