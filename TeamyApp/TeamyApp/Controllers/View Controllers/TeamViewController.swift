@@ -16,6 +16,7 @@ class TeamViewController: UIViewController {
         eventsTableView.dataSource = self
     }
     
+    
     // MARK: - Properties
     var team: Team? {
         didSet {
@@ -25,6 +26,8 @@ class TeamViewController: UIViewController {
             fetchEvents()
         }
     }
+    
+    var announcements: Array<String> = []
     
     // MARK: - Methods
     func fetchEvents() {
@@ -42,9 +45,22 @@ class TeamViewController: UIViewController {
 }//End of class
 
 extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        
+        return 3
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // JAMLEA: Placeholder
-        return EventController.shared.events.count
+        if section == 1 {
+            return 3
+        } else if section == 2 {
+            return announcements.count
+        } else if section == 3 {
+            return EventController.shared.events.count
+        } else {
+            return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
