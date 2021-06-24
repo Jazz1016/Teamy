@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import Firebase
 import FirebaseFirestore
 
 protocol reloadHomeTableView: AnyObject {
@@ -34,15 +35,21 @@ class TeamController {
                     let members = teamData["members"] as? Array<String>
                     let teamId = teamData["teamId"] as? String
                     let teamCode = teamData["teamCode"] as? String
+                    let blocked = teamData["blocked"] as? Array<String>
+                    let teamDescription = teamData["teamDescription"] as? TeamDescription
+                    let teamColor = teamData["teamColor"] as? String
                     
                     guard let name1 = name,
                           let admins1 = admins,
                           let teamId1 = teamId,
                           let members1 = members,
-                          let teamCode1 = teamCode
+                          let teamCode1 = teamCode,
+                          let blocked1 = blocked,
+                          let teamDescript1 = teamDescription,
+                          let teamColor1 = teamColor
                           else {return}
                     
-                    let teamToAdd = Team(name: name1, admins: admins1, members: members1, teamId: teamId1, teamCode: teamCode1)
+                    let teamToAdd = Team(name: name1, teamColor: teamColor1, admins: admins1, members: members1, blocked: blocked1, teamDesc: teamDescript1, teamId: teamId1, teamCode: teamCode1)
                     print(self.teams)
                     self.teams.append(teamToAdd)
                     self.delegate?.updateTableView()
@@ -52,17 +59,33 @@ class TeamController {
         print(self.teams, "2")
     }
     
-    func createTeam(team: Team){
+    func createTeam(team: Team, completion: @escaping (Result<Bool, TeamError>) -> Void){
         
         let teamRef = db.collection("teams").document(team.teamId)
+        
         teamRef.setData([
             "name" : team.name,
             "admins" : team.admins,
             "members" : team.members,
             "teamId" : team.teamId,
-            "teamCode" : team.teamCode
+            "teamCode" : team.teamCode,
+            "teamDescription" : ([
+                "detail" : team.teamDesc.detail,
+                "leagueName" : team.teamDesc.leagueName
+            ]),
         ])
         teams.append(team)
+        // JAMLEA: I'll be adding optional contact when user creates a team once I get the outlets for createNewTeamVC
+//        if contact != nil{
+//            guard let contact = contact else {return}
+//            db.collection("teams").document(team.teamId).collection("contacts").document(contact.contactId).setData([
+//                "contactName" : contact.contactName,
+//                "contactType" : contact.contactType,
+//                "contactInfo" : contact.contactInfo,
+//                "contactId" : contact.contactId
+//            ])
+//        }
+        completion(.success(true))
     }
     
     func addTeamToUser(userId: String, teamId: String){
@@ -89,6 +112,19 @@ class TeamController {
                 ])
             } else {
                 return
+            }
+        }
+    }
+    
+    func deleteTeam(team: Team) {
+        guard let index = teams.firstIndex(of: team) else { return }
+        teams.remove(at: index)
+        
+        db.collection("teams").document(team.teamId).delete() { error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("Document successfully removed!")
             }
         }
     }

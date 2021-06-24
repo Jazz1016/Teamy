@@ -10,7 +10,7 @@ import Firebase
 
 class Event {
     
-    var date: Date?
+    var date: Timestamp
     var name: String
     var locationAddress: String
     var locationName: String
@@ -18,7 +18,7 @@ class Event {
     var eventID: String
     
     
-    init(date: Date?, name: String, locationAddress: String, locationName: String, notes: String, eventID: String = UUID().uuidString) {
+    init(date: Timestamp, name: String, locationAddress: String, locationName: String, notes: String, eventID: String = UUID().uuidString) {
         self.date = date
         self.name = name
         self.locationAddress = locationAddress
@@ -28,3 +28,9 @@ class Event {
     }
     
 }
+
+extension Event: Equatable {
+    static func == (lhs: Event, rhs: Event) -> Bool {
+        lhs.eventID == rhs.eventID
+    }
+}//End of extension

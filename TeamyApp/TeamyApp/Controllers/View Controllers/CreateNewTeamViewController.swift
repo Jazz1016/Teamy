@@ -37,8 +37,13 @@ class CreateNewTeamViewController: UIViewController {
         
         let defaultAdmin = [userId]
         
-        let newTeam = Team(name: name, admins: defaultAdmin, members: [], teamCode: randomNumString)
+        let teamDescript = TeamDescription(leagueName: "", detail: "")
+        
+        let newTeam = Team(name: name, teamColor: "blue", admins: defaultAdmin, members: [], blocked: [], teamDesc: teamDescript, teamId: UUID().uuidString, teamCode: randomNumString)
         TeamController.shared.addTeamToUser(userId: userId, teamId: newTeam.teamId)
-        TeamController.shared.createTeam(team: newTeam)
+        
+        TeamController.shared.createTeam(team: newTeam) { result in
+            print("new team \(newTeam.name) has been created")
+        }
     }
 }
