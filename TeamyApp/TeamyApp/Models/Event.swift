@@ -28,3 +28,9 @@ class Event {
     }
     
 }
+
+extension Event: Equatable {
+    static func == (lhs: Event, rhs: Event) -> Bool {
+        lhs.eventID == rhs.eventID
+    }
+}//End of extension

@@ -93,4 +93,17 @@ class TeamController {
         }
     }
     
+    func deleteTeam(team: Team) {
+        guard let index = teams.firstIndex(of: team) else { return }
+        teams.remove(at: index)
+        
+        db.collection("teams").document(team.teamId).delete() { error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("Document successfully removed!")
+            }
+        }
+    }
+    
 }//End of class

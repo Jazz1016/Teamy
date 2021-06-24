@@ -383,7 +383,7 @@
                     <navigationItem key="navigationItem" id="gIJ-an-X7f">
                         <barButtonItem key="rightBarButtonItem" title="Manage" id="TD0-Eo-nnm">
                             <connections>
-                                <segue destination="0UU-Yy-f7V" kind="show" id="EeX-dB-9th"/>
+                                <segue destination="u2x-RG-ioy" kind="show" id="kEw-5O-bdE"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -395,6 +395,80 @@
             </objects>
             <point key="canvasLocation" x="6015.9420289855079" y="49.553571428571423"/>
         </scene>
+        <!--Manage Team Table View Controller-->
+        <scene sceneID="PKh-mr-BxA">
+            <objects>
+                <tableViewController id="u2x-RG-ioy" customClass="ManageTeamTableViewController" customModule="TeamyApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="BKE-rE-dc9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="PLX-vu-kws">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="156"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8aZ-rK-JZi">
+                                    <rect key="frame" x="8" y="76" width="277.5" height="64.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manage Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28w-5a-udV">
+                                            <rect key="frame" x="0.0" y="0.0" width="189.5" height="36"/>
+                                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome, User firstName lastName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x0f-Gp-VcQ">
+                                            <rect key="frame" x="0.0" y="44" width="277.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            <constraints>
+                                <constraint firstItem="8aZ-rK-JZi" firstAttribute="top" secondItem="PLX-vu-kws" secondAttribute="top" constant="76" id="1Gf-Ae-sMS"/>
+                                <constraint firstAttribute="trailing" secondItem="8aZ-rK-JZi" secondAttribute="trailing" constant="128.5" id="LRl-vc-JgZ"/>
+                                <constraint firstItem="8aZ-rK-JZi" firstAttribute="leading" secondItem="PLX-vu-kws" secondAttribute="leading" constant="8" id="b4j-6c-KuL"/>
+                            </constraints>
+                        </view>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="manageTeamCell" textLabel="k4i-Py-HSF" detailTextLabel="qzi-et-HdJ" style="IBUITableViewCellStyleSubtitle" id="Dm5-me-zfR">
+                                <rect key="frame" x="0.0" y="180.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Dm5-me-zfR" id="fTM-WX-zBY">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="k4i-Py-HSF">
+                                            <rect key="frame" x="20" y="6" width="25" height="14.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="0.0"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" insetsLayoutMarginsFromSafeArea="NO" text="Subtitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qzi-et-HdJ">
+                                            <rect key="frame" x="20" y="22.5" width="40.5" height="13.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="u2x-RG-ioy" id="6Ja-LJ-e2v"/>
+                            <outlet property="delegate" destination="u2x-RG-ioy" id="dfL-63-xk1"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="3OB-jp-pJa"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="j3W-9i-Mxd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6886.9565217391309" y="49.553571428571423"/>
+        </scene>
         <!--Admin Team View Controller-->
         <scene sceneID="C4b-Xd-3JU">
             <objects>
@@ -404,7 +478,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="tfQ-Kd-a8F">
-                                <rect key="frame" x="41.5" y="104" width="331" height="68"/>
+                                <rect key="frame" x="41.5" y="60" width="331" height="68"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WYw-94-O2a">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="30"/>
@@ -426,7 +500,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Cq-mo-iHm">
-                                <rect key="frame" x="145" y="188" width="124" height="30"/>
+                                <rect key="frame" x="145" y="144" width="124" height="30"/>
                                 <state key="normal" title="Invite User"/>
                                 <connections>
                                     <action selector="inviteUserButtonTapped:" destination="0UU-Yy-f7V" eventType="touchUpInside" id="AYP-p9-jLz"/>
