@@ -23,3 +23,9 @@ class Team {
         self.teamCode = teamCode
     }
 }
+
+extension Team: Equatable {
+    static func == (lhs: Team, rhs: Team) -> Bool {
+        lhs.teamId == rhs.teamId
+    }
+}

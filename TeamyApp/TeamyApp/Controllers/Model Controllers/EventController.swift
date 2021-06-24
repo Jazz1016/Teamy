@@ -61,4 +61,17 @@ class EventController {
         }
     }
     
+    func deleteEvent(with event: Event) {
+        guard let index = events.firstIndex(of: event) else { return }
+        events.remove(at: index)
+        
+        database.collection("events").document(event.eventID).delete() { error in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                print("Event successfully removed!")
+            }
+        }
+    }
+    
 }
