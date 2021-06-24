@@ -23,7 +23,6 @@ class HomeViewController: UIViewController {
         } catch {
             print("error")
         }
-
         if Auth.auth().currentUser == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let VC = storyboard.instantiateViewController(identifier: "AuthVC")

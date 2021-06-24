@@ -12,7 +12,6 @@ class CreateNewTeamViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var teamNameTextField: UITextField!
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,7 +19,6 @@ class CreateNewTeamViewController: UIViewController {
     
     // MARK: - Properties
     var randomNumString = "\(Int.random(in: 1...999999))"
-    
     
     ///Creates a new team and adds creating user as an admin
     @IBAction func createNewTeamTapped(_ sender: Any) {
@@ -35,7 +33,6 @@ class CreateNewTeamViewController: UIViewController {
                 addZeros()
             }
         }
-        
         addZeros()
         
         let defaultAdmin = [userId]
