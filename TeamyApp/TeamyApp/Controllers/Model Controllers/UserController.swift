@@ -28,9 +28,7 @@ class UserController {
     }
     
     func fetchUser(userId: String, completion: @escaping (Result<User, UserError>) -> Void){
-        
         let userQueried = db.collection("users").whereField("userId", isEqualTo: userId)
-        
         
         userQueried.getDocuments { snap, error in
             if let error = error {
@@ -39,7 +37,6 @@ class UserController {
             guard let snap = snap else {return}
             
             if snap.count == 1 {
-                
                 let userData = snap.documents[0].data()
                 
                 let email = userData["email"] as? String ?? ""
@@ -104,7 +101,6 @@ class UserController {
             }
             
             guard let snap = snap else {return}
-            
             if snap.count == 1 {
                 let teamData = snap.documents[0].data()
                 

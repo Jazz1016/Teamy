@@ -49,7 +49,6 @@ class TeamController {
                 }
             }
         }
-        
         print(self.teams, "2")
     }
     
