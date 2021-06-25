@@ -18,11 +18,11 @@ class HomeViewController: UIViewController {
         userTeamsTableView.delegate = self
         userTeamsTableView.dataSource = self
         TeamController.shared.delegate = self
-        do {
-            try Auth.auth().signOut()
-        } catch {
-            print("error")
-        }
+//        do {
+//            try Auth.auth().signOut()
+//        } catch {
+//            print("error")
+//        }
         if Auth.auth().currentUser == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let VC = storyboard.instantiateViewController(identifier: "AuthVC")
@@ -79,7 +79,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let team = TeamController.shared.teams[indexPath.row]
-            TeamController.shared.deleteTeam(with: team)
+            TeamController.shared.deleteTeam(team: team)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }

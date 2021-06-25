@@ -19,6 +19,8 @@ class TeamController {
     var teams: [Team] = []
     let db = Firestore.firestore()
     weak var delegate: reloadHomeTableView?
+    let sports: [String] = ["Basketball", "Hockey", "Baseball", "Soccer", "Football"]
+    let colors: [String] = ["Blue", "Red", "Yellow", "Silver"]
     
     func fetchTeamsForUser(teamIds: [String]) {
         self.teams = []
@@ -59,7 +61,7 @@ class TeamController {
         print(self.teams, "2")
     }
     
-    func createTeam(team: Team, completion: @escaping (Result<Bool, TeamError>) -> Void){
+    func createTeam(team: Team, contact: Contact, completion: @escaping (Result<Bool, TeamError>) -> Void){
         
         let teamRef = db.collection("teams").document(team.teamId)
         
@@ -76,15 +78,14 @@ class TeamController {
         ])
         teams.append(team)
         // JAMLEA: I'll be adding optional contact when user creates a team once I get the outlets for createNewTeamVC
-//        if contact != nil{
-//            guard let contact = contact else {return}
-//            db.collection("teams").document(team.teamId).collection("contacts").document(contact.contactId).setData([
-//                "contactName" : contact.contactName,
-//                "contactType" : contact.contactType,
-//                "contactInfo" : contact.contactInfo,
-//                "contactId" : contact.contactId
-//            ])
-//        }
+        if contact.contactName.count > 0 {
+            db.collection("teams").document(team.teamId).collection("contacts").document(contact.contactId).setData([
+                "contactName" : contact.contactName,
+                "contactType" : contact.contactType,
+                "contactInfo" : contact.contactInfo,
+                "contactId" : contact.contactId
+            ])
+        }
         completion(.success(true))
     }
     
@@ -116,7 +117,7 @@ class TeamController {
         }
     }
     
-    func deleteTeam(with team: Team) {
+    func deleteTeam(team: Team) {
         guard let index = teams.firstIndex(of: team) else { return }
         teams.remove(at: index)
         
