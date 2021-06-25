@@ -16,8 +16,9 @@ class Team: Codable {
     var blocked: [String]
     let teamId: String
     let teamCode: String
+    var teamImage: String 
     
-    init(name: String, teamColor: String, admins: [String], members: [String], blocked: [String], teamDesc: TeamDescription, teamId: String = UUID().uuidString, teamCode: String){
+    init(name: String, teamColor: String, admins: [String], members: [String], blocked: [String], teamDesc: TeamDescription, teamId: String = UUID().uuidString, teamCode: String, teamImage: String){
         self.name = name
         self.teamColor = teamColor
         self.teamDesc = teamDesc
@@ -26,6 +27,7 @@ class Team: Codable {
         self.blocked = blocked
         self.teamId = teamId
         self.teamCode = teamCode
+        self.teamImage = teamImage
     }
 }
 

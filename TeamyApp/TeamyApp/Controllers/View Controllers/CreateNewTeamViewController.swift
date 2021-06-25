@@ -18,6 +18,7 @@ class CreateNewTeamViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var sportPicker: UIPickerView!
     @IBOutlet weak var teamColorPicker: UIPickerView!
     
+    
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,7 @@ class CreateNewTeamViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     // MARK: - Properties
     var randomNumString = "\(Int.random(in: 1...999999))"
+    var image: UIImage?
     
     ///Creates a new team and adds creating user as an admin
     @IBAction func createNewTeamTapped(_ sender: Any) {

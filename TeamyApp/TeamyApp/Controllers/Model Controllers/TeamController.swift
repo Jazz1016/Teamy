@@ -8,6 +8,7 @@
 import Foundation
 import Firebase
 import FirebaseFirestore
+import FirebaseStorage
 
 protocol reloadHomeTableView: AnyObject {
     func updateTableView()
@@ -130,4 +131,21 @@ class TeamController {
         }
     }
     
+    func uploadTeamPhoto(image: UIImage) {
+        let storageRef = Storage.storage().reference().child("myImage.jpg")
+        if let uploadData = image.jpegData(compressionQuality: 0.75) {
+            storageRef.putData(uploadData, metadata: nil) { (metaData, error) in
+                if let error = error {
+                    print("")
+                }
+                print(metaData)
+                let size = metaData?.size
+                storageRef.downloadURL { (url, error) in
+                    guard let downloadurl = url else {return}
+                    print(downloadurl)
+                }
+            }
+        }
+        
+    }
 }//End of class
