@@ -42,14 +42,13 @@ class CreateNewTeamViewController: UIViewController, UIPickerViewDelegate, UIPic
         let defaultAdmin = [userId]
         
         let teamDescript = TeamDescription(leagueName: leagueNameTextField.text ?? "", detail: leagueDetailsTextField.text ?? "")
-        
         let newTeam = Team(name: teamName, teamColor: "Blue", admins: defaultAdmin, members: [], blocked: [], teamDesc: teamDescript, teamId: UUID().uuidString, teamCode: randomNumString)
         let newContact = Contact(contactName: coachNameTextField.text ?? "", contactType: "", contactInfo: "")
         TeamController.shared.addTeamToUser(userId: userId, teamId: newTeam.teamId)
-        
         TeamController.shared.createTeam(team: newTeam, contact: newContact) { result in
             print("new team \(newTeam.name) has been created")
         }
+        navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Helper Functions
@@ -78,9 +77,6 @@ class CreateNewTeamViewController: UIViewController, UIPickerViewDelegate, UIPic
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch UIPickerView() {
-        
-        
-        
         case sportPicker:
             
             return TeamController.shared.sports[row]

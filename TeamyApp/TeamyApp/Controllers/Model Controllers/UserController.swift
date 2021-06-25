@@ -106,17 +106,28 @@ class UserController {
                 
                 
                 let name = teamData["name"] as? String
+                let teamColor = teamData["teamColor"] as? String
+                let teamDesc = teamData["teamDesc"] as? TeamDescription
                 let admins = teamData["admins"] as? Array<String>
                 var members = teamData["members"] as? Array<String>
+                let blocked = teamData["blocked"] as? Array<String>
                 let teamId = teamData["teamId"] as? String
                 let teamCode = teamData["teamCode"] as? String
+                
+                guard let teamdescript = teamDesc else {return}
                 
                 members?.append(userId)
                 self.user?.teams.append(teamId!)
                 self.db.collection("teams").document(teamId!).setData([
                     "name" : name ?? "error",
+                    "teamColor" : teamColor ?? "error",
+                    "teamDesc" : ([
+                        "leagueName" : teamdescript.leagueName,
+                        "detail" : teamdescript.detail
+                    ]),
                     "admins" : admins ?? [],
                     "members" : members ?? [],
+                    "blocked" : blocked ?? [],
                     "teamId" : teamId ?? "error",
                     "teamCode" : teamCode ?? "error"
                 ])

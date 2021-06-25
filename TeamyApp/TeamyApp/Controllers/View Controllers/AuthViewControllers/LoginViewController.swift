@@ -41,7 +41,9 @@ class LoginViewController: UIViewController {
                         switch result {
                         case .success(let user):
                             UserController.shared.user = user
-                            TeamController.shared.fetchTeamsForUser(teamIds: user.teams)
+                            TeamController.shared.fetchTeamsForUser(teamIds: user.teams) { result in
+                                print("teams fetched")
+                            }
                         case .failure(let error):
                             print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                         }

@@ -9,22 +9,20 @@ import Foundation
 import Firebase
 import FirebaseFirestore
 
-protocol reloadHomeTableView: AnyObject {
-    func updateTableView()
-}
-
 class TeamController {
     static let shared = TeamController()
     
     var teams: [Team] = []
     let db = Firestore.firestore()
-    weak var delegate: reloadHomeTableView?
     let sports: [String] = ["Basketball", "Hockey", "Baseball", "Soccer", "Football"]
     let colors: [String] = ["Blue", "Red", "Yellow", "Silver"]
     
-    func fetchTeamsForUser(teamIds: [String]) {
-        self.teams = []
+    ///Fetching Team To Display on HomeVC
+    func fetchTeamsForUser(teamIds: [String], completion: @escaping (Bool) -> Void) {
+        teams = []
+        var counter = 0
         for i in teamIds {
+            print(i)
             let fetchedTeam = db.collection("teams").whereField("teamId", isEqualTo: i)
             
             fetchedTeam.getDocuments { snap, error in
@@ -47,28 +45,38 @@ class TeamController {
                           let members1 = members,
                           let teamCode1 = teamCode,
                           let blocked1 = blocked,
-                          let teamDescript1 = teamDescription,
                           let teamColor1 = teamColor
                           else {return}
                     
-                    let teamToAdd = Team(name: name1, teamColor: teamColor1, admins: admins1, members: members1, blocked: blocked1, teamDesc: teamDescript1, teamId: teamId1, teamCode: teamCode1)
-                    print(self.teams)
+                    
+                    
+                    let teamToAdd = Team(name: name1, teamColor: teamColor1, admins: admins1, members: members1, blocked: blocked1, teamDesc: teamDescription ?? TeamDescription(leagueName: "", detail: ""), teamId: teamId1, teamCode: teamCode1)
+                    
                     self.teams.append(teamToAdd)
-                    self.delegate?.updateTableView()
+                    counter += 1
+                    if counter == teamIds.count {
+                        
+                        completion(true)
+                        return
+                    }
                 }
             }
         }
-        print(self.teams, "2")
+        
+        print(self.teams)
     }
     
+    ///Create's team and one nested Contact document
     func createTeam(team: Team, contact: Contact, completion: @escaping (Result<Bool, TeamError>) -> Void){
         
         let teamRef = db.collection("teams").document(team.teamId)
         
         teamRef.setData([
             "name" : team.name,
+            "teamColor" : team.teamColor,
             "admins" : team.admins,
             "members" : team.members,
+            "blocked" : team.blocked,
             "teamId" : team.teamId,
             "teamCode" : team.teamCode,
             "teamDescription" : ([
@@ -89,6 +97,7 @@ class TeamController {
         completion(.success(true))
     }
     
+    ///adds user to team's members array when entering team code
     func addTeamToUser(userId: String, teamId: String){
         let query = db.collection("users").whereField("userId", isEqualTo: userId)
         query.getDocuments { snap, error in
@@ -117,6 +126,7 @@ class TeamController {
         }
     }
     
+    ///Deletes team Document
     func deleteTeam(team: Team) {
         guard let index = teams.firstIndex(of: team) else { return }
         teams.remove(at: index)

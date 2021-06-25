@@ -17,3 +17,10 @@ class Announcement {
         self.announcementId = announcementId
     }
 }
+
+
+extension Announcement: Equatable {
+    static func == (lhs: Announcement, rhs: Announcement) -> Bool {
+        lhs.announcementId == rhs.announcementId
+    }
+}//End of extension
