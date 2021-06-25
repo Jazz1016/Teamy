@@ -41,7 +41,6 @@ class TeamViewController: UIViewController {
             }
         }
     }
-
 }//End of class
 
 extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
@@ -51,7 +50,6 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // JAMLEA: Placeholder
         if section == 1 {
             return 3
         } else if section == 2 {
@@ -64,13 +62,18 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
-        
-        let event = EventController.shared.events[indexPath.row]
-        cell.textLabel?.text = event.name
-        cell.detailTextLabel?.text = event.date.dateValue().formatToString()
-        
-        return cell
+        if EventController.shared.events.count > 1 {
+            
+            let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
+            
+            let event = EventController.shared.events[indexPath.row]
+            cell.textLabel?.text = event.name
+            cell.detailTextLabel?.text = event.date.dateValue().formatToString()
+            
+            return cell
+        } else {
+            return UITableViewCell()
+        }
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

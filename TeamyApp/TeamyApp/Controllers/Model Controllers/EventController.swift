@@ -66,7 +66,6 @@ class EventController {
         
         guard let index = events.firstIndex(of: event) else { return }
         events.remove(at: index)
-        print(self.events.count)
         database.collection("teams").document(teamID).collection("events").document(event.eventID).delete() { error in
             if let error = error {
                 print(error.localizedDescription)

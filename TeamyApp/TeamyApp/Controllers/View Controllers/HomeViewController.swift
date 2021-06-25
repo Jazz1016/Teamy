@@ -17,12 +17,11 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         userTeamsTableView.delegate = self
         userTeamsTableView.dataSource = self
-        TeamController.shared.delegate = self
-//        do {
-//            try Auth.auth().signOut()
-//        } catch {
-//            print("error")
-//        }
+        do {
+            try Auth.auth().signOut()
+        } catch {
+            print("error")
+        }
         if Auth.auth().currentUser == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let VC = storyboard.instantiateViewController(identifier: "AuthVC")
@@ -33,14 +32,17 @@ class HomeViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         guard let user = Auth.auth().currentUser else {return}
-        
         UserController.shared.fetchUser(userId: user.uid) { result in
             switch result {
             case .success(let user):
                 UserController.shared.user = user
                 
                 DispatchQueue.main.async {
-                    TeamController.shared.fetchTeamsForUser(teamIds: user.teams)
+                    TeamController.shared.fetchTeamsForUser(teamIds: user.teams) { result in
+                        if result {
+                            self.userTeamsTableView.reloadData()
+                        }
+                    }
                 }
             case .failure(let error):
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
@@ -48,7 +50,6 @@ class HomeViewController: UIViewController {
             
             
         }
-        reloadTeamsTable()
     }
     
     // MARK: - Properties
@@ -63,10 +64,12 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         return TeamController.shared.teams.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = userTeamsTableView.dequeueReusableCell(withIdentifier: "teamCell", for: indexPath) as? TeamTableViewCell
         
         let team = TeamController.shared.teams[indexPath.row]
@@ -93,9 +96,3 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }//End of extension
-
-extension HomeViewController: reloadHomeTableView {
-    func updateTableView() {
-        self.reloadTeamsTable()
-    }
-}
