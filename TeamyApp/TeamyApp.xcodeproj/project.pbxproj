@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D02DD4926853DBF0039EC0B /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D02DD4826853DBF0039EC0B /* Contact.swift */; };
+		0D02DD4B26853E6A0039EC0B /* Announcement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D02DD4A26853E6A0039EC0B /* Announcement.swift */; };
+		0D02DD4D26853E780039EC0B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D02DD4C26853E780039EC0B /* Player.swift */; };
+		0D02DD4F2685435A0039EC0B /* TeamError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D02DD4E2685435A0039EC0B /* TeamError.swift */; };
+		0D02DD5226854B340039EC0B /* ContactController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D02DD5126854B340039EC0B /* ContactController.swift */; };
+		0D02DD5426854B450039EC0B /* AnnouncementController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D02DD5326854B450039EC0B /* AnnouncementController.swift */; };
+		0D02DD5626854B540039EC0B /* PlayerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D02DD5526854B540039EC0B /* PlayerController.swift */; };
 		0D10323A26814C9800136C9A /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D10323926814C9800136C9A /* AuthViewController.swift */; };
 		0D10323D26814CC500136C9A /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D10323C26814CC500136C9A /* LoginViewController.swift */; };
 		0D10323F26814CD300136C9A /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D10323E26814CD300136C9A /* SignUpViewController.swift */; };
@@ -28,6 +35,8 @@
 		0D94E19326827AE4005602ED /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E19226827AE4005602ED /* UserController.swift */; };
 		0D94E19526828E3C005602ED /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E19426828E3C005602ED /* UserError.swift */; };
 		344A556C1CC49A28C2069EF5 /* Pods_TeamyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB8089433EFD9BD3ACCEF72 /* Pods_TeamyApp.framework */; };
+		AA662E6926838F670061145E /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA662E6826838F670061145E /* EventController.swift */; };
+		AA662E6B2683DC930061145E /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA662E6A2683DC930061145E /* DateFormatter.swift */; };
 		ACC9759726810FBA000C3593 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC9759626810FBA000C3593 /* AppDelegate.swift */; };
 		ACC9759926810FBA000C3593 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC9759826810FBA000C3593 /* SceneDelegate.swift */; };
 		ACC9759E26810FBA000C3593 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACC9759C26810FBA000C3593 /* Main.storyboard */; };
@@ -37,10 +46,18 @@
 		ACC975B426811271000C3593 /* ModelControllersPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC975B326811271000C3593 /* ModelControllersPlaceholder.swift */; };
 		ACC975B926811389000C3593 /* CustomViewsPlaceholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC975B826811389000C3593 /* CustomViewsPlaceholder.swift */; };
 		ACC975BE26811868000C3593 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = ACC975BD26811868000C3593 /* GoogleService-Info.plist */; };
+		ACFDD5322684DFB300640C0B /* ManageTeamTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFDD5312684DFB300640C0B /* ManageTeamTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		050254EA7E9DD309E2BDAAFE /* Pods-TeamyApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamyApp.release.xcconfig"; path = "Target Support Files/Pods-TeamyApp/Pods-TeamyApp.release.xcconfig"; sourceTree = "<group>"; };
+		0D02DD4826853DBF0039EC0B /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		0D02DD4A26853E6A0039EC0B /* Announcement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Announcement.swift; sourceTree = "<group>"; };
+		0D02DD4C26853E780039EC0B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
+		0D02DD4E2685435A0039EC0B /* TeamError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamError.swift; sourceTree = "<group>"; };
+		0D02DD5126854B340039EC0B /* ContactController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactController.swift; sourceTree = "<group>"; };
+		0D02DD5326854B450039EC0B /* AnnouncementController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementController.swift; sourceTree = "<group>"; };
+		0D02DD5526854B540039EC0B /* PlayerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerController.swift; sourceTree = "<group>"; };
 		0D10323926814C9800136C9A /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		0D10323C26814CC500136C9A /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		0D10323E26814CD300136C9A /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -61,6 +78,8 @@
 		0D94E18E2682762B005602ED /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		0D94E19226827AE4005602ED /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		0D94E19426828E3C005602ED /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
+		AA662E6826838F670061145E /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
+		AA662E6A2683DC930061145E /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		ACC9759326810FBA000C3593 /* TeamyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC9759626810FBA000C3593 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACC9759826810FBA000C3593 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +91,7 @@
 		ACC975B326811271000C3593 /* ModelControllersPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelControllersPlaceholder.swift; sourceTree = "<group>"; };
 		ACC975B826811389000C3593 /* CustomViewsPlaceholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewsPlaceholder.swift; sourceTree = "<group>"; };
 		ACC975BD26811868000C3593 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ACFDD5312684DFB300640C0B /* ManageTeamTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTeamTableViewController.swift; sourceTree = "<group>"; };
 		BAB8089433EFD9BD3ACCEF72 /* Pods_TeamyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TeamyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8E167EFB8E59B7A64DB2BAB /* Pods-TeamyApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TeamyApp.debug.xcconfig"; path = "Target Support Files/Pods-TeamyApp/Pods-TeamyApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +114,16 @@
 				BAB8089433EFD9BD3ACCEF72 /* Pods_TeamyApp.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0D02DD5026854AF40039EC0B /* TeamNestedModelControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0D02DD5126854B340039EC0B /* ContactController.swift */,
+				0D02DD5326854B450039EC0B /* AnnouncementController.swift */,
+				0D02DD5526854B540039EC0B /* PlayerController.swift */,
+			);
+			path = TeamNestedModelControllers;
 			sourceTree = "<group>";
 		};
 		0D10323B26814CAE00136C9A /* AuthViewControllers */ = {
@@ -123,6 +153,13 @@
 				050254EA7E9DD309E2BDAAFE /* Pods-TeamyApp.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		AA5E560D2685433A00A8C3E7 /* ManageTeamTVCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ManageTeamTVCells;
 			sourceTree = "<group>";
 		};
 		ACC9758A26810FBA000C3593 = {
@@ -173,6 +210,8 @@
 			children = (
 				ACC975AC26811157000C3593 /* HelpersPlaceholders.swift */,
 				0D94E19426828E3C005602ED /* UserError.swift */,
+				AA662E6A2683DC930061145E /* DateFormatter.swift */,
+				0D02DD4E2685435A0039EC0B /* TeamError.swift */,
 			);
 			path = "Helpers and Extensions";
 			sourceTree = "<group>";
@@ -196,6 +235,7 @@
 				0D1032482681515100136C9A /* HomeViewController.swift */,
 				0D10324A268152B900136C9A /* AdminTeamViewController.swift */,
 				0D94E18226823864005602ED /* CreateEventViewController.swift */,
+				ACFDD5312684DFB300640C0B /* ManageTeamTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -203,10 +243,12 @@
 		ACC975B226811223000C3593 /* Model Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0D02DD5026854AF40039EC0B /* TeamNestedModelControllers */,
 				ACC975B326811271000C3593 /* ModelControllersPlaceholder.swift */,
 				0D94E17B26823061005602ED /* AuthController.swift */,
 				0D94E18626823F8E005602ED /* TeamController.swift */,
 				0D94E19226827AE4005602ED /* UserController.swift */,
+				AA662E6826838F670061145E /* EventController.swift */,
 			);
 			path = "Model Controllers";
 			sourceTree = "<group>";
@@ -232,6 +274,7 @@
 		ACC975B726811332000C3593 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				AA5E560D2685433A00A8C3E7 /* ManageTeamTVCells */,
 				0D94E17D26823323005602ED /* Custom Cells */,
 				ACC975B826811389000C3593 /* CustomViewsPlaceholder.swift */,
 			);
@@ -244,6 +287,9 @@
 				0D94E18826824018005602ED /* User.swift */,
 				0D94E18A26824025005602ED /* Team.swift */,
 				0D94E18C2682402E005602ED /* Event.swift */,
+				0D02DD4826853DBF0039EC0B /* Contact.swift */,
+				0D02DD4A26853E6A0039EC0B /* Announcement.swift */,
+				0D02DD4C26853E780039EC0B /* Player.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -363,27 +409,37 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA662E6B2683DC930061145E /* DateFormatter.swift in Sources */,
 				ACC975B926811389000C3593 /* CustomViewsPlaceholder.swift in Sources */,
 				ACC975AD26811157000C3593 /* HelpersPlaceholders.swift in Sources */,
 				0D1032452681502200136C9A /* JoinTeamViewController.swift in Sources */,
 				ACC9759726810FBA000C3593 /* AppDelegate.swift in Sources */,
+				AA662E6926838F670061145E /* EventController.swift in Sources */,
+				0D02DD5426854B450039EC0B /* AnnouncementController.swift in Sources */,
 				0D10323A26814C9800136C9A /* AuthViewController.swift in Sources */,
 				0D10323D26814CC500136C9A /* LoginViewController.swift in Sources */,
+				0D02DD5226854B340039EC0B /* ContactController.swift in Sources */,
+				0D02DD4926853DBF0039EC0B /* Contact.swift in Sources */,
 				0D94E18726823F8E005602ED /* TeamController.swift in Sources */,
 				ACC9759926810FBA000C3593 /* SceneDelegate.swift in Sources */,
 				0D94E17C26823061005602ED /* AuthController.swift in Sources */,
 				0D94E18B26824025005602ED /* Team.swift in Sources */,
+				0D02DD4D26853E780039EC0B /* Player.swift in Sources */,
 				0D10323F26814CD300136C9A /* SignUpViewController.swift in Sources */,
 				0D1032472681504100136C9A /* CreateNewTeamViewController.swift in Sources */,
+				0D02DD5626854B540039EC0B /* PlayerController.swift in Sources */,
 				0D94E18D2682402E005602ED /* Event.swift in Sources */,
 				0D94E19526828E3C005602ED /* UserError.swift in Sources */,
 				0D94E18526823DEB005602ED /* JoinTeamTableViewCell.swift in Sources */,
+				0D02DD4B26853E6A0039EC0B /* Announcement.swift in Sources */,
 				ACC975B426811271000C3593 /* ModelControllersPlaceholder.swift in Sources */,
 				0D94E18126823841005602ED /* EventTableViewCell.swift in Sources */,
 				0D94E17F2682336B005602ED /* TeamTableViewCell.swift in Sources */,
 				0D1032492681515100136C9A /* HomeViewController.swift in Sources */,
+				ACFDD5322684DFB300640C0B /* ManageTeamTableViewController.swift in Sources */,
 				0D94E19326827AE4005602ED /* UserController.swift in Sources */,
 				0D10324126814FF600136C9A /* TeamViewController.swift in Sources */,
+				0D02DD4F2685435A0039EC0B /* TeamError.swift in Sources */,
 				0D10324B268152B900136C9A /* AdminTeamViewController.swift in Sources */,
 				0D94E18326823864005602ED /* CreateEventViewController.swift in Sources */,
 				0D94E18926824018005602ED /* User.swift in Sources */,
@@ -538,6 +594,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9XZY7N8QBS;
 				INFOPLIST_FILE = TeamyApp/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -558,6 +615,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 9XZY7N8QBS;
 				INFOPLIST_FILE = TeamyApp/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

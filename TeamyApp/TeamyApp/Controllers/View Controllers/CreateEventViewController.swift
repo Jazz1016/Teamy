@@ -6,24 +6,42 @@
 //
 
 import UIKit
+import MapKit
+import Firebase
 
 class CreateEventViewController: UIViewController {
+    
+    //MARK: - Outlets
+    @IBOutlet weak var eventNameTextField: UITextField!
+    @IBOutlet weak var eventAddressLabel: UILabel!
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var eventNotesTextView: UITextView!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    //MARK: - Actions
+    @IBAction func addLocationButtonTapped(_ sender: Any) {
+        
     }
-    */
-
+    
+    @IBAction func saveEventButtonTapped(_ sender: Any) {
+        guard let eventName = eventNameTextField.text, !eventName.isEmpty,
+              let eventAddress = eventAddressLabel.text else {return}
+        
+        let date = Timestamp(date: datePicker.date)
+        
+        let event = Event(date: date, name: eventName, locationAddress: eventAddress, locationName: "Devmountain", notes: eventNotesTextView.text)
+     
+        guard let team = EventController.shared.team else {return}
+        EventController.shared.createEvent(event: event, teamID: team.teamId)
+        
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
 }
