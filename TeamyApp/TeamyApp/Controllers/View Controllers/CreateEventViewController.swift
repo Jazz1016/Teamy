@@ -43,5 +43,38 @@ class CreateEventViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    //MARK: - Functions
     
+    
+    //MARK: - Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toLocationFinder" {
+            guard let destinationVC = segue.destination as? SearchViewController else {return}
+            destinationVC.delegate = self
+        }
+    }
+    
+    
+    
+}
+extension CreateEventViewController: SaveToEventDelegate {
+    
+    func saveLocationInfo(placemark: MKPlacemark) {
+//        eventLocationNameLabel.text = placemark.name
+        eventAddressLabel.text = placemark.title
+        
+        mapView.removeAnnotations(mapView.annotations)
+        let annotation = MKPointAnnotation()
+        annotation.coordinate = placemark.coordinate
+        annotation.title = placemark.name
+        if let city = placemark.locality,
+           let state = placemark.administrativeArea {
+            annotation.subtitle = "\(city), \(state)"
+        }
+        mapView.addAnnotation(annotation)
+        let span = MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+        let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
+        mapView.setRegion(region, animated: true)
+        
+    }
 }
