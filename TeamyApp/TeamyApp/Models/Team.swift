@@ -10,22 +10,26 @@ import Foundation
 class Team: Codable {
     let name: String
     let teamColor: String
+    let teamSport: String
     let teamDesc: TeamDescription
     var admins: [String]
     var members: [String]
     var blocked: [String]
     let teamId: String
     let teamCode: String
+    var teamImage: String
     
-    init(name: String, teamColor: String, admins: [String], members: [String], blocked: [String], teamDesc: TeamDescription, teamId: String = UUID().uuidString, teamCode: String){
+    init(name: String, teamColor: String, teamSport: String, admins: [String], members: [String], blocked: [String], teamDesc: TeamDescription, teamId: String = UUID().uuidString, teamCode: String, teamImage: String){
         self.name = name
         self.teamColor = teamColor
+        self.teamSport = teamSport
         self.teamDesc = teamDesc
         self.admins = admins
         self.members = members
         self.blocked = blocked
         self.teamId = teamId
         self.teamCode = teamCode
+        self.teamImage = teamImage
     }
 }
 
