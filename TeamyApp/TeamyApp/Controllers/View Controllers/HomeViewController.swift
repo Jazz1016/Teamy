@@ -47,6 +47,7 @@ class HomeViewController: UIViewController {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
             }
         }
+        EventController.shared.isAdmin = false
     }
     
     // MARK: - Functions

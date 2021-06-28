@@ -8,6 +8,7 @@
 import UIKit
 
 class ManageTeamTableViewCell: UITableViewCell {
+    // MARK: - Outlets
     @IBOutlet weak var manageTeamButton: UIButton!
     
     

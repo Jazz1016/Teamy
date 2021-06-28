@@ -166,7 +166,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="vbd-sm-gnk">
-                                <rect key="frame" x="36.5" y="526.5" width="341" height="120"/>
+                                <rect key="frame" x="36.5" y="532.5" width="341" height="120"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nVS-JP-ts5">
                                         <rect key="frame" x="0.0" y="0.0" width="52" height="20.5"/>
@@ -186,14 +186,6 @@
                                     <constraint firstAttribute="height" constant="120" id="0bv-Q1-U3c"/>
                                 </constraints>
                             </stackView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="emq-nS-Ygk">
-                                <rect key="frame" x="83" y="398.5" width="248" height="120"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
-                                <color key="tintColor" systemColor="systemGray5Color"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="tmK-eH-iIh"/>
-                                </constraints>
-                            </containerView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mOf-lX-nS5">
                                 <rect key="frame" x="41.5" y="96" width="331" height="68"/>
                                 <subviews>
@@ -217,26 +209,28 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="uin-D1-DVY">
-                                <rect key="frame" x="41.5" y="242.5" width="331" height="34"/>
+                                <rect key="frame" x="41.5" y="242.5" width="331" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sport" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JB3-yE-IQJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="42.5" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="61" height="40"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tap to Select Sport" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UWb-vl-fca">
-                                        <rect key="frame" x="62.5" y="0.0" width="268.5" height="34"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cRz-7Z-vLk">
+                                        <rect key="frame" x="81" y="0.0" width="250" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="250" id="E1y-gL-dyk"/>
+                                            <constraint firstAttribute="height" constant="40" id="Tu3-pl-U08"/>
+                                        </constraints>
+                                    </pickerView>
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="54" translatesAutoresizingMaskIntoConstraints="NO" id="kMm-9I-qNh">
-                                <rect key="frame" x="41.5" y="360.5" width="331" height="30"/>
+                                <rect key="frame" x="41.5" y="366.5" width="331" height="29.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3b0-Rr-yYO">
-                                        <rect key="frame" x="0.0" y="0.0" width="90" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="90" height="29.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="90" id="37r-ic-8cl"/>
                                         </constraints>
@@ -245,7 +239,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mr1-Np-jdz">
-                                        <rect key="frame" x="144" y="0.0" width="187" height="30"/>
+                                        <rect key="frame" x="144" y="0.0" width="187" height="29.5"/>
                                         <state key="normal" title="Select"/>
                                         <connections>
                                             <action selector="selectColorButtonTapped:" destination="jSw-3C-LLC" eventType="touchUpInside" id="DPF-Df-XYP"/>
@@ -254,7 +248,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zPA-QO-qb1">
-                                <rect key="frame" x="41.5" y="284.5" width="331" height="68"/>
+                                <rect key="frame" x="41.5" y="290.5" width="331" height="68"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coach Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auG-Ya-iR1">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="30"/>
@@ -276,31 +270,32 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2S-aU-mRF">
-                                <rect key="frame" x="163.5" y="654.5" width="87" height="30"/>
+                                <rect key="frame" x="163.5" y="660.5" width="87" height="30"/>
                                 <state key="normal" title="Create Team"/>
                                 <connections>
                                     <action selector="createNewTeamTapped:" destination="jSw-3C-LLC" eventType="touchUpInside" id="Ql9-dx-ZUX"/>
                                 </connections>
                             </button>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sAM-HC-CDF">
-                                <rect key="frame" x="87" y="404" width="240" height="128"/>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wNN-IY-l7a">
+                                <rect key="frame" x="87" y="404" width="240" height="121"/>
                                 <connections>
-                                    <segue destination="KxV-mu-VO5" kind="embed" id="zP7-RS-Q76"/>
+                                    <segue destination="Iku-yP-qrz" kind="embed" id="h0q-2z-EsC"/>
                                 </connections>
                             </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Z2l-BT-HY4"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="wNN-IY-l7a" firstAttribute="top" secondItem="kMm-9I-qNh" secondAttribute="bottom" constant="8" id="13B-SE-j1k"/>
                             <constraint firstItem="zPA-QO-qb1" firstAttribute="top" secondItem="uin-D1-DVY" secondAttribute="bottom" constant="8" id="2AV-bo-2r4"/>
                             <constraint firstItem="kMm-9I-qNh" firstAttribute="top" secondItem="zPA-QO-qb1" secondAttribute="bottom" constant="8" id="2Ig-bK-MoF"/>
-                            <constraint firstItem="sAM-HC-CDF" firstAttribute="centerX" secondItem="Z2l-BT-HY4" secondAttribute="centerX" id="2iQ-xg-PdS"/>
                             <constraint firstItem="SO3-BW-chu" firstAttribute="top" secondItem="mOf-lX-nS5" secondAttribute="bottom" constant="8" id="3nw-sI-laZ"/>
                             <constraint firstItem="mOf-lX-nS5" firstAttribute="width" secondItem="tCp-u0-jJd" secondAttribute="width" multiplier="0.8" id="4xf-tW-Ajr"/>
-                            <constraint firstItem="vbd-sm-gnk" firstAttribute="top" secondItem="sAM-HC-CDF" secondAttribute="bottom" constant="0.5" id="Ifo-Uf-H3U"/>
+                            <constraint firstItem="vbd-sm-gnk" firstAttribute="top" secondItem="wNN-IY-l7a" secondAttribute="bottom" constant="8" id="GrR-uK-0Yv"/>
+                            <constraint firstItem="wNN-IY-l7a" firstAttribute="top" secondItem="tCp-u0-jJd" secondAttribute="top" constant="404" id="HXt-2Q-Yvs"/>
+                            <constraint firstItem="wNN-IY-l7a" firstAttribute="width" secondItem="tCp-u0-jJd" secondAttribute="width" multiplier="0.57971" id="Ihu-Pg-b78"/>
                             <constraint firstItem="uin-D1-DVY" firstAttribute="centerX" secondItem="Z2l-BT-HY4" secondAttribute="centerX" id="JjU-P0-EUh"/>
                             <constraint firstItem="vbd-sm-gnk" firstAttribute="centerX" secondItem="Z2l-BT-HY4" secondAttribute="centerX" id="LWc-tk-pz0"/>
-                            <constraint firstItem="sAM-HC-CDF" firstAttribute="width" secondItem="tCp-u0-jJd" secondAttribute="width" multiplier="0.57971" id="P8P-bM-WO9"/>
                             <constraint firstItem="Z2l-BT-HY4" firstAttribute="bottom" secondItem="W2S-aU-mRF" secondAttribute="bottom" constant="171.5" id="Pth-o4-RLk"/>
                             <constraint firstItem="uin-D1-DVY" firstAttribute="top" secondItem="SO3-BW-chu" secondAttribute="bottom" constant="8" id="Pyv-yj-zYD"/>
                             <constraint firstItem="kMm-9I-qNh" firstAttribute="width" secondItem="tCp-u0-jJd" secondAttribute="width" multiplier="0.8" id="S6T-dj-hSf"/>
@@ -316,7 +311,7 @@
                             <constraint firstItem="kMm-9I-qNh" firstAttribute="centerX" secondItem="Z2l-BT-HY4" secondAttribute="centerX" id="nUN-CK-y31"/>
                             <constraint firstItem="mOf-lX-nS5" firstAttribute="centerX" secondItem="Z2l-BT-HY4" secondAttribute="centerX" id="qHv-jE-Zf7"/>
                             <constraint firstItem="mOf-lX-nS5" firstAttribute="top" secondItem="Z2l-BT-HY4" secondAttribute="top" constant="8" id="rMK-yf-T4T"/>
-                            <constraint firstItem="sAM-HC-CDF" firstAttribute="top" secondItem="kMm-9I-qNh" secondAttribute="bottom" constant="7.5" id="sA0-KA-Ql9"/>
+                            <constraint firstItem="wNN-IY-l7a" firstAttribute="centerX" secondItem="Z2l-BT-HY4" secondAttribute="centerX" id="uIa-N8-aVe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="By2-df-4pR"/>
@@ -325,7 +320,7 @@
                         <outlet property="leagueDetailsTextField" destination="CCy-jq-byP" id="4IO-g8-H4K"/>
                         <outlet property="leagueNameTextField" destination="Cw3-E7-4xJ" id="AlG-Nx-rWa"/>
                         <outlet property="selectColorButton" destination="mr1-Np-jdz" id="FlE-H3-kZv"/>
-                        <outlet property="sportPickerTextField" destination="UWb-vl-fca" id="sZh-fA-0gq"/>
+                        <outlet property="sportPicker" destination="cRz-7Z-vLk" id="pi9-RP-gJv"/>
                         <outlet property="teamNameTextField" destination="74Z-Zw-yG8" id="Qgh-5A-aFn"/>
                     </connections>
                 </viewController>
@@ -1180,34 +1175,18 @@
             <point key="canvasLocation" x="3555.072463768116" y="42.857142857142854"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="m3p-kk-fmc">
+        <scene sceneID="Lg6-V5-Nu9">
             <objects>
-                <viewController id="KxV-mu-VO5" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7XP-4m-Iwp">
-                        <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                <viewController id="Iku-yP-qrz" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="j9P-sO-yqi">
+                        <rect key="frame" x="0.0" y="0.0" width="240" height="121"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Gmx-AA-sjp">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b57-SZ-iMf">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
-                                <state key="normal" title="Select Photo"/>
-                            </button>
-                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="b57-SZ-iMf" firstAttribute="leading" secondItem="7XP-4m-Iwp" secondAttribute="leading" id="8BK-aR-F8s"/>
-                            <constraint firstAttribute="bottom" secondItem="b57-SZ-iMf" secondAttribute="bottom" id="Qg9-Gj-Bah"/>
-                            <constraint firstAttribute="trailing" secondItem="b57-SZ-iMf" secondAttribute="trailing" id="p4m-7K-i16"/>
-                            <constraint firstItem="b57-SZ-iMf" firstAttribute="top" secondItem="7XP-4m-Iwp" secondAttribute="top" id="qPK-rS-S3A"/>
-                        </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7bl-eN-e0d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4A7-RZ-NUu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4342" y="-622"/>
+            <point key="canvasLocation" x="4288" y="-622"/>
         </scene>
     </scenes>
     <resources>

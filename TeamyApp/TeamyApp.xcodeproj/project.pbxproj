@@ -39,7 +39,6 @@
 		0D94E19526828E3C005602ED /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E19426828E3C005602ED /* UserError.swift */; };
 		0DB2B2CD2689119A003F9EF9 /* placeHolderflksafhksa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2B2CC2689119A003F9EF9 /* placeHolderflksafhksa.swift */; };
 		344A556C1CC49A28C2069EF5 /* Pods_TeamyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB8089433EFD9BD3ACCEF72 /* Pods_TeamyApp.framework */; };
-		79CF316A26863F41005ECEC8 /* PhotoPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79CF316926863F41005ECEC8 /* PhotoPicker.storyboard */; };
 		79CF316D26864020005ECEC8 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CF316C26864020005ECEC8 /* PhotoPickerViewController.swift */; };
 		AA5E56102686670E00A8C3E7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E560F2686670E00A8C3E7 /* SearchViewController.swift */; };
 		AA5E56122686671B00A8C3E7 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E56112686671B00A8C3E7 /* SearchTableViewController.swift */; };
@@ -91,7 +90,6 @@
 		0D94E19226827AE4005602ED /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		0D94E19426828E3C005602ED /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
 		0DB2B2CC2689119A003F9EF9 /* placeHolderflksafhksa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = placeHolderflksafhksa.swift; path = "TeamyApp/Controllers/Model Controllers/TeamNestedModelControllers/placeHolderflksafhksa.swift"; sourceTree = SOURCE_ROOT; };
-		79CF316926863F41005ECEC8 /* PhotoPicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoPicker.storyboard; sourceTree = "<group>"; };
 		79CF316C26864020005ECEC8 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		AA5E560F2686670E00A8C3E7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AA5E56112686671B00A8C3E7 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
@@ -300,7 +298,6 @@
 			isa = PBXGroup;
 			children = (
 				ACC9759C26810FBA000C3593 /* Main.storyboard */,
-				79CF316926863F41005ECEC8 /* PhotoPicker.storyboard */,
 				ACC975A126810FBC000C3593 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
@@ -389,7 +386,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACC975A326810FBC000C3593 /* LaunchScreen.storyboard in Resources */,
-				79CF316A26863F41005ECEC8 /* PhotoPicker.storyboard in Resources */,
 				ACC975A026810FBC000C3593 /* Assets.xcassets in Resources */,
 				ACC975BE26811868000C3593 /* GoogleService-Info.plist in Resources */,
 				ACC9759E26810FBA000C3593 /* Main.storyboard in Resources */,
@@ -636,7 +632,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9XZY7N8QBS;
+				DEVELOPMENT_TEAM = GBLS3NRRVU;
 				INFOPLIST_FILE = TeamyApp/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -657,7 +653,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9XZY7N8QBS;
+				DEVELOPMENT_TEAM = GBLS3NRRVU;
 				INFOPLIST_FILE = TeamyApp/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
