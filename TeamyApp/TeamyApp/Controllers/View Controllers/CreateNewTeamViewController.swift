@@ -8,14 +8,14 @@
 import UIKit
 import FirebaseAuth
 
-class CreateNewTeamViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class CreateNewTeamViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var teamNameTextField: UITextField!
     @IBOutlet weak var leagueNameTextField: UITextField!
     @IBOutlet weak var leagueDetailsTextField: UITextView!
     @IBOutlet weak var coachNameTextField: UITextField!
-    @IBOutlet weak var sportPicker: UIPickerView!
+    @IBOutlet weak var sportPickerTextField: UITextField!
     @IBOutlet weak var selectColorButton: UIButton!
     
     
@@ -23,19 +23,25 @@ class CreateNewTeamViewController: UIViewController, UIPickerViewDelegate, UIPic
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sportPicker.delegate = self
-        sportPicker.dataSource = self
-        
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        sportPickerTextField.inputView = pickerView
+        createToolBar()
     }
     
     // MARK: - Properties
     var randomNumString = "\(Int.random(in: 1...999999))"
     var image: UIImage?
-    
+    var teamColorPicked = ""
+    var pickerView = UIPickerView()
     
     // MARK: - Actions
     
     @IBAction func selectColorButtonTapped(_ sender: Any) {
+        let colorPickerVC = UIColorPickerViewController()
+        colorPickerVC.delegate = self
+        
+        present(colorPickerVC, animated: true, completion: nil)
     }
     
     
@@ -50,7 +56,7 @@ class CreateNewTeamViewController: UIViewController, UIPickerViewDelegate, UIPic
         // JAMLEA: Pass in Sport name from Picker
         // JAMLEA: pass in teamColor Anthony
         let teamDescript = TeamDescription(leagueName: leagueNameTextField.text ?? "", detail: leagueDetailsTextField.text ?? "")
-        let newTeam = Team(name: teamName, teamColor: "Blue", teamSport: "", admins: defaultAdmin, members: [], blocked: [], teamDesc: teamDescript, teamId: UUID().uuidString, teamCode: randomNumString, teamImage: "")
+        let newTeam = Team(name: teamName, teamColor: teamColorPicked, teamSport: "", admins: defaultAdmin, members: [], blocked: [], teamDesc: teamDescript, teamId: UUID().uuidString, teamCode: randomNumString, teamImage: "")
         let newContact = Contact(contactName: coachNameTextField.text ?? "", contactType: "", contactInfo: "")
         TeamController.shared.addTeamToUser(userId: userId, teamId: newTeam.teamId)
         TeamController.shared.createTeam(team: newTeam, contact: newContact) { result in
@@ -68,18 +74,54 @@ class CreateNewTeamViewController: UIViewController, UIPickerViewDelegate, UIPic
         }
     }
     
+    func createToolBar() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(CreateNewTeamViewController.dismissKeyBoard))
+        toolbar.setItems([doneButton], animated: false)
+        toolbar.isUserInteractionEnabled = true
+        
+        sportPickerTextField.inputAccessoryView = toolbar
+        
+    }//End of func
     
-    // MARK: - Picker configuration
+    @objc func dismissKeyBoard() {
+        view.endEditing(true)
+    }//End of func
+}//End of class
+
+//MARK: - Extensions
+extension CreateNewTeamViewController: UIColorPickerViewControllerDelegate {
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        
+    }
+    
+    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
+        //AnthonyByrd - Discuss with team which method to use
+        let color = viewController.selectedColor
+        teamColorPicked = color.toHexString()
+        selectColorButton.backgroundColor = UIColor.init(hexString: teamColorPicked)
+        selectColorButton.setTitle("", for: .normal)
+        print(teamColorPicked)
+    }
+}
+
+extension CreateNewTeamViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-            return TeamController.shared.sports.count
+        return TeamController.shared.sports.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-            return TeamController.shared.sports[row]
+        return TeamController.shared.sports[row]
     }
     
-}//End of class
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        sportPickerTextField.text = TeamController.shared.sports[row]
+    }
+}

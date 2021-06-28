@@ -39,15 +39,13 @@
 		0D94E19526828E3C005602ED /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E19426828E3C005602ED /* UserError.swift */; };
 		0DB2B2CD2689119A003F9EF9 /* placeHolderflksafhksa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2B2CC2689119A003F9EF9 /* placeHolderflksafhksa.swift */; };
 		344A556C1CC49A28C2069EF5 /* Pods_TeamyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB8089433EFD9BD3ACCEF72 /* Pods_TeamyApp.framework */; };
-
-		AA5E56102686670E00A8C3E7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E560F2686670E00A8C3E7 /* SearchViewController.swift */; };
-		AA5E56122686671B00A8C3E7 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E56112686671B00A8C3E7 /* SearchTableViewController.swift */; };
-
 		79CF316A26863F41005ECEC8 /* PhotoPicker.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 79CF316926863F41005ECEC8 /* PhotoPicker.storyboard */; };
 		79CF316D26864020005ECEC8 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CF316C26864020005ECEC8 /* PhotoPickerViewController.swift */; };
-
+		AA5E56102686670E00A8C3E7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E560F2686670E00A8C3E7 /* SearchViewController.swift */; };
+		AA5E56122686671B00A8C3E7 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E56112686671B00A8C3E7 /* SearchTableViewController.swift */; };
 		AA662E6926838F670061145E /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA662E6826838F670061145E /* EventController.swift */; };
 		AA662E6B2683DC930061145E /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA662E6A2683DC930061145E /* DateFormatter.swift */; };
+		AC239763268A42E00099E075 /* UIColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC239762268A42E00099E075 /* UIColorConverter.swift */; };
 		ACC9759726810FBA000C3593 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC9759626810FBA000C3593 /* AppDelegate.swift */; };
 		ACC9759926810FBA000C3593 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC9759826810FBA000C3593 /* SceneDelegate.swift */; };
 		ACC9759E26810FBA000C3593 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACC9759C26810FBA000C3593 /* Main.storyboard */; };
@@ -92,16 +90,14 @@
 		0D94E18E2682762B005602ED /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		0D94E19226827AE4005602ED /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		0D94E19426828E3C005602ED /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
-
-		AA5E560F2686670E00A8C3E7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		AA5E56112686671B00A8C3E7 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
-
 		0DB2B2CC2689119A003F9EF9 /* placeHolderflksafhksa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = placeHolderflksafhksa.swift; path = "TeamyApp/Controllers/Model Controllers/TeamNestedModelControllers/placeHolderflksafhksa.swift"; sourceTree = SOURCE_ROOT; };
 		79CF316926863F41005ECEC8 /* PhotoPicker.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PhotoPicker.storyboard; sourceTree = "<group>"; };
 		79CF316C26864020005ECEC8 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
-
+		AA5E560F2686670E00A8C3E7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		AA5E56112686671B00A8C3E7 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		AA662E6826838F670061145E /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
 		AA662E6A2683DC930061145E /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		AC239762268A42E00099E075 /* UIColorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorConverter.swift; sourceTree = "<group>"; };
 		ACC9759326810FBA000C3593 /* TeamyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC9759626810FBA000C3593 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACC9759826810FBA000C3593 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -249,6 +245,7 @@
 				0D94E19426828E3C005602ED /* UserError.swift */,
 				AA662E6A2683DC930061145E /* DateFormatter.swift */,
 				0D02DD4E2685435A0039EC0B /* TeamError.swift */,
+				AC239762268A42E00099E075 /* UIColorConverter.swift */,
 			);
 			path = "Helpers and Extensions";
 			sourceTree = "<group>";
@@ -450,6 +447,7 @@
 			files = (
 				AA662E6B2683DC930061145E /* DateFormatter.swift in Sources */,
 				ACC975B926811389000C3593 /* CustomViewsPlaceholder.swift in Sources */,
+				AC239763268A42E00099E075 /* UIColorConverter.swift in Sources */,
 				ACC975AD26811157000C3593 /* HelpersPlaceholders.swift in Sources */,
 				0D1032452681502200136C9A /* JoinTeamViewController.swift in Sources */,
 				ACC9759726810FBA000C3593 /* AppDelegate.swift in Sources */,
@@ -464,10 +462,7 @@
 				0D02DD4926853DBF0039EC0B /* Contact.swift in Sources */,
 				0D94E18726823F8E005602ED /* TeamController.swift in Sources */,
 				ACC9759926810FBA000C3593 /* SceneDelegate.swift in Sources */,
-
 				AA5E56122686671B00A8C3E7 /* SearchTableViewController.swift in Sources */,
-				0D94E17C26823061005602ED /* AuthController.swift in Sources */,
-
 				0D94E18B26824025005602ED /* Team.swift in Sources */,
 				AA5E56102686670E00A8C3E7 /* SearchViewController.swift in Sources */,
 				0D02DD4D26853E780039EC0B /* Player.swift in Sources */,
@@ -641,9 +636,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-
-				DEVELOPMENT_TEAM = GBLS3NRRVU;
-
+				DEVELOPMENT_TEAM = 9XZY7N8QBS;
 				INFOPLIST_FILE = TeamyApp/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -664,9 +657,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-
-				DEVELOPMENT_TEAM = GBLS3NRRVU;
-
+				DEVELOPMENT_TEAM = 9XZY7N8QBS;
 				INFOPLIST_FILE = TeamyApp/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
