@@ -16,7 +16,6 @@ class TeamController {
     var teams: [Team] = []
     let db = Firestore.firestore()
     let sports: [String] = ["Basketball", "Hockey", "Baseball", "Soccer", "Football"]
-    let colors: [String] = ["Blue", "Red", "Yellow", "Silver"]
     
     ///Fetching Team To Display on HomeVC
     func fetchTeamsForUser(teamIds: [String], completion: @escaping (Bool) -> Void) {
@@ -32,15 +31,17 @@ class TeamController {
                     let teamData = snap.documents[0].data()
                     
                     let name = teamData["name"] as? String
+                    let teamColor = teamData["teamColor"] as? String
+                    let teamSport = teamData["teamSport"] as? String
                     let admins = teamData["admins"] as? Array<String>
                     let members = teamData["members"] as? Array<String>
                     let teamId = teamData["teamId"] as? String
                     let teamCode = teamData["teamCode"] as? String
                     let blocked = teamData["blocked"] as? Array<String>
-                    let teamDescription = teamData["teamDescription"] as? TeamDescription
-                    let teamColor = teamData["teamColor"] as? String
+                    let teamDescription = teamData["teamDesc"] as? [String:String] ?? [:]
                     
                     guard let name1 = name,
+                          let teamSport1 = teamSport,
                           let admins1 = admins,
                           let teamId1 = teamId,
                           let members1 = members,
@@ -49,21 +50,33 @@ class TeamController {
                           let teamColor1 = teamColor
                           else {return}
                     
+                    print(teamDescription)
+                    var leagueName: String = ""
+                    var detail: String = ""
+                    for i in teamDescription {
+                        
+                        if i.key == "leagueName" {
+                            leagueName = i.value
+                        } else if i.key == "detail"{
+                            detail = i.value
+                        }
+                        
+                    }
+                    
+                    let teamDescToPass = TeamDescription(leagueName: leagueName, detail: detail)
                     
                     
-                    let teamToAdd = Team(name: name1, teamColor: teamColor1, admins: admins1, members: members1, blocked: blocked1, teamDesc: teamDescription ?? TeamDescription(leagueName: "", detail: ""), teamId: teamId1, teamCode: teamCode1)
+                    let teamToAdd = Team(name: name1, teamColor: teamColor1, teamSport: teamSport1, admins: admins1, members: members1, blocked: blocked1, teamDesc: teamDescToPass , teamId: teamId1, teamCode: teamCode1, teamImage: "")
                     
                     self.teams.append(teamToAdd)
                     counter += 1
                     if counter == teamIds.count {
-                        
                         completion(true)
                         return
                     }
                 }
             }
         }
-        
         print(self.teams)
     }
     
@@ -75,15 +88,16 @@ class TeamController {
         teamRef.setData([
             "name" : team.name,
             "teamColor" : team.teamColor,
-            "admins" : team.admins,
-            "members" : team.members,
-            "blocked" : team.blocked,
-            "teamId" : team.teamId,
-            "teamCode" : team.teamCode,
+            "teamSport" : team.teamSport,
             "teamDescription" : ([
                 "detail" : team.teamDesc.detail,
                 "leagueName" : team.teamDesc.leagueName
             ]),
+            "admins" : team.admins,
+            "members" : team.members,
+            "blocked" : team.blocked,
+            "teamId" : team.teamId,
+            "teamCode" : team.teamCode
         ])
         teams.append(team)
         // JAMLEA: I'll be adding optional contact when user creates a team once I get the outlets for createNewTeamVC
@@ -156,6 +170,5 @@ class TeamController {
                 }
             }
         }
-        
     }
 }//End of class

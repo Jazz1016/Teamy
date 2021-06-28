@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 
 class PlayerController {
-    let shared = PlayerController()
+    static let shared = PlayerController()
     
     var players: [Player] = []
     

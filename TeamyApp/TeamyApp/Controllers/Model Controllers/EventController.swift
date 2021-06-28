@@ -14,6 +14,7 @@ class EventController {
     
     var events: [Event] = []
     var team: Team?
+    var isAdmin: Bool = false
     
     let database = Firestore.firestore()
     
