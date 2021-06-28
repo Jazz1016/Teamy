@@ -54,7 +54,6 @@ class TeamController {
                     var leagueName: String = ""
                     var detail: String = ""
                     for i in teamDescription {
-                        
                         if i.key == "leagueName" {
                             leagueName = i.value
                         } else if i.key == "detail"{
@@ -114,17 +113,16 @@ class TeamController {
         db.collection("teams").document(team.teamId).collection("announcements").document(baseAnnouncement.announcementId).setData([
             "title" : baseAnnouncement.title,
             "details" : baseAnnouncement.details,
-            "announceId" : baseAnnouncement.announcementId
+            "announcementId" : baseAnnouncement.announcementId
         ])
         
         completion(.success(true))
     }
     
-    ///adds user to team's members array when entering team code
+    ///Adds user to team's members array when entering team code
     func addTeamToUser(userId: String, teamId: String){
         let query = db.collection("users").whereField("userId", isEqualTo: userId)
         query.getDocuments { snap, error in
-            
             guard let snap = snap else {return}
             
             if snap.count == 1 {
