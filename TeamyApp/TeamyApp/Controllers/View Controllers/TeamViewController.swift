@@ -143,10 +143,13 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
                     return cell ?? UITableViewCell()
                 } else if indexPath.row <= EventController.shared.events.count && indexPath.section == 2 {
                     /// Event Cell(s)
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
+                      guard let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? EventTableViewCell else {return UITableViewCell()}
+            
                     let event = EventController.shared.events[indexPath.row]
-                    cell.textLabel?.text = event.name
-                    cell.detailTextLabel?.text = event.date.dateValue().formatToString()
+                    cell.eventNameLabel.text = event.name
+                    cell.eventLocationLabel.text = event.locationName
+                    cell.eventDate.text = event.date.dateValue().formatToString()
+            
                     return cell
                 } else {
                     return UITableViewCell()
@@ -168,11 +171,14 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "announcementCell", for: indexPath) as? AnnounceTableViewCell
                 return cell ?? UITableViewCell()
             } else if indexPath.row <= EventController.shared.events.count && indexPath.section == 2 {
-                /// Event Cell(s)
-                let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
+                /// Event Cell(s)   
+              guard let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? EventTableViewCell else {return UITableViewCell()}
+            
                 let event = EventController.shared.events[indexPath.row]
-                cell.textLabel?.text = event.name
-                cell.detailTextLabel?.text = event.date.dateValue().formatToString()
+                cell.eventNameLabel.text = event.name
+                cell.eventLocationLabel.text = event.locationName
+                cell.eventDate.text = event.date.dateValue().formatToString()
+            
                 return cell
             } else {
                 return UITableViewCell()
