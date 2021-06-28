@@ -22,7 +22,10 @@
 		0D1032472681504100136C9A /* CreateNewTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1032462681504100136C9A /* CreateNewTeamViewController.swift */; };
 		0D1032492681515100136C9A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1032482681515100136C9A /* HomeViewController.swift */; };
 		0D10324B268152B900136C9A /* AdminTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D10324A268152B900136C9A /* AdminTeamViewController.swift */; };
-		0D94E17C26823061005602ED /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E17B26823061005602ED /* AuthController.swift */; };
+		0D594781268A1DAF00A9DA0F /* ContactCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D594780268A1DAF00A9DA0F /* ContactCellTableViewCell.swift */; };
+		0D594783268A1DBD00A9DA0F /* RosterCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D594782268A1DBD00A9DA0F /* RosterCellTableViewCell.swift */; };
+		0D594785268A1DD600A9DA0F /* AnnounceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D594784268A1DD600A9DA0F /* AnnounceTableViewCell.swift */; };
+		0D594787268A1E1C00A9DA0F /* ManageTeamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D594786268A1E1C00A9DA0F /* ManageTeamTableViewCell.swift */; };
 		0D94E17F2682336B005602ED /* TeamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E17E2682336B005602ED /* TeamTableViewCell.swift */; };
 		0D94E18126823841005602ED /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E18026823841005602ED /* EventTableViewCell.swift */; };
 		0D94E18326823864005602ED /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E18226823864005602ED /* CreateEventViewController.swift */; };
@@ -34,7 +37,11 @@
 		0D94E18F2682762B005602ED /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E18E2682762B005602ED /* Strings.swift */; };
 		0D94E19326827AE4005602ED /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E19226827AE4005602ED /* UserController.swift */; };
 		0D94E19526828E3C005602ED /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E19426828E3C005602ED /* UserError.swift */; };
+		0DB2B2CD2689119A003F9EF9 /* placeHolderflksafhksa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DB2B2CC2689119A003F9EF9 /* placeHolderflksafhksa.swift */; };
 		344A556C1CC49A28C2069EF5 /* Pods_TeamyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB8089433EFD9BD3ACCEF72 /* Pods_TeamyApp.framework */; };
+		79CF316D26864020005ECEC8 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CF316C26864020005ECEC8 /* PhotoPickerViewController.swift */; };
+		AA5E56102686670E00A8C3E7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E560F2686670E00A8C3E7 /* SearchViewController.swift */; };
+		AA5E56122686671B00A8C3E7 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E56112686671B00A8C3E7 /* SearchTableViewController.swift */; };
 		AA662E6926838F670061145E /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA662E6826838F670061145E /* EventController.swift */; };
 		AA662E6B2683DC930061145E /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA662E6A2683DC930061145E /* DateFormatter.swift */; };
 		ACC9759726810FBA000C3593 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC9759626810FBA000C3593 /* AppDelegate.swift */; };
@@ -66,7 +73,10 @@
 		0D1032462681504100136C9A /* CreateNewTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewTeamViewController.swift; sourceTree = "<group>"; };
 		0D1032482681515100136C9A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0D10324A268152B900136C9A /* AdminTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminTeamViewController.swift; sourceTree = "<group>"; };
-		0D94E17B26823061005602ED /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
+		0D594780268A1DAF00A9DA0F /* ContactCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactCellTableViewCell.swift; sourceTree = "<group>"; };
+		0D594782268A1DBD00A9DA0F /* RosterCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterCellTableViewCell.swift; sourceTree = "<group>"; };
+		0D594784268A1DD600A9DA0F /* AnnounceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnounceTableViewCell.swift; sourceTree = "<group>"; };
+		0D594786268A1E1C00A9DA0F /* ManageTeamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTeamTableViewCell.swift; sourceTree = "<group>"; };
 		0D94E17E2682336B005602ED /* TeamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTableViewCell.swift; sourceTree = "<group>"; };
 		0D94E18026823841005602ED /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		0D94E18226823864005602ED /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
@@ -78,6 +88,10 @@
 		0D94E18E2682762B005602ED /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		0D94E19226827AE4005602ED /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		0D94E19426828E3C005602ED /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
+		0DB2B2CC2689119A003F9EF9 /* placeHolderflksafhksa.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = placeHolderflksafhksa.swift; path = "TeamyApp/Controllers/Model Controllers/TeamNestedModelControllers/placeHolderflksafhksa.swift"; sourceTree = SOURCE_ROOT; };
+		79CF316C26864020005ECEC8 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
+		AA5E560F2686670E00A8C3E7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		AA5E56112686671B00A8C3E7 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		AA662E6826838F670061145E /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
 		AA662E6A2683DC930061145E /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
 		ACC9759326810FBA000C3593 /* TeamyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +146,7 @@
 				0D10323926814C9800136C9A /* AuthViewController.swift */,
 				0D10323C26814CC500136C9A /* LoginViewController.swift */,
 				0D10323E26814CD300136C9A /* SignUpViewController.swift */,
+				79CF316C26864020005ECEC8 /* PhotoPickerViewController.swift */,
 			);
 			path = AuthViewControllers;
 			sourceTree = "<group>";
@@ -158,8 +173,22 @@
 		AA5E560D2685433A00A8C3E7 /* ManageTeamTVCells */ = {
 			isa = PBXGroup;
 			children = (
+				0DB2B2CC2689119A003F9EF9 /* placeHolderflksafhksa.swift */,
+				0D594780268A1DAF00A9DA0F /* ContactCellTableViewCell.swift */,
+				0D594782268A1DBD00A9DA0F /* RosterCellTableViewCell.swift */,
+				0D594784268A1DD600A9DA0F /* AnnounceTableViewCell.swift */,
+				0D594786268A1E1C00A9DA0F /* ManageTeamTableViewCell.swift */,
 			);
 			path = ManageTeamTVCells;
+			sourceTree = "<group>";
+		};
+		AA5E560E268666C600A8C3E7 /* MapViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				AA5E560F2686670E00A8C3E7 /* SearchViewController.swift */,
+				AA5E56112686671B00A8C3E7 /* SearchTableViewController.swift */,
+			);
+			path = MapViewControllers;
 			sourceTree = "<group>";
 		};
 		ACC9758A26810FBA000C3593 = {
@@ -228,6 +257,7 @@
 		ACC975AF26811184000C3593 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				AA5E560E268666C600A8C3E7 /* MapViewControllers */,
 				0D10323B26814CAE00136C9A /* AuthViewControllers */,
 				0D10324026814FF600136C9A /* TeamViewController.swift */,
 				0D1032442681502200136C9A /* JoinTeamViewController.swift */,
@@ -245,7 +275,6 @@
 			children = (
 				0D02DD5026854AF40039EC0B /* TeamNestedModelControllers */,
 				ACC975B326811271000C3593 /* ModelControllersPlaceholder.swift */,
-				0D94E17B26823061005602ED /* AuthController.swift */,
 				0D94E18626823F8E005602ED /* TeamController.swift */,
 				0D94E19226827AE4005602ED /* UserController.swift */,
 				AA662E6826838F670061145E /* EventController.swift */,
@@ -416,18 +445,24 @@
 				ACC9759726810FBA000C3593 /* AppDelegate.swift in Sources */,
 				AA662E6926838F670061145E /* EventController.swift in Sources */,
 				0D02DD5426854B450039EC0B /* AnnouncementController.swift in Sources */,
+				0DB2B2CD2689119A003F9EF9 /* placeHolderflksafhksa.swift in Sources */,
 				0D10323A26814C9800136C9A /* AuthViewController.swift in Sources */,
 				0D10323D26814CC500136C9A /* LoginViewController.swift in Sources */,
+				0D594785268A1DD600A9DA0F /* AnnounceTableViewCell.swift in Sources */,
+				0D594787268A1E1C00A9DA0F /* ManageTeamTableViewCell.swift in Sources */,
 				0D02DD5226854B340039EC0B /* ContactController.swift in Sources */,
 				0D02DD4926853DBF0039EC0B /* Contact.swift in Sources */,
 				0D94E18726823F8E005602ED /* TeamController.swift in Sources */,
 				ACC9759926810FBA000C3593 /* SceneDelegate.swift in Sources */,
-				0D94E17C26823061005602ED /* AuthController.swift in Sources */,
+				AA5E56122686671B00A8C3E7 /* SearchTableViewController.swift in Sources */,
 				0D94E18B26824025005602ED /* Team.swift in Sources */,
+				AA5E56102686670E00A8C3E7 /* SearchViewController.swift in Sources */,
 				0D02DD4D26853E780039EC0B /* Player.swift in Sources */,
 				0D10323F26814CD300136C9A /* SignUpViewController.swift in Sources */,
+				79CF316D26864020005ECEC8 /* PhotoPickerViewController.swift in Sources */,
 				0D1032472681504100136C9A /* CreateNewTeamViewController.swift in Sources */,
 				0D02DD5626854B540039EC0B /* PlayerController.swift in Sources */,
+				0D594781268A1DAF00A9DA0F /* ContactCellTableViewCell.swift in Sources */,
 				0D94E18D2682402E005602ED /* Event.swift in Sources */,
 				0D94E19526828E3C005602ED /* UserError.swift in Sources */,
 				0D94E18526823DEB005602ED /* JoinTeamTableViewCell.swift in Sources */,
@@ -437,6 +472,7 @@
 				0D94E17F2682336B005602ED /* TeamTableViewCell.swift in Sources */,
 				0D1032492681515100136C9A /* HomeViewController.swift in Sources */,
 				ACFDD5322684DFB300640C0B /* ManageTeamTableViewController.swift in Sources */,
+				0D594783268A1DBD00A9DA0F /* RosterCellTableViewCell.swift in Sources */,
 				0D94E19326827AE4005602ED /* UserController.swift in Sources */,
 				0D10324126814FF600136C9A /* TeamViewController.swift in Sources */,
 				0D02DD4F2685435A0039EC0B /* TeamError.swift in Sources */,
@@ -592,7 +628,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9XZY7N8QBS;
+				DEVELOPMENT_TEAM = GBLS3NRRVU;
 				INFOPLIST_FILE = TeamyApp/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -613,7 +649,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9XZY7N8QBS;
+				DEVELOPMENT_TEAM = GBLS3NRRVU;
 				INFOPLIST_FILE = TeamyApp/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (

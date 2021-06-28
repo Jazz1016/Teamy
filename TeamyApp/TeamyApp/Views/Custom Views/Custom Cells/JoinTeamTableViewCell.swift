@@ -8,9 +8,13 @@
 import UIKit
 
 class JoinTeamTableViewCell: UITableViewCell {
-    @IBOutlet weak var teamNameLabel: UILabel!
+    // MARK: - Outlets
+    @IBOutlet weak var joinTeamButton: UIButton!
     
-    @IBAction func joinButtonTapped(_ sender: Any) {
+    
+    
+    // MARK: - Actions
+    @IBAction func joinTeamButtonTapped(_ sender: Any) {
         
     }
     

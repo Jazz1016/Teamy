@@ -19,3 +19,10 @@ class Contact {
         self.contactId = contactId
     }
 }
+
+
+extension Contact: Equatable {
+    static func == (lhs: Contact, rhs: Contact) -> Bool {
+        lhs.contactId == rhs.contactId
+    }
+}//End of extension
