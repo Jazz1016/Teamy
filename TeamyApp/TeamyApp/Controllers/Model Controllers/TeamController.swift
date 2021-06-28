@@ -112,9 +112,9 @@ class TeamController {
         let baseAnnouncement = Announcement(title: "No Announcement", details: "there are no announcements at this time")
         
         db.collection("teams").document(team.teamId).collection("announcements").document(baseAnnouncement.announcementId).setData([
-            "" : baseAnnouncement.title,
-            "" : baseAnnouncement.details,
-            "" : baseAnnouncement.announcementId
+            "title" : baseAnnouncement.title,
+            "details" : baseAnnouncement.details,
+            "announceId" : baseAnnouncement.announcementId
         ])
         
         completion(.success(true))
