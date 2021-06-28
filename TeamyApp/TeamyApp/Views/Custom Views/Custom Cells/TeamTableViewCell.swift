@@ -26,7 +26,7 @@ class TeamTableViewCell: UITableViewCell {
     func updateViews(){
         guard let team = team else {return}
         
-        teamColorView.backgroundColor = UIColor(cgColor: #colorLiteral(red: 0.3411764801, green: 0.6235294342, blue: 0.1686274558, alpha: 1))
+        teamColorView.backgroundColor = UIColor.init(hexString: team.teamColor)
         teamNameLabel.text = team.name
         leagueNameLabel.text = team.teamDesc.leagueName
         memberCountLabel.text = "\(team.members.count + team.admins.count) members"

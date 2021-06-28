@@ -44,6 +44,7 @@
 		AA5E56122686671B00A8C3E7 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E56112686671B00A8C3E7 /* SearchTableViewController.swift */; };
 		AA662E6926838F670061145E /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA662E6826838F670061145E /* EventController.swift */; };
 		AA662E6B2683DC930061145E /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA662E6A2683DC930061145E /* DateFormatter.swift */; };
+		AC239763268A42E00099E075 /* UIColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC239762268A42E00099E075 /* UIColorConverter.swift */; };
 		ACC9759726810FBA000C3593 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC9759626810FBA000C3593 /* AppDelegate.swift */; };
 		ACC9759926810FBA000C3593 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC9759826810FBA000C3593 /* SceneDelegate.swift */; };
 		ACC9759E26810FBA000C3593 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACC9759C26810FBA000C3593 /* Main.storyboard */; };
@@ -94,6 +95,7 @@
 		AA5E56112686671B00A8C3E7 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		AA662E6826838F670061145E /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
 		AA662E6A2683DC930061145E /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		AC239762268A42E00099E075 /* UIColorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorConverter.swift; sourceTree = "<group>"; };
 		ACC9759326810FBA000C3593 /* TeamyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC9759626810FBA000C3593 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACC9759826810FBA000C3593 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -241,6 +243,7 @@
 				0D94E19426828E3C005602ED /* UserError.swift */,
 				AA662E6A2683DC930061145E /* DateFormatter.swift */,
 				0D02DD4E2685435A0039EC0B /* TeamError.swift */,
+				AC239762268A42E00099E075 /* UIColorConverter.swift */,
 			);
 			path = "Helpers and Extensions";
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 			files = (
 				AA662E6B2683DC930061145E /* DateFormatter.swift in Sources */,
 				ACC975B926811389000C3593 /* CustomViewsPlaceholder.swift in Sources */,
+				AC239763268A42E00099E075 /* UIColorConverter.swift in Sources */,
 				ACC975AD26811157000C3593 /* HelpersPlaceholders.swift in Sources */,
 				0D1032452681502200136C9A /* JoinTeamViewController.swift in Sources */,
 				ACC9759726810FBA000C3593 /* AppDelegate.swift in Sources */,

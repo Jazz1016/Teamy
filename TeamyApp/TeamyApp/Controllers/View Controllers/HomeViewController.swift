@@ -54,6 +54,7 @@ class HomeViewController: UIViewController {
     func reloadTeamsTable(){
         userTeamsTableView.reloadData()
     }
+    
 }//End of class
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
