@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 
 class AnnouncementController {
-    let shared = AnnouncementController()
+    static let shared = AnnouncementController()
     
     var announcements: [Announcement] = []
     

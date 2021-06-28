@@ -23,13 +23,11 @@ class UserController {
             "teams" : user.teams,
             "userId" : user.userId
         ])
-        
         self.user = user
     }
     
     func fetchUser(userId: String, completion: @escaping (Result<User, UserError>) -> Void){
         let userQueried = db.collection("users").whereField("userId", isEqualTo: userId)
-        
         userQueried.getDocuments { snap, error in
             if let error = error {
                 completion(.failure(.thrownError(error)))
@@ -46,9 +44,7 @@ class UserController {
                 let userId = userData["userId"] as? String ?? ""
                 
                 let userToReturn = User(email: email, firstName: firstName, lastName: lastName, teams: teams, userId: userId)
-                
                 completion(.success(userToReturn))
-                
             } else {
                 completion(.failure(.noData))
                 return}
@@ -93,8 +89,8 @@ class UserController {
     }
     
     func userjoinsTeam(teamCode: String, userId: String){
+        
         let queriedTeam = db.collection("teams").whereField("teamCode", isEqualTo: teamCode)
-        var teamIdToPass: String
         queriedTeam.getDocuments { snap, error in
             if let error = error {
                 print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
@@ -103,27 +99,35 @@ class UserController {
             guard let snap = snap else {return}
             if snap.count == 1 {
                 let teamData = snap.documents[0].data()
-                
-                
                 let name = teamData["name"] as? String
                 let teamColor = teamData["teamColor"] as? String
-                let teamDesc = teamData["teamDesc"] as? TeamDescription
+                let teamSport = teamData["teamSport"] as? String
+                let teamDesc = teamData["teamDescription"] as? [String:String] ?? [:]
                 let admins = teamData["admins"] as? Array<String>
                 var members = teamData["members"] as? Array<String>
                 let blocked = teamData["blocked"] as? Array<String>
                 let teamId = teamData["teamId"] as? String
                 let teamCode = teamData["teamCode"] as? String
                 
-                guard let teamdescript = teamDesc else {return}
+                var leagueName: String = ""
+                var detail: String = ""
+                for i in teamDesc {
+                    if i.key == "leagueName" {
+                        leagueName = i.value
+                    } else if i.key == "detail"{
+                        detail = i.value
+                    }
+                }
                 
                 members?.append(userId)
                 self.user?.teams.append(teamId!)
                 self.db.collection("teams").document(teamId!).setData([
                     "name" : name ?? "error",
                     "teamColor" : teamColor ?? "error",
+                    "teamSport" : teamSport ?? "error",
                     "teamDesc" : ([
-                        "leagueName" : teamdescript.leagueName,
-                        "detail" : teamdescript.detail
+                        "leagueName" : leagueName,
+                        "detail" : detail
                     ]),
                     "admins" : admins ?? [],
                     "members" : members ?? [],

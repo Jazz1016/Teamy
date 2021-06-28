@@ -16,7 +16,7 @@ class CreateNewTeamViewController: UIViewController, UIPickerViewDelegate, UIPic
     @IBOutlet weak var leagueDetailsTextField: UITextView!
     @IBOutlet weak var coachNameTextField: UITextField!
     @IBOutlet weak var sportPicker: UIPickerView!
-    @IBOutlet weak var teamColorPicker: UIPickerView!
+    @IBOutlet weak var selectColorButton: UIButton!
     
     
     // MARK: - Lifecycle
@@ -25,14 +25,19 @@ class CreateNewTeamViewController: UIViewController, UIPickerViewDelegate, UIPic
         
         sportPicker.delegate = self
         sportPicker.dataSource = self
-        teamColorPicker.delegate = self
-        teamColorPicker.dataSource = self
         
     }
     
     // MARK: - Properties
     var randomNumString = "\(Int.random(in: 1...999999))"
     var image: UIImage?
+    
+    
+    // MARK: - Actions
+    
+    @IBAction func selectColorButtonTapped(_ sender: Any) {
+    }
+    
     
     ///Creates a new team and adds creating user as an admin
     @IBAction func createNewTeamTapped(_ sender: Any) {
@@ -42,9 +47,10 @@ class CreateNewTeamViewController: UIViewController, UIPickerViewDelegate, UIPic
         addZeros()
         
         let defaultAdmin = [userId]
-        
+        // JAMLEA: Pass in Sport name from Picker
+        // JAMLEA: pass in teamColor Anthony
         let teamDescript = TeamDescription(leagueName: leagueNameTextField.text ?? "", detail: leagueDetailsTextField.text ?? "")
-        let newTeam = Team(name: teamName, teamColor: "Blue", admins: defaultAdmin, members: [], blocked: [], teamDesc: teamDescript, teamId: UUID().uuidString, teamCode: randomNumString)
+        let newTeam = Team(name: teamName, teamColor: "Blue", teamSport: "", admins: defaultAdmin, members: [], blocked: [], teamDesc: teamDescript, teamId: UUID().uuidString, teamCode: randomNumString, teamImage: "")
         let newContact = Contact(contactName: coachNameTextField.text ?? "", contactType: "", contactInfo: "")
         TeamController.shared.addTeamToUser(userId: userId, teamId: newTeam.teamId)
         TeamController.shared.createTeam(team: newTeam, contact: newContact) { result in
@@ -62,33 +68,18 @@ class CreateNewTeamViewController: UIViewController, UIPickerViewDelegate, UIPic
         }
     }
     
+    
+    // MARK: - Picker configuration
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        switch UIPickerView() {
-        case self.sportPicker:
             return TeamController.shared.sports.count
-        case self.teamColorPicker:
-            return TeamController.shared.colors.count
-        default:
-            return 1
-        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        switch UIPickerView() {
-        case sportPicker:
-            
             return TeamController.shared.sports[row]
-        case teamColorPicker:
-            
-            return TeamController.shared.colors[row]
-        default:
-            
-            return ""
-        }
     }
     
-}
+}//End of class

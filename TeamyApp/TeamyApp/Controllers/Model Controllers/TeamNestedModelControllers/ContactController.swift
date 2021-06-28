@@ -9,7 +9,7 @@ import Foundation
 import Firebase
 
 class ContactController {
-    let shared = ContactController()
+    static let shared = ContactController()
     
     var contacts: [Contact] = []
     
