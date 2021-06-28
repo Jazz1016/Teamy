@@ -26,6 +26,7 @@ class TeamViewController: UIViewController {
                 guard let user = Auth.auth().currentUser else {return}
                 if EventController.shared.team!.admins.contains(user.uid) {
                     EventController.shared.isAdmin = true
+                    
                 }
             }
             fetchDetails()
@@ -123,6 +124,7 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if EventController.shared.isAdmin {
+            
                 if indexPath.row == 0 && indexPath.section == 0 {
                     /// Manage Team Button Cell
                     let cell = tableView.dequeueReusableCell(withIdentifier: "manageTeamCell", for: indexPath) as? ManageTeamTableViewCell
@@ -155,6 +157,7 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
                     return UITableViewCell()
             }
         } else {
+            
             // JAMLEA: put non admin setup here
             if indexPath.row == 0 && indexPath.section == 0 {
                 /// Roster Cell
