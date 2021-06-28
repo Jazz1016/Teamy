@@ -17,6 +17,8 @@ class CreateEventViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var eventNotesTextView: UITextView!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var eventLocationNameLabel: UILabel!
+    @IBOutlet weak var addLocationButton: UIButton!
     
 
     override func viewDidLoad() {
@@ -25,20 +27,19 @@ class CreateEventViewController: UIViewController {
     }
     
     //MARK: - Actions
-    @IBAction func addLocationButtonTapped(_ sender: Any) {
-        
-    }
-    
     @IBAction func saveEventButtonTapped(_ sender: Any) {
         guard let eventName = eventNameTextField.text, !eventName.isEmpty,
-              let eventAddress = eventAddressLabel.text else {return}
+              let eventAddress = eventAddressLabel.text,
+              let eventLocationName = eventLocationNameLabel.text,
+              let eventNotes = eventNotesTextView.text else {return}
         
         let date = Timestamp(date: datePicker.date)
         
-        let event = Event(date: date, name: eventName, locationAddress: eventAddress, locationName: "Devmountain", notes: eventNotesTextView.text)
+        let event = Event(date: date, name: eventName, locationAddress: eventAddress, locationName: eventLocationName, notes: eventNotes)
      
         guard let team = EventController.shared.team else {return}
         EventController.shared.createEvent(event: event, teamID: team.teamId)
+        print("Successfully saved event")
         
         navigationController?.popViewController(animated: true)
     }
@@ -60,7 +61,7 @@ class CreateEventViewController: UIViewController {
 extension CreateEventViewController: SaveToEventDelegate {
     
     func saveLocationInfo(placemark: MKPlacemark) {
-//        eventLocationNameLabel.text = placemark.name
+        eventLocationNameLabel.text = placemark.name
         eventAddressLabel.text = placemark.title
         
         mapView.removeAnnotations(mapView.annotations)

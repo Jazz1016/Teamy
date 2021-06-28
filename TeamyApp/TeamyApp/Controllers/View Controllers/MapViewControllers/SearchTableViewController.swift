@@ -11,7 +11,7 @@ import MapKit
 class SearchTableViewController: UITableViewController {
     
     //MARK: - Outlets
-    @IBOutlet weak var searchBar: UISearchBar!
+//    @IBOutlet weak var searchBar: UISearchBar!
 
     override func viewDidLoad() {
         super.viewDidLoad()

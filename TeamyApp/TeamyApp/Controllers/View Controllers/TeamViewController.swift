@@ -123,11 +123,12 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
         }
         if EventController.shared.events.count > 0 {
             
-            let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath)
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? EventTableViewCell else {return UITableViewCell()}
             
             let event = EventController.shared.events[indexPath.row]
-            cell.textLabel?.text = event.name
-            cell.detailTextLabel?.text = event.date.dateValue().formatToString()
+            cell.eventNameLabel.text = event.name
+            cell.eventLocationLabel.text = event.locationName
+            cell.eventDate.text = event.date.dateValue().formatToString()
             
             return cell
         } else {
