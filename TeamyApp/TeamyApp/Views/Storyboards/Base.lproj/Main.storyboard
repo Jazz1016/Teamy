@@ -285,7 +285,7 @@
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sAM-HC-CDF">
                                 <rect key="frame" x="87" y="398" width="240" height="134"/>
                                 <connections>
-                                    <segue destination="KxV-mu-VO5" kind="embed" id="zP7-RS-Q76"/>
+                                    <segue destination="KxV-mu-VO5" kind="embed" identifier="toPhotoPicker" id="zP7-RS-Q76"/>
                                 </connections>
                             </containerView>
                         </subviews>
