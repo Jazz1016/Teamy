@@ -31,13 +31,13 @@ class Team: Codable {
         self.teamCode = teamCode
         self.teamImage = teamImage
     }
-}
+}//End of class
 
 extension Team: Equatable {
     static func == (lhs: Team, rhs: Team) -> Bool {
         lhs.teamId == rhs.teamId
     }
-}
+}//End of extension
 
 class TeamDescription: Codable {
     let leagueName: String
@@ -46,4 +46,4 @@ class TeamDescription: Codable {
         self.leagueName = leagueName
         self.detail = detail
     }
-}
+}//End of class

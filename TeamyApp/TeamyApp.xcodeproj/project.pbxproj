@@ -26,6 +26,9 @@
 		0D594783268A1DBD00A9DA0F /* RosterCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D594782268A1DBD00A9DA0F /* RosterCellTableViewCell.swift */; };
 		0D594785268A1DD600A9DA0F /* AnnounceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D594784268A1DD600A9DA0F /* AnnounceTableViewCell.swift */; };
 		0D594787268A1E1C00A9DA0F /* ManageTeamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D594786268A1E1C00A9DA0F /* ManageTeamTableViewCell.swift */; };
+		0D59478A268AB76000A9DA0F /* RosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D594789268AB76000A9DA0F /* RosterViewController.swift */; };
+		0D59478C268AB7FA00A9DA0F /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D59478B268AB7FA00A9DA0F /* EventDetailViewController.swift */; };
+		0D59478E268ABF6700A9DA0F /* AddEventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D59478D268ABF6700A9DA0F /* AddEventTableViewCell.swift */; };
 		0D94E17F2682336B005602ED /* TeamTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E17E2682336B005602ED /* TeamTableViewCell.swift */; };
 		0D94E18126823841005602ED /* EventTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E18026823841005602ED /* EventTableViewCell.swift */; };
 		0D94E18326823864005602ED /* CreateEventViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E18226823864005602ED /* CreateEventViewController.swift */; };
@@ -78,6 +81,9 @@
 		0D594782268A1DBD00A9DA0F /* RosterCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterCellTableViewCell.swift; sourceTree = "<group>"; };
 		0D594784268A1DD600A9DA0F /* AnnounceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnounceTableViewCell.swift; sourceTree = "<group>"; };
 		0D594786268A1E1C00A9DA0F /* ManageTeamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManageTeamTableViewCell.swift; sourceTree = "<group>"; };
+		0D594789268AB76000A9DA0F /* RosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterViewController.swift; sourceTree = "<group>"; };
+		0D59478B268AB7FA00A9DA0F /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
+		0D59478D268ABF6700A9DA0F /* AddEventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventTableViewCell.swift; sourceTree = "<group>"; };
 		0D94E17E2682336B005602ED /* TeamTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamTableViewCell.swift; sourceTree = "<group>"; };
 		0D94E18026823841005602ED /* EventTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTableViewCell.swift; sourceTree = "<group>"; };
 		0D94E18226823864005602ED /* CreateEventViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateEventViewController.swift; sourceTree = "<group>"; };
@@ -153,6 +159,16 @@
 			path = AuthViewControllers;
 			sourceTree = "<group>";
 		};
+		0D594788268AB4AF00A9DA0F /* TeamDetailViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				ACFDD5312684DFB300640C0B /* ManageTeamTableViewController.swift */,
+				0D594789268AB76000A9DA0F /* RosterViewController.swift */,
+				0D59478B268AB7FA00A9DA0F /* EventDetailViewController.swift */,
+			);
+			path = TeamDetailViewControllers;
+			sourceTree = "<group>";
+		};
 		0D94E17D26823323005602ED /* Custom Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +196,7 @@
 				0D594782268A1DBD00A9DA0F /* RosterCellTableViewCell.swift */,
 				0D594784268A1DD600A9DA0F /* AnnounceTableViewCell.swift */,
 				0D594786268A1E1C00A9DA0F /* ManageTeamTableViewCell.swift */,
+				0D59478D268ABF6700A9DA0F /* AddEventTableViewCell.swift */,
 			);
 			path = ManageTeamTVCells;
 			sourceTree = "<group>";
@@ -260,6 +277,7 @@
 		ACC975AF26811184000C3593 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0D594788268AB4AF00A9DA0F /* TeamDetailViewControllers */,
 				AA5E560E268666C600A8C3E7 /* MapViewControllers */,
 				0D10323B26814CAE00136C9A /* AuthViewControllers */,
 				0D10324026814FF600136C9A /* TeamViewController.swift */,
@@ -268,7 +286,6 @@
 				0D1032482681515100136C9A /* HomeViewController.swift */,
 				0D10324A268152B900136C9A /* AdminTeamViewController.swift */,
 				0D94E18226823864005602ED /* CreateEventViewController.swift */,
-				ACFDD5312684DFB300640C0B /* ManageTeamTableViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -462,6 +479,7 @@
 				0D94E18B26824025005602ED /* Team.swift in Sources */,
 				AA5E56102686670E00A8C3E7 /* SearchViewController.swift in Sources */,
 				0D02DD4D26853E780039EC0B /* Player.swift in Sources */,
+				0D59478C268AB7FA00A9DA0F /* EventDetailViewController.swift in Sources */,
 				0D10323F26814CD300136C9A /* SignUpViewController.swift in Sources */,
 				79CF316D26864020005ECEC8 /* PhotoPickerViewController.swift in Sources */,
 				0D1032472681504100136C9A /* CreateNewTeamViewController.swift in Sources */,
@@ -470,8 +488,10 @@
 				0D94E18D2682402E005602ED /* Event.swift in Sources */,
 				0D94E19526828E3C005602ED /* UserError.swift in Sources */,
 				0D94E18526823DEB005602ED /* JoinTeamTableViewCell.swift in Sources */,
+				0D59478E268ABF6700A9DA0F /* AddEventTableViewCell.swift in Sources */,
 				0D02DD4B26853E6A0039EC0B /* Announcement.swift in Sources */,
 				ACC975B426811271000C3593 /* ModelControllersPlaceholder.swift in Sources */,
+				0D59478A268AB76000A9DA0F /* RosterViewController.swift in Sources */,
 				0D94E18126823841005602ED /* EventTableViewCell.swift in Sources */,
 				0D94E17F2682336B005602ED /* TeamTableViewCell.swift in Sources */,
 				0D1032492681515100136C9A /* HomeViewController.swift in Sources */,
