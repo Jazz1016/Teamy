@@ -143,6 +143,9 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
                     /// Announcement Cell(s)
                     let cell = tableView.dequeueReusableCell(withIdentifier: "announcementCell", for: indexPath) as? AnnounceTableViewCell
                     return cell ?? UITableViewCell()
+                } else if indexPath.row == 0 && indexPath.section == 2 {
+                    
+                    
                 } else if indexPath.row <= EventController.shared.events.count && indexPath.section == 2 {
                     /// Event Cell(s)
                       guard let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? EventTableViewCell else {return UITableViewCell()}
