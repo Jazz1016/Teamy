@@ -148,7 +148,7 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
                 } else if indexPath.row <= EventController.shared.events.count && indexPath.section == 2 {
                     /// Event Cell(s)
                       guard let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? EventTableViewCell else {return UITableViewCell()}
-            
+                    
                     let event = EventController.shared.events[indexPath.row]
                     cell.eventNameLabel.text = event.name
                     cell.eventLocationLabel.text = event.locationName

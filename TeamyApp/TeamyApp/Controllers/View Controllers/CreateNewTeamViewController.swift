@@ -51,7 +51,6 @@ class CreateNewTeamViewController: UIViewController {
               let userId = Auth.auth().currentUser?.uid
         else {return}
         addZeros()
-        
         let defaultAdmin = [userId]
         // JAMLEA: Pass in Sport name from Picker
         // JAMLEA: pass in teamColor Anthony
@@ -81,11 +80,8 @@ class CreateNewTeamViewController: UIViewController {
         let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(CreateNewTeamViewController.dismissKeyBoard))
         toolbar.setItems([doneButton], animated: false)
         toolbar.isUserInteractionEnabled = true
-        
         sportPickerTextField.inputAccessoryView = toolbar
-        
     }//End of func
-    
     @objc func dismissKeyBoard() {
         view.endEditing(true)
     }//End of func
@@ -108,7 +104,6 @@ extension CreateNewTeamViewController: UIColorPickerViewControllerDelegate {
 }
 
 extension CreateNewTeamViewController: UIPickerViewDataSource, UIPickerViewDelegate {
-    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }

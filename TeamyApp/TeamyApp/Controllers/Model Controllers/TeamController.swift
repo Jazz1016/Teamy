@@ -39,6 +39,7 @@ class TeamController {
                     let teamCode = teamData["teamCode"] as? String
                     let blocked = teamData["blocked"] as? Array<String>
                     let teamDescription = teamData["teamDesc"] as? [String:String] ?? [:]
+                    let teamImageString = teamData["teamImage"] as? String
                     
                     guard let name1 = name,
                           let teamSport1 = teamSport,
@@ -59,11 +60,9 @@ class TeamController {
                         } else if i.key == "detail"{
                             detail = i.value
                         }
-                        
                     }
                     
                     let teamDescToPass = TeamDescription(leagueName: leagueName, detail: detail)
-                    
                     
                     let teamToAdd = Team(name: name1, teamColor: teamColor1, teamSport: teamSport1, admins: admins1, members: members1, blocked: blocked1, teamDesc: teamDescToPass , teamId: teamId1, teamCode: teamCode1, teamImage: "")
                     
@@ -96,7 +95,8 @@ class TeamController {
             "members" : team.members,
             "blocked" : team.blocked,
             "teamId" : team.teamId,
-            "teamCode" : team.teamCode
+            "teamCode" : team.teamCode,
+            "teamImage" : team.teamImage
         ])
         teams.append(team)
         // JAMLEA: I'll be adding optional contact when user creates a team once I get the outlets for createNewTeamVC
@@ -117,6 +117,25 @@ class TeamController {
         ])
         
         completion(.success(true))
+    }
+    
+    ///Edit's existing team
+    func editTeam(team: Team) {
+        db.collection("teams").document(team.teamId).setData([
+            "name" : team.name,
+            "teamColor" : team.teamColor,
+            "teamSport" : team.teamSport,
+            "teamDescription" : ([
+                "detail" : team.teamDesc.detail,
+                "leagueName" : team.teamDesc.leagueName
+            ]),
+            "admins" : team.admins,
+            "members" : team.members,
+            "blocked" : team.blocked,
+            "teamId" : team.teamId,
+            "teamCode" : team.teamCode,
+            "teamImage" : team.teamImage
+        ])
     }
     
     ///Adds user to team's members array when entering team code
