@@ -1155,10 +1155,10 @@
             </objects>
             <point key="canvasLocation" x="3555.072463768116" y="42.857142857142854"/>
         </scene>
-        <!--View Controller-->
+        <!--Photo Picker View Controller-->
         <scene sceneID="m3p-kk-fmc">
             <objects>
-                <viewController id="KxV-mu-VO5" sceneMemberID="viewController">
+                <viewController id="KxV-mu-VO5" customClass="PhotoPickerViewController" customModule="TeamyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7XP-4m-Iwp">
                         <rect key="frame" x="0.0" y="0.0" width="240" height="134"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1167,9 +1167,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b57-SZ-iMf">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b57-SZ-iMf">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="134"/>
-                                <state key="normal" title="Select Photo"/>
+                                <state key="normal" title="Select Photo" image="photo.fill" catalog="system"/>
+                                <connections>
+                                    <action selector="selectPhotoButtonTapped:" destination="KxV-mu-VO5" eventType="touchUpInside" id="aW6-WC-R1E"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pKc-LT-CeW"/>
@@ -1181,6 +1184,10 @@
                             <constraint firstItem="b57-SZ-iMf" firstAttribute="top" secondItem="7XP-4m-Iwp" secondAttribute="top" id="qPK-rS-S3A"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="photoImageView" destination="Gmx-AA-sjp" id="VEH-T9-Br3"/>
+                        <outlet property="selectPhotoButton" destination="b57-SZ-iMf" id="6vd-wt-20b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7bl-eN-e0d" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1188,6 +1195,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="photo.fill" catalog="system" width="128" height="93"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

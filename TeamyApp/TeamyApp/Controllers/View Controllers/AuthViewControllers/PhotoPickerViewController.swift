@@ -25,6 +25,7 @@ class PhotoPickerViewController: UIViewController {
         super.viewDidLoad()
         
         setupViews()
+      
     }
     
     //MARK: - Properties
