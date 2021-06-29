@@ -9,17 +9,15 @@ import UIKit
 
 class AdminTeamViewController: UIViewController {
     // MARK: - Outlets
-    @IBOutlet weak var inviteUserTextField: UITextField!
     
-
+    
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
-    @IBAction func inviteUserButtonTapped(_ sender: Any) {
-        
-    }
+    // MARK: - Functions
     
     
 }
