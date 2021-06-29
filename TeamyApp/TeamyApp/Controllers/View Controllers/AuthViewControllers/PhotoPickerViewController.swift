@@ -25,7 +25,7 @@ class PhotoPickerViewController: UIViewController {
         super.viewDidLoad()
         
         setupViews()
-      
+              
     }
     
     //MARK: - Properties
@@ -41,7 +41,7 @@ class PhotoPickerViewController: UIViewController {
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in
             self.imagePicker.dismiss(animated: true, completion: nil)
         }
-        
+                
         let cameraAction = UIAlertAction(title: "Camera", style: .default) { (_) in
             self.openCamera()
         }
@@ -91,6 +91,7 @@ extension PhotoPickerViewController: UIImagePickerControllerDelegate, UINavigati
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             imagePicker.sourceType = .photoLibrary
             imagePicker.allowsEditing = true
+            imagePicker.delegate = self
             self.present(imagePicker, animated: true, completion: nil)
         } else {
             presentNoAccessAlert()
@@ -99,8 +100,8 @@ extension PhotoPickerViewController: UIImagePickerControllerDelegate, UINavigati
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let pickedImage = info[.originalImage] as? UIImage {
-            guard let delegate = delegate else {return}
-            delegate.photoPickerSelected(image: pickedImage)
+            //guard let delegate = delegate else {return}
+            //delegate.photoPickerSelected(image: pickedImage)
             photoImageView.image = pickedImage
             
         }
