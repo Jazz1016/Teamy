@@ -124,7 +124,6 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if EventController.shared.isAdmin {
-            
                 if indexPath.row == 0 && indexPath.section == 0 {
                     /// Manage Team Button Cell
                     let cell = tableView.dequeueReusableCell(withIdentifier: "manageTeamCell", for: indexPath) as? ManageTeamTableViewCell
@@ -160,7 +159,6 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
                     return UITableViewCell()
             }
         } else {
-            
             // JAMLEA: put non admin setup here
             if indexPath.row == 0 && indexPath.section == 0 {
                 /// Roster Cell
@@ -190,6 +188,7 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
                 return UITableViewCell()
             }
         }
+        return UITableViewCell()
     }
     
 //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
