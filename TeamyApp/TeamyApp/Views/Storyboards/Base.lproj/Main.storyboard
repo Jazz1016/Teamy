@@ -578,36 +578,31 @@
                                 <rect key="frame" x="0.0" y="235" width="414" height="627"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="manageTeamCell" rowHeight="101" id="vSp-4p-3KM" customClass="ManageTeamTableViewCell" customModule="TeamyApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="101"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="manageTeamCell" rowHeight="123" id="4lg-7v-VIi" customClass="ManageTeamTableViewCell" customModule="TeamyApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="123"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vSp-4p-3KM" id="fA8-vG-jES">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="101"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4lg-7v-VIi" id="SCw-iP-IUP">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="123"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kag-oo-BM1">
-                                                    <rect key="frame" x="41.5" y="25.5" width="331" height="50"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="8Z2-BD-GFG"/>
-                                                    </constraints>
-                                                    <state key="normal" title="Manage Team"/>
-                                                    <connections>
-                                                        <segue destination="u2x-RG-ioy" kind="show" id="VMK-7s-kRe"/>
-                                                    </connections>
-                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Manage Team" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0qg-Qh-0VQ">
+                                                    <rect key="frame" x="153.5" y="51.5" width="107" height="20.5"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="kag-oo-BM1" firstAttribute="centerX" secondItem="fA8-vG-jES" secondAttribute="centerX" id="2fg-nB-Zrd"/>
-                                                <constraint firstItem="kag-oo-BM1" firstAttribute="centerY" secondItem="fA8-vG-jES" secondAttribute="centerY" id="9r3-Tk-Y30"/>
-                                                <constraint firstItem="kag-oo-BM1" firstAttribute="width" secondItem="fA8-vG-jES" secondAttribute="width" multiplier="0.8" id="MOd-mf-KUq"/>
+                                                <constraint firstItem="0qg-Qh-0VQ" firstAttribute="centerX" secondItem="SCw-iP-IUP" secondAttribute="centerX" id="0ba-p0-jJl"/>
+                                                <constraint firstItem="0qg-Qh-0VQ" firstAttribute="centerY" secondItem="SCw-iP-IUP" secondAttribute="centerY" id="BsV-39-pKU"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="manageTeamButton" destination="kag-oo-BM1" id="zYL-zW-u57"/>
+                                            <segue destination="u2x-RG-ioy" kind="show" id="inO-Yw-ocM"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="contactCell" rowHeight="110" id="hfA-Jc-iHj" customClass="ContactCellTableViewCell" customModule="TeamyApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="125.5" width="414" height="110"/>
+                                        <rect key="frame" x="0.0" y="147.5" width="414" height="110"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hfA-Jc-iHj" id="eSb-9A-ugh">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="110"/>
@@ -630,7 +625,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="rosterCell" rowHeight="129" id="nlM-gB-q6x" customClass="RosterCellTableViewCell" customModule="TeamyApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="235.5" width="414" height="129"/>
+                                        <rect key="frame" x="0.0" y="257.5" width="414" height="129"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nlM-gB-q6x" id="lM4-De-JC2">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="129"/>
@@ -654,7 +649,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="announcementCell" rowHeight="65" id="UVK-JF-dir" customClass="AnnounceTableViewCell" customModule="TeamyApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="364.5" width="414" height="65"/>
+                                        <rect key="frame" x="0.0" y="386.5" width="414" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UVK-JF-dir" id="9QV-wV-nPW">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
@@ -677,7 +672,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="eventCell" rowHeight="60" id="tZz-AB-oiC" customClass="EventTableViewCell" customModule="TeamyApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="429.5" width="414" height="60"/>
+                                        <rect key="frame" x="0.0" y="451.5" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="tZz-AB-oiC" id="zRc-vM-ZmN">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
@@ -726,7 +721,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="124" id="pnS-6T-zTu">
-                                        <rect key="frame" x="0.0" y="489.5" width="414" height="124"/>
+                                        <rect key="frame" x="0.0" y="511.5" width="414" height="124"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pnS-6T-zTu" id="mrG-bN-AUf">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="124"/>
@@ -760,7 +755,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3wY-OO-Vf8">
-                                <rect key="frame" x="73" y="117" width="42" height="21"/>
+                                <rect key="frame" x="57" y="116" width="42" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
