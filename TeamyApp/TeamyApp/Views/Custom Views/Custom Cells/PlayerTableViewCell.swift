@@ -9,9 +9,9 @@ import UIKit
 
 class PlayerTableViewCell: UITableViewCell {
     // MARK: - Outlets
-    @IBOutlet weak var playerName: UILabel!
-    @IBOutlet weak var playerRole: UILabel!
-    @IBOutlet weak var jerseyNumber: UILabel!
+    @IBOutlet weak var playerNameLabel: UILabel!
+    @IBOutlet weak var playerRoleLabel: UILabel!
+    @IBOutlet weak var jerseyNumberLabel: UILabel!
     @IBOutlet weak var playerNameTextField: UITextField!
     @IBOutlet weak var playerRoleTextField: UITextField!
     @IBOutlet weak var jerseyNumberTextField: UITextField!
@@ -23,12 +23,16 @@ class PlayerTableViewCell: UITableViewCell {
             updateViews()
         }
     }
+    var playerIndex: Int?
     
     // MARK: - Actions
-    @IBOutlet weak var saveEditButtonTapped: UIButton!
+    @IBAction func saveEditButtonTapped(_ sender: Any) {
+        
+    }
     
     // MARK: - Functions
     func updateViews(){
+        guard let player = player else {return}
         
     }
     

@@ -127,7 +127,6 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
                 if indexPath.row == 0 && indexPath.section == 0 {
                     /// Manage Team Button Cell
                     guard let cell = tableView.dequeueReusableCell(withIdentifier: "manageCell", for: indexPath) as?  ManageTeamTableViewCell else {return UITableViewCell()}
-                    
                     return cell
                 } else if indexPath.row <= 1 && indexPath.section == 0 {
                     /// Roster Cell

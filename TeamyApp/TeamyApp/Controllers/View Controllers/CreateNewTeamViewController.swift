@@ -24,6 +24,7 @@ class CreateNewTeamViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        PhotoPickerViewController.delegate = self
         pickerView.dataSource = self
         pickerView.delegate = self
         sportPickerTextField.inputView = pickerView
@@ -50,14 +51,19 @@ class CreateNewTeamViewController: UIViewController {
     ///Creates a new team and adds creating user as an admin
     @IBAction func createNewTeamTapped(_ sender: Any) {
         guard let teamName = teamNameTextField.text,
-              let userId = Auth.auth().currentUser?.uid
+              let userId = Auth.auth().currentUser?.uid,
+              let sport = sportPickerTextField.text,
+              !sport.isEmpty
         else {return}
         addZeros()
+        DispatchQueue.main.async {
+            self.saveImage(teamName: teamName)
+        }
         let defaultAdmin = [userId]
         // JAMLEA: Pass in Sport name from Picker
         // JAMLEA: pass in teamColor Anthony
         let teamDescript = TeamDescription(leagueName: leagueNameTextField.text ?? "", detail: leagueDetailsTextField.text ?? "")
-        let newTeam = Team(name: teamName, teamColor: teamColorPicked, teamSport: "", admins: defaultAdmin, members: [], blocked: [], teamDesc: teamDescript, teamId: UUID().uuidString, teamCode: randomNumString, teamImage: imageURL)
+        let newTeam = Team(name: teamName, teamColor: teamColorPicked, teamSport: sport, admins: defaultAdmin, members: [], blocked: [], teamDesc: teamDescript, teamId: UUID().uuidString, teamCode: randomNumString, teamImage: imageURL)
         let newContact = Contact(contactName: coachNameTextField.text ?? "", contactType: "", contactInfo: "")
         TeamController.shared.addTeamToUser(userId: userId, teamId: newTeam.teamId)
         TeamController.shared.createTeam(team: newTeam, contact: newContact) { result in
@@ -111,13 +117,35 @@ class CreateNewTeamViewController: UIViewController {
         view.endEditing(true)
     }//End of func
     
-    //MARK: - Navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toPhotoPicker" {
-            let destinationVC = segue.destination as? PhotoPickerViewController
-            destinationVC?.delegate = self
+    func saveImage(teamName: String) {
+        
+        guard let image = self.image else {return}
+        
+        let storageRef = Storage.storage().reference().child("\(teamName).jpg")
+        if let uploadData = image.jpegData(compressionQuality: 0.75) {
+            storageRef.putData(uploadData, metadata: nil) { (metaData, error) in
+                if let error = error {
+                    print("")
+                }
+                print(metaData)
+                let size = metaData?.size
+                storageRef.downloadURL { (url, error) in
+                    guard let downloadurl = url else {return}
+                    print(downloadurl.absoluteURL)
+                    self.imageURL = downloadurl.absoluteString
+                }
+            }
         }
     }
+    
+    
+    //MARK: - Navigation
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toPhotoPicker" {
+//            let destinationVC = segue.destination as? PhotoPickerViewController
+//            destinationVC?.delegate = self
+//        }
+//    }
 
 }//End of class
 
