@@ -30,7 +30,7 @@ class PhotoPickerViewController: UIViewController {
     
     //MARK: - Properties
     let imagePicker = UIImagePickerController()
-    weak var delegate: PhotoSelectorDelegate?
+    static var delegate: PhotoSelectorDelegate?
     
     //MARK: - Actions
     
@@ -99,14 +99,14 @@ extension PhotoPickerViewController: UIImagePickerControllerDelegate, UINavigati
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
         if let pickedImage = info[.originalImage] as? UIImage {
-            //guard let delegate = delegate else {return}
-            //delegate.photoPickerSelected(image: pickedImage)
+            guard let delegate = PhotoPickerViewController.delegate else {return}
+            delegate.photoPickerSelected(image: pickedImage)
             photoImageView.image = pickedImage
-            
         }
         picker.dismiss(animated: true, completion: nil)
     }
-}
+}//End of class
 
 

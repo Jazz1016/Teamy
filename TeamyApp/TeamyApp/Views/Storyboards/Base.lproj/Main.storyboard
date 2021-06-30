@@ -831,7 +831,7 @@
                                 <rect key="frame" x="0.0" y="184" width="414" height="678"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="167" id="3bb-Tg-KNL" customClass="PlayerTableViewCell" customModule="TeamyApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="playerCell" rowHeight="167" id="3bb-Tg-KNL" customClass="PlayerTableViewCell" customModule="TeamyApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="167"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3bb-Tg-KNL" id="A46-Gj-1rd">
@@ -922,6 +922,9 @@
                                                                 <constraint firstAttribute="width" constant="40" id="IrR-O3-igM"/>
                                                             </constraints>
                                                             <state key="normal" title="Save"/>
+                                                            <connections>
+                                                                <action selector="saveEditButtonTapped:" destination="3bb-Tg-KNL" eventType="touchUpInside" id="pkZ-x7-xFI"/>
+                                                            </connections>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
@@ -933,14 +936,13 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="jerseyNumber" destination="jHC-oO-ffg" id="Acz-sY-Iuh"/>
+                                            <outlet property="jerseyNumberLabel" destination="jHC-oO-ffg" id="Acz-sY-Iuh"/>
                                             <outlet property="jerseyNumberTextField" destination="QAp-FK-ahQ" id="FGk-PT-z1m"/>
-                                            <outlet property="playerName" destination="KPx-m0-VfW" id="Ifi-HE-oze"/>
+                                            <outlet property="playerNameLabel" destination="KPx-m0-VfW" id="Ifi-HE-oze"/>
                                             <outlet property="playerNameTextField" destination="GDa-md-IlZ" id="mb9-4Q-1W7"/>
-                                            <outlet property="playerRole" destination="Xji-hm-74u" id="rcK-ls-DK2"/>
+                                            <outlet property="playerRoleLabel" destination="Xji-hm-74u" id="rcK-ls-DK2"/>
                                             <outlet property="playerRoleTextField" destination="ezY-h4-4xR" id="7rk-jH-mXf"/>
                                             <outlet property="saveEditButton" destination="KTV-sN-Qdd" id="jRo-fw-3EZ"/>
-                                            <outlet property="saveEditButtonTapped" destination="KTV-sN-Qdd" id="g0X-RG-QEy"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -979,6 +981,7 @@
                     <navigationItem key="navigationItem" id="unT-UO-HhL"/>
                     <connections>
                         <outlet property="addNewPlayerButton" destination="wTi-Rd-4oP" id="oO5-sl-GgC"/>
+                        <outlet property="rosterTableView" destination="7fT-oN-1rg" id="IgZ-SJ-B2o"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qEb-f2-lqt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
