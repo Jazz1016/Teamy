@@ -49,6 +49,22 @@
 		AA5E56122686671B00A8C3E7 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E56112686671B00A8C3E7 /* SearchTableViewController.swift */; };
 		AA662E6926838F670061145E /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA662E6826838F670061145E /* EventController.swift */; };
 		AA662E6B2683DC930061145E /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA662E6A2683DC930061145E /* DateFormatter.swift */; };
+		AC082FF6268BE9AF001C7D67 /* TeamNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC082FF4268BE9AF001C7D67 /* TeamNameTableViewCell.swift */; };
+		AC082FF7268BE9AF001C7D67 /* TeamNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC082FF5268BE9AF001C7D67 /* TeamNameTableViewCell.xib */; };
+		AC082FFA268BE9CE001C7D67 /* TeamBioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC082FF8268BE9CE001C7D67 /* TeamBioTableViewCell.swift */; };
+		AC082FFB268BE9CE001C7D67 /* TeamBioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC082FF9268BE9CE001C7D67 /* TeamBioTableViewCell.xib */; };
+		AC082FFE268BE9E3001C7D67 /* CoachsBioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC082FFC268BE9E3001C7D67 /* CoachsBioTableViewCell.swift */; };
+		AC082FFF268BE9E3001C7D67 /* CoachsBioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC082FFD268BE9E3001C7D67 /* CoachsBioTableViewCell.xib */; };
+		AC083002268BE9F9001C7D67 /* TeamColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC083000268BE9F9001C7D67 /* TeamColorTableViewCell.swift */; };
+		AC083003268BE9F9001C7D67 /* TeamColorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC083001268BE9F9001C7D67 /* TeamColorTableViewCell.xib */; };
+		AC083006268BEA38001C7D67 /* TeamEventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC083004268BEA38001C7D67 /* TeamEventsTableViewCell.swift */; };
+		AC083007268BEA38001C7D67 /* TeamEventsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC083005268BEA38001C7D67 /* TeamEventsTableViewCell.xib */; };
+		AC08300A268BEA7F001C7D67 /* TeamAnnouncementsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC083008268BEA7F001C7D67 /* TeamAnnouncementsTableViewCell.swift */; };
+		AC08300B268BEA7F001C7D67 /* TeamAnnouncementsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC083009268BEA7F001C7D67 /* TeamAnnouncementsTableViewCell.xib */; };
+		AC08300E268BEAA6001C7D67 /* AdminMembersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC08300C268BEAA6001C7D67 /* AdminMembersTableViewCell.swift */; };
+		AC08300F268BEAA6001C7D67 /* AdminMembersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC08300D268BEAA6001C7D67 /* AdminMembersTableViewCell.xib */; };
+		AC083012268BEAC0001C7D67 /* TeamMembersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC083010268BEAC0001C7D67 /* TeamMembersTableViewCell.swift */; };
+		AC083013268BEAC0001C7D67 /* TeamMembersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC083011268BEAC0001C7D67 /* TeamMembersTableViewCell.xib */; };
 		AC239763268A42E00099E075 /* UIColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC239762268A42E00099E075 /* UIColorConverter.swift */; };
 		ACC9759726810FBA000C3593 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC9759626810FBA000C3593 /* AppDelegate.swift */; };
 		ACC9759926810FBA000C3593 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC9759826810FBA000C3593 /* SceneDelegate.swift */; };
@@ -105,6 +121,22 @@
 		AA5E56112686671B00A8C3E7 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		AA662E6826838F670061145E /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
 		AA662E6A2683DC930061145E /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		AC082FF4268BE9AF001C7D67 /* TeamNameTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamNameTableViewCell.swift; sourceTree = "<group>"; };
+		AC082FF5268BE9AF001C7D67 /* TeamNameTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamNameTableViewCell.xib; sourceTree = "<group>"; };
+		AC082FF8268BE9CE001C7D67 /* TeamBioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamBioTableViewCell.swift; sourceTree = "<group>"; };
+		AC082FF9268BE9CE001C7D67 /* TeamBioTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamBioTableViewCell.xib; sourceTree = "<group>"; };
+		AC082FFC268BE9E3001C7D67 /* CoachsBioTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoachsBioTableViewCell.swift; sourceTree = "<group>"; };
+		AC082FFD268BE9E3001C7D67 /* CoachsBioTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CoachsBioTableViewCell.xib; sourceTree = "<group>"; };
+		AC083000268BE9F9001C7D67 /* TeamColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamColorTableViewCell.swift; sourceTree = "<group>"; };
+		AC083001268BE9F9001C7D67 /* TeamColorTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamColorTableViewCell.xib; sourceTree = "<group>"; };
+		AC083004268BEA38001C7D67 /* TeamEventsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamEventsTableViewCell.swift; sourceTree = "<group>"; };
+		AC083005268BEA38001C7D67 /* TeamEventsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamEventsTableViewCell.xib; sourceTree = "<group>"; };
+		AC083008268BEA7F001C7D67 /* TeamAnnouncementsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamAnnouncementsTableViewCell.swift; sourceTree = "<group>"; };
+		AC083009268BEA7F001C7D67 /* TeamAnnouncementsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamAnnouncementsTableViewCell.xib; sourceTree = "<group>"; };
+		AC08300C268BEAA6001C7D67 /* AdminMembersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminMembersTableViewCell.swift; sourceTree = "<group>"; };
+		AC08300D268BEAA6001C7D67 /* AdminMembersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdminMembersTableViewCell.xib; sourceTree = "<group>"; };
+		AC083010268BEAC0001C7D67 /* TeamMembersTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamMembersTableViewCell.swift; sourceTree = "<group>"; };
+		AC083011268BEAC0001C7D67 /* TeamMembersTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeamMembersTableViewCell.xib; sourceTree = "<group>"; };
 		AC239762268A42E00099E075 /* UIColorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorConverter.swift; sourceTree = "<group>"; };
 		ACC9759326810FBA000C3593 /* TeamyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC9759626810FBA000C3593 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -210,6 +242,12 @@
 			isa = PBXGroup;
 			children = (
 				0DB2B2CC2689119A003F9EF9 /* placeHolderflksafhksa.swift */,
+				0D594780268A1DAF00A9DA0F /* ContactCellTableViewCell.swift */,
+				0D594782268A1DBD00A9DA0F /* RosterCellTableViewCell.swift */,
+				0D594784268A1DD600A9DA0F /* AnnounceTableViewCell.swift */,
+				0D594786268A1E1C00A9DA0F /* ManageTeamTableViewCell.swift */,
+				0D59478D268ABF6700A9DA0F /* AddEventTableViewCell.swift */,
+				AC083014268BEADB001C7D67 /* TeamManagerCustomCells */,
 			);
 			path = ManageTeamTVCells;
 			sourceTree = "<group>";
@@ -221,6 +259,29 @@
 				AA5E56112686671B00A8C3E7 /* SearchTableViewController.swift */,
 			);
 			path = MapViewControllers;
+			sourceTree = "<group>";
+		};
+		AC083014268BEADB001C7D67 /* TeamManagerCustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				AC082FF4268BE9AF001C7D67 /* TeamNameTableViewCell.swift */,
+				AC082FF5268BE9AF001C7D67 /* TeamNameTableViewCell.xib */,
+				AC082FF8268BE9CE001C7D67 /* TeamBioTableViewCell.swift */,
+				AC082FF9268BE9CE001C7D67 /* TeamBioTableViewCell.xib */,
+				AC082FFC268BE9E3001C7D67 /* CoachsBioTableViewCell.swift */,
+				AC082FFD268BE9E3001C7D67 /* CoachsBioTableViewCell.xib */,
+				AC083000268BE9F9001C7D67 /* TeamColorTableViewCell.swift */,
+				AC083001268BE9F9001C7D67 /* TeamColorTableViewCell.xib */,
+				AC083004268BEA38001C7D67 /* TeamEventsTableViewCell.swift */,
+				AC083005268BEA38001C7D67 /* TeamEventsTableViewCell.xib */,
+				AC083008268BEA7F001C7D67 /* TeamAnnouncementsTableViewCell.swift */,
+				AC083009268BEA7F001C7D67 /* TeamAnnouncementsTableViewCell.xib */,
+				AC08300C268BEAA6001C7D67 /* AdminMembersTableViewCell.swift */,
+				AC08300D268BEAA6001C7D67 /* AdminMembersTableViewCell.xib */,
+				AC083010268BEAC0001C7D67 /* TeamMembersTableViewCell.swift */,
+				AC083011268BEAC0001C7D67 /* TeamMembersTableViewCell.xib */,
+			);
+			path = TeamManagerCustomCells;
 			sourceTree = "<group>";
 		};
 		ACC9758A26810FBA000C3593 = {
@@ -417,9 +478,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACC975A326810FBC000C3593 /* LaunchScreen.storyboard in Resources */,
+				AC08300F268BEAA6001C7D67 /* AdminMembersTableViewCell.xib in Resources */,
+				AC08300B268BEA7F001C7D67 /* TeamAnnouncementsTableViewCell.xib in Resources */,
+				AC082FFF268BE9E3001C7D67 /* CoachsBioTableViewCell.xib in Resources */,
 				ACC975A026810FBC000C3593 /* Assets.xcassets in Resources */,
 				ACC975BE26811868000C3593 /* GoogleService-Info.plist in Resources */,
+				AC083003268BE9F9001C7D67 /* TeamColorTableViewCell.xib in Resources */,
 				ACC9759E26810FBA000C3593 /* Main.storyboard in Resources */,
+				AC083007268BEA38001C7D67 /* TeamEventsTableViewCell.xib in Resources */,
+				AC082FF7268BE9AF001C7D67 /* TeamNameTableViewCell.xib in Resources */,
+				AC083013268BEAC0001C7D67 /* TeamMembersTableViewCell.xib in Resources */,
+				AC082FFB268BE9CE001C7D67 /* TeamBioTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,11 +544,13 @@
 				AA662E6B2683DC930061145E /* DateFormatter.swift in Sources */,
 				ACC975B926811389000C3593 /* CustomViewsPlaceholder.swift in Sources */,
 				AC239763268A42E00099E075 /* UIColorConverter.swift in Sources */,
+				AC08300A268BEA7F001C7D67 /* TeamAnnouncementsTableViewCell.swift in Sources */,
 				ACC975AD26811157000C3593 /* HelpersPlaceholders.swift in Sources */,
 				0D1032452681502200136C9A /* JoinTeamViewController.swift in Sources */,
 				ACC9759726810FBA000C3593 /* AppDelegate.swift in Sources */,
 				AA662E6926838F670061145E /* EventController.swift in Sources */,
 				0D02DD5426854B450039EC0B /* AnnouncementController.swift in Sources */,
+				AC083002268BE9F9001C7D67 /* TeamColorTableViewCell.swift in Sources */,
 				0DB2B2CD2689119A003F9EF9 /* placeHolderflksafhksa.swift in Sources */,
 				0D10323A26814C9800136C9A /* AuthViewController.swift in Sources */,
 				0D10323D26814CC500136C9A /* LoginViewController.swift in Sources */,
@@ -487,6 +558,7 @@
 				0D594785268A1DD600A9DA0F /* AnnounceTableViewCell.swift in Sources */,
 				0D594787268A1E1C00A9DA0F /* ManageTeamTableViewCell.swift in Sources */,
 				0D02DD5226854B340039EC0B /* ContactController.swift in Sources */,
+				AC082FF6268BE9AF001C7D67 /* TeamNameTableViewCell.swift in Sources */,
 				0D02DD4926853DBF0039EC0B /* Contact.swift in Sources */,
 				0D94E18726823F8E005602ED /* TeamController.swift in Sources */,
 				ACC9759926810FBA000C3593 /* SceneDelegate.swift in Sources */,
@@ -494,9 +566,12 @@
 				0D94E18B26824025005602ED /* Team.swift in Sources */,
 				AA5E56102686670E00A8C3E7 /* SearchViewController.swift in Sources */,
 				0D02DD4D26853E780039EC0B /* Player.swift in Sources */,
+				AC083012268BEAC0001C7D67 /* TeamMembersTableViewCell.swift in Sources */,
+				AC083006268BEA38001C7D67 /* TeamEventsTableViewCell.swift in Sources */,
 				0D59478C268AB7FA00A9DA0F /* EventDetailViewController.swift in Sources */,
 				0D10323F26814CD300136C9A /* SignUpViewController.swift in Sources */,
 				79CF316D26864020005ECEC8 /* PhotoPickerViewController.swift in Sources */,
+				AC082FFA268BE9CE001C7D67 /* TeamBioTableViewCell.swift in Sources */,
 				0D1032472681504100136C9A /* CreateNewTeamViewController.swift in Sources */,
 				0D02DD5626854B540039EC0B /* PlayerController.swift in Sources */,
 				0D594781268A1DAF00A9DA0F /* ContactCellTableViewCell.swift in Sources */,
@@ -506,6 +581,8 @@
 				0D59478E268ABF6700A9DA0F /* AddEventTableViewCell.swift in Sources */,
 				0D02DD4B26853E6A0039EC0B /* Announcement.swift in Sources */,
 				ACC975B426811271000C3593 /* ModelControllersPlaceholder.swift in Sources */,
+				AC08300E268BEAA6001C7D67 /* AdminMembersTableViewCell.swift in Sources */,
+				AC082FFE268BE9E3001C7D67 /* CoachsBioTableViewCell.swift in Sources */,
 				0D59478A268AB76000A9DA0F /* RosterViewController.swift in Sources */,
 				0D94E18126823841005602ED /* EventTableViewCell.swift in Sources */,
 				0D94E17F2682336B005602ED /* TeamTableViewCell.swift in Sources */,
