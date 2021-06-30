@@ -38,6 +38,7 @@
 		0D94E19526828E3C005602ED /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E19426828E3C005602ED /* UserError.swift */; };
 		344A556C1CC49A28C2069EF5 /* Pods_TeamyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB8089433EFD9BD3ACCEF72 /* Pods_TeamyApp.framework */; };
 		79CF316D26864020005ECEC8 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CF316C26864020005ECEC8 /* PhotoPickerViewController.swift */; };
+		79D8F97C268D19E500691F2B /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D8F97B268D19E500691F2B /* UserSettingsViewController.swift */; };
 		AA5E56102686670E00A8C3E7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E560F2686670E00A8C3E7 /* SearchViewController.swift */; };
 		AA5E56122686671B00A8C3E7 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E56112686671B00A8C3E7 /* SearchTableViewController.swift */; };
 		AA662E6926838F670061145E /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA662E6826838F670061145E /* EventController.swift */; };
@@ -108,6 +109,7 @@
 		0D94E19226827AE4005602ED /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		0D94E19426828E3C005602ED /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
 		79CF316C26864020005ECEC8 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
+		79D8F97B268D19E500691F2B /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
 		AA5E560F2686670E00A8C3E7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AA5E56112686671B00A8C3E7 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		AA662E6826838F670061145E /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
@@ -341,6 +343,7 @@
 				0D1032482681515100136C9A /* HomeViewController.swift */,
 				0D10324A268152B900136C9A /* AdminTeamViewController.swift */,
 				0D94E18226823864005602ED /* CreateEventViewController.swift */,
+				79D8F97B268D19E500691F2B /* UserSettingsViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -528,6 +531,7 @@
 				ACC975AD26811157000C3593 /* HelpersPlaceholders.swift in Sources */,
 				0D1032452681502200136C9A /* JoinTeamViewController.swift in Sources */,
 				ACC9759726810FBA000C3593 /* AppDelegate.swift in Sources */,
+				79D8F97C268D19E500691F2B /* UserSettingsViewController.swift in Sources */,
 				AC083073268CE333001C7D67 /* ManageTeamTableViewCell.swift in Sources */,
 				AA662E6926838F670061145E /* EventController.swift in Sources */,
 				0D02DD5426854B450039EC0B /* AnnouncementController.swift in Sources */,
