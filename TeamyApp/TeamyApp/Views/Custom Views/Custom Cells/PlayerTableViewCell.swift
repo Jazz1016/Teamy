@@ -8,16 +8,28 @@
 import UIKit
 
 class PlayerTableViewCell: UITableViewCell {
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    // MARK: - Outlets
+    @IBOutlet weak var playerName: UILabel!
+    @IBOutlet weak var playerRole: UILabel!
+    @IBOutlet weak var jerseyNumber: UILabel!
+    @IBOutlet weak var playerNameTextField: UITextField!
+    @IBOutlet weak var playerRoleTextField: UITextField!
+    @IBOutlet weak var jerseyNumberTextField: UITextField!
+    @IBOutlet weak var saveEditButton: UIButton!
+    
+    // MARK: - Properties
+    var player: Player? {
+        didSet {
+            updateViews()
+        }
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    // MARK: - Actions
+    @IBOutlet weak var saveEditButtonTapped: UIButton!
+    
+    // MARK: - Functions
+    func updateViews(){
+        
     }
-
-}
+    
+}//End of class

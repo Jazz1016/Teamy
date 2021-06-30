@@ -36,7 +36,7 @@ class ManageTeamTableViewController: UITableViewController {
 
         // Configure the cell...
 
-        return cell
+        return cell ?? UITableViewCell()
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
