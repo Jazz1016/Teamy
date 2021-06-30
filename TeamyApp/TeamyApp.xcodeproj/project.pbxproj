@@ -242,12 +242,6 @@
 			isa = PBXGroup;
 			children = (
 				0DB2B2CC2689119A003F9EF9 /* placeHolderflksafhksa.swift */,
-				0D594780268A1DAF00A9DA0F /* ContactCellTableViewCell.swift */,
-				0D594782268A1DBD00A9DA0F /* RosterCellTableViewCell.swift */,
-				0D594784268A1DD600A9DA0F /* AnnounceTableViewCell.swift */,
-				0D594786268A1E1C00A9DA0F /* ManageTeamTableViewCell.swift */,
-				0D59478D268ABF6700A9DA0F /* AddEventTableViewCell.swift */,
-				AC083014268BEADB001C7D67 /* TeamManagerCustomCells */,
 			);
 			path = ManageTeamTVCells;
 			sourceTree = "<group>";
