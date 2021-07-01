@@ -65,7 +65,6 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        //Ethan - changed = to >=
             if section == 0 {
                 return nil
             } else if section == 1 {

@@ -77,14 +77,16 @@ class UserController {
         })
     }
     
-    func deleteUser() {
+    func deleteUser(completion: @escaping (Result<Bool, Error>) -> Void) {
         let user = Auth.auth().currentUser
         
         user?.delete(completion: { error in
             if let error = error {
                 print("And error has occured")
+                completion(.failure(error))
             } else {
-                print("Accounte successfully deleted")
+                print("Account successfully deleted")
+                completion(.success(true))
             }
         })
     }

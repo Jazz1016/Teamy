@@ -78,7 +78,7 @@ class EventController {
         }
     }
     
-    public func getCoordinate(addressString: String, completion: @escaping (CLLocationCoordinate2D, NSError?) -> Void) {
+    func getCoordinate(addressString: String, completion: @escaping (CLLocationCoordinate2D, NSError?) -> Void) {
         let geocoder = CLGeocoder()
         geocoder.geocodeAddressString(addressString) { placemarks, error in
             if error == nil {

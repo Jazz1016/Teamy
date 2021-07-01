@@ -31,8 +31,10 @@ class EventDetailViewController: UIViewController {
     var event: Event?
     
     @IBAction func editEventButtonTapped(_ sender: Any) {
-        //
         
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "createEventVC") else {return}
+        present(vc, animated: true)
+  
     }
     
     @IBAction func openInMapsButtonTapped(_ sender: Any) {
@@ -60,7 +62,7 @@ class EventDetailViewController: UIViewController {
     }
     
     func displayOnMapView() {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             guard let address = self.eventAddressLabel.text else {return}
             EventController.shared.getCoordinate(addressString: address) { coordinates, error in
                 if let error = error {
