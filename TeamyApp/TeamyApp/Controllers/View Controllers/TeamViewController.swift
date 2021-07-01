@@ -17,7 +17,6 @@ class TeamViewController: UIViewController {
         eventsTableView.dataSource = self
     }
     
-    
     // MARK: - Properties
     var team: Team? {
         didSet {
@@ -57,15 +56,10 @@ class TeamViewController: UIViewController {
 
 extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        if AnnouncementController.shared.announcements.count > 0 {
-            return 3
-        } else {
-            return 2
-        }
+        return 3
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if AnnouncementController.shared.announcements.count > 0 {
             if section == 0 {
                 return nil
             } else if section == 1 {
@@ -73,13 +67,6 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
             } else {
                 return "Events"
             }
-        } else {
-            if section == 0 {
-                return nil
-            } else {
-                return "Events"
-            }
-        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
