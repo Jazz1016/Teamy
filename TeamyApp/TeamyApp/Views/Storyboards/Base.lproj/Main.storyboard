@@ -868,11 +868,11 @@
                                             <action selector="openInMapsButtonTapped:" destination="mtT-WT-oCK" eventType="touchUpInside" id="Iqs-st-tZY"/>
                                         </connections>
                                     </button>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="PNM-PY-dBt">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="PNM-PY-dBt">
                                         <rect key="frame" x="0.0" y="62" width="373" height="152.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdt-xr-jwf">
-                                                <rect key="frame" x="0.0" y="0.0" width="52" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="373" height="20.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
