@@ -23,7 +23,16 @@ class CreateEventViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        lookPretty()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        hideLabels()
         
+        if eventAddressLabel.text != "Event Address" {
+            addLocationButton.setTitle("Change Location", for: .normal)
+//            eventLocationNameLabel.isHidden = false
+        }
     }
     
     //MARK: - Actions
@@ -45,7 +54,20 @@ class CreateEventViewController: UIViewController {
     }
     
     //MARK: - Functions
+    func hideLabels() {
+        eventAddressLabel.isHidden = true
+        
+        if eventLocationNameLabel.text == "Event Location Name" {
+            eventLocationNameLabel.isHidden = true
+        }
+    }
     
+    func lookPretty() {
+        eventNotesTextView.layer.borderWidth = 1
+        eventNotesTextView.layer.borderColor = CGColor(gray: 0, alpha: 0.2)
+        eventNotesTextView.layer.cornerRadius = 10
+        mapView.layer.cornerRadius = 10
+    }
     
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

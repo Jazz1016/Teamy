@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseFirestore
+import MapKit
 
 class EventController {
     
@@ -77,4 +78,19 @@ class EventController {
         }
     }
     
+    public func getCoordinate(addressString: String, completion: @escaping (CLLocationCoordinate2D, NSError?) -> Void) {
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(addressString) { placemarks, error in
+            if error == nil {
+                if let placemark = placemarks?[0] {
+                    let location = placemark.location!
+                    
+                    completion(location.coordinate, nil)
+                    return
+                    
+                }
+            }
+        }
+    }
+  
 }
