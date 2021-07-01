@@ -1194,7 +1194,7 @@
             </objects>
             <point key="canvasLocation" x="4415.9420289855079" y="787.5"/>
         </scene>
-        <!--Manage Team Table View Controller-->
+        <!--Manage Team-->
         <scene sceneID="PKh-mr-BxA">
             <objects>
                 <tableViewController id="u2x-RG-ioy" customClass="ManageTeamTableViewController" customModule="TeamyApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -1248,7 +1248,7 @@
                             <outlet property="delegate" destination="u2x-RG-ioy" id="dfL-63-xk1"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="3OB-jp-pJa"/>
+                    <navigationItem key="navigationItem" title="Manage Team" id="3OB-jp-pJa"/>
                     <connections>
                         <outlet property="welcomeLabel" destination="x0f-Gp-VcQ" id="JG8-Yr-wyA"/>
                     </connections>
