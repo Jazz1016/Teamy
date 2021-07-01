@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseFirestore
+import Firebase
 
 class UserController {
     static let shared = UserController()
@@ -50,6 +51,42 @@ class UserController {
                 return}
         }
         
+    }
+    
+    func updateUser(firstName: String, lastName: String, password: String) {
+        let changeRequset = Auth.auth().currentUser?.createProfileChangeRequest()
+        changeRequset?.displayName = "\(firstName) \(lastName)"
+        changeRequset?.commitChanges(completion: { error in
+            if let error = error {
+                print("An error has occured")
+            } else {
+                print("Account successfully updateds")
+            }
+        })
+        
+        
+    }
+    
+    func updatePassword(password: String) {
+        Auth.auth().currentUser?.updatePassword(to: password, completion: { error in
+            if let error = error {
+                print("An error has occured")
+            } else {
+                print("Account successfully updated")
+            }
+        })
+    }
+    
+    func deleteUser() {
+        let user = Auth.auth().currentUser
+        
+        user?.delete(completion: { error in
+            if let error = error {
+                print("And error has occured")
+            } else {
+                print("Accounte successfully deleted")
+            }
+        })
     }
     
     func inviteUserToTeam(userEmail: String, teamId: String){

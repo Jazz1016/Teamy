@@ -9,6 +9,8 @@ import UIKit
 
 class ManageTeamTableViewController: UITableViewController {
 
+    @IBOutlet weak var welcomeLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
