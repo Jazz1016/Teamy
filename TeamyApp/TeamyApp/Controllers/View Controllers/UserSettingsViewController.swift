@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 //MARK: - Class
 
@@ -27,10 +28,17 @@ class UserSettingsViewController: UIViewController {
 //MARK: - Actions
 
     @IBAction func logoutButtonTapped(_ sender: Any) {
-        
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
     }
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
+        UserController.shared.deleteUser()
+       
     }
     
     /*
