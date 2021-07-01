@@ -38,7 +38,6 @@ class UserSettingsViewController: UIViewController {
     }
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
-        UserController.shared.deleteUser()
        
     }
     
@@ -46,10 +45,13 @@ class UserSettingsViewController: UIViewController {
     @IBAction func saveChangesButtonTapped(_ sender: Any) {
         guard let password = passwordTextField.text else {return}
         UserController.shared.updatePassword(password: password)
+        guard let email = Auth.auth().currentUser?.email,
+              let firstName = firstNameTextField.text,
+              let lastName = lastNameTextField.text,
+              let userId = Auth.auth().currentUser?.uid else {return}
+              let user = User(email: email, firstName: firstName, lastName: lastName, userId: userId )
         
-        guard let firstName = firstNameTextField.text,
-              let lastName = lastNameTextField.text else {return}
-        UserController.shared.updateUser(firstName: firstName, lastName: lastName)
+        UserController.shared.updateUser(user: user)
     }
     
     /*
