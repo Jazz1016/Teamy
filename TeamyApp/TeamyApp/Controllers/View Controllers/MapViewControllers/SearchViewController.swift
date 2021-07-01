@@ -53,6 +53,9 @@ class SearchViewController: UIViewController {
         navigationItem.searchController = resultSearchController
         
         resultSearchController?.hidesNavigationBarDuringPresentation = false
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
+            self.resultSearchController?.searchBar.becomeFirstResponder()
+        }
         definesPresentationContext = true
         
         locationSearchTable?.mapView = mapView

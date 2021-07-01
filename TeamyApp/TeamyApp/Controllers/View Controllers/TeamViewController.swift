@@ -57,7 +57,8 @@ class TeamViewController: UIViewController {
 
 extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        if AnnouncementController.shared.announcements.count > 0 {
+        //Ethan - I changed the below code from = to >= so I could view the Event cells
+        if AnnouncementController.shared.announcements.count >= 0 {
             return 3
         } else {
             return 2
@@ -65,7 +66,8 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        if AnnouncementController.shared.announcements.count > 0 {
+        //Ethan - changed = to >=
+        if AnnouncementController.shared.announcements.count >= 0 {
             if section == 0 {
                 return nil
             } else if section == 1 {
@@ -200,4 +202,13 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
 //            tableView.deleteRows(at: [indexPath], with: .fade)
 //        }
 //    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toEventDetailVC" {
+            guard let indexPath = eventsTableView.indexPathForSelectedRow else {return}
+            guard let destinationVC = segue.destination as? EventDetailViewController else {return}
+            let eventToSend = EventController.shared.events[indexPath.row]
+            destinationVC.event = eventToSend
+        }
+    }
 }//End of extension
