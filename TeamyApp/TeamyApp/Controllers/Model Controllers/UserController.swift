@@ -53,17 +53,14 @@ class UserController {
         
     }
     
-    func updateUser(firstName: String, lastName: String) {
-        let changeRequset = Auth.auth().currentUser?.createProfileChangeRequest()
-        changeRequset?.displayName = "\(firstName) \(lastName)"
-        changeRequset?.commitChanges(completion: { error in
-            if let error = error {
-                print("An error has occured")
-            } else {
-                print("Account successfully updateds")
-            }
-        })
-        
+    func updateUser(user: User) {
+        db.collection("users").document(user.userId).setData([
+            "email" : user.email,
+            "firstName" : user.firstName,
+            "lastName" : user.lastName,
+            "teams" : user.teams,
+            "userId" : user.userId
+        ], merge: true)
         
     }
     
