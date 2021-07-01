@@ -66,7 +66,6 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         //Ethan - changed = to >=
-        if AnnouncementController.shared.announcements.count >= 0 {
             if section == 0 {
                 return nil
             } else if section == 1 {
@@ -204,3 +203,4 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }//End of extension
+
