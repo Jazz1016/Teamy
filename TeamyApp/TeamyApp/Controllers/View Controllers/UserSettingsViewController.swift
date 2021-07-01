@@ -31,6 +31,7 @@ class UserSettingsViewController: UIViewController {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
+            navigationController?.popToRootViewController(animated: true)
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
         }
@@ -39,6 +40,16 @@ class UserSettingsViewController: UIViewController {
     @IBAction func deleteButtonTapped(_ sender: Any) {
         UserController.shared.deleteUser()
        
+    }
+    
+    
+    @IBAction func saveChangesButtonTapped(_ sender: Any) {
+        guard let password = passwordTextField.text else {return}
+        UserController.shared.updatePassword(password: password)
+        
+        guard let firstName = firstNameTextField.text,
+              let lastName = lastNameTextField.text else {return}
+        UserController.shared.updateUser(firstName: firstName, lastName: lastName)
     }
     
     /*
