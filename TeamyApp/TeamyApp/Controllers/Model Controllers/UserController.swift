@@ -53,7 +53,7 @@ class UserController {
         
     }
     
-    func updateUser(firstName: String, lastName: String, password: String) {
+    func updateUser(firstName: String, lastName: String) {
         let changeRequset = Auth.auth().currentUser?.createProfileChangeRequest()
         changeRequset?.displayName = "\(firstName) \(lastName)"
         changeRequset?.commitChanges(completion: { error in

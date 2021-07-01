@@ -1131,7 +1131,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMy-QG-Dg6">
-                                <rect key="frame" x="105" y="617" width="55" height="30"/>
+                                <rect key="frame" x="59" y="617" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Log Out"/>
                                 <connections>
@@ -1139,7 +1139,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnl-Gn-fMU">
-                                <rect key="frame" x="231" y="617" width="93" height="30"/>
+                                <rect key="frame" x="280" y="617" width="93" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Delete Profile"/>
                                 <connections>
@@ -1171,6 +1171,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tr6-hH-vdw">
+                                <rect key="frame" x="155" y="617" width="98" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save Changes"/>
+                                <connections>
+                                    <action selector="saveChangesButtonTapped:" destination="Mes-Zw-jY8" eventType="touchUpInside" id="Ave-ra-sbt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XP8-ZO-bof"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1252,7 +1260,7 @@
         <!--Create Event View Controller-->
         <scene sceneID="DlW-er-5Rb">
             <objects>
-                <viewController id="YXJ-wP-eEm" customClass="CreateEventViewController" customModule="TeamyApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="createEventVC" id="YXJ-wP-eEm" customClass="CreateEventViewController" customModule="TeamyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QzZ-1M-FiS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
