@@ -66,10 +66,8 @@
 		AC083090268CE409001C7D67 /* TeamEventsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC083080268CE408001C7D67 /* TeamEventsTableViewCell.xib */; };
 		AC083091268CE409001C7D67 /* TeamAnnouncementsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC083081268CE408001C7D67 /* TeamAnnouncementsTableViewCell.swift */; };
 		AC083092268CE409001C7D67 /* TeamAnnouncementsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC083082268CE409001C7D67 /* TeamAnnouncementsTableViewCell.xib */; };
-		AC083093268CE409001C7D67 /* TeamColorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC083083268CE409001C7D67 /* TeamColorTableViewCell.xib */; };
-		AC083094268CE409001C7D67 /* TeamColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC083084268CE409001C7D67 /* TeamColorTableViewCell.swift */; };
 		AC239763268A42E00099E075 /* UIColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC239762268A42E00099E075 /* UIColorConverter.swift */; };
-		AC54AC3E268F75A5007EF074 /* EditUIColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC54AC3D268F75A5007EF074 /* EditUIColorPickerViewController.swift */; };
+		ACC26F6C268FAE33000581B4 /* EditTeamColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC26F6B268FAE33000581B4 /* EditTeamColorTableViewCell.swift */; };
 		ACC9759726810FBA000C3593 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC9759626810FBA000C3593 /* AppDelegate.swift */; };
 		ACC9759926810FBA000C3593 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC9759826810FBA000C3593 /* SceneDelegate.swift */; };
 		ACC9759E26810FBA000C3593 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACC9759C26810FBA000C3593 /* Main.storyboard */; };
@@ -142,10 +140,8 @@
 		AC083080268CE408001C7D67 /* TeamEventsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeamEventsTableViewCell.xib; path = "TeamyApp/Views/Custom Views/TeamManagerCustomCells/TeamEventsTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		AC083081268CE408001C7D67 /* TeamAnnouncementsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamAnnouncementsTableViewCell.swift; path = "TeamyApp/Views/Custom Views/TeamManagerCustomCells/TeamAnnouncementsTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		AC083082268CE409001C7D67 /* TeamAnnouncementsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeamAnnouncementsTableViewCell.xib; path = "TeamyApp/Views/Custom Views/TeamManagerCustomCells/TeamAnnouncementsTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
-		AC083083268CE409001C7D67 /* TeamColorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeamColorTableViewCell.xib; path = "TeamyApp/Views/Custom Views/TeamManagerCustomCells/TeamColorTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
-		AC083084268CE409001C7D67 /* TeamColorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamColorTableViewCell.swift; path = "TeamyApp/Views/Custom Views/TeamManagerCustomCells/TeamColorTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		AC239762268A42E00099E075 /* UIColorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorConverter.swift; sourceTree = "<group>"; };
-		AC54AC3D268F75A5007EF074 /* EditUIColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUIColorPickerViewController.swift; sourceTree = "<group>"; };
+		ACC26F6B268FAE33000581B4 /* EditTeamColorTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTeamColorTableViewCell.swift; sourceTree = "<group>"; };
 		ACC9759326810FBA000C3593 /* TeamyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC9759626810FBA000C3593 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACC9759826810FBA000C3593 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -235,6 +231,7 @@
 				0D54C575268BD68400934307 /* PlayerTableViewCell.swift */,
 				0D70A97F268F646900F82081 /* AddPlayerTableViewCell.swift */,
 				0D70A983268F680700F82081 /* CreateTeamTableViewCell.swift */,
+				ACC26F6B268FAE33000581B4 /* EditTeamColorTableViewCell.swift */,
 			);
 			path = "Custom Cells";
 			sourceTree = "<group>";
@@ -268,8 +265,6 @@
 				AC083082268CE409001C7D67 /* TeamAnnouncementsTableViewCell.xib */,
 				AC083078268CE408001C7D67 /* TeamBioTableViewCell.swift */,
 				AC08307B268CE408001C7D67 /* TeamBioTableViewCell.xib */,
-				AC083084268CE409001C7D67 /* TeamColorTableViewCell.swift */,
-				AC083083268CE409001C7D67 /* TeamColorTableViewCell.xib */,
 				AC083079268CE408001C7D67 /* TeamEventsTableViewCell.swift */,
 				AC083080268CE408001C7D67 /* TeamEventsTableViewCell.xib */,
 				AC083077268CE408001C7D67 /* TeamMembersTableViewCell.swift */,
@@ -358,7 +353,6 @@
 				0D94E18226823864005602ED /* CreateEventViewController.swift */,
 				79D8F97B268D19E500691F2B /* UserSettingsViewController.swift */,
 				0D70A97B268E7FB200F82081 /* CodeModalViewController.swift */,
-				AC54AC3D268F75A5007EF074 /* EditUIColorPickerViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -476,7 +470,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AC083093268CE409001C7D67 /* TeamColorTableViewCell.xib in Resources */,
 				AC08308C268CE409001C7D67 /* TeamNameTableViewCell.xib in Resources */,
 				AC083092268CE409001C7D67 /* TeamAnnouncementsTableViewCell.xib in Resources */,
 				AC08308F268CE409001C7D67 /* TeamMembersTableViewCell.xib in Resources */,
@@ -542,7 +535,6 @@
 			files = (
 				AA662E6B2683DC930061145E /* DateFormatter.swift in Sources */,
 				ACC975B926811389000C3593 /* CustomViewsPlaceholder.swift in Sources */,
-				AC54AC3E268F75A5007EF074 /* EditUIColorPickerViewController.swift in Sources */,
 				AC239763268A42E00099E075 /* UIColorConverter.swift in Sources */,
 				ACC975AD26811157000C3593 /* HelpersPlaceholders.swift in Sources */,
 				0D1032452681502200136C9A /* JoinTeamViewController.swift in Sources */,
@@ -560,7 +552,6 @@
 				ACC9759926810FBA000C3593 /* SceneDelegate.swift in Sources */,
 				AA5E56122686671B00A8C3E7 /* SearchTableViewController.swift in Sources */,
 				0D94E18B26824025005602ED /* Team.swift in Sources */,
-				AC083094268CE409001C7D67 /* TeamColorTableViewCell.swift in Sources */,
 				AC083070268CE333001C7D67 /* ContactCellTableViewCell.swift in Sources */,
 				AA5E56102686670E00A8C3E7 /* SearchViewController.swift in Sources */,
 				0D02DD4D26853E780039EC0B /* Player.swift in Sources */,
@@ -585,6 +576,7 @@
 				AC083091268CE409001C7D67 /* TeamAnnouncementsTableViewCell.swift in Sources */,
 				AC083087268CE409001C7D67 /* TeamMembersTableViewCell.swift in Sources */,
 				0D1032492681515100136C9A /* HomeViewController.swift in Sources */,
+				ACC26F6C268FAE33000581B4 /* EditTeamColorTableViewCell.swift in Sources */,
 				ACFDD5322684DFB300640C0B /* ManageTeamTableViewController.swift in Sources */,
 				0D94E19326827AE4005602ED /* UserController.swift in Sources */,
 				0D10324126814FF600136C9A /* TeamViewController.swift in Sources */,
@@ -748,7 +740,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GBLS3NRRVU;
+				DEVELOPMENT_TEAM = 9XZY7N8QBS;
 				INFOPLIST_FILE = TeamyApp/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -769,7 +761,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = GBLS3NRRVU;
+				DEVELOPMENT_TEAM = 9XZY7N8QBS;
 				INFOPLIST_FILE = TeamyApp/Resources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -9,7 +9,7 @@ import Foundation
 
 class Team: Codable {
     let name: String
-    let teamColor: String
+    var teamColor: String
     let teamSport: String
     let teamDesc: TeamDescription
     var admins: [String]

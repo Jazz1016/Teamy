@@ -125,9 +125,8 @@ class CreateNewTeamViewController: UIViewController {
         if let uploadData = image.jpegData(compressionQuality: 0.75) {
             storageRef.putData(uploadData, metadata: nil) { (metaData, error) in
                 if let error = error {
-                    print("")
+                    print(error.localizedDescription)
                 }
-                print(metaData)
                 let size = metaData?.size
                 storageRef.downloadURL { (url, error) in
                     guard let downloadurl = url else {return}
@@ -161,7 +160,6 @@ extension CreateNewTeamViewController: UIColorPickerViewControllerDelegate {
         teamColorPicked = color.toHexString()
         selectColorButton.backgroundColor = UIColor.init(hexString: teamColorPicked)
         selectColorButton.setTitle("", for: .normal)
-        print(teamColorPicked)
     }
 }
 
