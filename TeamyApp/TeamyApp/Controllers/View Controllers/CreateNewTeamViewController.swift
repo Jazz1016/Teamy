@@ -41,7 +41,7 @@ class CreateNewTeamViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func selectColorButtonTapped(_ sender: Any) {
-        let colorPickerVC = EditUIColorPickerViewController()
+        let colorPickerVC = UIColorPickerViewController()
         colorPickerVC.delegate = self
         
         present(colorPickerVC, animated: true, completion: nil)
@@ -151,11 +151,11 @@ class CreateNewTeamViewController: UIViewController {
 
 //MARK: - Extensions
 extension CreateNewTeamViewController: UIColorPickerViewControllerDelegate {
-    func colorPickerViewControllerDidFinish(_ viewController: EditUIColorPickerViewController) {
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
         
     }
     
-    func colorPickerViewControllerDidSelectColor(_ viewController: EditUIColorPickerViewController) {
+    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
         //AnthonyByrd - Discuss with team which method to use
         let color = viewController.selectedColor
         teamColorPicked = color.toHexString()
