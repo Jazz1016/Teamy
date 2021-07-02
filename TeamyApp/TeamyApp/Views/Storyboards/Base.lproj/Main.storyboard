@@ -891,6 +891,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTg-8t-Yxs">
                                         <rect key="frame" x="0.0" y="106" width="177.5" height="30"/>
                                         <state key="normal" title="Reset Code"/>
+                                        <connections>
+                                            <action selector="resetCodeButtonTapped:" destination="2dk-Gj-wsd" eventType="touchUpInside" id="p3t-ag-iJL"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -909,6 +912,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="resetCodeButton" destination="ZTg-8t-Yxs" id="LkM-5K-lLf"/>
                         <outlet property="teamCodeLabel" destination="Cjm-iW-fuz" id="7vO-F1-N31"/>
                         <outlet property="teamCodeView" destination="3vs-5z-nOt" id="nbu-Hs-XPS"/>
                     </connections>

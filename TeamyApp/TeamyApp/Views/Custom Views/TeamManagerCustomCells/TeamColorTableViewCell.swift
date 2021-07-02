@@ -37,7 +37,7 @@ class TeamColorTableViewCell: UITableViewCell {
     }
     
     @IBAction func teamColorButtonTapped(_ sender: Any) {
-        let colorPickerVC = EditUIColorPickerViewController()
+        let colorPickerVC = UIColorPickerViewController()
         colorPickerVC.delegate = self
         
         print("color")
@@ -55,7 +55,7 @@ class TeamColorTableViewCell: UITableViewCell {
 //MARK: - Extension
 extension TeamColorTableViewCell: UIColorPickerViewControllerDelegate {
     
-    func colorPickerViewControllerDidSelectColor(_ viewController: EditUIColorPickerViewController) {
+    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
 
         let color = viewController.selectedColor
 
