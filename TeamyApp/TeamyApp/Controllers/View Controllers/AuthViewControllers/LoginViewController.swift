@@ -19,6 +19,11 @@ class LoginViewController: UIViewController {
         
     }
     
+    //MARK: - Actions
+    @IBAction func forgotPasswordButtonTapped(_ sender: Any) {
+    }
+    
+    //MARK: - Methods
     @IBAction func loginButtonWasTapped(_ sender: Any) {
         login()
     }

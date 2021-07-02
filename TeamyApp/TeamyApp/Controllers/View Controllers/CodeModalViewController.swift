@@ -11,8 +11,10 @@ class CodeModalViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var teamCodeLabel: UILabel!
     @IBOutlet weak var teamCodeView: UIView!
+    @IBOutlet weak var resetCodeButton: UIButton!
     
-    // MARK: - Lifecycle
+
+    //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,4 +55,8 @@ class CodeModalViewController: UIViewController {
         teamCodeLabel.text = randomNumString
     }
     
-}//End of class
+    @IBAction func resetCodeButtonTapped(_ sender: Any) {
+        
+    }
+    
+}

@@ -31,26 +31,111 @@ class UserSettingsViewController: UIViewController {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
-            navigationController?.popToRootViewController(animated: true)
+            guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() else {return}
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: true, completion: nil)
         } catch let signOutError as NSError {
             print("Error signing out: %@", signOutError)
         }
     }
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
-        UserController.shared.deleteUser()
-       
+            presentAlertToDeleteAccount()
     }
+    
+    func presentAlertToDeleteAccount() {
+        
+        let alert = UIAlertController(title: "Are you sure you want to delete?", message: "If so, please type your current password to delete account", preferredStyle: .alert)
+    
+        alert.addTextField { passwordTextfield in
+            passwordTextfield.placeholder = "Password"
+        }
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { _ in
+            
+            guard let password = alert.textFields?.first?.text, !password.isEmpty else {return}
+            self.reauthenticateUser(currentPassword: password)
+        }))
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
+
+    func presentAlertToChangePassword() {
+        let alert = UIAlertController(title: "Are you sure you want to change your password?", message: "If so, please type in your current passwordto delete account", preferredStyle: .alert)
+        
+        alert.addTextField { newPasswordTextField in
+            newPasswordTextField.placeholder = "New Password"
+        }
+        
+        alert.addTextField { confirmNewPassword in
+            confirmNewPassword.placeholder = "Confirm New Password"
+        }
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { _ in
+            guard let newPassword = alert.textFields?.first?.text, !newPassword.isEmpty,
+            let confirmNewPassword = alert.textFields?.last?.text, !confirmNewPassword.isEmpty
+            else {return}
+            if newPassword == confirmNewPassword {
+                UserController.shared.updatePassword(password: newPassword)
+            } else {
+                print("Passwords do not match")
+            }
+        }))
+        
+        present(alert, animated: true, completion: nil)
+            
+        }
+    
+    
+    
+    
+    func reauthenticateUser(currentPassword: String) {
+        
+        guard let email = Auth.auth().currentUser?.email else {return}
+            
+            let credentials = EmailAuthProvider.credential(withEmail: email, password: currentPassword)
+            
+            Auth.auth().currentUser?.reauthenticate(with: credentials, completion: { result, error in
+                if let error = error {
+                    print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                    print("Could not delete account")
+                }
+                if result != nil {
+                    print("Successfully deleted account")
+                    UserController.shared.deleteUser { result in
+                        switch result {
+                        case .success(_):
+                            guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() else {return}
+                            vc.modalPresentationStyle = .fullScreen
+                            self.present(vc, animated: true, completion: nil)
+                        case .failure(let error):
+                            print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                        }
+                    }
+                   
+                }
+            })
+            
+        }
+        
+    
     
     
     @IBAction func saveChangesButtonTapped(_ sender: Any) {
         guard let password = passwordTextField.text else {return}
         UserController.shared.updatePassword(password: password)
+        guard let email = Auth.auth().currentUser?.email,
+              let firstName = firstNameTextField.text,
+              let lastName = lastNameTextField.text,
+              let userId = Auth.auth().currentUser?.uid else {return}
+              let user = User(email: email, firstName: firstName, lastName: lastName, userId: userId )
         
-        guard let firstName = firstNameTextField.text,
-              let lastName = lastNameTextField.text else {return}
-        UserController.shared.updateUser(firstName: firstName, lastName: lastName)
+        UserController.shared.updateUser(user: user)
     }
+
     
     /*
     // MARK: - Navigation
