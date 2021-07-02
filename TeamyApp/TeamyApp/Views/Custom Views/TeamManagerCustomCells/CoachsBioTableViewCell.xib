@@ -43,6 +43,9 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="coachBioLabel" destination="BlF-pu-5mq" id="SKw-Vh-M7J"/>
+            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="117.85714285714285"/>
         </tableViewCell>
     </objects>

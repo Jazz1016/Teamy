@@ -19,33 +19,34 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="5cY-Sy-XfN">
-                        <rect key="frame" x="21" y="50.5" width="382" height="44.5"/>
+                        <rect key="frame" x="21" y="54" width="382" height="37.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="105" translatesAutoresizingMaskIntoConstraints="NO" id="ACQ-T5-dSb">
                                 <rect key="frame" x="0.0" y="0.0" width="364" height="33.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="500-jv-zil">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Admin Members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="500-jv-zil">
                                         <rect key="frame" x="0.0" y="6.5" width="225.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pK5-cQ-pNA">
-                                        <rect key="frame" x="330.5" y="4" width="33.5" height="25"/>
+                                        <rect key="frame" x="330.5" y="6.5" width="33.5" height="20.5"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="pK5-cQ-pNA" secondAttribute="height" multiplier="1:1" id="3EM-Jg-hz5"/>
                                         </constraints>
-                                        <imageReference key="image" image="arrow.right" catalog="system" symbolScale="medium"/>
+                                        <imageReference key="image" image="arrow.right" catalog="system" symbolScale="small"/>
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="28"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Q8-IW-yFk">
-                                <rect key="frame" x="0.0" y="33.5" width="218" height="11"/>
+                                <rect key="frame" x="0.0" y="33.5" width="218" height="4"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="11" id="iDW-yf-FHE"/>
+                                    <constraint firstAttribute="width" constant="218" id="2kc-mw-rMZ"/>
+                                    <constraint firstAttribute="height" constant="4" id="iDW-yf-FHE"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -61,6 +62,9 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="teamAccentColorView" destination="6Q8-IW-yFk" id="7s9-bj-NPM"/>
+            </connections>
             <point key="canvasLocation" x="213.04347826086959" y="148.32589285714286"/>
         </tableViewCell>
     </objects>

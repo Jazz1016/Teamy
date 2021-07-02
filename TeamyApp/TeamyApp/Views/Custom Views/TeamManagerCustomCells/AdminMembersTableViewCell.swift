@@ -9,17 +9,29 @@ import UIKit
 
 class AdminMembersTableViewCell: UITableViewCell {
 
+    //MARK: - Oulets
+    @IBOutlet weak var teamAccentColorView: UIView!
+    
+    //MARK: - Lifecycles
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
+        teamAccentColor()
+    }
+    
+    //MARK: - Properties
     static let identifier = "AdminMembersTableViewCell"
     
+    //MARK: - Methods
     static func nib() -> UINib {
         return UINib(nibName: identifier, bundle: nil)
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func teamAccentColor() {
+        guard let accentColor = EventController.shared.team else { return }
+        teamAccentColorView.backgroundColor = UIColor.init(hexString: accentColor.teamColor)
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 

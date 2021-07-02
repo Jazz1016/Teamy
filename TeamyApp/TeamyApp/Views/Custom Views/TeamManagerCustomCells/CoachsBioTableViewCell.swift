@@ -9,17 +9,34 @@ import UIKit
 
 class CoachsBioTableViewCell: UITableViewCell {
     
-    static let identifier = "CoachsBioTableViewCell"
+    //MARK: - Outlets
+    @IBOutlet weak var coachBioLabel: UILabel!
     
+    //MARK: - Lifecycle
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        // Initialization code
+        
+        coachBio()
+    }
+    
+    //MARK: - Properties
+    static let identifier = "CoachsBioTableViewCell"
+    var user: User?
+    
+    //MARK: - Methods
     static func nib() -> UINib {
         return UINib(nibName: identifier, bundle: nil)
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    func coachBio() {
+        if let user = user {
+            coachBioLabel.text = user.lastName
+        } else {
+            coachBioLabel.text = "Coaches Bio"
+        }
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
