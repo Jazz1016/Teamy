@@ -69,6 +69,7 @@
 		AC083093268CE409001C7D67 /* TeamColorTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC083083268CE409001C7D67 /* TeamColorTableViewCell.xib */; };
 		AC083094268CE409001C7D67 /* TeamColorTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC083084268CE409001C7D67 /* TeamColorTableViewCell.swift */; };
 		AC239763268A42E00099E075 /* UIColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC239762268A42E00099E075 /* UIColorConverter.swift */; };
+		AC54AC3E268F75A5007EF074 /* EditUIColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC54AC3D268F75A5007EF074 /* EditUIColorPickerViewController.swift */; };
 		ACC9759726810FBA000C3593 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC9759626810FBA000C3593 /* AppDelegate.swift */; };
 		ACC9759926810FBA000C3593 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC9759826810FBA000C3593 /* SceneDelegate.swift */; };
 		ACC9759E26810FBA000C3593 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACC9759C26810FBA000C3593 /* Main.storyboard */; };
@@ -144,6 +145,7 @@
 		AC083083268CE409001C7D67 /* TeamColorTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeamColorTableViewCell.xib; path = "TeamyApp/Views/Custom Views/TeamManagerCustomCells/TeamColorTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		AC083084268CE409001C7D67 /* TeamColorTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamColorTableViewCell.swift; path = "TeamyApp/Views/Custom Views/TeamManagerCustomCells/TeamColorTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		AC239762268A42E00099E075 /* UIColorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorConverter.swift; sourceTree = "<group>"; };
+		AC54AC3D268F75A5007EF074 /* EditUIColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditUIColorPickerViewController.swift; sourceTree = "<group>"; };
 		ACC9759326810FBA000C3593 /* TeamyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TeamyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC9759626810FBA000C3593 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACC9759826810FBA000C3593 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -356,6 +358,7 @@
 				0D94E18226823864005602ED /* CreateEventViewController.swift */,
 				79D8F97B268D19E500691F2B /* UserSettingsViewController.swift */,
 				0D70A97B268E7FB200F82081 /* CodeModalViewController.swift */,
+				AC54AC3D268F75A5007EF074 /* EditUIColorPickerViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -539,6 +542,7 @@
 			files = (
 				AA662E6B2683DC930061145E /* DateFormatter.swift in Sources */,
 				ACC975B926811389000C3593 /* CustomViewsPlaceholder.swift in Sources */,
+				AC54AC3E268F75A5007EF074 /* EditUIColorPickerViewController.swift in Sources */,
 				AC239763268A42E00099E075 /* UIColorConverter.swift in Sources */,
 				ACC975AD26811157000C3593 /* HelpersPlaceholders.swift in Sources */,
 				0D1032452681502200136C9A /* JoinTeamViewController.swift in Sources */,

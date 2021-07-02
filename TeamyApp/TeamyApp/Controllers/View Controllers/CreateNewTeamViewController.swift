@@ -41,7 +41,7 @@ class CreateNewTeamViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction func selectColorButtonTapped(_ sender: Any) {
-        let colorPickerVC = UIColorPickerViewController()
+        let colorPickerVC = EditUIColorPickerViewController()
         colorPickerVC.delegate = self
         
         present(colorPickerVC, animated: true, completion: nil)
@@ -95,23 +95,23 @@ class CreateNewTeamViewController: UIViewController {
     }//End of func
     
     func saveImage() {
-    guard let image = self.image else {return}
-    
-    let storageRef = Storage.storage().reference().child("myImage.jpg")
-    if let uploadData = image.jpegData(compressionQuality: 0.75) {
-        storageRef.putData(uploadData, metadata: nil) { (metaData, error) in
-            if let error = error {
-                print("")
-            }
-            print(metaData)
-            let size = metaData?.size
-            storageRef.downloadURL { (url, error) in
-                guard let downloadurl = url else {return}
-                self.imageURL = downloadurl.absoluteString
+        guard let image = self.image else {return}
+        
+        let storageRef = Storage.storage().reference().child("myImage.jpg")
+        if let uploadData = image.jpegData(compressionQuality: 0.75) {
+            storageRef.putData(uploadData, metadata: nil) { (metaData, error) in
+                if let error = error {
+                    print("")
+                }
+                print(metaData)
+                let size = metaData?.size
+                storageRef.downloadURL { (url, error) in
+                    guard let downloadurl = url else {return}
+                    self.imageURL = downloadurl.absoluteString
+                }
             }
         }
     }
-}
     
     @objc func dismissKeyBoard() {
         view.endEditing(true)
@@ -151,11 +151,11 @@ class CreateNewTeamViewController: UIViewController {
 
 //MARK: - Extensions
 extension CreateNewTeamViewController: UIColorPickerViewControllerDelegate {
-    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+    func colorPickerViewControllerDidFinish(_ viewController: EditUIColorPickerViewController) {
         
     }
     
-    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
+    func colorPickerViewControllerDidSelectColor(_ viewController: EditUIColorPickerViewController) {
         //AnthonyByrd - Discuss with team which method to use
         let color = viewController.selectedColor
         teamColorPicked = color.toHexString()

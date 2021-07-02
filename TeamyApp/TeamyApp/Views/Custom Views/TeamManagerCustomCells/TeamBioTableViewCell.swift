@@ -15,10 +15,16 @@ class TeamBioTableViewCell: UITableViewCell {
         return UINib(nibName: identifier, bundle: nil)
     }
     
+    //MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
+    
+    //MARK: - Properties
+    
+    
+    //MARK: - <#Section Heading#>
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

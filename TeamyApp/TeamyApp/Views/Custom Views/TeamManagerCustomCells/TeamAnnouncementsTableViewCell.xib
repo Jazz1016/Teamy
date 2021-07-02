@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="91w-H4-cdS">
-                        <rect key="frame" x="26.5" y="38.5" width="474" height="44.5"/>
+                        <rect key="frame" x="26.5" y="42" width="474" height="37.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="105" translatesAutoresizingMaskIntoConstraints="NO" id="0TK-dU-xlJ">
                                 <rect key="frame" x="0.0" y="0.0" width="447" height="33.5"/>
@@ -31,21 +31,22 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5fG-Ea-Qkd">
-                                        <rect key="frame" x="413.5" y="4" width="33.5" height="25"/>
+                                        <rect key="frame" x="413.5" y="6.5" width="33.5" height="20.5"/>
                                         <color key="tintColor" systemColor="labelColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="5fG-Ea-Qkd" secondAttribute="height" multiplier="1:1" id="J03-OF-C7H"/>
                                         </constraints>
-                                        <imageReference key="image" image="arrow.right" catalog="system" symbolScale="medium"/>
+                                        <imageReference key="image" image="arrow.right" catalog="system" symbolScale="small"/>
                                         <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="28"/>
                                     </imageView>
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zkN-1K-e3c">
-                                <rect key="frame" x="0.0" y="33.5" width="218" height="11"/>
+                                <rect key="frame" x="0.0" y="33.5" width="218" height="4"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="11" id="tFE-uN-QJs"/>
+                                    <constraint firstAttribute="width" constant="218" id="3Sa-BE-0Kd"/>
+                                    <constraint firstAttribute="height" constant="4" id="tFE-uN-QJs"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -61,6 +62,9 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="teamAccentColorView" destination="zkN-1K-e3c" id="ych-23-sAt"/>
+            </connections>
             <point key="canvasLocation" x="287.68115942028987" y="140.29017857142856"/>
         </tableViewCell>
     </objects>

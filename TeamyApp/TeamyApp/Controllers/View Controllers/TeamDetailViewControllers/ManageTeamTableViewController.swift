@@ -15,11 +15,10 @@ class ManageTeamTableViewController: UITableViewController {
         super.viewDidLoad()
 
         registerCells()
+        welcomeUser()
     }
     
     //MARK: - Properties
-    var user: User?
-    var team: Team?
     
     //MARK: - Methods
     func registerCells() {
@@ -31,6 +30,11 @@ class ManageTeamTableViewController: UITableViewController {
         tableView.register(TeamAnnouncementsTableViewCell.nib(), forCellReuseIdentifier: TeamAnnouncementsTableViewCell.identifier)
         tableView.register(AdminMembersTableViewCell.nib(), forCellReuseIdentifier: AdminMembersTableViewCell.identifier)
         tableView.register(TeamMembersTableViewCell.nib(), forCellReuseIdentifier: TeamMembersTableViewCell.identifier)
+    }
+    
+    func welcomeUser() {
+        guard let user = UserController.shared.user else { return }
+        welcomeLabel.text = "Welcome, \(user.firstName) \(user.lastName)"
     }
 
     // MARK: - Table view data source
