@@ -1315,11 +1315,17 @@
                                 <rect key="frame" x="327" y="191" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Edit"/>
+                                <connections>
+                                    <action selector="editButtonTapped:" destination="Mes-Zw-jY8" eventType="touchUpInside" id="4xP-on-NAN"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqa-fl-7Se">
                                 <rect key="frame" x="108" y="433" width="192" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Change Password"/>
+                                <connections>
+                                    <action selector="changePasswordButtonTapped:" destination="Mes-Zw-jY8" eventType="touchUpInside" id="Ebl-NS-G84"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XP8-ZO-bof"/>
@@ -1327,7 +1333,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="b3z-p4-zR5"/>
                     <connections>
+                        <outlet property="editButton" destination="Tjl-Cx-JEP" id="NDH-ru-7aZ"/>
+                        <outlet property="firstNameLabel" destination="JVS-QT-o1W" id="bY4-nQ-6yy"/>
                         <outlet property="firstNameTextField" destination="dfL-He-zsg" id="xMi-30-fZk"/>
+                        <outlet property="lastNameLabel" destination="mcn-UZ-hgV" id="R91-yh-fZW"/>
                         <outlet property="lastNameTextField" destination="dlr-n3-39W" id="YNP-PO-b40"/>
                     </connections>
                 </viewController>
