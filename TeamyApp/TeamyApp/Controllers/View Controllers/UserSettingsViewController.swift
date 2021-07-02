@@ -12,21 +12,39 @@ import Firebase
 
 class UserSettingsViewController: UIViewController {
 //MARK: - Outlets
+    @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var lastNameTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
-    
+    @IBOutlet weak var editButton: UIButton!
     
 //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        updateViews()
+    }
+    
+//MARK: - Properties
+    
+    var user: User?
+
+    
+//MARK: - Actions
+    
+    
+    @IBAction func editButtonTapped(_ sender: Any) {
+        firstNameLabel.isHidden.toggle()
+        lastNameLabel.isHidden.toggle()
+        firstNameTextField.isHidden.toggle()
+        lastNameTextField.isHidden.toggle()
         
     }
     
+    @IBAction func changePasswordButtonTapped(_ sender: Any) {
+        presentAlertToChangePassword()
+    }
     
-//MARK: - Actions
-
     @IBAction func logoutButtonTapped(_ sender: Any) {
         let firebaseAuth = Auth.auth()
         do {
@@ -41,6 +59,16 @@ class UserSettingsViewController: UIViewController {
     
     @IBAction func deleteButtonTapped(_ sender: Any) {
             presentAlertToDeleteAccount()
+    }
+    
+    func updateViews() {
+        guard let user = user else {return}
+        firstNameLabel.text = user.firstName
+        firstNameTextField.text = user.firstName
+        lastNameLabel.text = user.lastName
+        lastNameTextField.text = user.lastName
+        firstNameTextField.isHidden = true
+        lastNameTextField.isHidden = true
     }
     
     func presentAlertToDeleteAccount() {
@@ -125,8 +153,6 @@ class UserSettingsViewController: UIViewController {
     
     
     @IBAction func saveChangesButtonTapped(_ sender: Any) {
-        guard let password = passwordTextField.text else {return}
-        UserController.shared.updatePassword(password: password)
         guard let email = Auth.auth().currentUser?.email,
               let firstName = firstNameTextField.text,
               let lastName = lastNameTextField.text,
