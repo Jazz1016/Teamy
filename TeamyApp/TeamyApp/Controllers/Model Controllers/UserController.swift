@@ -88,6 +88,18 @@ class UserController {
         })
     }
     
+    func deleteUserInfo() {
+        guard let user = user else {return}
+        db.collection("users").document(user.userId).delete() { error in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                print("Couldn't delete user info")
+            } else {
+                print("Successfully deleted user info")
+            }
+        }
+    }
+    
     func inviteUserToTeam(userEmail: String, teamId: String){
         var userQueried = db.collection("users").whereField("email", isEqualTo: userEmail)
         userQueried.getDocuments { snap, error in
