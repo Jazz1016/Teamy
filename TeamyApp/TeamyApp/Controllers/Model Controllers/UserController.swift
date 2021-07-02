@@ -171,7 +171,7 @@ class UserController {
                     "blocked" : blocked ?? [],
                     "teamId" : teamId ?? "error",
                     "teamCode" : teamCode ?? "error"
-                ])
+                ], merge: true)
                 DispatchQueue.main.async {
                     self.fetchUser(userId: userId) { result in
                         switch result {
