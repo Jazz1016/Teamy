@@ -505,6 +505,7 @@
                                                             <state key="normal" image="plus" catalog="system"/>
                                                             <connections>
                                                                 <action selector="joinTeamButtonTapped:" destination="vxs-Lg-sup" eventType="touchUpInside" id="eGY-Dv-ghO"/>
+                                                                <segue destination="jSw-3C-LLC" kind="show" id="msv-rX-0fE"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
@@ -1713,6 +1714,9 @@
             <point key="canvasLocation" x="4342" y="-622"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Ts7-Yf-NHW"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="number" catalog="system" width="128" height="124"/>
