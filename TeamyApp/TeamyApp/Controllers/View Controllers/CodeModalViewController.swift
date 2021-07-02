@@ -30,7 +30,7 @@ class CodeModalViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func dismissModalButtonTapped(_ sender: Any) {
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
+//        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     // MARK: - Helper FNs
