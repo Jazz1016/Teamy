@@ -1,5 +1,5 @@
 //
-//  AddEventTableViewCell.swift
+//  AddPlayerTableViewCell.swift
 //  TeamyApp
 //
 //  Created by James Lea on 7/2/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddEventTableViewCell: UITableViewCell {
+class AddPlayerTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()

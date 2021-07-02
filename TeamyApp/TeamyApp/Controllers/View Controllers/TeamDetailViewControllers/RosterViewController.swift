@@ -85,7 +85,6 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         }
         
         let editAction = UITableViewRowAction(style: .default, title: "Edit") { action, indexPath in
-//            let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath) as? PlayerTableViewCell
             if let cell = tableView.cellForRow(at: indexPath) as? PlayerTableViewCell {
                 cell.updateForEdit()
             }
@@ -100,12 +99,18 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "addPlayerCell", for: indexPath)
+            return cell ?? UITableViewCell()
+        } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath) as? PlayerTableViewCell
-            let player = PlayerController.shared.players[indexPath.row]
+            let player = PlayerController.shared.players[indexPath.row - 1]
             cell?.player = player
-            cell?.playerIndex = indexPath.row
+            cell?.playerIndex = indexPath.row - 1
             cell?.delegate = self
             return cell ?? UITableViewCell()
+        }
     }
     
 }//End of class
