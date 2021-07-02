@@ -32,7 +32,11 @@ class CodeModalViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func dismissModalButtonTapped(_ sender: Any) {
-//        self.presentingViewController?.dismiss(animated: true, completion: nil)
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func resetCodeButtonTapped(_ sender: Any) {
+        resetTeamCode()
     }
     
     // MARK: - Helper FNs
@@ -53,10 +57,6 @@ class CodeModalViewController: UIViewController {
         TeamController.shared.editTeam(oldTeam: currentTeam, team: updatedTeam)
         
         teamCodeLabel.text = randomNumString
-    }
-    
-    @IBAction func resetCodeButtonTapped(_ sender: Any) {
-        
     }
     
 }

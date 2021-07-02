@@ -8,7 +8,6 @@
 import UIKit
 
 class AddEventTableViewCell: UITableViewCell {
-
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -19,5 +18,5 @@ class AddEventTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
 }
