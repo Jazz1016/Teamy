@@ -599,7 +599,7 @@
                     <navigationItem key="navigationItem" id="dTe-Rp-WPT">
                         <barButtonItem key="rightBarButtonItem" image="gearshape" catalog="system" id="RlJ-S3-WoV">
                             <connections>
-                                <segue destination="Mes-Zw-jY8" kind="show" id="xF1-pH-7Fx"/>
+                                <segue destination="Mes-Zw-jY8" kind="show" identifier="toProfileSettingsVC" id="xF1-pH-7Fx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -823,6 +823,9 @@
                                                 <constraint firstItem="HIi-6g-8BE" firstAttribute="centerX" secondItem="mrG-bN-AUf" secondAttribute="centerX" id="iyN-BI-8zo"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="YXJ-wP-eEm" kind="show" id="caj-aQ-2zl"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -922,21 +925,6 @@
             </objects>
             <point key="canvasLocation" x="5429" y="1507"/>
         </scene>
-        <!--EditUI Color Picker View Controller-->
-        <scene sceneID="hjL-GB-PAE">
-            <objects>
-                <viewController id="Zwa-vz-lPo" customClass="EditUIColorPickerViewController" customModule="TeamyApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="n0H-ja-vG5">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="oRm-Oc-Pa8"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8Y3-Eq-HBi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6254" y="1507"/>
-        </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="nZa-hJ-Quc">
             <objects>
@@ -946,22 +934,22 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="vdJ-2r-YAj">
-                                <rect key="frame" x="20.5" y="152" width="373" height="181"/>
+                                <rect key="frame" x="20.5" y="152" width="373" height="259"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Event Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bY-i5-u2u">
-                                        <rect key="frame" x="0.0" y="0.0" width="373" height="38.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="373" height="116.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="32"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Event Date" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOg-nX-fSF">
-                                        <rect key="frame" x="0.0" y="69.5" width="373" height="26.5"/>
+                                        <rect key="frame" x="0.0" y="147.5" width="373" height="26.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2cY-O7-BGz">
-                                        <rect key="frame" x="0.0" y="127" width="373" height="54"/>
+                                        <rect key="frame" x="0.0" y="205" width="373" height="54"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Event Location Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iyv-bP-0Qt">
                                                 <rect key="frame" x="0.0" y="0.0" width="373" height="26.5"/>
@@ -980,13 +968,13 @@
                                 </subviews>
                             </stackView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="u9U-EN-swp">
-                                <rect key="frame" x="8" y="349" width="398" height="200"/>
+                                <rect key="frame" x="8" y="427" width="398" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="AOh-zc-82M"/>
                                 </constraints>
                             </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="e3f-Fv-jE0">
-                                <rect key="frame" x="20.5" y="565" width="373" height="214.5"/>
+                                <rect key="frame" x="20.5" y="643" width="373" height="136.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mYL-HL-308">
                                         <rect key="frame" x="139" y="0.0" width="95" height="30"/>
@@ -996,7 +984,7 @@
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="PNM-PY-dBt">
-                                        <rect key="frame" x="0.0" y="62" width="373" height="152.5"/>
+                                        <rect key="frame" x="0.0" y="62" width="373" height="74.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdt-xr-jwf">
                                                 <rect key="frame" x="0.0" y="0.0" width="373" height="20.5"/>
@@ -1005,7 +993,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IZO-xd-ho1">
-                                                <rect key="frame" x="0.0" y="24.5" width="373" height="128"/>
+                                                <rect key="frame" x="0.0" y="24.5" width="373" height="50"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1392,6 +1380,63 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="editTeamColorCell" rowHeight="78" id="IvT-Ts-VcA" customClass="EditTeamColorTableViewCell" customModule="TeamyApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="177" width="414" height="78"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="IvT-Ts-VcA" id="m9h-Cs-Y06">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="78"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="U5p-8z-mCT">
+                                            <rect key="frame" x="20.5" y="18" width="373" height="42"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="81" translatesAutoresizingMaskIntoConstraints="NO" id="Ahi-39-3gT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="373" height="35"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Color" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fwX-Uh-0FK">
+                                                            <rect key="frame" x="0.0" y="0.0" width="257" height="35"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eou-eo-K8I">
+                                                            <rect key="frame" x="338" y="0.0" width="35" height="35"/>
+                                                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="35" id="Cfn-Hb-M6F"/>
+                                                                <constraint firstAttribute="width" secondItem="eou-eo-K8I" secondAttribute="height" multiplier="1:1" id="xIw-z6-gbe"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <action selector="editTeamColorButtonTapped:" destination="IvT-Ts-VcA" eventType="touchUpInside" id="Ai4-Fm-IPB"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6KR-ev-5zK">
+                                                    <rect key="frame" x="0.0" y="38" width="218" height="4"/>
+                                                    <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="218" id="XEV-cI-TAs"/>
+                                                        <constraint firstAttribute="height" constant="4" id="que-T0-H38"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Ahi-39-3gT" firstAttribute="width" secondItem="U5p-8z-mCT" secondAttribute="width" id="p3F-cf-UJh"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="U5p-8z-mCT" firstAttribute="centerX" secondItem="m9h-Cs-Y06" secondAttribute="centerX" id="1fW-n2-cXf"/>
+                                        <constraint firstItem="U5p-8z-mCT" firstAttribute="width" secondItem="m9h-Cs-Y06" secondAttribute="width" multiplier="0.9" id="8ep-fK-ccL"/>
+                                        <constraint firstItem="U5p-8z-mCT" firstAttribute="centerY" secondItem="m9h-Cs-Y06" secondAttribute="centerY" id="Xac-bK-a9X"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="editTeamColorButton" destination="eou-eo-K8I" id="McQ-8T-Adq"/>
+                                    <outlet property="teamAccentColor" destination="6KR-ev-5zK" id="Y5i-yL-0cx"/>
+                                </connections>
+                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="u2x-RG-ioy" id="6Ja-LJ-e2v"/>
@@ -1405,7 +1450,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="j3W-9i-Mxd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5458" y="788"/>
+            <point key="canvasLocation" x="5457.971014492754" y="787.5"/>
         </scene>
         <!--Create Event View Controller-->
         <scene sceneID="DlW-er-5Rb">
@@ -1416,7 +1461,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="4H2-op-VQ3">
-                                <rect key="frame" x="20.5" y="618.5" width="373" height="166.5"/>
+                                <rect key="frame" x="20.5" y="662.5" width="373" height="166.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="YhL-ny-O9k">
                                         <rect key="frame" x="0.0" y="0.0" width="373" height="128.5"/>
@@ -1449,13 +1494,13 @@
                                 </subviews>
                             </stackView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="JL7-Ch-7yz">
-                                <rect key="frame" x="8" y="402.5" width="398" height="200"/>
+                                <rect key="frame" x="8" y="446.5" width="398" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="kHO-cb-C7g"/>
                                 </constraints>
                             </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dLI-OV-2Zb">
-                                <rect key="frame" x="0.0" y="60" width="414" height="334.5"/>
+                                <rect key="frame" x="0.0" y="104" width="414" height="334.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="DC6-BG-hYI">
                                         <rect key="frame" x="31" y="0.0" width="352" height="62.5"/>
@@ -1545,14 +1590,14 @@
             <objects>
                 <viewController id="BCn-yH-e6G" customClass="SearchViewController" customModule="TeamyApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p0t-d8-Riq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pNw-ov-9Q3">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="746"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="712"/>
                             </mapView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuC-ZZ-VHg">
-                                <rect key="frame" x="41.5" y="762" width="331" height="30"/>
+                                <rect key="frame" x="41.5" y="816" width="331" height="30"/>
                                 <state key="normal" title="Save Location"/>
                                 <connections>
                                     <action selector="saveLocationButtonTapped:" destination="BCn-yH-e6G" eventType="touchUpInside" id="eVC-Oc-RSc"/>
@@ -1765,6 +1810,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

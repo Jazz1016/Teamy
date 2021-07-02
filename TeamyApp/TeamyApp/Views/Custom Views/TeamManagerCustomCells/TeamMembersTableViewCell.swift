@@ -28,8 +28,8 @@ class TeamMembersTableViewCell: UITableViewCell {
     }
     
     func teamAccentColor() {
-        guard let accentColor = EventController.shared.team else { return }
-        teamAccentColorView.backgroundColor = UIColor.init(hexString: accentColor.teamColor)
+        guard let team = EventController.shared.team else { return }
+        teamAccentColorView.backgroundColor = UIColor.init(hexString: team.teamColor)
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

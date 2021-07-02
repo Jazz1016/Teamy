@@ -19,13 +19,13 @@ class ManageTeamTableViewController: UITableViewController {
     }
     
     //MARK: - Properties
+    var updatedColor = ""
     
     //MARK: - Methods
     func registerCells() {
         tableView.register(TeamNameTableViewCell.nib(), forCellReuseIdentifier: TeamNameTableViewCell.identifier)
         tableView.register(TeamBioTableViewCell.nib(), forCellReuseIdentifier: TeamBioTableViewCell.identifier)
         tableView.register(CoachsBioTableViewCell.nib(), forCellReuseIdentifier: CoachsBioTableViewCell.identifier)
-        tableView.register(TeamColorTableViewCell.nib(), forCellReuseIdentifier: TeamColorTableViewCell.identifier)
         tableView.register(TeamEventsTableViewCell.nib(), forCellReuseIdentifier: TeamEventsTableViewCell.identifier)
         tableView.register(TeamAnnouncementsTableViewCell.nib(), forCellReuseIdentifier: TeamAnnouncementsTableViewCell.identifier)
         tableView.register(AdminMembersTableViewCell.nib(), forCellReuseIdentifier: AdminMembersTableViewCell.identifier)
@@ -67,7 +67,7 @@ class ManageTeamTableViewController: UITableViewController {
         } else if indexPath.section == 0 && indexPath.row == 2 {
             cell = tableView.dequeueReusableCell(withIdentifier: CoachsBioTableViewCell.identifier, for: indexPath)
         } else if indexPath.section == 0 && indexPath.row == 3 {
-            cell = tableView.dequeueReusableCell(withIdentifier: TeamColorTableViewCell.identifier, for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: "editTeamColorCell", for: indexPath) as? EditTeamColorTableViewCell
         } else if indexPath.section == 1 && indexPath.row == 0 {
             cell = tableView.dequeueReusableCell(withIdentifier: TeamEventsTableViewCell.identifier, for: indexPath)
         } else if indexPath.section == 1 && indexPath.row == 1 {
@@ -78,6 +78,16 @@ class ManageTeamTableViewController: UITableViewController {
             cell = tableView.dequeueReusableCell(withIdentifier: TeamMembersTableViewCell.identifier, for: indexPath)
         }
         return cell ?? UITableViewCell()
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 0 && indexPath.row == 3 {
+            let colorPickerVC = UIColorPickerViewController()
+            colorPickerVC.delegate = self
+        
+            present(colorPickerVC, animated: true, completion: nil)
+        }
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -93,7 +103,6 @@ class ManageTeamTableViewController: UITableViewController {
         }
     }
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -101,5 +110,18 @@ class ManageTeamTableViewController: UITableViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
     }
-    */
+}
+
+//MARK: - Extensions
+extension ManageTeamTableViewController: UIColorPickerViewControllerDelegate {
+    func colorPickerViewControllerDidSelectColor(_ viewController: UIColorPickerViewController) {
+        //AnthonyByrd - Discuss with team which method to use
+        guard let currentTeam = EventController.shared.team else { return }
+        let color = viewController.selectedColor
+        
+        let updatedTeam = Team(name: currentTeam.name, teamColor: color.toHexString(), teamSport: currentTeam.teamSport, admins: currentTeam.admins, members: currentTeam.members, blocked: currentTeam.blocked, teamDesc: currentTeam.teamDesc, teamId: currentTeam.teamId, teamCode: currentTeam.teamCode, teamImage: currentTeam.teamImage)
+        
+        TeamController.shared.editTeam(oldTeam: currentTeam, team: updatedTeam)
+        updatedColor = color.toHexString()
+    }
 }
