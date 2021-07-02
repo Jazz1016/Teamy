@@ -19,6 +19,11 @@ class LoginViewController: UIViewController {
         
     }
     
+    //MARK: - Actions
+    @IBAction func forgotPasswordButtonTapped(_ sender: Any) {
+    }
+    
+    //MARK: - Methods
     @IBAction func loginButtonWasTapped(_ sender: Any) {
         login()
     }
@@ -41,7 +46,9 @@ class LoginViewController: UIViewController {
                         switch result {
                         case .success(let user):
                             UserController.shared.user = user
-                            TeamController.shared.fetchTeamsForUser(teamIds: user.teams)
+                            TeamController.shared.fetchTeamsForUser(teamIds: user.teams) { result in
+                                print("teams fetched")
+                            }
                         case .failure(let error):
                             print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                         }

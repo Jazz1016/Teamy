@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="124" id="KGk-i7-Jjw" customClass="TeamEventsTableViewCell" customModule="TeamyApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="472" height="124"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="472" height="124"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="WZ0-25-zSt">
+                        <rect key="frame" x="23.5" y="43.5" width="425" height="37.5"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="105" translatesAutoresizingMaskIntoConstraints="NO" id="VEo-03-5W2">
+                                <rect key="frame" x="0.0" y="0.0" width="402.5" height="33.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Events" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qbn-aN-p8o">
+                                        <rect key="frame" x="0.0" y="6.5" width="264" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aen-Y2-vqA">
+                                        <rect key="frame" x="369" y="6.5" width="33.5" height="20.5"/>
+                                        <color key="tintColor" systemColor="labelColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="aen-Y2-vqA" secondAttribute="height" multiplier="1:1" id="UGm-SI-1fM"/>
+                                        </constraints>
+                                        <imageReference key="image" image="arrow.right" catalog="system" symbolScale="small"/>
+                                        <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="28"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kcV-8m-RA9">
+                                <rect key="frame" x="0.0" y="33.5" width="218" height="4"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="4" id="Pvi-TD-Wjy"/>
+                                    <constraint firstAttribute="width" constant="218" id="Uwe-Bd-Z5E"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="kcV-8m-RA9" firstAttribute="top" secondItem="VEo-03-5W2" secondAttribute="bottom" id="2ok-4S-cZR"/>
+                            <constraint firstAttribute="bottom" secondItem="kcV-8m-RA9" secondAttribute="bottom" id="54D-Gy-8B6"/>
+                            <constraint firstItem="VEo-03-5W2" firstAttribute="width" secondItem="WZ0-25-zSt" secondAttribute="width" multiplier="0.9" constant="20.299999999999955" id="PRt-GB-k7X"/>
+                            <constraint firstItem="kcV-8m-RA9" firstAttribute="leading" secondItem="WZ0-25-zSt" secondAttribute="leading" id="YcJ-Fl-cjO"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="WZ0-25-zSt" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.9" id="W3c-Ef-dfy"/>
+                    <constraint firstItem="WZ0-25-zSt" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="fWb-ac-UY6"/>
+                    <constraint firstItem="WZ0-25-zSt" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="mfU-Wq-DbF"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="teamAccentColorView" destination="kcV-8m-RA9" id="ihH-NW-D6d"/>
+            </connections>
+            <point key="canvasLocation" x="247.82608695652175" y="141.29464285714286"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="arrow.right" catalog="system" width="128" height="98"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

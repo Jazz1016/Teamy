@@ -7,49 +7,72 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseStorage
 
-class CreateNewTeamViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
+class CreateNewTeamViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak var teamNameTextField: UITextField!
     @IBOutlet weak var leagueNameTextField: UITextField!
     @IBOutlet weak var leagueDetailsTextField: UITextView!
     @IBOutlet weak var coachNameTextField: UITextField!
-    @IBOutlet weak var sportPicker: UIPickerView!
-    @IBOutlet weak var teamColorPicker: UIPickerView!
+    @IBOutlet weak var sportPickerTextField: UITextField!
+    @IBOutlet weak var selectColorButton: UIButton!
+    
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sportPicker.delegate = self
-        sportPicker.dataSource = self
-        teamColorPicker.delegate = self
-        teamColorPicker.dataSource = self
-        
+        PhotoPickerViewController.delegate = self
+        pickerView.dataSource = self
+        pickerView.delegate = self
+        sportPickerTextField.inputView = pickerView
+        createToolBar()
     }
     
     // MARK: - Properties
     var randomNumString = "\(Int.random(in: 1...999999))"
+    var image: UIImage?
+    var teamColorPicked = ""
+    var pickerView = UIPickerView()
+    var imageURL = ""
+    
+    // MARK: - Actions
+    
+    @IBAction func selectColorButtonTapped(_ sender: Any) {
+        let colorPickerVC = EditUIColorPickerViewController()
+        colorPickerVC.delegate = self
+        
+        present(colorPickerVC, animated: true, completion: nil)
+    }
+    
     
     ///Creates a new team and adds creating user as an admin
     @IBAction func createNewTeamTapped(_ sender: Any) {
         guard let teamName = teamNameTextField.text,
-              let userId = Auth.auth().currentUser?.uid
+              let userId = Auth.auth().currentUser?.uid,
+              let sport = sportPickerTextField.text,
+              !sport.isEmpty
         else {return}
         addZeros()
-        
+        DispatchQueue.main.async {
+            self.saveImage(teamName: teamName)
+        }
         let defaultAdmin = [userId]
-        
+        // JAMLEA: Pass in Sport name from Picker
+        // JAMLEA: pass in teamColor Anthony
         let teamDescript = TeamDescription(leagueName: leagueNameTextField.text ?? "", detail: leagueDetailsTextField.text ?? "")
-        
-        let newTeam = Team(name: teamName, teamColor: "Blue", admins: defaultAdmin, members: [], blocked: [], teamDesc: teamDescript, teamId: UUID().uuidString, teamCode: randomNumString)
+        let newTeam = Team(name: teamName, teamColor: teamColorPicked, teamSport: sport, admins: defaultAdmin, members: [], blocked: [], teamDesc: teamDescript, teamId: UUID().uuidString, teamCode: randomNumString, teamImage: imageURL)
         let newContact = Contact(contactName: coachNameTextField.text ?? "", contactType: "", contactInfo: "")
         TeamController.shared.addTeamToUser(userId: userId, teamId: newTeam.teamId)
-        
         TeamController.shared.createTeam(team: newTeam, contact: newContact) { result in
             print("new team \(newTeam.name) has been created")
         }
+        
+        saveImage()
+        navigationController?.popViewController(animated: true)
+        
     }
     
     // MARK: - Helper Functions
@@ -61,36 +84,107 @@ class CreateNewTeamViewController: UIViewController, UIPickerViewDelegate, UIPic
         }
     }
     
+    func createToolBar() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(CreateNewTeamViewController.dismissKeyBoard))
+        toolbar.setItems([doneButton], animated: false)
+        toolbar.isUserInteractionEnabled = true
+        sportPickerTextField.inputAccessoryView = toolbar
+    }//End of func
+    
+    func saveImage() {
+        guard let image = self.image else {return}
+        
+        let storageRef = Storage.storage().reference().child("myImage.jpg")
+        if let uploadData = image.jpegData(compressionQuality: 0.75) {
+            storageRef.putData(uploadData, metadata: nil) { (metaData, error) in
+                if let error = error {
+                    print("")
+                }
+                print(metaData)
+                let size = metaData?.size
+                storageRef.downloadURL { (url, error) in
+                    guard let downloadurl = url else {return}
+                    self.imageURL = downloadurl.absoluteString
+                }
+            }
+        }
+    }
+    
+    @objc func dismissKeyBoard() {
+        view.endEditing(true)
+    }//End of func
+    
+    func saveImage(teamName: String) {
+        
+        guard let image = self.image else {return}
+        
+        let storageRef = Storage.storage().reference().child("\(teamName).jpg")
+        if let uploadData = image.jpegData(compressionQuality: 0.75) {
+            storageRef.putData(uploadData, metadata: nil) { (metaData, error) in
+                if let error = error {
+                    print("")
+                }
+                print(metaData)
+                let size = metaData?.size
+                storageRef.downloadURL { (url, error) in
+                    guard let downloadurl = url else {return}
+                    print(downloadurl.absoluteURL)
+                    self.imageURL = downloadurl.absoluteString
+                }
+            }
+        }
+    }
+    
+    
+    //MARK: - Navigation
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "toPhotoPicker" {
+//            let destinationVC = segue.destination as? PhotoPickerViewController
+//            destinationVC?.delegate = self
+//        }
+//    }
+
+}//End of class
+
+//MARK: - Extensions
+extension CreateNewTeamViewController: UIColorPickerViewControllerDelegate {
+    func colorPickerViewControllerDidFinish(_ viewController: EditUIColorPickerViewController) {
+        
+    }
+    
+    func colorPickerViewControllerDidSelectColor(_ viewController: EditUIColorPickerViewController) {
+        //AnthonyByrd - Discuss with team which method to use
+        let color = viewController.selectedColor
+        teamColorPicked = color.toHexString()
+        selectColorButton.backgroundColor = UIColor.init(hexString: teamColorPicked)
+        selectColorButton.setTitle("", for: .normal)
+        print(teamColorPicked)
+    }
+}
+
+extension CreateNewTeamViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        switch UIPickerView() {
-        case self.sportPicker:
-            return TeamController.shared.sports.count
-        case self.teamColorPicker:
-            return TeamController.shared.colors.count
-        default:
-            return 1
-        }
+        return TeamController.shared.sports.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        switch UIPickerView() {
-        
-        
-        
-        case sportPicker:
-            
-            return TeamController.shared.sports[row]
-        case teamColorPicker:
-            
-            return TeamController.shared.colors[row]
-        default:
-            
-            return ""
-        }
+        return TeamController.shared.sports[row]
     }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        sportPickerTextField.text = TeamController.shared.sports[row]
+    }
+}
+
+extension CreateNewTeamViewController: PhotoSelectorDelegate {
+    func photoPickerSelected(image: UIImage) {
+        self.image = image
+    }
 }

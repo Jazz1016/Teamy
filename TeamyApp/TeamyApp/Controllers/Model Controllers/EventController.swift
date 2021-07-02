@@ -7,6 +7,7 @@
 
 import Foundation
 import FirebaseFirestore
+import MapKit
 
 class EventController {
     
@@ -14,6 +15,7 @@ class EventController {
     
     var events: [Event] = []
     var team: Team?
+    var isAdmin: Bool = false
     
     let database = Firestore.firestore()
     
@@ -66,7 +68,6 @@ class EventController {
         
         guard let index = events.firstIndex(of: event) else { return }
         events.remove(at: index)
-        print(self.events.count)
         database.collection("teams").document(teamID).collection("events").document(event.eventID).delete() { error in
             if let error = error {
                 print(error.localizedDescription)
@@ -77,4 +78,19 @@ class EventController {
         }
     }
     
+    func getCoordinate(addressString: String, completion: @escaping (CLLocationCoordinate2D, NSError?) -> Void) {
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(addressString) { placemarks, error in
+            if error == nil {
+                if let placemark = placemarks?[0] {
+                    let location = placemark.location!
+                    
+                    completion(location.coordinate, nil)
+                    return
+                    
+                }
+            }
+        }
+    }
+  
 }
