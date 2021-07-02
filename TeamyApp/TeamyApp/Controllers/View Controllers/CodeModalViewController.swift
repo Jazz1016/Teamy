@@ -13,10 +13,10 @@ class CodeModalViewController: UIViewController {
     @IBOutlet weak var teamCodeView: UIView!
     @IBOutlet weak var resetCodeButton: UIButton!
     
+
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
     }
     
@@ -27,9 +27,32 @@ class CodeModalViewController: UIViewController {
         teamCodeLabel.text = team.teamCode
     }
     
+    // MARK: - Properties
+    var randomNumString = "\(Int.random(in: 1...999999))"
+    
     // MARK: - Actions
     @IBAction func dismissModalButtonTapped(_ sender: Any) {
-        self.presentingViewController?.dismiss(animated: true, completion: nil)
+//        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    // MARK: - Helper FNs
+    func addZeros(){
+        if randomNumString.count < 6 {
+            randomNumString = "0" + randomNumString
+            print(randomNumString)
+            addZeros()
+        }
+    }
+    
+    func resetTeamCode(){
+        guard let currentTeam = EventController.shared.team
+              else {return}
+        addZeros()
+        let updatedTeam = Team(name: currentTeam.name, teamColor: currentTeam.teamColor, teamSport: currentTeam.teamSport, admins: currentTeam.admins, members: currentTeam.members, blocked: currentTeam.blocked, teamDesc: currentTeam.teamDesc, teamId: currentTeam.teamId, teamCode: randomNumString, teamImage: currentTeam.teamImage)
+        
+        TeamController.shared.editTeam(oldTeam: currentTeam, team: updatedTeam)
+        
+        teamCodeLabel.text = randomNumString
     }
     
     @IBAction func resetCodeButtonTapped(_ sender: Any) {

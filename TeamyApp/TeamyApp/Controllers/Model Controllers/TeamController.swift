@@ -120,7 +120,11 @@ class TeamController {
     }
     
     ///Edit's existing team
-    func editTeam(team: Team) {
+    func editTeam(oldTeam: Team, team: Team) {
+        guard let teamIndex = teams.firstIndex(of: oldTeam) else {return}
+        
+        
+        
         db.collection("teams").document(team.teamId).setData([
             "name" : team.name,
             "teamColor" : team.teamColor,
@@ -136,6 +140,8 @@ class TeamController {
             "teamCode" : team.teamCode,
             "teamImage" : team.teamImage
         ])
+        teams[teamIndex] = team
+        EventController.shared.team = team
     }
     
     ///Adds user to team's members array when entering team code

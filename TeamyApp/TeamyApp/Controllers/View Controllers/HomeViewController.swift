@@ -59,14 +59,16 @@ class HomeViewController: UIViewController {
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TeamController.shared.teams.count + 1
+        return TeamController.shared.teams.count + 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == TeamController.shared.teams.count {
             let cell = userTeamsTableView.dequeueReusableCell(withIdentifier: "joinTeamCell") as? JoinTeamTableViewCell
-            
             return cell ?? UITableViewCell()
+        } else if indexPath.row == TeamController.shared.teams.count + 1 {
+            guard let cell = userTeamsTableView.dequeueReusableCell(withIdentifier: "createTeamCell", for: indexPath) as? CreateTeamTableViewCell else {return UITableViewCell()}
+            return cell
         } else {
             guard let cell = userTeamsTableView.dequeueReusableCell(withIdentifier: "teamCell", for: indexPath) as? TeamTableViewCell else {return UITableViewCell()}
             let team = TeamController.shared.teams[indexPath.row]
