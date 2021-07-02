@@ -61,6 +61,36 @@ class UserSettingsViewController: UIViewController {
         
     }
     
+
+    func presentAlertToChangePassword() {
+        let alert = UIAlertController(title: "Are you sure you want to change your password?", message: "If so, please type in your current passwordto delete account", preferredStyle: .alert)
+        
+        alert.addTextField { newPasswordTextField in
+            newPasswordTextField.placeholder = "New Password"
+        }
+        
+        alert.addTextField { confirmNewPassword in
+            confirmNewPassword.placeholder = "Confirm New Password"
+        }
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { _ in
+            guard let newPassword = alert.textFields?.first?.text, !newPassword.isEmpty,
+            let confirmNewPassword = alert.textFields?.last?.text, !confirmNewPassword.isEmpty
+            else {return}
+            if newPassword == confirmNewPassword {
+                UserController.shared.updatePassword(password: newPassword)
+            } else {
+                print("Passwords do not match")
+            }
+        }))
+        
+        present(alert, animated: true, completion: nil)
+            
+        }
+    
+    
+    
     
     func reauthenticateUser(currentPassword: String) {
         
