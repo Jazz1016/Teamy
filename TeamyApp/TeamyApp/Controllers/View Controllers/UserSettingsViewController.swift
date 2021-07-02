@@ -132,10 +132,11 @@ class UserSettingsViewController: UIViewController {
                     print("Could not delete account")
                 }
                 if result != nil {
-                    print("Successfully deleted account")
+                    UserController.shared.deleteUserInfo()
                     UserController.shared.deleteUser { result in
                         switch result {
                         case .success(_):
+                            print("Successfully deleted account")
                             guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() else {return}
                             vc.modalPresentationStyle = .fullScreen
                             self.present(vc, animated: true, completion: nil)
@@ -149,17 +150,15 @@ class UserSettingsViewController: UIViewController {
             
         }
         
-    
-    
-    
     @IBAction func saveChangesButtonTapped(_ sender: Any) {
-        guard let email = Auth.auth().currentUser?.email,
-              let firstName = firstNameTextField.text,
-              let lastName = lastNameTextField.text,
-              let userId = Auth.auth().currentUser?.uid else {return}
-              let user = User(email: email, firstName: firstName, lastName: lastName, userId: userId )
-        
-        UserController.shared.updateUser(user: user)
+//        guard let currentUser = user else {return}
+//        let email = currentUser.email
+//        let userId = currentUser.userId
+//        guard let firstName = firstNameTextField.text,
+//              let lastName = lastNameTextField.text else {return}
+//        let user = User(email: email, firstName: firstName, lastName: lastName, userId: userId )
+//
+//        UserController.shared.updateUser(user: user)
     }
 
     

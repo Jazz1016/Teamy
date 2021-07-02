@@ -32,7 +32,12 @@ class EventDetailViewController: UIViewController {
     
     @IBAction func editEventButtonTapped(_ sender: Any) {
         
+        let viewc = CreateEventViewController()
+        viewc.event = event
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "createEventVC") else {return}
+        
+        vc.beginAppearanceTransition(true, animated: true)
+        
         present(vc, animated: true)
   
     }
