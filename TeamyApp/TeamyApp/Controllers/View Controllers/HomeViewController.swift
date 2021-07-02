@@ -17,11 +17,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         userTeamsTableView.delegate = self
         userTeamsTableView.dataSource = self
-//        do {
-//            try Auth.auth().signOut()
-//        } catch {
-//            print("error")
-//        }
         if Auth.auth().currentUser == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let VC = storyboard.instantiateViewController(identifier: "AuthVC")
