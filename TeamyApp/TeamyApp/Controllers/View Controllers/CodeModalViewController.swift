@@ -11,7 +11,9 @@ class CodeModalViewController: UIViewController {
     // MARK: - Outlets
     @IBOutlet weak var teamCodeLabel: UILabel!
     @IBOutlet weak var teamCodeView: UIView!
+    @IBOutlet weak var resetCodeButton: UIButton!
     
+    //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,6 +30,10 @@ class CodeModalViewController: UIViewController {
     // MARK: - Actions
     @IBAction func dismissModalButtonTapped(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func resetCodeButtonTapped(_ sender: Any) {
+        
     }
     
 }
