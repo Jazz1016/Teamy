@@ -1,5 +1,5 @@
 //
-//  AddEventTableViewCell.swift
+//  CreateTeamTableViewCell.swift
 //  TeamyApp
 //
 //  Created by James Lea on 7/2/21.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddEventTableViewCell: UITableViewCell {
+class CreateTeamTableViewCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -19,5 +19,11 @@ class AddEventTableViewCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+    
+    // MARK: - Actions
+    @IBAction func createATeamTapped(_ sender: Any) {
+        
+    }
+    
 
 }
