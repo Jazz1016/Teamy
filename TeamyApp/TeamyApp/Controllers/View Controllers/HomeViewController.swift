@@ -17,11 +17,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         userTeamsTableView.delegate = self
         userTeamsTableView.dataSource = self
-//        do {
-//            try Auth.auth().signOut()
-//        } catch {
-//            print("error")
-//        }
         if Auth.auth().currentUser == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let VC = storyboard.instantiateViewController(identifier: "AuthVC")
@@ -37,6 +32,7 @@ class HomeViewController: UIViewController {
             case .success(let user):
                 UserController.shared.user = user
                 DispatchQueue.main.async {
+                    //Ethan - Having issue when User changes name, teams no longer fetch.
                     TeamController.shared.fetchTeamsForUser(teamIds: user.teams) { result in
                         if result {
                             self.userTeamsTableView.reloadData()

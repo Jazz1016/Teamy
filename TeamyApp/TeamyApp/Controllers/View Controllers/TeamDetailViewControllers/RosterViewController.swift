@@ -61,7 +61,7 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if EventController.shared.isAdmin {
+        if EventController.shared.isAdmin && indexPath.row > 0 {
             return true
         } else {
             return false
@@ -85,7 +85,7 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return PlayerController.shared.players.count
+        return PlayerController.shared.players.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

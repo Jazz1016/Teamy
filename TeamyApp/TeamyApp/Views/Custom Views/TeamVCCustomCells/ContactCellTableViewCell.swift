@@ -9,7 +9,8 @@ import UIKit
 
 class ContactCellTableViewCell: UITableViewCell {
     // MARK: - Outlets
-    @IBOutlet weak var contactLabel: UILabel!
+    @IBOutlet weak var contactNameLabel: UILabel!
+    @IBOutlet weak var teamColorView: UIView!
     
     // MARK: - Properties
     var contact: Contact? {
@@ -21,6 +22,6 @@ class ContactCellTableViewCell: UITableViewCell {
     // MARK: - Functions
     func updateViews(){
         guard let contact = contact else {return}
-        contactLabel.text = contact.contactName
+        contactNameLabel.text = contact.contactName
     }
 }//End of class

@@ -123,7 +123,6 @@ class TeamController {
     func editTeam(oldTeam: Team, team: Team) {
         guard let teamIndex = teams.firstIndex(of: oldTeam) else {return}
         
-        
         db.collection("teams").document(team.teamId).setData([
             "name" : team.name,
             "teamColor" : team.teamColor,

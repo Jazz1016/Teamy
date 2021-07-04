@@ -24,6 +24,7 @@ class CreateEventViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         lookPretty()
+        updateViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,6 +35,8 @@ class CreateEventViewController: UIViewController {
 //            eventLocationNameLabel.isHidden = false
         }
     }
+    
+    var event: Event?
     
     //MARK: - Actions
     @IBAction func saveEventButtonTapped(_ sender: Any) {
@@ -51,6 +54,16 @@ class CreateEventViewController: UIViewController {
         print("Successfully saved event")
         
         navigationController?.popViewController(animated: true)
+    }
+    
+    func updateViews() {
+        guard let event = event else {return}
+        eventNameTextField.text = event.name
+        eventAddressLabel.text = event.locationAddress
+        eventNotesTextView.text = event.notes
+        datePicker.date = event.date.dateValue()
+        eventLocationNameLabel.text = event.locationName
+        
     }
     
     //MARK: - Functions
