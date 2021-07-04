@@ -10,6 +10,8 @@ import UIKit
 class EventTableViewCell: UITableViewCell {
     
     //MARK: - Outlets
+    
+    @IBOutlet weak var teamColorView: UIView!
     @IBOutlet weak var eventNameLabel: UILabel!
     @IBOutlet weak var eventLocationLabel: UILabel!
     @IBOutlet weak var eventDate: UILabel!

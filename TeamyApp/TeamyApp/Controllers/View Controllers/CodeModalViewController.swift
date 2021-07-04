@@ -13,7 +13,6 @@ class CodeModalViewController: UIViewController {
     @IBOutlet weak var teamCodeView: UIView!
     @IBOutlet weak var resetCodeButton: UIButton!
     
-
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +48,7 @@ class CodeModalViewController: UIViewController {
     }
     
     func resetTeamCode(){
-        guard let currentTeam = EventController.shared.team
-              else {return}
+        guard let currentTeam = EventController.shared.team else {return}
         addZeros()
         let updatedTeam = Team(name: currentTeam.name, teamColor: currentTeam.teamColor, teamSport: currentTeam.teamSport, admins: currentTeam.admins, members: currentTeam.members, blocked: currentTeam.blocked, teamDesc: currentTeam.teamDesc, teamId: currentTeam.teamId, teamCode: randomNumString, teamImage: currentTeam.teamImage)
         
