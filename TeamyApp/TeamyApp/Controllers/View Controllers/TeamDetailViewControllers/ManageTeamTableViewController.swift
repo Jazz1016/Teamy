@@ -19,7 +19,6 @@ class ManageTeamTableViewController: UITableViewController {
     }
     
     //MARK: - Properties
-    var updatedColor = ""
     
     //MARK: - Methods
     func registerCells() {
@@ -83,6 +82,7 @@ class ManageTeamTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.section == 0 && indexPath.row == 3 {
+            
             let colorPickerVC = UIColorPickerViewController()
             colorPickerVC.delegate = self
         
@@ -119,9 +119,10 @@ extension ManageTeamTableViewController: UIColorPickerViewControllerDelegate {
         guard let currentTeam = EventController.shared.team else { return }
         let color = viewController.selectedColor
         
+        currentTeam.teamColor = color.toHexString()
         let updatedTeam = Team(name: currentTeam.name, teamColor: color.toHexString(), teamSport: currentTeam.teamSport, admins: currentTeam.admins, members: currentTeam.members, blocked: currentTeam.blocked, teamDesc: currentTeam.teamDesc, teamId: currentTeam.teamId, teamCode: currentTeam.teamCode, teamImage: currentTeam.teamImage)
         
         TeamController.shared.editTeam(oldTeam: currentTeam, team: updatedTeam)
-        updatedColor = color.toHexString()
+        tableView.reloadData()
     }
 }
