@@ -22,8 +22,12 @@ class CodeModalViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         guard let team = EventController.shared.team else {return}
-        
+        resetCodeButton.isHidden = true
         teamCodeLabel.text = team.teamCode
+        
+        if EventController.shared.isAdmin {
+            resetCodeButton.isHidden = false
+        }
     }
     
     // MARK: - Properties

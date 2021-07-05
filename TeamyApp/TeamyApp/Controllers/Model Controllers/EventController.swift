@@ -108,4 +108,4 @@ class EventController {
         }
     }
   
-}
+}//End of class

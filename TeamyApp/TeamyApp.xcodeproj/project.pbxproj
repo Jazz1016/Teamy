@@ -41,6 +41,14 @@
 		0D94E18F2682762B005602ED /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E18E2682762B005602ED /* Strings.swift */; };
 		0D94E19326827AE4005602ED /* UserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E19226827AE4005602ED /* UserController.swift */; };
 		0D94E19526828E3C005602ED /* UserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D94E19426828E3C005602ED /* UserError.swift */; };
+		0DC5EA8C269356EF000A7BAC /* UserManagementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC5EA8B269356EF000A7BAC /* UserManagementViewController.swift */; };
+		0DC5EA8E26935776000A7BAC /* EditContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC5EA8D26935776000A7BAC /* EditContactsViewController.swift */; };
+		0DC5EA9026935783000A7BAC /* AnnouncementsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC5EA8F26935783000A7BAC /* AnnouncementsViewController.swift */; };
+		0DC5EA93269362B3000A7BAC /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC5EA92269362B3000A7BAC /* UserTableViewCell.swift */; };
+		0DC5EA95269362C4000A7BAC /* EditContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC5EA94269362C4000A7BAC /* EditContactTableViewCell.swift */; };
+		0DC5EA97269364FC000A7BAC /* EditAnnouncementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC5EA96269364FC000A7BAC /* EditAnnouncementTableViewCell.swift */; };
+		0DC5EA9926936EAB000A7BAC /* AddContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC5EA9826936EAB000A7BAC /* AddContactTableViewCell.swift */; };
+		0DC5EA9B26936FEB000A7BAC /* addAnnouncementTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC5EA9A26936FEB000A7BAC /* addAnnouncementTableViewCell.swift */; };
 		344A556C1CC49A28C2069EF5 /* Pods_TeamyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB8089433EFD9BD3ACCEF72 /* Pods_TeamyApp.framework */; };
 		79CF316D26864020005ECEC8 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CF316C26864020005ECEC8 /* PhotoPickerViewController.swift */; };
 		79D8F97C268D19E500691F2B /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D8F97B268D19E500691F2B /* UserSettingsViewController.swift */; };
@@ -116,6 +124,14 @@
 		0D94E18E2682762B005602ED /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
 		0D94E19226827AE4005602ED /* UserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserController.swift; sourceTree = "<group>"; };
 		0D94E19426828E3C005602ED /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
+		0DC5EA8B269356EF000A7BAC /* UserManagementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManagementViewController.swift; sourceTree = "<group>"; };
+		0DC5EA8D26935776000A7BAC /* EditContactsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactsViewController.swift; sourceTree = "<group>"; };
+		0DC5EA8F26935783000A7BAC /* AnnouncementsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementsViewController.swift; sourceTree = "<group>"; };
+		0DC5EA92269362B3000A7BAC /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
+		0DC5EA94269362C4000A7BAC /* EditContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditContactTableViewCell.swift; sourceTree = "<group>"; };
+		0DC5EA96269364FC000A7BAC /* EditAnnouncementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAnnouncementTableViewCell.swift; sourceTree = "<group>"; };
+		0DC5EA9826936EAB000A7BAC /* AddContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddContactTableViewCell.swift; sourceTree = "<group>"; };
+		0DC5EA9A26936FEB000A7BAC /* addAnnouncementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addAnnouncementTableViewCell.swift; sourceTree = "<group>"; };
 		79CF316C26864020005ECEC8 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		79D8F97B268D19E500691F2B /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
 		AA5E560F2686670E00A8C3E7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
@@ -236,6 +252,28 @@
 			path = "Custom Cells";
 			sourceTree = "<group>";
 		};
+		0DC5EA8A2693569B000A7BAC /* AdminViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				0DC5EA8B269356EF000A7BAC /* UserManagementViewController.swift */,
+				0DC5EA8D26935776000A7BAC /* EditContactsViewController.swift */,
+				0DC5EA8F26935783000A7BAC /* AnnouncementsViewController.swift */,
+			);
+			path = AdminViewControllers;
+			sourceTree = "<group>";
+		};
+		0DC5EA912693625F000A7BAC /* AdminCustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				0DC5EA92269362B3000A7BAC /* UserTableViewCell.swift */,
+				0DC5EA94269362C4000A7BAC /* EditContactTableViewCell.swift */,
+				0DC5EA96269364FC000A7BAC /* EditAnnouncementTableViewCell.swift */,
+				0DC5EA9826936EAB000A7BAC /* AddContactTableViewCell.swift */,
+				0DC5EA9A26936FEB000A7BAC /* addAnnouncementTableViewCell.swift */,
+			);
+			path = AdminCustomCells;
+			sourceTree = "<group>";
+		};
 		96C73D3C21842E8445D2D00C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +380,7 @@
 		ACC975AF26811184000C3593 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0DC5EA8A2693569B000A7BAC /* AdminViewControllers */,
 				0D594788268AB4AF00A9DA0F /* TeamDetailViewControllers */,
 				AA5E560E268666C600A8C3E7 /* MapViewControllers */,
 				0D10323B26814CAE00136C9A /* AuthViewControllers */,
@@ -390,6 +429,7 @@
 		ACC975B726811332000C3593 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				0DC5EA912693625F000A7BAC /* AdminCustomCells */,
 				AC083074268CE367001C7D67 /* TMCustomCells */,
 				0D54C574268BD40400934307 /* TeamVCCustomCells */,
 				0D94E17D26823323005602ED /* Custom Cells */,
@@ -537,6 +577,7 @@
 				ACC975B926811389000C3593 /* CustomViewsPlaceholder.swift in Sources */,
 				AC239763268A42E00099E075 /* UIColorConverter.swift in Sources */,
 				ACC975AD26811157000C3593 /* HelpersPlaceholders.swift in Sources */,
+				0DC5EA8E26935776000A7BAC /* EditContactsViewController.swift in Sources */,
 				0D1032452681502200136C9A /* JoinTeamViewController.swift in Sources */,
 				ACC9759726810FBA000C3593 /* AppDelegate.swift in Sources */,
 				79D8F97C268D19E500691F2B /* UserSettingsViewController.swift in Sources */,
@@ -546,6 +587,7 @@
 				AC083086268CE409001C7D67 /* TeamNameTableViewCell.swift in Sources */,
 				0D10323A26814C9800136C9A /* AuthViewController.swift in Sources */,
 				0D10323D26814CC500136C9A /* LoginViewController.swift in Sources */,
+				0DC5EA95269362C4000A7BAC /* EditContactTableViewCell.swift in Sources */,
 				0D02DD5226854B340039EC0B /* ContactController.swift in Sources */,
 				0D02DD4926853DBF0039EC0B /* Contact.swift in Sources */,
 				0D94E18726823F8E005602ED /* TeamController.swift in Sources */,
@@ -565,12 +607,16 @@
 				0D94E18D2682402E005602ED /* Event.swift in Sources */,
 				0D94E19526828E3C005602ED /* UserError.swift in Sources */,
 				0D94E18526823DEB005602ED /* JoinTeamTableViewCell.swift in Sources */,
+				0DC5EA97269364FC000A7BAC /* EditAnnouncementTableViewCell.swift in Sources */,
 				0D02DD4B26853E6A0039EC0B /* Announcement.swift in Sources */,
+				0DC5EA9926936EAB000A7BAC /* AddContactTableViewCell.swift in Sources */,
 				0D70A980268F646900F82081 /* AddPlayerTableViewCell.swift in Sources */,
 				AC083072268CE333001C7D67 /* AnnounceTableViewCell.swift in Sources */,
 				AC083088268CE409001C7D67 /* TeamBioTableViewCell.swift in Sources */,
+				0DC5EA93269362B3000A7BAC /* UserTableViewCell.swift in Sources */,
 				ACC975B426811271000C3593 /* ModelControllersPlaceholder.swift in Sources */,
 				0D59478A268AB76000A9DA0F /* RosterViewController.swift in Sources */,
+				0DC5EA9B26936FEB000A7BAC /* addAnnouncementTableViewCell.swift in Sources */,
 				0D94E18126823841005602ED /* EventTableViewCell.swift in Sources */,
 				0D94E17F2682336B005602ED /* TeamTableViewCell.swift in Sources */,
 				AC083091268CE409001C7D67 /* TeamAnnouncementsTableViewCell.swift in Sources */,
@@ -585,7 +631,9 @@
 				0D70A984268F680700F82081 /* CreateTeamTableViewCell.swift in Sources */,
 				0D54C576268BD68400934307 /* PlayerTableViewCell.swift in Sources */,
 				0D02DD4F2685435A0039EC0B /* TeamError.swift in Sources */,
+				0DC5EA8C269356EF000A7BAC /* UserManagementViewController.swift in Sources */,
 				0D10324B268152B900136C9A /* AdminTeamViewController.swift in Sources */,
+				0DC5EA9026935783000A7BAC /* AnnouncementsViewController.swift in Sources */,
 				AC083089268CE409001C7D67 /* TeamContactsTableViewCell.swift in Sources */,
 				0D94E18326823864005602ED /* CreateEventViewController.swift in Sources */,
 				0D70A982268F650000F82081 /* LeagueDetailsTableViewCell.swift in Sources */,

@@ -13,6 +13,9 @@ class UserController {
     static let shared = UserController()
     
     var user: User?
+    var admins: [User] = []
+    var members: [User] = []
+    var blocked: [User] = []
     
     let db = Firestore.firestore()
     
@@ -51,6 +54,36 @@ class UserController {
                 return}
         }
         
+    }
+    
+    func fetchUsers(userIds: [String], access: String, completion: @escaping (Bool) -> Void) {
+        for i in userIds {
+            let fetchedUser = db.collection("users").whereField("userId", isEqualTo: i)
+            
+            fetchedUser.getDocuments { snap, error in
+                guard let snap = snap else {return}
+                if snap.count == 1 {
+                    let userData = snap.documents[0].data()
+                    
+                    guard let email = userData["email"] as? String,
+                    let firstName = userData["firstName"] as? String,
+                    let lastName = userData["lastName"] as? String,
+                    let userId = userData["userId"] as? String else {return}
+                    
+                    let userToPass = User(email: email, firstName: firstName, lastName: lastName, teams: [], userId: userId)
+                    
+                    if access == "admin" {
+                        self.admins.append(userToPass)
+                    } else if access == "member" {
+                        self.members.append(userToPass)
+                    } else if access == "blocked" {
+                        self.blocked.append(userToPass)
+                    }
+                    
+                }
+            }
+        }
+        completion(true)
     }
     
     func updateUser(user: User) {
