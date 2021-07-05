@@ -87,5 +87,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                   let indexPath = userTeamsTableView.indexPathForSelectedRow else {return}
             destination.team = TeamController.shared.teams[indexPath.row]
         }
+        if segue.identifier == "toProfileSettingsVC" {
+            guard let destination = segue.destination as? UserSettingsViewController else {return}
+            destination.user = UserController.shared.user
+            
+        }
     }
 }//End of extension
