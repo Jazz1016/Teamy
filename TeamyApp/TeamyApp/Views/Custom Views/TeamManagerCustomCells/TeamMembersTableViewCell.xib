@@ -24,7 +24,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="105" translatesAutoresizingMaskIntoConstraints="NO" id="DKD-5l-4YU">
                                 <rect key="frame" x="0.0" y="0.0" width="460.5" height="33.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAM-v4-txR">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Members" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nAM-v4-txR">
                                         <rect key="frame" x="0.0" y="6.5" width="322" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>

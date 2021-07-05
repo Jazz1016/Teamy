@@ -56,14 +56,14 @@
 		AC083086268CE409001C7D67 /* TeamNameTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC083076268CE408001C7D67 /* TeamNameTableViewCell.swift */; };
 		AC083087268CE409001C7D67 /* TeamMembersTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC083077268CE408001C7D67 /* TeamMembersTableViewCell.swift */; };
 		AC083088268CE409001C7D67 /* TeamBioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC083078268CE408001C7D67 /* TeamBioTableViewCell.swift */; };
-		AC083089268CE409001C7D67 /* TeamEventsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC083079268CE408001C7D67 /* TeamEventsTableViewCell.swift */; };
+		AC083089268CE409001C7D67 /* TeamContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC083079268CE408001C7D67 /* TeamContactsTableViewCell.swift */; };
 		AC08308A268CE409001C7D67 /* CoachsBioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC08307A268CE408001C7D67 /* CoachsBioTableViewCell.xib */; };
 		AC08308B268CE409001C7D67 /* TeamBioTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC08307B268CE408001C7D67 /* TeamBioTableViewCell.xib */; };
 		AC08308C268CE409001C7D67 /* TeamNameTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC08307C268CE408001C7D67 /* TeamNameTableViewCell.xib */; };
 		AC08308D268CE409001C7D67 /* CoachsBioTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC08307D268CE408001C7D67 /* CoachsBioTableViewCell.swift */; };
 		AC08308E268CE409001C7D67 /* AdminMembersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC08307E268CE408001C7D67 /* AdminMembersTableViewCell.xib */; };
 		AC08308F268CE409001C7D67 /* TeamMembersTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC08307F268CE408001C7D67 /* TeamMembersTableViewCell.xib */; };
-		AC083090268CE409001C7D67 /* TeamEventsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC083080268CE408001C7D67 /* TeamEventsTableViewCell.xib */; };
+		AC083090268CE409001C7D67 /* TeamContactsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC083080268CE408001C7D67 /* TeamContactsTableViewCell.xib */; };
 		AC083091268CE409001C7D67 /* TeamAnnouncementsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC083081268CE408001C7D67 /* TeamAnnouncementsTableViewCell.swift */; };
 		AC083092268CE409001C7D67 /* TeamAnnouncementsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC083082268CE409001C7D67 /* TeamAnnouncementsTableViewCell.xib */; };
 		AC239763268A42E00099E075 /* UIColorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC239762268A42E00099E075 /* UIColorConverter.swift */; };
@@ -130,14 +130,14 @@
 		AC083076268CE408001C7D67 /* TeamNameTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamNameTableViewCell.swift; path = "TeamyApp/Views/Custom Views/TeamManagerCustomCells/TeamNameTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		AC083077268CE408001C7D67 /* TeamMembersTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamMembersTableViewCell.swift; path = "TeamyApp/Views/Custom Views/TeamManagerCustomCells/TeamMembersTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		AC083078268CE408001C7D67 /* TeamBioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamBioTableViewCell.swift; path = "TeamyApp/Views/Custom Views/TeamManagerCustomCells/TeamBioTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
-		AC083079268CE408001C7D67 /* TeamEventsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamEventsTableViewCell.swift; path = "TeamyApp/Views/Custom Views/TeamManagerCustomCells/TeamEventsTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		AC083079268CE408001C7D67 /* TeamContactsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamContactsTableViewCell.swift; path = "TeamyApp/Views/Custom Views/TeamManagerCustomCells/TeamContactsTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		AC08307A268CE408001C7D67 /* CoachsBioTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = CoachsBioTableViewCell.xib; path = "TeamyApp/Views/Custom Views/TeamManagerCustomCells/CoachsBioTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		AC08307B268CE408001C7D67 /* TeamBioTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeamBioTableViewCell.xib; path = "TeamyApp/Views/Custom Views/TeamManagerCustomCells/TeamBioTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		AC08307C268CE408001C7D67 /* TeamNameTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeamNameTableViewCell.xib; path = "TeamyApp/Views/Custom Views/TeamManagerCustomCells/TeamNameTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		AC08307D268CE408001C7D67 /* CoachsBioTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CoachsBioTableViewCell.swift; path = "TeamyApp/Views/Custom Views/TeamManagerCustomCells/CoachsBioTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		AC08307E268CE408001C7D67 /* AdminMembersTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = AdminMembersTableViewCell.xib; path = "TeamyApp/Views/Custom Views/TeamManagerCustomCells/AdminMembersTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		AC08307F268CE408001C7D67 /* TeamMembersTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeamMembersTableViewCell.xib; path = "TeamyApp/Views/Custom Views/TeamManagerCustomCells/TeamMembersTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
-		AC083080268CE408001C7D67 /* TeamEventsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeamEventsTableViewCell.xib; path = "TeamyApp/Views/Custom Views/TeamManagerCustomCells/TeamEventsTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
+		AC083080268CE408001C7D67 /* TeamContactsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeamContactsTableViewCell.xib; path = "TeamyApp/Views/Custom Views/TeamManagerCustomCells/TeamContactsTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		AC083081268CE408001C7D67 /* TeamAnnouncementsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TeamAnnouncementsTableViewCell.swift; path = "TeamyApp/Views/Custom Views/TeamManagerCustomCells/TeamAnnouncementsTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		AC083082268CE409001C7D67 /* TeamAnnouncementsTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TeamAnnouncementsTableViewCell.xib; path = "TeamyApp/Views/Custom Views/TeamManagerCustomCells/TeamAnnouncementsTableViewCell.xib"; sourceTree = SOURCE_ROOT; };
 		AC239762268A42E00099E075 /* UIColorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorConverter.swift; sourceTree = "<group>"; };
@@ -265,8 +265,8 @@
 				AC083082268CE409001C7D67 /* TeamAnnouncementsTableViewCell.xib */,
 				AC083078268CE408001C7D67 /* TeamBioTableViewCell.swift */,
 				AC08307B268CE408001C7D67 /* TeamBioTableViewCell.xib */,
-				AC083079268CE408001C7D67 /* TeamEventsTableViewCell.swift */,
-				AC083080268CE408001C7D67 /* TeamEventsTableViewCell.xib */,
+				AC083079268CE408001C7D67 /* TeamContactsTableViewCell.swift */,
+				AC083080268CE408001C7D67 /* TeamContactsTableViewCell.xib */,
 				AC083077268CE408001C7D67 /* TeamMembersTableViewCell.swift */,
 				AC08307F268CE408001C7D67 /* TeamMembersTableViewCell.xib */,
 				AC083076268CE408001C7D67 /* TeamNameTableViewCell.swift */,
@@ -474,7 +474,7 @@
 				AC083092268CE409001C7D67 /* TeamAnnouncementsTableViewCell.xib in Resources */,
 				AC08308F268CE409001C7D67 /* TeamMembersTableViewCell.xib in Resources */,
 				AC08308A268CE409001C7D67 /* CoachsBioTableViewCell.xib in Resources */,
-				AC083090268CE409001C7D67 /* TeamEventsTableViewCell.xib in Resources */,
+				AC083090268CE409001C7D67 /* TeamContactsTableViewCell.xib in Resources */,
 				ACC975A326810FBC000C3593 /* LaunchScreen.storyboard in Resources */,
 				ACC975A026810FBC000C3593 /* Assets.xcassets in Resources */,
 				ACC975BE26811868000C3593 /* GoogleService-Info.plist in Resources */,
@@ -586,7 +586,7 @@
 				0D54C576268BD68400934307 /* PlayerTableViewCell.swift in Sources */,
 				0D02DD4F2685435A0039EC0B /* TeamError.swift in Sources */,
 				0D10324B268152B900136C9A /* AdminTeamViewController.swift in Sources */,
-				AC083089268CE409001C7D67 /* TeamEventsTableViewCell.swift in Sources */,
+				AC083089268CE409001C7D67 /* TeamContactsTableViewCell.swift in Sources */,
 				0D94E18326823864005602ED /* CreateEventViewController.swift in Sources */,
 				0D70A982268F650000F82081 /* LeagueDetailsTableViewCell.swift in Sources */,
 				0D94E18926824018005602ED /* User.swift in Sources */,
