@@ -142,7 +142,7 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
                 let event = EventController.shared.events[indexPath.row - 1]
                 cell.eventNameLabel.text = event.name
                 cell.eventLocationLabel.text = event.locationName
-                cell.eventDate.text = event.date.dateValue().formatToString()
+                cell.eventDate.text = event.date.dateValue().formatToCustomString()
                 return cell
             } else {
                 return UITableViewCell()
@@ -170,7 +170,7 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
                 let event = EventController.shared.events[indexPath.row]
                 cell.eventNameLabel.text = event.name
                 cell.eventLocationLabel.text = event.locationName
-                cell.eventDate.text = event.date.dateValue().formatToString()
+                cell.eventDate.text = event.date.dateValue().formatToCustomString()
                 
                 return cell
             } else {
@@ -194,8 +194,13 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
         if segue.identifier == "toEventDetailVC" {
             guard let indexPath = eventsTableView.indexPathForSelectedRow else {return}
             guard let destinationVC = segue.destination as? EventDetailViewController else {return}
-            let eventToSend = EventController.shared.events[indexPath.row - 1]
-            destinationVC.event = eventToSend
+            if EventController.shared.isAdmin {
+                let eventToSend = EventController.shared.events[indexPath.row - 1]
+                destinationVC.event = eventToSend
+            } else {
+                let eventToSend = EventController.shared.events[indexPath.row]
+                destinationVC.event = eventToSend
+            }
         }
     }
 }//End of extension

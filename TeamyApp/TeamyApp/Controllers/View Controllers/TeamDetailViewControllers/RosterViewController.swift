@@ -103,6 +103,7 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
             }
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath) as? PlayerTableViewCell
+            //Ethan - BUG: indexpath out of range when trying to select the view players cell as a non-Admin
             let player = PlayerController.shared.players[indexPath.row - 1]
             cell?.player = player
             cell?.playerIndex = indexPath.row - 1

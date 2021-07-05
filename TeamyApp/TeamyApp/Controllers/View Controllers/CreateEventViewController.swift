@@ -27,8 +27,8 @@ class CreateEventViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        lookPretty()
         updateViews()
+        addNotesTextViewBorder()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -36,7 +36,6 @@ class CreateEventViewController: UIViewController {
         
         if eventAddressLabel.text != "Event Address" {
             addLocationButton.setTitle("Change Location", for: .normal)
-//            eventLocationNameLabel.isHidden = false
         }
     }
     
@@ -109,7 +108,7 @@ class CreateEventViewController: UIViewController {
         }
     }
     
-    func lookPretty() {
+    func addNotesTextViewBorder() {
         eventNotesTextView.layer.borderWidth = 1
         eventNotesTextView.layer.borderColor = CGColor(gray: 0, alpha: 0.2)
         eventNotesTextView.layer.cornerRadius = 10
@@ -123,12 +122,9 @@ class CreateEventViewController: UIViewController {
             destinationVC.delegate = self
         }
     }
-    
-    
-    
 }
+
 extension CreateEventViewController: SaveToEventDelegate {
-    
     
     func saveLocationInfo(placemark: MKPlacemark) {
         eventLocationNameLabel.text = placemark.name
