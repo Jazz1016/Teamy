@@ -25,7 +25,7 @@ class ManageTeamTableViewController: UITableViewController {
         tableView.register(TeamNameTableViewCell.nib(), forCellReuseIdentifier: TeamNameTableViewCell.identifier)
         tableView.register(TeamBioTableViewCell.nib(), forCellReuseIdentifier: TeamBioTableViewCell.identifier)
         tableView.register(CoachsBioTableViewCell.nib(), forCellReuseIdentifier: CoachsBioTableViewCell.identifier)
-        tableView.register(TeamEventsTableViewCell.nib(), forCellReuseIdentifier: TeamEventsTableViewCell.identifier)
+        tableView.register(TeamContactsTableViewCell.nib(), forCellReuseIdentifier: TeamContactsTableViewCell.identifier)
         tableView.register(TeamAnnouncementsTableViewCell.nib(), forCellReuseIdentifier: TeamAnnouncementsTableViewCell.identifier)
         tableView.register(AdminMembersTableViewCell.nib(), forCellReuseIdentifier: AdminMembersTableViewCell.identifier)
         tableView.register(TeamMembersTableViewCell.nib(), forCellReuseIdentifier: TeamMembersTableViewCell.identifier)
@@ -46,7 +46,7 @@ class ManageTeamTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         if section == 0 {
-            return 4
+            return 3
         } else {
             return 2
         }
@@ -64,11 +64,9 @@ class ManageTeamTableViewController: UITableViewController {
         } else if indexPath.section == 0 && indexPath.row == 1 {
             cell = tableView.dequeueReusableCell(withIdentifier: TeamBioTableViewCell.identifier, for: indexPath)
         } else if indexPath.section == 0 && indexPath.row == 2 {
-            cell = tableView.dequeueReusableCell(withIdentifier: CoachsBioTableViewCell.identifier, for: indexPath)
-        } else if indexPath.section == 0 && indexPath.row == 3 {
             cell = tableView.dequeueReusableCell(withIdentifier: "editTeamColorCell", for: indexPath) as? EditTeamColorTableViewCell
         } else if indexPath.section == 1 && indexPath.row == 0 {
-            cell = tableView.dequeueReusableCell(withIdentifier: TeamEventsTableViewCell.identifier, for: indexPath)
+            cell = tableView.dequeueReusableCell(withIdentifier: TeamContactsTableViewCell.identifier, for: indexPath)
         } else if indexPath.section == 1 && indexPath.row == 1 {
             cell = tableView.dequeueReusableCell(withIdentifier: TeamAnnouncementsTableViewCell.identifier, for: indexPath)
         } else if indexPath.section == 2 && indexPath.row == 0 {
@@ -79,9 +77,48 @@ class ManageTeamTableViewController: UITableViewController {
         return cell ?? UITableViewCell()
     }
     
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        
+        if indexPath.section == 0 && indexPath.row == 0 {
+            return true
+        } else if indexPath.section == 0 && indexPath.row == 1 {
+            return true
+        } else {
+            return false
+        }
+        
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        if indexPath.section == 0 && indexPath.row == 0 {
+            
+            let editAction = UITableViewRowAction(style: .default, title: "Edit") { action, indexPath in
+                if let cell = tableView.cellForRow(at: indexPath) as? TeamNameTableViewCell {
+                    cell.updateForEdit()
+                }
+            }
+            editAction.backgroundColor = .systemBlue
+            return [editAction]
+        
+        } else if indexPath.section == 0 && indexPath.row == 1 {
+            
+            let editAction = UITableViewRowAction(style: .default, title: "Edit") { action, indexPath in
+                if let cell = tableView.cellForRow(at: indexPath) as? TeamBioTableViewCell {
+                    cell.updateForEdit()
+                }
+            }
+            
+            editAction.backgroundColor = .systemBlue
+            return [editAction]
+        } else {
+            return []
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if indexPath.section == 0 && indexPath.row == 3 {
+        if indexPath.section == 0 && indexPath.row == 2 {
             
             let colorPickerVC = UIColorPickerViewController()
             colorPickerVC.delegate = self
