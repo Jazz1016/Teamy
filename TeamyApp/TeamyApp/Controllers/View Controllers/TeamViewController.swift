@@ -102,7 +102,8 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
         if EventController.shared.isAdmin {
             if indexPath.row == 0 && indexPath.section == 0 {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "leagueDetailsCell", for: indexPath) as? LeagueDetailsTableViewCell
-                
+                let index = indexPath.row
+                cell?.index = index
                 return cell ?? UITableViewCell()
             } else if indexPath.row == 1 && indexPath.section == 0 {
                 /// Manage Team Button Cell
@@ -111,6 +112,8 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
             } else if indexPath.row == 2 && indexPath.section == 0 {
                 /// Roster Cell
                 let cell = tableView.dequeueReusableCell(withIdentifier: "rosterCell", for: indexPath) as? RosterCellTableViewCell
+                let playerCount = PlayerController.shared.players.count
+                cell?.num = playerCount
                 return cell ?? UITableViewCell()
             } else if indexPath.row <= ContactController.shared.contacts.count + 2 && indexPath.section == 0 {
                 /// Contact Cell(s)
@@ -121,6 +124,8 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
             } else if indexPath.row <= AnnouncementController.shared.announcements.count && indexPath.section == 1 {
                 /// Announcement Cell(s)
                 let cell = tableView.dequeueReusableCell(withIdentifier: "announcementCell", for: indexPath) as? AnnounceTableViewCell
+                let announcement = AnnouncementController.shared.announcements[indexPath.row]
+                cell?.announcement = announcement
                 return cell ?? UITableViewCell()
             } else if indexPath.row == 0 && indexPath.section == 2 {
                 ///Create Event Cell

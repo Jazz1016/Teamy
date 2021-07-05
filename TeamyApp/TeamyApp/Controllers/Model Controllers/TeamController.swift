@@ -48,7 +48,8 @@ class TeamController {
                           let members1 = members,
                           let teamCode1 = teamCode,
                           let blocked1 = blocked,
-                          let teamColor1 = teamColor
+                          let teamColor1 = teamColor,
+                          let teamImage = teamImageString
                           else {return}
                     
                     print(teamDescription)
@@ -57,14 +58,14 @@ class TeamController {
                     for i in teamDescription {
                         if i.key == "leagueName" {
                             leagueName = i.value
-                        } else if i.key == "detail"{
+                        } else if i.key == "detail" {
                             detail = i.value
                         }
                     }
                     
                     let teamDescToPass = TeamDescription(leagueName: leagueName, detail: detail)
                     
-                    let teamToAdd = Team(name: name1, teamColor: teamColor1, teamSport: teamSport1, admins: admins1, members: members1, blocked: blocked1, teamDesc: teamDescToPass , teamId: teamId1, teamCode: teamCode1, teamImage: "")
+                    let teamToAdd = Team(name: name1, teamColor: teamColor1, teamSport: teamSport1, admins: admins1, members: members1, blocked: blocked1, teamDesc: teamDescToPass , teamId: teamId1, teamCode: teamCode1, teamImage: teamImage)
                     
                     self.teams.append(teamToAdd)
                     counter += 1
@@ -75,11 +76,10 @@ class TeamController {
                 }
             }
         }
-        print(self.teams)
     }
     
     ///Create's team and one nested Contact document
-    func createTeam(team: Team, contact: Contact, completion: @escaping (Result<Bool, TeamError>) -> Void){
+    func createTeam(team: Team, contact: Contact, completion: @escaping (Result<Bool, TeamError>) -> Void) {
         
         let teamRef = db.collection("teams").document(team.teamId)
         
@@ -98,6 +98,7 @@ class TeamController {
             "teamCode" : team.teamCode,
             "teamImage" : team.teamImage
         ])
+        
         teams.append(team)
         // JAMLEA: I'll be adding optional contact when user creates a team once I get the outlets for createNewTeamVC
         if contact.contactName.count > 0 {
@@ -108,7 +109,8 @@ class TeamController {
                 "contactId" : contact.contactId
             ])
         }
-        let baseAnnouncement = Announcement(title: "No Announcement", details: "there are no announcements at this time")
+        
+        let baseAnnouncement = Announcement(title: "No Announcements", details: "No announcements at this time")
         
         db.collection("teams").document(team.teamId).collection("announcements").document(baseAnnouncement.announcementId).setData([
             "title" : baseAnnouncement.title,

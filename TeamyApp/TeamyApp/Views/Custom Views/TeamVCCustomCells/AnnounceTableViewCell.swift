@@ -27,4 +27,4 @@ class AnnounceTableViewCell: UITableViewCell {
         announcementDetail.text = announcement.details
     }
     
-}
+}//End of class
