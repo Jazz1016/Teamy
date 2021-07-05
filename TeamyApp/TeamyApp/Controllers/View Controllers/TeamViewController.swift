@@ -17,6 +17,11 @@ class TeamViewController: UIViewController {
         eventsTableView.dataSource = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        eventsTableView.reloadData()
+    }
+    
     // MARK: - Properties
     var team: Team? {
         didSet {
@@ -189,7 +194,7 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
         if segue.identifier == "toEventDetailVC" {
             guard let indexPath = eventsTableView.indexPathForSelectedRow else {return}
             guard let destinationVC = segue.destination as? EventDetailViewController else {return}
-            let eventToSend = EventController.shared.events[indexPath.row]
+            let eventToSend = EventController.shared.events[indexPath.row - 1]
             destinationVC.event = eventToSend
         }
     }
