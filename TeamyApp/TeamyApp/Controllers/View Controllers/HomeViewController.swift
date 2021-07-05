@@ -46,10 +46,14 @@ class HomeViewController: UIViewController {
         EventController.shared.isAdmin = false
     }
     
-    // MARK: - Functions
-    func reloadTeamsTable(){
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         userTeamsTableView.reloadData()
     }
+    
+    // MARK: - Method
+    
     
 }//End of class
 

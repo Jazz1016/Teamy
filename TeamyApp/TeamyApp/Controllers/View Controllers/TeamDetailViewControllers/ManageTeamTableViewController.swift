@@ -35,6 +35,35 @@ class ManageTeamTableViewController: UITableViewController {
         guard let user = UserController.shared.user else { return }
         welcomeLabel.text = "Welcome, \(user.firstName) \(user.lastName)"
     }
+    
+    func updatedColor() {
+        self.tableView.reloadData()
+        
+        let colorIndexPath = IndexPath(row: 2, section: 0)
+        guard let colorCell = self.tableView.dequeueReusableCell(withIdentifier: "editTeamColorCell", for: colorIndexPath)
+                as? EditTeamColorTableViewCell else { return }
+        colorCell.awakeFromNib()
+        
+        let contactsIndexPath = IndexPath(row: 0, section: 1)
+        guard let contactsCell = self.tableView.dequeueReusableCell(withIdentifier: TeamContactsTableViewCell.identifier, for: contactsIndexPath)
+                as? TeamContactsTableViewCell else { return }
+        contactsCell.awakeFromNib()
+        
+        let announcementsIndexPath = IndexPath(row: 1, section: 1)
+        guard let announcementsCell = self.tableView.dequeueReusableCell(withIdentifier: TeamAnnouncementsTableViewCell.identifier, for: announcementsIndexPath)
+                as? TeamAnnouncementsTableViewCell else { return }
+        announcementsCell.awakeFromNib()
+        
+        let adminMembersIndexPath = IndexPath(row: 0, section: 2)
+        guard let adminMembersCell = self.tableView.dequeueReusableCell(withIdentifier: AdminMembersTableViewCell.identifier, for: adminMembersIndexPath)
+                as? AdminMembersTableViewCell else { return }
+        adminMembersCell.awakeFromNib()
+        
+        let teamMembersIndexPath = IndexPath(row: 1, section: 2)
+        guard let teamMembersCell = self.tableView.dequeueReusableCell(withIdentifier: TeamMembersTableViewCell.identifier, for: teamMembersIndexPath)
+                as? TeamMembersTableViewCell else { return }
+        teamMembersCell.awakeFromNib()
+    }
 
     // MARK: - Table view data source
 
@@ -161,5 +190,9 @@ extension ManageTeamTableViewController: UIColorPickerViewControllerDelegate {
         
         TeamController.shared.editTeam(oldTeam: currentTeam, team: updatedTeam)
         tableView.reloadData()
+    }
+    
+    func colorPickerViewControllerDidFinish(_ viewController: UIColorPickerViewController) {
+        updatedColor()
     }
 }
