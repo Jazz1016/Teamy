@@ -1395,19 +1395,25 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="216"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OfG-xU-eZ7">
-                                                    <rect key="frame" x="41.5" y="45" width="331" height="126"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aci-rW-EfB">
+                                                    <rect key="frame" x="51.5" y="31" width="311" height="154.5"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ogH-TX-PgY">
-                                                            <rect key="frame" x="0.0" y="0.0" width="277" height="126"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="UbC-Od-W6k">
+                                                            <rect key="frame" x="0.0" y="0.0" width="277" height="154.5"/>
                                                             <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Announcement title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uT4-TB-4BT">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="277" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                                 <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Annnouncement Title" textAlignment="natural" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Cl2-jK-iRq">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="277" height="34"/>
+                                                                    <rect key="frame" x="0.0" y="28.5" width="277" height="34"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>
                                                                 </textField>
-                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" text="Announcement Details..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5vh-KW-MEm">
-                                                                    <rect key="frame" x="0.0" y="42" width="277" height="84"/>
+                                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Announcement Details..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5vh-KW-MEm">
+                                                                    <rect key="frame" x="0.0" y="70.5" width="277" height="84"/>
                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                     <color key="textColor" systemColor="labelColor"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1415,61 +1421,62 @@
                                                                 </textView>
                                                             </subviews>
                                                         </stackView>
-                                                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LmF-ve-fmJ">
-                                                            <rect key="frame" x="285" y="48" width="46" height="30"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LmF-ve-fmJ">
+                                                            <rect key="frame" x="277" y="62" width="34" height="30"/>
                                                             <state key="normal" title="Save"/>
                                                         </button>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="OfG-xU-eZ7" firstAttribute="width" secondItem="zEu-4j-zjt" secondAttribute="width" multiplier="0.8" id="JT3-SF-JHO"/>
-                                                <constraint firstItem="OfG-xU-eZ7" firstAttribute="centerY" secondItem="zEu-4j-zjt" secondAttribute="centerY" id="UN9-WY-9aD"/>
-                                                <constraint firstItem="OfG-xU-eZ7" firstAttribute="centerX" secondItem="zEu-4j-zjt" secondAttribute="centerX" id="yXo-Wk-r0o"/>
+                                                <constraint firstItem="aci-rW-EfB" firstAttribute="width" secondItem="zEu-4j-zjt" secondAttribute="width" multiplier="0.751208" id="Bep-D4-yOg"/>
+                                                <constraint firstItem="aci-rW-EfB" firstAttribute="centerY" secondItem="zEu-4j-zjt" secondAttribute="centerY" id="D60-UR-SFN"/>
+                                                <constraint firstItem="aci-rW-EfB" firstAttribute="centerX" secondItem="zEu-4j-zjt" secondAttribute="centerX" id="WlV-Tz-hjh"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="announcementDetailTextView" destination="5vh-KW-MEm" id="zN4-fT-Sh0"/>
+                                            <outlet property="announcementLabel" destination="uT4-TB-4BT" id="hyn-uI-AdV"/>
                                             <outlet property="announcementTextField" destination="Cl2-jK-iRq" id="bbS-t3-NMK"/>
                                             <outlet property="saveAnnouncementButton" destination="LmF-ve-fmJ" id="oaC-Dl-zBc"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addAnnouncementCell" rowHeight="106" id="usP-U6-but" customClass="addAnnouncementTableViewCell" customModule="TeamyApp" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addAnnouncementCell" rowHeight="106" id="idz-YR-0an" customClass="addAnnouncementTableViewCell" customModule="TeamyApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="240.5" width="414" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="usP-U6-but" id="tEH-pm-MlE">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="idz-YR-0an" id="we0-kR-S3A">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="106"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="UbF-Jk-G1n">
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xPH-eX-wte">
                                                     <rect key="frame" x="103.5" y="33" width="207" height="40"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uXW-id-RG3">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7tr-wj-yLh">
                                                             <rect key="frame" x="0.0" y="0.0" width="151" height="40"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mdB-iH-ZY9">
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TYo-PR-d6k">
                                                             <rect key="frame" x="167" y="0.0" width="40" height="40"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" secondItem="mdB-iH-ZY9" secondAttribute="height" multiplier="1:1" id="7Gb-RN-VLn"/>
+                                                                <constraint firstAttribute="width" secondItem="TYo-PR-d6k" secondAttribute="height" multiplier="1:1" id="PfH-Tu-zu0"/>
                                                             </constraints>
                                                             <state key="normal" image="plus" catalog="system"/>
                                                             <connections>
-                                                                <action selector="addAnnouncementButtonTapped:" destination="7rb-8p-dIZ" eventType="touchUpInside" id="15E-JB-JUb"/>
+                                                                <action selector="addAnnouncementButtonTapped:" destination="7rb-8p-dIZ" eventType="touchUpInside" id="OQS-pf-hne"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="0vh-ci-1Aq"/>
+                                                        <constraint firstAttribute="height" constant="40" id="WAI-4w-K64"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="UbF-Jk-G1n" firstAttribute="width" secondItem="tEH-pm-MlE" secondAttribute="width" multiplier="0.5" id="h4g-Qr-Xfz"/>
-                                                <constraint firstItem="UbF-Jk-G1n" firstAttribute="centerX" secondItem="tEH-pm-MlE" secondAttribute="centerX" id="knR-Cf-7cp"/>
-                                                <constraint firstItem="UbF-Jk-G1n" firstAttribute="centerY" secondItem="tEH-pm-MlE" secondAttribute="centerY" id="uCg-9R-RaW"/>
+                                                <constraint firstItem="xPH-eX-wte" firstAttribute="centerX" secondItem="we0-kR-S3A" secondAttribute="centerX" id="B4S-Lq-RZF"/>
+                                                <constraint firstItem="xPH-eX-wte" firstAttribute="width" secondItem="we0-kR-S3A" secondAttribute="width" multiplier="0.5" id="TKo-Bh-X3A"/>
+                                                <constraint firstItem="xPH-eX-wte" firstAttribute="centerY" secondItem="we0-kR-S3A" secondAttribute="centerY" id="tUh-HH-lpG"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
