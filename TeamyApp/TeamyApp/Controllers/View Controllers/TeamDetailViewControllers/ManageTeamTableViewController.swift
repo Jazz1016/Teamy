@@ -117,18 +117,32 @@ class ManageTeamTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if indexPath.section == 0 && indexPath.row == 2 {
             
             let colorPickerVC = UIColorPickerViewController()
             colorPickerVC.delegate = self
         
             present(colorPickerVC, animated: true, completion: nil)
+        } else if indexPath.section == 1 && indexPath.row == 0 {
+            let VC = storyboard.instantiateViewController(identifier: "editContactsVC")
+            VC.modalPresentationStyle = .automatic
+            self.present(VC, animated: true, completion: nil)
+        } else if indexPath.section == 1 && indexPath.row == 1 {
+            let VC = storyboard.instantiateViewController(identifier: "editAnnouncementsVC")
+            
+            VC.modalPresentationStyle = .automatic
+            
+            self.present(VC, animated: true, completion: nil)
+        } else if indexPath.section == 2 && indexPath.row == 0 {
+            let VC = storyboard.instantiateViewController(identifier: "AccessVC")
+            
+            VC.modalPresentationStyle = .automatic
+            self.present(VC, animated: true, completion: nil)
         }
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        
         if section == 0 {
             return "TEAM DETAILS"
         } else if section == 1 {
