@@ -9,6 +9,10 @@ import UIKit
 import MapKit
 import Firebase
 
+protocol UpdateEventDetailDelegate: AnyObject {
+    func updateEventView()
+}
+
 class CreateEventViewController: UIViewController {
     
     //MARK: - Outlets
@@ -36,6 +40,7 @@ class CreateEventViewController: UIViewController {
         }
     }
     
+    weak var delegate: UpdateEventDetailDelegate?
     var event: Event?
     
     //MARK: - Actions
@@ -43,17 +48,27 @@ class CreateEventViewController: UIViewController {
         guard let eventName = eventNameTextField.text, !eventName.isEmpty,
               let eventAddress = eventAddressLabel.text,
               let eventLocationName = eventLocationNameLabel.text,
-              let eventNotes = eventNotesTextView.text else {return}
-        
+              let eventNotes = eventNotesTextView.text,
+              let team = EventController.shared.team else {return}
         let date = Timestamp(date: datePicker.date)
         
-        let event = Event(date: date, name: eventName, locationAddress: eventAddress, locationName: eventLocationName, notes: eventNotes)
-     
-        guard let team = EventController.shared.team else {return}
-        EventController.shared.createEvent(event: event, teamID: team.teamId)
-        print("Successfully saved event")
-        
-        navigationController?.popViewController(animated: true)
+        if let event = event {
+            event.name = eventName
+            event.locationAddress = eventAddress
+            event.locationName = eventLocationName
+            event.notes = eventNotes
+            event.date = date
+            
+            EventController.shared.updateEvent(event: event, teamID: team.teamId)
+            print("Successfully updated event")
+            self.dismiss(animated: true, completion: nil)
+            delegate?.updateEventView()
+        } else {
+            let event = Event(date: date, name: eventName, locationAddress: eventAddress, locationName: eventLocationName, notes: eventNotes)
+            EventController.shared.createEvent(event: event, teamID: team.teamId)
+            print("Successfully created event")
+            navigationController?.popViewController(animated: true)
+        }
     }
     
     func updateViews() {
@@ -63,10 +78,29 @@ class CreateEventViewController: UIViewController {
         eventNotesTextView.text = event.notes
         datePicker.date = event.date.dateValue()
         eventLocationNameLabel.text = event.locationName
-        
+        dropPin()
     }
     
     //MARK: - Functions
+    func dropPin() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            guard let address = self.eventAddressLabel.text else {return}
+            EventController.shared.getCoordinate(addressString: address) { coordinates, error in
+                if let error = error {
+                    print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                }
+                self.mapView.removeAnnotations(self.mapView.annotations)
+                let placemark = MKPlacemark(coordinate: coordinates)
+                let annotation = MKPointAnnotation()
+                annotation.coordinate = placemark.coordinate
+                
+                self.mapView.addAnnotation(annotation)
+                let region = MKCoordinateRegion(center: coordinates, latitudinalMeters: 1000, longitudinalMeters: 1000)
+                self.mapView.setRegion(region, animated: true)
+            }
+        }
+    }
+    
     func hideLabels() {
         eventAddressLabel.isHidden = true
         
@@ -94,6 +128,7 @@ class CreateEventViewController: UIViewController {
     
 }
 extension CreateEventViewController: SaveToEventDelegate {
+    
     
     func saveLocationInfo(placemark: MKPlacemark) {
         eventLocationNameLabel.text = placemark.name

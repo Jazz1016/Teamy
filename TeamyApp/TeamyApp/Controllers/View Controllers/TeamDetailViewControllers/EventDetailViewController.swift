@@ -29,15 +29,15 @@ class EventDetailViewController: UIViewController {
     }
     
     var event: Event?
+    var placemark: MKPlacemark?
     
     @IBAction func editEventButtonTapped(_ sender: Any) {
-        
-        let viewc = CreateEventViewController()
-        viewc.event = event
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "createEventVC") else {return}
-        
-        vc.beginAppearanceTransition(true, animated: true)
-        
+    
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "createEventVC") as? CreateEventViewController else {return}
+        guard let event = event else {return}
+        vc.event = event
+        vc.delegate = self
+        vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
   
     }
@@ -101,4 +101,10 @@ class EventDetailViewController: UIViewController {
         }
     }
 
+}
+
+extension EventDetailViewController: UpdateEventDetailDelegate {
+    func updateEventView() {
+        updateViews()
+    }
 }
