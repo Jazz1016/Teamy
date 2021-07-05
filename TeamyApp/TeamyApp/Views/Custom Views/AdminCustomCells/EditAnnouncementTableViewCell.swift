@@ -12,6 +12,8 @@ class EditAnnouncementTableViewCell: UITableViewCell {
     @IBOutlet weak var announcementTextField: UITextField!
     @IBOutlet weak var announcementDetailTextView: UITextView!
     @IBOutlet weak var saveAnnouncementButton: UIButton!
+    @IBOutlet weak var announcementLabel: UILabel!
+    
     
     // MARK: - Lifecycle
     override func awakeFromNib() {

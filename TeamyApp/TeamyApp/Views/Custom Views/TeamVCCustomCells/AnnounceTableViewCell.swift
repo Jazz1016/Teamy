@@ -20,7 +20,7 @@ class AnnounceTableViewCell: UITableViewCell {
     }
     
     // MARK: - Functions
-    func updateViews(){
+    func updateViews() {
         guard let announcement = announcement else {return}
         
         announcementLabel.text = announcement.title
