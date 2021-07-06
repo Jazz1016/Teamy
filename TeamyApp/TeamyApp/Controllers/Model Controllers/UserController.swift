@@ -198,22 +198,16 @@ class UserController {
                 let name = teamData["name"] as? String
                 let teamColor = teamData["teamColor"] as? String
                 let teamSport = teamData["teamSport"] as? String
-                let teamDesc = teamData["teamDescription"] as? [String:String] ?? [:]
+                let teamRecord = teamData["teamRecord"] as? String
+                let leagueName = teamData["leagueName"] as? String
+                let teamBio = teamData["teamBio"] as? String
                 let admins = teamData["admins"] as? Array<String>
                 var members = teamData["members"] as? Array<String>
                 let blocked = teamData["blocked"] as? Array<String>
                 let teamId = teamData["teamId"] as? String
                 let teamCode = teamData["teamCode"] as? String
                 
-                var leagueName: String = ""
-                var detail: String = ""
-                for i in teamDesc {
-                    if i.key == "leagueName" {
-                        leagueName = i.value
-                    } else if i.key == "detail"{
-                        detail = i.value
-                    }
-                }
+                
                 
                 members?.append(userId)
                 self.user?.teams.append(teamId!)
@@ -221,10 +215,9 @@ class UserController {
                     "name" : name ?? "error",
                     "teamColor" : teamColor ?? "error",
                     "teamSport" : teamSport ?? "error",
-                    "teamDesc" : ([
-                        "leagueName" : leagueName,
-                        "detail" : detail
-                    ]),
+                    "teamRecord" : teamRecord ?? "error",
+                    "leagueName" : leagueName ?? "error",
+                    "teamBio" : teamBio ?? "error",
                     "admins" : admins ?? [],
                     "members" : members ?? [],
                     "blocked" : blocked ?? [],

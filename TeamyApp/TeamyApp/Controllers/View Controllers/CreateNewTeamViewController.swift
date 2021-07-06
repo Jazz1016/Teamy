@@ -62,17 +62,14 @@ class CreateNewTeamViewController: UIViewController {
         let defaultAdmin = [userId]
         // JAMLEA: Pass in Sport name from Picker
         // JAMLEA: pass in teamColor Anthony
-        let teamDescript = TeamDescription(leagueName: leagueNameTextField.text ?? "", detail: leagueDetailsTextField.text ?? "")
-        let newTeam = Team(name: teamName, teamColor: teamColorPicked, teamSport: sport, admins: defaultAdmin, members: [], blocked: [], teamDesc: teamDescript, teamId: UUID().uuidString, teamCode: randomNumString, teamImage: imageURL)
+        let newTeam = Team(name: teamName, teamColor: teamColorPicked, teamSport: sport, teamRecord: "0-0",leagueName: leagueNameTextField.text ?? "League", teamBio: leagueDetailsTextField.text ?? "Edit in manage team", admins: defaultAdmin, members: [], blocked: [], teamId: UUID().uuidString, teamCode: randomNumString, teamImage: imageURL)
         let newContact = Contact(contactName: coachNameTextField.text ?? "", contactType: "", contactInfo: "")
         TeamController.shared.addTeamToUser(userId: userId, teamId: newTeam.teamId)
         TeamController.shared.createTeam(team: newTeam, contact: newContact) { result in
             print("new team \(newTeam.name) has been created")
         }
-        
         saveImage()
         navigationController?.popViewController(animated: true)
-        
     }
     
     // MARK: - Helper Functions
