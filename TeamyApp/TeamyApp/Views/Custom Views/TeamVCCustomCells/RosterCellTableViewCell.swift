@@ -21,7 +21,10 @@ class RosterCellTableViewCell: UITableViewCell {
     
     // MARK: - Functions
     func updateViews(){
-        guard let num = num else {return}
+        guard let num = num,
+              let team = EventController.shared.team else {return}
+        
+        teamColorView.backgroundColor = UIColor.init(hexString: team.teamColor)
         rosterLabel.text = "\(num) Players"
     }
 }//End of class
