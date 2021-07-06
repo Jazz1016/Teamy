@@ -21,7 +21,9 @@ class ContactCellTableViewCell: UITableViewCell {
     
     // MARK: - Functions
     func updateViews(){
-        guard let contact = contact else {return}
+        guard let contact = contact,
+        let team = EventController.shared.team else {return}
+        teamColorView.backgroundColor = UIColor.init(hexString: team.teamColor)
         contactNameLabel.text = contact.contactName
     }
 }//End of class
