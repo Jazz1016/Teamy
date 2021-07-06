@@ -22,6 +22,7 @@ class EditAnnouncementTableViewCell: UITableViewCell, UITextViewDelegate {
         announcementTextField.isHidden = true
         announcementDetailTextView.isEditable = false
         saveAnnouncementButton.isHidden = true
+        addNotesTextViewBorder()
     }
     @IBAction func saveAnnouncementButtonTapped(_ sender: Any) {
         
