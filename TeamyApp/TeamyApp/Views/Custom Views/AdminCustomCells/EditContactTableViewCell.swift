@@ -11,8 +11,8 @@ class EditContactTableViewCell: UITableViewCell {
     // MARK: - Outlets
     @IBOutlet weak var contactNameLabel: UILabel!
     @IBOutlet weak var contactNameTextfield: UITextField!
-    @IBOutlet weak var contactMethod: UITextField!
-    @IBOutlet weak var enterMethod: UITextField!
+    @IBOutlet weak var contactType: UITextField!
+    @IBOutlet weak var contactInfo: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     
     
@@ -23,7 +23,11 @@ class EditContactTableViewCell: UITableViewCell {
     }
     
     //MARK: - Properties
-    
+    var contact: Contact? {
+        didSet {
+            updateViews()
+        }
+    }
     
     //MARK: - Actions
     @IBAction func saveButtonTapped(_ sender: Any) {
@@ -32,6 +36,11 @@ class EditContactTableViewCell: UITableViewCell {
     
     
     // MARK: - Methods
-    
+    func updateViews() {
+        guard let contact = contact else { return }
+        contactNameLabel.text = contact.contactName
+        contactType.text = contact.contactType
+        contactInfo.text = contact.contactInfo
+    }
     
 }//End of class
