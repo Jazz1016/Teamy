@@ -61,15 +61,28 @@ class EditContactsViewController: UIViewController {
 //MARK: - extensions
 extension EditContactsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //AnthonyByrd - Return to add cell
         
-        return 1
+        return ContactController.shared.contacts.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //AnthonyByrd - Return to add cell
         
-        return UITableViewCell()
+        if indexPath.row == 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "addContactCell", for: indexPath)
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "editContactCell", for: indexPath) as? EditContactTableViewCell
+            
+            let contact = ContactController.shared.contacts[indexPath.row - 1]
+            cell?.contact = contact
+            
+            return cell ?? UITableViewCell()
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        
+        return 200
     }
     
     
