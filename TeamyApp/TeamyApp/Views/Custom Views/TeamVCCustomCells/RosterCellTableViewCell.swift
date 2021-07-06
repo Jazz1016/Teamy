@@ -25,6 +25,12 @@ class RosterCellTableViewCell: UITableViewCell {
               let team = EventController.shared.team else {return}
         
         teamColorView.backgroundColor = UIColor.init(hexString: team.teamColor)
-        rosterLabel.text = "\(num) Players"
+        teamColorView.layer.cornerRadius = 5
+        if num == 1 {
+            rosterLabel.text = "\(num) Player"
+        } else {
+            rosterLabel.text = "\(num) Players"
+        }
+        
     }
 }//End of class

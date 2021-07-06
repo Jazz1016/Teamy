@@ -17,6 +17,7 @@ class UserSettingsViewController: UIViewController {
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var emailLabel: UILabel!
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
@@ -57,7 +58,8 @@ class UserSettingsViewController: UIViewController {
     
     func updateViews() {
         guard let user = user else {return}
-        firstNameLabel.text = "\(user.lastName), \(user.firstName)"
+        firstNameLabel.text = "Welcome \(user.firstName)  \(user.lastName)"
+        emailLabel.text = user.email
 //        firstNameTextField.text = user.firstName
 //        lastNameLabel.text = user.lastName
 //        lastNameTextField.text = user.lastName

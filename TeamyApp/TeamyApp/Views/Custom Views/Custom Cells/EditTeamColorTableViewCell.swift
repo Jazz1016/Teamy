@@ -38,5 +38,6 @@ class EditTeamColorTableViewCell: UITableViewCell {
         guard let team = EventController.shared.team else { return }
         editTeamColorButton.backgroundColor = UIColor.init(hexString: team.teamColor)
         teamAccentColor.backgroundColor = UIColor.init(hexString: team.teamColor)
+        teamAccentColor.layer.cornerRadius = 5
     }
 }

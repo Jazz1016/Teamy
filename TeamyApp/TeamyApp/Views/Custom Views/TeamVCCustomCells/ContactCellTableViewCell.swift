@@ -24,6 +24,7 @@ class ContactCellTableViewCell: UITableViewCell {
         guard let contact = contact,
         let team = EventController.shared.team else {return}
         teamColorView.backgroundColor = UIColor.init(hexString: team.teamColor)
+        teamColorView.layer.cornerRadius = 5
         contactNameLabel.text = contact.contactName
     }
 }//End of class

@@ -59,6 +59,7 @@ class CodeModalViewController: UIViewController {
         TeamController.shared.editTeam(oldTeam: currentTeam, team: updatedTeam)
         
         teamCodeLabel.text = randomNumString
+        randomNumString = "\(Int.random(in: 1...999999))"
     }
     
 }//End of class

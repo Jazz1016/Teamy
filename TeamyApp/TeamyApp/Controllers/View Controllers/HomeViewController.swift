@@ -16,6 +16,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let firebaseAuth = Auth.auth()
+        navigationController?.navigationBar.prefersLargeTitles = true
 //        do {
 //            try firebaseAuth.signOut()
 //        } catch let signOutError as NSError {
@@ -41,6 +42,7 @@ class HomeViewController: UIViewController {
                 DispatchQueue.main.async {
                     //Ethan - Having issue when User changes name, teams no longer fetch.
                     TeamController.shared.fetchTeamsForUser(teamIds: user.teams) { result in
+                        
                         if result {
                             self.userTeamsTableView.reloadData()
                         }
