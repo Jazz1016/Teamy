@@ -1260,108 +1260,120 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="editContactsCell" rowHeight="232" id="UCY-vu-lah" customClass="EditContactTableViewCell" customModule="TeamyApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="232"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addContactCell" rowHeight="116" id="UCY-vu-lah" customClass="AddContactTableViewCell" customModule="TeamyApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="116"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UCY-vu-lah" id="A4Q-RL-kSr">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="232"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="116"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="M26-5O-foF">
-                                                    <rect key="frame" x="41.5" y="72" width="331" height="88"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="wr9-TU-2Pj">
+                                                    <rect key="frame" x="20.5" y="38" width="373" height="40"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="J0l-ZY-FTy">
-                                                            <rect key="frame" x="0.0" y="0.0" width="331" height="40"/>
-                                                            <subviews>
-                                                                <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="67W-C5-jF0">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="243" height="40"/>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                    <textInputTraits key="textInputTraits"/>
-                                                                </textField>
-                                                                <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IL2-am-4dY">
-                                                                    <rect key="frame" x="251" y="0.0" width="32" height="40"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="40" id="ViY-Q1-0iH"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                    <textInputTraits key="textInputTraits"/>
-                                                                </textField>
-                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MPi-QC-z89">
-                                                                    <rect key="frame" x="291" y="0.0" width="40" height="40"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" secondItem="MPi-QC-z89" secondAttribute="height" multiplier="1:1" id="Bef-VG-U7C"/>
-                                                                        <constraint firstAttribute="height" constant="40" id="Cy4-St-Psc"/>
-                                                                    </constraints>
-                                                                    <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
-                                                                    <state key="normal" title="Save"/>
-                                                                    <connections>
-                                                                        <action selector="saveContactButtonTapped:" destination="UCY-vu-lah" eventType="touchUpInside" id="nGN-0s-hm1"/>
-                                                                    </connections>
-                                                                </button>
-                                                            </subviews>
-                                                        </stackView>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GeI-79-Kyk">
-                                                            <rect key="frame" x="0.0" y="48" width="331" height="40"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="height" constant="40" id="cTK-fk-vyS"/>
-                                                            </constraints>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                        </textField>
-                                                    </subviews>
-                                                </stackView>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="M26-5O-foF" firstAttribute="width" secondItem="A4Q-RL-kSr" secondAttribute="width" multiplier="0.8" id="Zj0-jJ-aT9"/>
-                                                <constraint firstItem="M26-5O-foF" firstAttribute="centerY" secondItem="A4Q-RL-kSr" secondAttribute="centerY" id="lHc-Tf-nrd"/>
-                                                <constraint firstItem="M26-5O-foF" firstAttribute="centerX" secondItem="A4Q-RL-kSr" secondAttribute="centerX" id="ycg-3i-j3j"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="contactDetailTextField" destination="GeI-79-Kyk" id="SZ1-h2-2Ir"/>
-                                            <outlet property="contactNameTextField" destination="67W-C5-jF0" id="o86-G2-g8s"/>
-                                            <outlet property="contactTypeTextField" destination="IL2-am-4dY" id="Zug-KQ-tlC"/>
-                                            <outlet property="saveContactButton" destination="MPi-QC-z89" id="9mP-ei-l1A"/>
-                                        </connections>
-                                    </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="addContactCell" rowHeight="127" id="o7X-fd-yjR" customClass="AddContactTableViewCell" customModule="TeamyApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="256.5" width="414" height="127"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o7X-fd-yjR" id="0Jf-bM-oks">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="127"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="rQL-af-P43">
-                                                    <rect key="frame" x="103.5" y="43.5" width="207" height="40"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Contact" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwP-rX-0qY">
-                                                            <rect key="frame" x="0.0" y="0.0" width="151" height="40"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Team Contact" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JbB-a5-XQl">
+                                                            <rect key="frame" x="0.0" y="0.0" width="233" height="40"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QVL-wW-1I2">
-                                                            <rect key="frame" x="167" y="0.0" width="40" height="40"/>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P9D-7H-Zrg">
+                                                            <rect key="frame" x="333" y="0.0" width="40" height="40"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" secondItem="QVL-wW-1I2" secondAttribute="height" multiplier="1:1" id="2pL-vr-u2f"/>
+                                                                <constraint firstAttribute="height" constant="40" id="5dw-aN-qly"/>
+                                                                <constraint firstAttribute="width" constant="40" id="yJC-GC-g60"/>
                                                             </constraints>
                                                             <state key="normal" image="plus" catalog="system"/>
                                                             <connections>
-                                                                <action selector="addContactButtonTapped:" destination="Ki9-RM-SQs" eventType="touchUpInside" id="eMC-7d-5u1"/>
+                                                                <action selector="addContactButtonTapped:" destination="Ki9-RM-SQs" eventType="touchUpInside" id="dsV-Nj-sUi"/>
                                                             </connections>
                                                         </button>
                                                     </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="40" id="n1N-ZE-11l"/>
-                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="rQL-af-P43" firstAttribute="centerX" secondItem="0Jf-bM-oks" secondAttribute="centerX" id="1Wy-by-ma8"/>
-                                                <constraint firstItem="rQL-af-P43" firstAttribute="centerY" secondItem="0Jf-bM-oks" secondAttribute="centerY" id="MAa-iG-oq0"/>
-                                                <constraint firstItem="rQL-af-P43" firstAttribute="width" secondItem="0Jf-bM-oks" secondAttribute="width" multiplier="0.5" id="Vab-Ek-q77"/>
+                                                <constraint firstItem="wr9-TU-2Pj" firstAttribute="width" secondItem="A4Q-RL-kSr" secondAttribute="width" multiplier="0.9" id="BMe-eS-ehT"/>
+                                                <constraint firstItem="wr9-TU-2Pj" firstAttribute="centerX" secondItem="A4Q-RL-kSr" secondAttribute="centerX" id="URb-9k-wsh"/>
+                                                <constraint firstItem="wr9-TU-2Pj" firstAttribute="centerY" secondItem="A4Q-RL-kSr" secondAttribute="centerY" id="eCp-Qu-oKA"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="editContactCell" rowHeight="174" id="o7X-fd-yjR" customClass="EditContactTableViewCell" customModule="TeamyApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="140.5" width="414" height="174"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o7X-fd-yjR" id="0Jf-bM-oks">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="174"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="sId-Ai-2lR">
+                                                    <rect key="frame" x="9" y="38.5" width="396" height="97"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="hGW-8X-fRY">
+                                                            <rect key="frame" x="0.0" y="0.0" width="356" height="97"/>
+                                                            <subviews>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="uoz-fh-p39">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="356" height="34"/>
+                                                                    <subviews>
+                                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="5cD-yQ-G8Y">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="123" height="34"/>
+                                                                            <subviews>
+                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact's Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTI-4G-7k9">
+                                                                                    <rect key="frame" x="0.0" y="7" width="123" height="20.5"/>
+                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                                    <nil key="textColor"/>
+                                                                                    <nil key="highlightedColor"/>
+                                                                                </label>
+                                                                            </subviews>
+                                                                        </stackView>
+                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contact's Name Textfield" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jGe-7N-Lhp">
+                                                                            <rect key="frame" x="165" y="0.0" width="191" height="34"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                            <textInputTraits key="textInputTraits"/>
+                                                                        </textField>
+                                                                    </subviews>
+                                                                </stackView>
+                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="5ra-z3-hAi">
+                                                                    <rect key="frame" x="0.0" y="63" width="356" height="34"/>
+                                                                    <subviews>
+                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Method of Contact" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FzQ-NE-c9o">
+                                                                            <rect key="frame" x="0.0" y="0.0" width="166.5" height="34"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                            <textInputTraits key="textInputTraits"/>
+                                                                        </textField>
+                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter method" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sxU-MD-cCC">
+                                                                            <rect key="frame" x="189.5" y="0.0" width="166.5" height="34"/>
+                                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                            <textInputTraits key="textInputTraits"/>
+                                                                        </textField>
+                                                                    </subviews>
+                                                                </stackView>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="5ra-z3-hAi" firstAttribute="width" secondItem="hGW-8X-fRY" secondAttribute="width" id="esv-C5-sLY"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZ3-ZE-wqG">
+                                                            <rect key="frame" x="362" y="33.5" width="34" height="30"/>
+                                                            <state key="normal" title="Save"/>
+                                                            <connections>
+                                                                <action selector="saveButtonTapped:" destination="o7X-fd-yjR" eventType="touchUpInside" id="pFT-UM-xdG"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="sId-Ai-2lR" firstAttribute="centerX" secondItem="0Jf-bM-oks" secondAttribute="centerX" id="6Ak-dD-7SN"/>
+                                                <constraint firstItem="sId-Ai-2lR" firstAttribute="width" secondItem="0Jf-bM-oks" secondAttribute="width" multiplier="0.956522" id="Y9s-nP-5Qm"/>
+                                                <constraint firstItem="sId-Ai-2lR" firstAttribute="centerY" secondItem="0Jf-bM-oks" secondAttribute="centerY" id="jL6-wZ-UBa"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="contactMethod" destination="FzQ-NE-c9o" id="q8q-Ff-tli"/>
+                                            <outlet property="contactNameLabel" destination="YTI-4G-7k9" id="UR1-NC-q8d"/>
+                                            <outlet property="contactNameTextfield" destination="jGe-7N-Lhp" id="BhC-pb-ed0"/>
+                                            <outlet property="enterMethod" destination="sxU-MD-cCC" id="SRa-wF-XfW"/>
+                                            <outlet property="saveButton" destination="xZ3-ZE-wqG" id="Scn-I4-JZw"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
