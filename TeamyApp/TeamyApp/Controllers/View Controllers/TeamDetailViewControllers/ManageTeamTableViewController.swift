@@ -200,7 +200,7 @@ extension ManageTeamTableViewController: UIColorPickerViewControllerDelegate {
         let color = viewController.selectedColor
         
         currentTeam.teamColor = color.toHexString()
-        let updatedTeam = Team(name: currentTeam.name, teamColor: color.toHexString(), teamSport: currentTeam.teamSport, admins: currentTeam.admins, members: currentTeam.members, blocked: currentTeam.blocked, teamDesc: currentTeam.teamDesc, teamId: currentTeam.teamId, teamCode: currentTeam.teamCode, teamImage: currentTeam.teamImage)
+        let updatedTeam = Team(name: currentTeam.name, teamColor: color.toHexString(), teamSport: currentTeam.teamSport, teamRecord: currentTeam.teamRecord, leagueName: currentTeam.leagueName, teamBio: currentTeam.teamBio, admins: currentTeam.admins, members: currentTeam.members, blocked: currentTeam.blocked, teamId: currentTeam.teamId, teamCode: currentTeam.teamCode, teamImage: currentTeam.teamImage)
         
         TeamController.shared.editTeam(oldTeam: currentTeam, team: updatedTeam)
         tableView.reloadData()

@@ -28,7 +28,7 @@ class TeamTableViewCell: UITableViewCell {
         
         teamColorView.backgroundColor = UIColor.init(hexString: team.teamColor)
         teamNameLabel.text = team.name
-        leagueNameLabel.text = team.teamDesc.leagueName
+        leagueNameLabel.text = team.leagueName
         memberCountLabel.text = "\(team.members.count + team.admins.count) members"
     }
     

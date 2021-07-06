@@ -54,7 +54,7 @@ class CodeModalViewController: UIViewController {
     func resetTeamCode(){
         guard let currentTeam = EventController.shared.team else {return}
         addZeros()
-        let updatedTeam = Team(name: currentTeam.name, teamColor: currentTeam.teamColor, teamSport: currentTeam.teamSport, admins: currentTeam.admins, members: currentTeam.members, blocked: currentTeam.blocked, teamDesc: currentTeam.teamDesc, teamId: currentTeam.teamId, teamCode: randomNumString, teamImage: currentTeam.teamImage)
+        let updatedTeam = Team(name: currentTeam.name, teamColor: currentTeam.teamColor, teamSport: currentTeam.teamSport, teamRecord: currentTeam.teamRecord, leagueName: currentTeam.leagueName, teamBio: currentTeam.teamBio, admins: currentTeam.admins, members: currentTeam.members, blocked: currentTeam.blocked, teamId: currentTeam.teamId, teamCode: randomNumString, teamImage: currentTeam.teamImage)
         
         TeamController.shared.editTeam(oldTeam: currentTeam, team: updatedTeam)
         

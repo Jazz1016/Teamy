@@ -64,9 +64,9 @@ extension UserManagementViewController: UITableViewDelegate, UITableViewDataSour
             members.remove(at: memberIndex!)
             admins.append(userId)
             
-            let teamD = TeamDescription(leagueName: team.teamDesc.leagueName, detail: team.teamDesc.detail)
+//            let teamD = TeamDescription(leagueName: team.teamDesc.leagueName, detail: team.teamDesc.detail)
             
-            let teamToPass = Team(name: team.name, teamColor: team.teamColor, teamSport: team.teamSport, admins: admins, members: members, blocked: team.blocked, teamDesc: teamD, teamId: team.teamId, teamCode: team.teamCode, teamImage: team.teamImage)
+            let teamToPass = Team(name: team.name, teamColor: team.teamColor, teamSport: team.teamSport, teamRecord: team.teamRecord, leagueName: team.leagueName, teamBio: team.teamBio, admins: admins, members: members, blocked: team.blocked, teamId: team.teamId, teamCode: team.teamCode, teamImage: team.teamImage)
             
             TeamController.shared.editTeam(oldTeam: team, team: teamToPass)
         }
@@ -79,8 +79,8 @@ extension UserManagementViewController: UITableViewDelegate, UITableViewDataSour
             admins.remove(at: adminIndex!)
             members.append(userId)
             
-            let teamD = TeamDescription(leagueName: team.teamDesc.leagueName, detail: team.teamDesc.detail)
-            let teamToPass = Team(name: team.name, teamColor: team.teamColor, teamSport: team.teamSport, admins: admins, members: members, blocked: team.blocked, teamDesc: teamD, teamId: team.teamId, teamCode: team.teamCode, teamImage: team.teamImage)
+//            let teamD = TeamDescription(leagueName: team.teamDesc.leagueName, detail: team.teamDesc.detail)
+            let teamToPass = Team(name: team.name, teamColor: team.teamColor, teamSport: team.teamSport, teamRecord: team.teamRecord, leagueName: team.leagueName, teamBio: team.teamBio, admins: admins, members: members, blocked: team.blocked, teamId: team.teamId, teamCode: team.teamCode, teamImage: team.teamImage)
             
             TeamController.shared.editTeam(oldTeam: team, team: teamToPass)
         }
@@ -93,8 +93,8 @@ extension UserManagementViewController: UITableViewDelegate, UITableViewDataSour
                 let adminIndex = admins.firstIndex(of: userId)
                 admins.remove(at: adminIndex!)
                 
-                let teamD = TeamDescription(leagueName: team.teamDesc.leagueName, detail: team.teamDesc.detail)
-                let teamToPass = Team(name: team.name, teamColor: team.teamColor, teamSport: team.teamSport, admins: admins, members: team.members, blocked: blocked, teamDesc: teamD, teamId: team.teamId, teamCode: team.teamCode, teamImage: team.teamImage)
+//                let teamD = TeamDescription(leagueName: team.teamDesc.leagueName, detail: team.teamDesc.detail)
+                let teamToPass = Team(name: team.name, teamColor: team.teamColor, teamSport: team.teamSport, teamRecord: team.teamRecord, leagueName: team.leagueName, teamBio: team.teamBio, admins: admins, members: team.members, blocked: blocked, teamId: team.teamId, teamCode: team.teamCode, teamImage: team.teamImage)
                 
                 TeamController.shared.editTeam(oldTeam: team, team: teamToPass)
                 
@@ -106,8 +106,8 @@ extension UserManagementViewController: UITableViewDelegate, UITableViewDataSour
                 members.remove(at: memberIndex!)
                 blocked.append(userId)
                 
-                let teamD = TeamDescription(leagueName: team.teamDesc.leagueName, detail: team.teamDesc.detail)
-                let teamToPass = Team(name: team.name, teamColor: team.teamColor, teamSport: team.teamSport, admins: team.admins, members: members, blocked: blocked, teamDesc: teamD, teamId: team.teamId, teamCode: team.teamCode, teamImage: team.teamImage)
+//                let teamD = TeamDescription(leagueName: team.teamDesc.leagueName, detail: team.teamDesc.detail)
+                let teamToPass = Team(name: team.name, teamColor: team.teamColor, teamSport: team.teamSport, teamRecord: team.teamRecord, leagueName: team.leagueName, teamBio: team.teamBio, admins: team.admins, members: members, blocked: blocked, teamId: team.teamId, teamCode: team.teamCode, teamImage: team.teamImage)
                 
                 TeamController.shared.editTeam(oldTeam: team, team: teamToPass)
             }
@@ -121,8 +121,7 @@ extension UserManagementViewController: UITableViewDelegate, UITableViewDataSour
             blocked.remove(at: blockedIndex!)
             members.append(userId)
             
-            let teamD = TeamDescription(leagueName: team.teamDesc.leagueName, detail: team.teamDesc.detail)
-            let teamToPass = Team(name: team.name, teamColor: team.teamColor, teamSport: team.teamSport, admins: team.admins, members: members, blocked: blocked, teamDesc: teamD, teamId: team.teamId, teamCode: team.teamCode, teamImage: team.teamImage)
+            let teamToPass = Team(name: team.name, teamColor: team.teamColor, teamSport: team.teamSport, teamRecord: team.teamRecord, leagueName: team.leagueName, teamBio: team.teamBio, admins: team.admins, members: members, blocked: blocked, teamId: team.teamId, teamCode: team.teamCode, teamImage: team.teamImage)
             
             TeamController.shared.editTeam(oldTeam: team, team: teamToPass)
         }

@@ -38,8 +38,8 @@ class TeamBioTableViewCell: UITableViewCell {
     
     func teamBio() {
         guard let team = EventController.shared.team else { return }
-        teamBioLabel.text = team.teamDesc.detail
-        editTeamBioTextField.text = team.teamDesc.detail
+        teamBioLabel.text = team.teamBio
+        editTeamBioTextField.text = team.teamBio
     }
     
     func initializeViews() {
@@ -56,13 +56,11 @@ class TeamBioTableViewCell: UITableViewCell {
     func updateTeamBio() {
         guard let currentTeam = EventController.shared.team else { return }
         
-        var updatedTeamDesc = TeamDescription(leagueName: currentTeam.teamDesc.leagueName, detail: editTeamBioTextField.text ?? "")
-        
-        let updatedTeam = Team(name: currentTeam.name, teamColor: currentTeam.teamColor, teamSport: currentTeam.teamSport, admins: currentTeam.admins, members: currentTeam.members, blocked: currentTeam.blocked, teamDesc: updatedTeamDesc, teamId: currentTeam.teamId, teamCode: currentTeam.teamCode, teamImage: currentTeam.teamImage)
+        let updatedTeam = Team(name: currentTeam.name, teamColor: currentTeam.teamColor, teamSport: currentTeam.teamSport, teamRecord: currentTeam.teamRecord, leagueName: currentTeam.leagueName, teamBio: editTeamBioTextField.text ?? "", admins: currentTeam.admins, members: currentTeam.members, blocked: currentTeam.blocked, teamId: currentTeam.teamId, teamCode: currentTeam.teamCode, teamImage: currentTeam.teamImage)
         
         TeamController.shared.editTeam(oldTeam: currentTeam, team: updatedTeam)
         
-        teamBioLabel.text = updatedTeam.teamDesc.detail
+        teamBioLabel.text = updatedTeam.teamBio
         self.updateForEdit()
     }
 }

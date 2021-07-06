@@ -23,7 +23,7 @@ class LeagueDetailsTableViewCell: UITableViewCell {
     // MARK: - Functions
     func updateViews(){
         guard let team = EventController.shared.team else {return}
-        leagueNameLabel.text = team.teamDesc.leagueName
-        leagueDetailsLabel.text = team.teamDesc.detail
+        leagueNameLabel.text = team.leagueName
+        leagueDetailsLabel.text = team.teamBio
     }
 }//End of class

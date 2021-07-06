@@ -17,12 +17,11 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         let firebaseAuth = Auth.auth()
         navigationController?.navigationBar.prefersLargeTitles = true
-//        do {
-//            try firebaseAuth.signOut()
-//        } catch let signOutError as NSError {
-//            print("Error signing out: %@", signOutError)
-//        }
-        
+        do {
+            try firebaseAuth.signOut()
+        } catch let signOutError as NSError {
+            print("Error signing out: %@", signOutError)
+        }
         userTeamsTableView.delegate = self
         userTeamsTableView.dataSource = self
         if Auth.auth().currentUser == nil {
