@@ -34,7 +34,6 @@ class CreateEventViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         hideLabels()
-        
         if eventAddressLabel.text != "Event Address" {
             addLocationButton.setTitle("Change Location", for: .normal)
         }
@@ -77,7 +76,7 @@ class CreateEventViewController: UIViewController {
         eventAddressLabel.text = event.locationAddress
         eventNotesTextView.text = event.notes
         datePicker.date = event.date.dateValue()
-        eventLocationNameLabel.text = event.locationName
+//        eventLocationNameLabel.text = event.locationName
         dropPin()
     }
     
@@ -102,11 +101,8 @@ class CreateEventViewController: UIViewController {
     }
     
     func hideLabels() {
+        eventLocationNameLabel.isHidden = true
         eventAddressLabel.isHidden = true
-        
-        if eventLocationNameLabel.text == "Event Location Name" {
-            eventLocationNameLabel.isHidden = true
-        }
     }
     
     func addNotesTextViewBorder() {

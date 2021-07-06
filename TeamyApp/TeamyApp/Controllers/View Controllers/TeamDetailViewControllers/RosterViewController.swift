@@ -87,7 +87,11 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return PlayerController.shared.players.count + 1
+        if EventController.shared.isAdmin {
+            return PlayerController.shared.players.count + 1
+        } else {
+            return PlayerController.shared.players.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -106,10 +110,12 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath) as? PlayerTableViewCell
             //Ethan - BUG: indexpath out of range when trying to select the view players cell as a non-Admin
-            let player = PlayerController.shared.players[indexPath.row - 1]
-            cell?.player = player
-            cell?.playerIndex = indexPath.row - 1
-            cell?.delegate = self
+            
+                let player = PlayerController.shared.players[indexPath.row]
+                cell?.player = player
+                cell?.playerIndex = indexPath.row
+                cell?.delegate = self
+            
             return cell ?? UITableViewCell()
         }
     }
