@@ -30,7 +30,7 @@ class AnnouncementController {
         "title" : announcement.title,
         "details" : announcement.details,
         "announcementId" : announcement.announcementId
-    ], merge: true)
+    ], merge: false)
 }
     
     func fetchAnnouncements(teamId: String){

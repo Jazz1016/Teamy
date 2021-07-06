@@ -51,10 +51,6 @@ extension AnnouncementsViewController: UITableViewDataSource, UITableViewDelegat
                 let announcement = AnnouncementController.shared.announcements[indexPath.row - 1]
                 cell?.team = EventController.shared.team
                 cell?.announcement = announcement
-//                cell?.textChanged { [weak tableView] _ in
-//                    tableView?.beginUpdates()
-//                    tableView?.endUpdates()
-//                }
                 return cell ?? UITableViewCell()
             }
         return UITableViewCell()

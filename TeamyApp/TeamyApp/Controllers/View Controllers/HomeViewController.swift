@@ -39,7 +39,6 @@ class HomeViewController: UIViewController {
             case .success(let user):
                 UserController.shared.user = user
                 DispatchQueue.main.async {
-                    //Ethan - Having issue when User changes name, teams no longer fetch.
                     TeamController.shared.fetchTeamsForUser(teamIds: user.teams) { result in
                         
                         if result {
