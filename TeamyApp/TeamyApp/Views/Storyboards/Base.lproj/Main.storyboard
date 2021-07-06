@@ -1434,6 +1434,10 @@
                                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0n0-hu-kuF">
                                                                     <rect key="frame" x="0.0" y="70.5" width="283" height="99"/>
                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" constant="283" id="fmf-Vc-sRe"/>
+                                                                        <constraint firstAttribute="height" constant="99" id="k1p-AJ-FGZ"/>
+                                                                    </constraints>
                                                                     <color key="textColor" systemColor="labelColor"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
