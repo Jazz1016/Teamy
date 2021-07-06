@@ -57,20 +57,32 @@ class UserController {
     }
     
     func fetchUsers(userIds: [String], access: String, completion: @escaping (Bool) -> Void) {
+        if access == "admin" {
+            self.admins = []
+        } else if access == "member" {
+            self.members = []
+        } else if access == "blocked" {
+            self.blocked = []
+        }
+        var counter = 0
         for i in userIds {
             let fetchedUser = db.collection("users").whereField("userId", isEqualTo: i)
-            
             fetchedUser.getDocuments { snap, error in
-                guard let snap = snap else {return}
-                if snap.count == 1 {
+                if snap?.count == 1 {
+                    guard let snap = snap else {return}
                     let userData = snap.documents[0].data()
                     
-                    guard let email = userData["email"] as? String,
-                    let firstName = userData["firstName"] as? String,
-                    let lastName = userData["lastName"] as? String,
-                    let userId = userData["userId"] as? String else {return}
+                    let email = userData["email"] as? String
+                    let firstName = userData["firstName"] as? String
+                    let lastName = userData["lastName"] as? String
+                    let userId = userData["userId"] as? String
                     
-                    let userToPass = User(email: email, firstName: firstName, lastName: lastName, teams: [], userId: userId)
+                    guard let email1 = email,
+                          let firstName1 = firstName,
+                          let lastName1 = lastName,
+                          let id = userId else {return}
+                    
+                    let userToPass = User(email: email1, firstName: firstName1, lastName: lastName1, teams: [], userId: id)
                     
                     if access == "admin" {
                         self.admins.append(userToPass)
@@ -79,11 +91,14 @@ class UserController {
                     } else if access == "blocked" {
                         self.blocked.append(userToPass)
                     }
-                    
+                    counter += 1
+                    if counter == userIds.count {
+                        completion(true)
+                        return
+                    }
                 }
             }
         }
-        completion(true)
     }
     
     func updateUser(user: User) {

@@ -65,7 +65,7 @@ class TeamController {
                     
                     let teamDescToPass = TeamDescription(leagueName: leagueName, detail: detail)
                     
-                    let teamToAdd = Team(name: name1, teamColor: teamColor1, teamSport: teamSport1, admins: admins1, members: members1, blocked: blocked1, teamDesc: teamDescToPass , teamId: teamId1, teamCode: teamCode1, teamImage: teamImage)
+                    let teamToAdd = Team(name: name1, teamColor: teamColor1, teamSport: teamSport1, admins: admins1, members: members1, blocked: blocked1, teamDesc: teamDescToPass, teamId: teamId1, teamCode: teamCode1, teamImage: teamImage)
                     
                     self.teams.append(teamToAdd)
                     counter += 1
