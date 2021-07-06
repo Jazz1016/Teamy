@@ -18,26 +18,65 @@ class EditAnnouncementTableViewCell: UITableViewCell, UITextViewDelegate {
     // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-        announcementDetailTextView.delegate = self
+//        announcementDetailTextView.delegate = self
+    }
+    
+    @IBAction func saveAnnouncementButtonTapped(_ sender: Any) {
         announcementTextField.isHidden = true
+        announcementLabel.isHidden = false
         announcementDetailTextView.isEditable = false
         saveAnnouncementButton.isHidden = true
-        addNotesTextViewBorder()
+        updateAnnouncement()
     }
-    @IBAction func saveAnnouncementButtonTapped(_ sender: Any) {
+    
+   
+    var announcement: Announcement? {
+        didSet {
+            updateViews()
+            isEditable()
+            addAnnouncementTextViewBorder()
+        }
+    }
+    var team: Team?
+//    var textChanged: ((String) -> Void)?
+//
+//    func textChanged(action: @escaping (String) -> Void) {
+//        self.textChanged = action
+//    }
+//
+//    func textViewDidChange(_ textView: UITextView) {
+//        textChanged?(textView.text)
+//    }
+    
+    func updateViews() {
+        guard let announcement = announcement else {return}
+        announcementLabel.text = announcement.title
+        announcementTextField.text = announcement.title
+        announcementDetailTextView.text = announcement.details
+    }
+    
+    func updateAnnouncement() {
+        guard let title = announcementTextField.text, !title.isEmpty,
+              let details = announcementDetailTextView.text, !details.isEmpty,
+              let team = team else {return}
+        let announcement = Announcement(title: title, details: details)
+        AnnouncementController.shared.updateAnnouncement(announcement: announcement, teamId: team.teamId)
         
     }
     
-    var textChanged: ((String) -> Void)?
-    
-    func textChanged(action: @escaping (String) -> Void) {
-        self.textChanged = action
+    func isEditable() {
+        if announcementDetailTextView.text != "" {
+            announcementTextField.isHidden = true
+            announcementLabel.isHidden = false
+            announcementDetailTextView.isEditable = false
+            saveAnnouncementButton.isHidden = true
+        } else {
+            announcementTextField.isHidden = false
+            announcementLabel.isHidden = true
+            announcementDetailTextView.isEditable = true
+            saveAnnouncementButton.isHidden = false
+        }
     }
-    
-    func textViewDidChange(_ textView: UITextView) {
-        textChanged?(textView.text)
-    }
-    
     
     func updateForEdit() {
         announcementLabel.isHidden.toggle()
@@ -46,14 +85,10 @@ class EditAnnouncementTableViewCell: UITableViewCell, UITextViewDelegate {
         saveAnnouncementButton.isHidden.toggle()
     }
     
-    func addNotesTextViewBorder() {
+    func addAnnouncementTextViewBorder() {
         announcementDetailTextView.layer.borderWidth = 1
         announcementDetailTextView.layer.borderColor = CGColor(gray: 0, alpha: 0.2)
         announcementDetailTextView.layer.cornerRadius = 10
-    }
-    
-    func updateAnnouncement() {
-        
     }
     
 }

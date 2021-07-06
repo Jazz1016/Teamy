@@ -19,8 +19,10 @@ class AnnouncementsViewController: UIViewController {
     
     // MARK: - Actions
     @IBAction func addAnnouncementButtonTapped(_ sender: Any) {
-        let editCell = editAnnouncementsTableView.indexPath(for: EditAnnouncementTableViewCell())
-        
+        guard let team = EventController.shared.team else {return}
+        let newAnnouncement = Announcement(title: "Announcement", details: "")
+        AnnouncementController.shared.createAnnouncement(announcement: newAnnouncement, teamId: team.teamId)
+        editAnnouncementsTableView.reloadData()
     }
     
     /*
@@ -47,13 +49,12 @@ extension AnnouncementsViewController: UITableViewDataSource, UITableViewDelegat
             } else if indexPath.row > 0 {
                 let cell = editAnnouncementsTableView.dequeueReusableCell(withIdentifier: "editAnnouncementCell", for: indexPath) as? EditAnnouncementTableViewCell
                 let announcement = AnnouncementController.shared.announcements[indexPath.row - 1]
-                cell?.announcementDetailTextView.text = announcement.details
-                cell?.announcementLabel.text = announcement.title
-                cell?.announcementTextField.text = announcement.title
-                cell?.textChanged { [weak tableView] _ in
-                    tableView?.beginUpdates()
-                    tableView?.endUpdates()
-                }
+                cell?.team = EventController.shared.team
+                cell?.announcement = announcement
+//                cell?.textChanged { [weak tableView] _ in
+//                    tableView?.beginUpdates()
+//                    tableView?.endUpdates()
+//                }
                 return cell ?? UITableViewCell()
             }
         return UITableViewCell()
@@ -77,8 +78,11 @@ extension AnnouncementsViewController: UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { action, indexPath in
-            AnnouncementController.shared.announcements.remove(at: indexPath.row)
+            guard let team = EventController.shared.team else {return}
+            let announcement = AnnouncementController.shared.announcements[indexPath.row - 1]
+            AnnouncementController.shared.announcements.remove(at: indexPath.row - 1)
             tableView.deleteRows(at: [indexPath], with: .fade)
+            AnnouncementController.shared.deleteAnnouncement(announcement: announcement, teamId: team.teamId)
         }
         
         let editAction = UITableViewRowAction(style: .default, title: "Edit") { action, indexPath in
