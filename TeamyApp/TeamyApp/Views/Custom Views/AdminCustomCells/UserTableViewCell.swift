@@ -13,11 +13,24 @@ class UserTableViewCell: UITableViewCell {
     @IBOutlet weak var UserNameLabel: UILabel!
     
     // MARK: - Properties
+    var user: User? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    var access: String? {
+        didSet {
+            accessLabel.text = access
+        }
+    }
+    
     
     
     
     // MARK: - Functions
-    
-    
-    
+    func updateViews() {
+        guard let user = user else {return}
+        UserNameLabel.text = "\(user.firstName) \(user.lastName)"
+    }
 }//End of class

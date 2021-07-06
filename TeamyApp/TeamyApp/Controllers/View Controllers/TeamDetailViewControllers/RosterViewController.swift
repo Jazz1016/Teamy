@@ -69,8 +69,10 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        guard let team = EventController.shared.team else {return []}
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { action, indexPath in
-            PlayerController.shared.players.remove(at: indexPath.row)
+            let player = PlayerController.shared.players[indexPath.row - 1]
+            PlayerController.shared.deletePlayer(player: player, teamId: team.teamId)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         

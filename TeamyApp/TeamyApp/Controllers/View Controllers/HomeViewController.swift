@@ -15,6 +15,13 @@ class HomeViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        let firebaseAuth = Auth.auth()
+//        do {
+//            try firebaseAuth.signOut()
+//        } catch let signOutError as NSError {
+//            print("Error signing out: %@", signOutError)
+//        }
+        
         userTeamsTableView.delegate = self
         userTeamsTableView.dataSource = self
         if Auth.auth().currentUser == nil {
