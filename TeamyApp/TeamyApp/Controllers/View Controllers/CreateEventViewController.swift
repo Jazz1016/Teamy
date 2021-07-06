@@ -23,6 +23,7 @@ class CreateEventViewController: UIViewController {
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var eventLocationNameLabel: UILabel!
     @IBOutlet weak var addLocationButton: UIButton!
+    @IBOutlet weak var eventLocationNameTextField: UITextField!
     
 
     override func viewDidLoad() {
@@ -46,7 +47,7 @@ class CreateEventViewController: UIViewController {
     @IBAction func saveEventButtonTapped(_ sender: Any) {
         guard let eventName = eventNameTextField.text, !eventName.isEmpty,
               let eventAddress = eventAddressLabel.text,
-              let eventLocationName = eventLocationNameLabel.text,
+              let eventLocationName = eventLocationNameTextField.text,
               let eventNotes = eventNotesTextView.text,
               let team = EventController.shared.team else {return}
         let date = Timestamp(date: datePicker.date)

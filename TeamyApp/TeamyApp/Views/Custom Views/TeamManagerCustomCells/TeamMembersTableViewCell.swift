@@ -30,6 +30,7 @@ class TeamMembersTableViewCell: UITableViewCell {
     func teamAccentColor() {
         guard let team = EventController.shared.team else { return }
         teamAccentColorView.backgroundColor = UIColor.init(hexString: team.teamColor)
+        teamAccentColorView.layer.cornerRadius = 5
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

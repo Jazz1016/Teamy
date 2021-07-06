@@ -42,10 +42,10 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zkN-1K-e3c">
-                                <rect key="frame" x="0.0" y="33.5" width="218" height="4"/>
+                                <rect key="frame" x="0.0" y="33.5" width="150" height="4"/>
                                 <color key="backgroundColor" systemColor="systemGreenColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="218" id="3Sa-BE-0Kd"/>
+                                    <constraint firstAttribute="width" constant="150" id="3Sa-BE-0Kd"/>
                                     <constraint firstAttribute="height" constant="4" id="tFE-uN-QJs"/>
                                 </constraints>
                             </view>

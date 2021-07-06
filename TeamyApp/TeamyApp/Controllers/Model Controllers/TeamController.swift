@@ -69,6 +69,7 @@ class TeamController {
                     
                     self.teams.append(teamToAdd)
                     counter += 1
+                    
                     if counter == teamIds.count {
                         completion(true)
                         return
@@ -110,7 +111,7 @@ class TeamController {
             ])
         }
         
-        let baseAnnouncement = Announcement(title: "No Announcements", details: "No announcements at this time")
+        let baseAnnouncement = Announcement(title: "No Announcements", details: "There are no announcements at this time")
         
         db.collection("teams").document(team.teamId).collection("announcements").document(baseAnnouncement.announcementId).setData([
             "title" : baseAnnouncement.title,

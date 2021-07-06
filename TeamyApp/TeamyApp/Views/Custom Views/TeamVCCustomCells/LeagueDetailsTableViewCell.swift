@@ -11,6 +11,7 @@ class LeagueDetailsTableViewCell: UITableViewCell {
     // MARK: - Outlets
     @IBOutlet weak var leagueNameLabel: UILabel!
     @IBOutlet weak var leagueDetailsLabel: UILabel!
+    @IBOutlet weak var teamImageView: UIImageView!
     
     // MARK: - Properties
     var index: Int? {

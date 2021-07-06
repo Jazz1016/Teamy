@@ -15,11 +15,21 @@ class TeamViewController: UIViewController {
         super.viewDidLoad()
         eventsTableView.delegate = self
         eventsTableView.dataSource = self
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         eventsTableView.reloadData()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        guard let team = EventController.shared.team else {return}
+        navigationController?.navigationBar.topItem?.title = "\(team.name)"
     }
     
     // MARK: - Properties
