@@ -57,12 +57,12 @@ class UserSettingsViewController: UIViewController {
     
     func updateViews() {
         guard let user = user else {return}
-        firstNameLabel.text = user.firstName
-        firstNameTextField.text = user.firstName
-        lastNameLabel.text = user.lastName
-        lastNameTextField.text = user.lastName
-        firstNameTextField.isHidden = true
-        lastNameTextField.isHidden = true
+        firstNameLabel.text = "\(user.lastName), \(user.firstName)"
+//        firstNameTextField.text = user.firstName
+//        lastNameLabel.text = user.lastName
+//        lastNameTextField.text = user.lastName
+//        firstNameTextField.isHidden = true
+//        lastNameTextField.isHidden = true
     }
     
     func presentAlertToDeleteAccount() {
@@ -85,7 +85,7 @@ class UserSettingsViewController: UIViewController {
     
     
     func presentAlertToChangePassword() {
-        let alert = UIAlertController(title: "Are you sure you want to change your password?", message: "If so, please type in your current password to change your password", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Are you sure you want to change your password?", message: "If so, please type in your current password to change", preferredStyle: .alert)
         
         alert.addTextField { newPasswordTextField in
             newPasswordTextField.placeholder = "New Password"
@@ -108,9 +108,6 @@ class UserSettingsViewController: UIViewController {
         }))
         present(alert, animated: true, completion: nil)
     }
-    
-    
-    
     
     func reauthenticateUser(currentPassword: String) {
         
