@@ -1314,62 +1314,62 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="editContactCell" rowHeight="174" id="o7X-fd-yjR" customClass="EditContactTableViewCell" customModule="TeamyApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="140.5" width="414" height="174"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="editContactCell" rowHeight="253" id="o7X-fd-yjR" customClass="EditContactTableViewCell" customModule="TeamyApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="140.5" width="414" height="253"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="o7X-fd-yjR" id="0Jf-bM-oks">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="174"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="253"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="sId-Ai-2lR">
-                                                    <rect key="frame" x="9" y="38.5" width="396" height="97"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="143" translatesAutoresizingMaskIntoConstraints="NO" id="PvO-pF-n10">
+                                                    <rect key="frame" x="20.5" y="17.5" width="373" height="218.5"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="hGW-8X-fRY">
-                                                            <rect key="frame" x="0.0" y="0.0" width="356" height="97"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="JRA-eZ-Xrr">
+                                                            <rect key="frame" x="0.0" y="0.0" width="196" height="218.5"/>
                                                             <subviews>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="42" translatesAutoresizingMaskIntoConstraints="NO" id="uoz-fh-p39">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="356" height="34"/>
-                                                                    <subviews>
-                                                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="5cD-yQ-G8Y">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="123" height="34"/>
-                                                                            <subviews>
-                                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact's Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTI-4G-7k9">
-                                                                                    <rect key="frame" x="0.0" y="7" width="123" height="20.5"/>
-                                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                    <nil key="textColor"/>
-                                                                                    <nil key="highlightedColor"/>
-                                                                                </label>
-                                                                            </subviews>
-                                                                        </stackView>
-                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contact's Name Textfield" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jGe-7N-Lhp">
-                                                                            <rect key="frame" x="165" y="0.0" width="191" height="34"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                            <textInputTraits key="textInputTraits"/>
-                                                                        </textField>
-                                                                    </subviews>
-                                                                </stackView>
-                                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="5ra-z3-hAi">
-                                                                    <rect key="frame" x="0.0" y="63" width="356" height="34"/>
-                                                                    <subviews>
-                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Method of Contact" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FzQ-NE-c9o">
-                                                                            <rect key="frame" x="0.0" y="0.0" width="166.5" height="34"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                            <textInputTraits key="textInputTraits"/>
-                                                                        </textField>
-                                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter method" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sxU-MD-cCC">
-                                                                            <rect key="frame" x="189.5" y="0.0" width="166.5" height="34"/>
-                                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                            <textInputTraits key="textInputTraits"/>
-                                                                        </textField>
-                                                                    </subviews>
-                                                                </stackView>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YTI-4G-7k9">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="110" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contact's Name Textfield" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jGe-7N-Lhp">
+                                                                    <rect key="frame" x="0.0" y="31.5" width="191" height="34"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="isN-bl-Jbi">
+                                                                    <rect key="frame" x="0.0" y="76.5" width="102.5" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contact Type" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FzQ-NE-c9o">
+                                                                    <rect key="frame" x="0.0" y="108" width="191" height="34"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="191" id="DgE-vg-GJh"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8jG-c0-tQm">
+                                                                    <rect key="frame" x="0.0" y="153" width="93.5" height="20.5"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                    <nil key="textColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contact Info" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sxU-MD-cCC">
+                                                                    <rect key="frame" x="0.0" y="184.5" width="191" height="34"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="191" id="aXS-Sx-It2"/>
+                                                                    </constraints>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                    <textInputTraits key="textInputTraits"/>
+                                                                </textField>
                                                             </subviews>
-                                                            <constraints>
-                                                                <constraint firstItem="5ra-z3-hAi" firstAttribute="width" secondItem="hGW-8X-fRY" secondAttribute="width" id="esv-C5-sLY"/>
-                                                            </constraints>
                                                         </stackView>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xZ3-ZE-wqG">
-                                                            <rect key="frame" x="362" y="33.5" width="34" height="30"/>
+                                                            <rect key="frame" x="339" y="94" width="34" height="30"/>
                                                             <state key="normal" title="Save"/>
                                                             <connections>
                                                                 <action selector="saveButtonTapped:" destination="o7X-fd-yjR" eventType="touchUpInside" id="pFT-UM-xdG"/>
@@ -1379,16 +1379,18 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="sId-Ai-2lR" firstAttribute="centerX" secondItem="0Jf-bM-oks" secondAttribute="centerX" id="6Ak-dD-7SN"/>
-                                                <constraint firstItem="sId-Ai-2lR" firstAttribute="width" secondItem="0Jf-bM-oks" secondAttribute="width" multiplier="0.956522" id="Y9s-nP-5Qm"/>
-                                                <constraint firstItem="sId-Ai-2lR" firstAttribute="centerY" secondItem="0Jf-bM-oks" secondAttribute="centerY" id="jL6-wZ-UBa"/>
+                                                <constraint firstItem="PvO-pF-n10" firstAttribute="centerY" secondItem="0Jf-bM-oks" secondAttribute="centerY" id="Pxb-bC-hUg"/>
+                                                <constraint firstItem="PvO-pF-n10" firstAttribute="centerX" secondItem="0Jf-bM-oks" secondAttribute="centerX" id="Vdg-vf-0AJ"/>
+                                                <constraint firstItem="PvO-pF-n10" firstAttribute="width" secondItem="0Jf-bM-oks" secondAttribute="width" multiplier="0.9" id="bPW-2V-k7x"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="contactInfo" destination="sxU-MD-cCC" id="SRa-wF-XfW"/>
+                                            <outlet property="contactInfoLabel" destination="8jG-c0-tQm" id="ivB-vd-tt4"/>
                                             <outlet property="contactNameLabel" destination="YTI-4G-7k9" id="UR1-NC-q8d"/>
                                             <outlet property="contactNameTextfield" destination="jGe-7N-Lhp" id="BhC-pb-ed0"/>
                                             <outlet property="contactType" destination="FzQ-NE-c9o" id="q8q-Ff-tli"/>
+                                            <outlet property="contactTypeLabel" destination="isN-bl-Jbi" id="6XK-aa-KKr"/>
                                             <outlet property="saveButton" destination="xZ3-ZE-wqG" id="Scn-I4-JZw"/>
                                         </connections>
                                     </tableViewCell>
@@ -1437,13 +1439,13 @@
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uKq-DL-QSF">
                                                             <rect key="frame" x="0.0" y="0.0" width="283" height="169.5"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Announcement Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yb8-ro-NhH">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Announcement Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yb8-ro-NhH">
                                                                     <rect key="frame" x="0.0" y="0.0" width="283" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Announcement Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yyw-5a-Dev">
+                                                                <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Announcement Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Yyw-5a-Dev">
                                                                     <rect key="frame" x="0.0" y="28.5" width="283" height="34"/>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                     <textInputTraits key="textInputTraits"/>

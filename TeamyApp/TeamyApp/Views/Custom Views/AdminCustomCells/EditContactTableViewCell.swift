@@ -10,6 +10,8 @@ import UIKit
 class EditContactTableViewCell: UITableViewCell {
     // MARK: - Outlets
     @IBOutlet weak var contactNameLabel: UILabel!
+    @IBOutlet weak var contactTypeLabel: UILabel!
+    @IBOutlet weak var contactInfoLabel: UILabel!
     @IBOutlet weak var contactNameTextfield: UITextField!
     @IBOutlet weak var contactType: UITextField!
     @IBOutlet weak var contactInfo: UITextField!
