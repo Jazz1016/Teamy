@@ -17,11 +17,11 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         let firebaseAuth = Auth.auth()
         navigationController?.navigationBar.prefersLargeTitles = true
-        do {
-            try firebaseAuth.signOut()
-        } catch let signOutError as NSError {
-            print("Error signing out: %@", signOutError)
-        }
+//        do {
+//            try firebaseAuth.signOut()
+//        } catch let signOutError as NSError {
+//            print("Error signing out: %@", signOutError)
+//        }
         userTeamsTableView.delegate = self
         userTeamsTableView.dataSource = self
         if Auth.auth().currentUser == nil {
@@ -41,7 +41,6 @@ class HomeViewController: UIViewController {
                 DispatchQueue.main.async {
                     //Ethan - Having issue when User changes name, teams no longer fetch.
                     TeamController.shared.fetchTeamsForUser(teamIds: user.teams) { result in
-                        
                         if result {
                             self.userTeamsTableView.reloadData()
                         }
@@ -84,14 +83,6 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
     }
-    
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            let team = TeamController.shared.teams[indexPath.row]
-//            TeamController.shared.deleteTeam(team: team)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        }
-//    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toTeamVC" {

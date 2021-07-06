@@ -18,17 +18,18 @@ class CreateNewTeamViewController: UIViewController {
     @IBOutlet weak var coachNameTextField: UITextField!
     @IBOutlet weak var sportPickerTextField: UITextField!
     @IBOutlet weak var selectColorButton: UIButton!
-    
+    @IBOutlet weak var createTeamButton: UIButton!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         PhotoPickerViewController.delegate = self
         pickerView.dataSource = self
         pickerView.delegate = self
         sportPickerTextField.inputView = pickerView
         createToolBar()
+        createTeamButton.layer.cornerRadius = 10
+        selectColorButton.layer.cornerRadius = 10
     }
     
     // MARK: - Properties
@@ -60,8 +61,6 @@ class CreateNewTeamViewController: UIViewController {
             self.saveImage(teamName: teamName)
         }
         let defaultAdmin = [userId]
-        // JAMLEA: Pass in Sport name from Picker
-        // JAMLEA: pass in teamColor Anthony
         let newTeam = Team(name: teamName, teamColor: teamColorPicked, teamSport: sport, teamRecord: "0-0",leagueName: leagueNameTextField.text ?? "League", teamBio: leagueDetailsTextField.text ?? "Edit in manage team", admins: defaultAdmin, members: [], blocked: [], teamId: UUID().uuidString, teamCode: randomNumString, teamImage: imageURL)
         let newContact = Contact(contactName: coachNameTextField.text ?? "", contactType: "", contactInfo: "")
         TeamController.shared.addTeamToUser(userId: userId, teamId: newTeam.teamId)

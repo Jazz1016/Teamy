@@ -102,7 +102,7 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
             }
         } else {
             if section == 0 {
-                return ContactController.shared.contacts.count + 1
+                return ContactController.shared.contacts.count + 2
             } else if section == 1 {
                 return AnnouncementController.shared.announcements.count
             } else if section == 2 {
@@ -119,10 +119,12 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "leagueDetailsCell", for: indexPath) as? LeagueDetailsTableViewCell
                 let index = indexPath.row
                 cell?.index = index
+                cell?.selectionStyle = .none
                 return cell ?? UITableViewCell()
             } else if indexPath.row == 1 && indexPath.section == 0 {
                 /// Manage Team Button Cell
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "manageCell", for: indexPath) as?  ManageTeamTableViewCell else {return UITableViewCell()}
+                cell.selectionStyle = .none
                 return cell
             } else if indexPath.row == 2 && indexPath.section == 0 {
                 /// Roster Cell
@@ -141,10 +143,12 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
                 let cell = tableView.dequeueReusableCell(withIdentifier: "announcementCell", for: indexPath) as? AnnounceTableViewCell
                 let announcement = AnnouncementController.shared.announcements[indexPath.row]
                 cell?.announcement = announcement
+                cell?.selectionStyle = .none
                 return cell ?? UITableViewCell()
             } else if indexPath.row == 0 && indexPath.section == 2 {
                 ///Create Event Cell
                 let cell = tableView.dequeueReusableCell(withIdentifier: "addEventCell", for: indexPath) as? AddEventTableViewCell
+                cell?.selectionStyle = .none
                 return cell ?? UITableViewCell()
             } else if indexPath.row <= EventController.shared.events.count + 1 && indexPath.section == 2 {
                 /// Event Cell(s)
@@ -160,23 +164,34 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             // JAMLEA: put non admin setup here
             if indexPath.row == 0 && indexPath.section == 0 {
+                ///League Details Cell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "leagueDetailsCell", for: indexPath) as? LeagueDetailsTableViewCell
+                let index = indexPath.row
+                cell?.index = index
+                cell?.selectionStyle = .none
+                return cell ?? UITableViewCell()
+            } else if indexPath.row == 1 && indexPath.section == 0 {
                 /// Roster Cell
                 let cell = tableView.dequeueReusableCell(withIdentifier: "rosterCell", for: indexPath) as? RosterCellTableViewCell
+                let playerCount = PlayerController.shared.players.count
+                cell?.num = playerCount
                 return cell ?? UITableViewCell()
-            } else if indexPath.row <= ContactController.shared.contacts.count && indexPath.section == 0 {
+            } else if indexPath.row <= ContactController.shared.contacts.count + 1 && indexPath.section == 0 {
                 /// Contact Cell(s)
                 let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as? ContactCellTableViewCell
-                let contact = ContactController.shared.contacts[indexPath.row - 1]
+                let contact = ContactController.shared.contacts[indexPath.row - 2]
                 cell?.contact = contact
                 return cell ?? UITableViewCell()
             } else if indexPath.row <= AnnouncementController.shared.announcements.count && indexPath.section == 1 {
                 /// Announcement Cell(s)
                 let cell = tableView.dequeueReusableCell(withIdentifier: "announcementCell", for: indexPath) as? AnnounceTableViewCell
+                let announcement = AnnouncementController.shared.announcements[indexPath.row]
+                cell?.announcement = announcement
+                cell?.selectionStyle = .none
                 return cell ?? UITableViewCell()
             } else if indexPath.row <= EventController.shared.events.count && indexPath.section == 2 {
                 /// Event Cell(s)   
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? EventTableViewCell else { return UITableViewCell() }
-                
                 let event = EventController.shared.events[indexPath.row]
                 cell.eventNameLabel.text = event.name
                 cell.eventLocationLabel.text = event.locationName
