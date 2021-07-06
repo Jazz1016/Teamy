@@ -18,7 +18,7 @@ class EditAnnouncementTableViewCell: UITableViewCell, UITextViewDelegate {
     // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
-//        announcementDetailTextView.delegate = self
+
     }
     
     @IBAction func saveAnnouncementButtonTapped(_ sender: Any) {
@@ -38,15 +38,6 @@ class EditAnnouncementTableViewCell: UITableViewCell, UITextViewDelegate {
         }
     }
     var team: Team?
-//    var textChanged: ((String) -> Void)?
-//
-//    func textChanged(action: @escaping (String) -> Void) {
-//        self.textChanged = action
-//    }
-//
-//    func textViewDidChange(_ textView: UITextView) {
-//        textChanged?(textView.text)
-//    }
     
     func updateViews() {
         guard let announcement = announcement else {return}
@@ -58,23 +49,32 @@ class EditAnnouncementTableViewCell: UITableViewCell, UITextViewDelegate {
     func updateAnnouncement() {
         guard let title = announcementTextField.text, !title.isEmpty,
               let details = announcementDetailTextView.text, !details.isEmpty,
-              let team = team else {return}
-        let announcement = Announcement(title: title, details: details)
+              let team = team,
+              let id = announcement?.announcementId else {return}
+        let announcement = Announcement(title: title, details: details, announcementId: id)
         AnnouncementController.shared.updateAnnouncement(announcement: announcement, teamId: team.teamId)
-        
+        print(announcement.title)
+        updateViews()
     }
     
     func isEditable() {
-        if announcementDetailTextView.text != "" {
-            announcementTextField.isHidden = true
-            announcementLabel.isHidden = false
-            announcementDetailTextView.isEditable = false
-            saveAnnouncementButton.isHidden = true
-        } else {
+        if announcementDetailTextView.text == "There are no announcements at this time" {
             announcementTextField.isHidden = false
             announcementLabel.isHidden = true
             announcementDetailTextView.isEditable = true
             saveAnnouncementButton.isHidden = false
+            announcementTextField.text = ""
+            announcementDetailTextView.text = ""
+        } else if announcementDetailTextView.text == "" {
+            announcementTextField.isHidden = false
+            announcementLabel.isHidden = true
+            announcementDetailTextView.isEditable = true
+            saveAnnouncementButton.isHidden = false
+        } else {
+            announcementTextField.isHidden = true
+            announcementLabel.isHidden = false
+            announcementDetailTextView.isEditable = false
+            saveAnnouncementButton.isHidden = true
         }
     }
     
