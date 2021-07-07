@@ -22,6 +22,7 @@
 		0D1032472681504100136C9A /* CreateNewTeamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1032462681504100136C9A /* CreateNewTeamViewController.swift */; };
 		0D1032492681515100136C9A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1032482681515100136C9A /* HomeViewController.swift */; };
 		0D3A50502695366000C1FA6C /* ModalContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3A504F2695366000C1FA6C /* ModalContactViewController.swift */; };
+		0D3A505226960BF000C1FA6C /* GlobalFns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3A505126960BF000C1FA6C /* GlobalFns.swift */; };
 		0D54C576268BD68400934307 /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D54C575268BD68400934307 /* PlayerTableViewCell.swift */; };
 		0D59478A268AB76000A9DA0F /* RosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D594789268AB76000A9DA0F /* RosterViewController.swift */; };
 		0D59478C268AB7FA00A9DA0F /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D59478B268AB7FA00A9DA0F /* EventDetailViewController.swift */; };
@@ -105,6 +106,7 @@
 		0D1032462681504100136C9A /* CreateNewTeamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewTeamViewController.swift; sourceTree = "<group>"; };
 		0D1032482681515100136C9A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0D3A504F2695366000C1FA6C /* ModalContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalContactViewController.swift; sourceTree = "<group>"; };
+		0D3A505126960BF000C1FA6C /* GlobalFns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFns.swift; sourceTree = "<group>"; };
 		0D54C575268BD68400934307 /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
 		0D594789268AB76000A9DA0F /* RosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterViewController.swift; sourceTree = "<group>"; };
 		0D59478B268AB7FA00A9DA0F /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 				AA662E6A2683DC930061145E /* DateFormatter.swift */,
 				0D02DD4E2685435A0039EC0B /* TeamError.swift */,
 				AC239762268A42E00099E075 /* UIColorConverter.swift */,
+				0D3A505126960BF000C1FA6C /* GlobalFns.swift */,
 			);
 			path = "Helpers and Extensions";
 			sourceTree = "<group>";
@@ -591,6 +594,7 @@
 				0D02DD5226854B340039EC0B /* ContactController.swift in Sources */,
 				0D02DD4926853DBF0039EC0B /* Contact.swift in Sources */,
 				0D94E18726823F8E005602ED /* TeamController.swift in Sources */,
+				0D3A505226960BF000C1FA6C /* GlobalFns.swift in Sources */,
 				ACC9759926810FBA000C3593 /* SceneDelegate.swift in Sources */,
 				AA5E56122686671B00A8C3E7 /* SearchTableViewController.swift in Sources */,
 				0D94E18B26824025005602ED /* Team.swift in Sources */,

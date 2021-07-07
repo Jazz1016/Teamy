@@ -25,5 +25,6 @@ class LeagueDetailsTableViewCell: UITableViewCell {
         guard let team = EventController.shared.team else {return}
         leagueNameLabel.text = team.leagueName
         leagueDetailsLabel.text = team.teamBio
+        GlobalFns.displayPicture(url: team.teamImage, UIImageView: teamImageView)
     }
 }//End of class

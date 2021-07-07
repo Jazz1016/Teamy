@@ -15,8 +15,8 @@ class HomeViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        let firebaseAuth = Auth.auth()
         navigationController?.navigationBar.prefersLargeTitles = true
+        let firebaseAuth = Auth.auth()
 //        do {
 //            try firebaseAuth.signOut()
 //        } catch let signOutError as NSError {

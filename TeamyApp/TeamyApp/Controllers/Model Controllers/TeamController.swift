@@ -19,7 +19,7 @@ class TeamController {
     
     ///Fetching Team To Display on HomeVC
     func fetchTeamsForUser(teamIds: [String], completion: @escaping (Bool) -> Void) {
-        teams = []
+        var newTeams: [Team] = []
         var counter = 0
         for i in teamIds {
             print(i)
@@ -59,10 +59,11 @@ class TeamController {
                     
                     let teamToAdd = Team(name: name1, teamColor: teamColor1, teamSport: teamSport1, teamRecord: teamRecord1, leagueName: leagueName1, teamBio: teamBio1, admins: admins1, members: members1, blocked: blocked1, teamId: teamId1, teamCode: teamCode1, teamImage: teamImage)
                     
-                    self.teams.append(teamToAdd)
+                    newTeams.append(teamToAdd)
                     counter += 1
                     
                     if counter == teamIds.count {
+                        self.teams = newTeams
                         completion(true)
                         return
                     }
@@ -90,7 +91,6 @@ class TeamController {
             "teamCode" : team.teamCode,
             "teamImage" : team.teamImage
         ])
-        
         teams.append(team)
         // JAMLEA: I'll be adding optional contact when user creates a team once I get the outlets for createNewTeamVC
         if contact.contactName.count > 0 {
@@ -144,6 +144,7 @@ class TeamController {
             if snap.count == 1 {
                 let userData = snap.documents[0].data()
                 
+                let email = userData["email"] as? String
                 let firstName = userData["firstName"] as? String
                 let lastName = userData["lastName"] as? String
                 var teams = userData["teams"] as? Array ?? []
@@ -152,6 +153,7 @@ class TeamController {
                 teams.append(teamId)
                 
                 self.db.collection("users").document(userId!).setData([
+                    "email" : email,
                     "firstName" : firstName,
                     "lastName" : lastName,
                     "teams" : teams,
