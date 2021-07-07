@@ -34,7 +34,11 @@ class AnnouncementsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    // MARK: - Actions
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
 }
 
 extension AnnouncementsViewController: UITableViewDataSource, UITableViewDelegate {

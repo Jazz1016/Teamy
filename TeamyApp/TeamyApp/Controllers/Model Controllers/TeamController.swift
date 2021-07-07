@@ -15,7 +15,7 @@ class TeamController {
     
     var teams: [Team] = []
     let db = Firestore.firestore()
-    let sports: [String] = ["Basketball", "Hockey", "Baseball", "Soccer", "Football"]
+    let sports: [String] = ["Basketball", "Ice Hockey", "Baseball", "Soccer", "Football", "Track & Field", "Tennis", "Lacrosse", "Swimming", "Water Polo", "Pickleball", "Volleyball", "Gymnastics", "Cheerleading", "Field Hockey", "Dance", "Wrestling", "Fencing", "Rowing", "Bowling", "Surfing", "Golf", "Skiing", "Ice Skating", "Roller Skating", "Other",  "Cricket", "Rugby"]
     
     ///Fetching Team To Display on HomeVC
     func fetchTeamsForUser(teamIds: [String], completion: @escaping (Bool) -> Void) {

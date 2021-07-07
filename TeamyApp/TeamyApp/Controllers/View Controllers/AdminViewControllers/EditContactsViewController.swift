@@ -56,7 +56,11 @@ class EditContactsViewController: UIViewController {
         present(createNewContactAlert, animated: true, completion: nil)
     }
     
-}
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+}//End of class
 
 //MARK: - extensions
 extension EditContactsViewController: UITableViewDelegate, UITableViewDataSource {

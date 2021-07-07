@@ -30,6 +30,7 @@ class CreateNewTeamViewController: UIViewController {
         createToolBar()
         createTeamButton.layer.cornerRadius = 10
         selectColorButton.layer.cornerRadius = 10
+        sortedSports = TeamController.shared.sports.sorted()
     }
     
     // MARK: - Properties
@@ -38,6 +39,7 @@ class CreateNewTeamViewController: UIViewController {
     var teamColorPicked = ""
     var pickerView = UIPickerView()
     var imageURL = ""
+    var sortedSports: [String]?
     
     // MARK: - Actions
     
@@ -165,15 +167,18 @@ extension CreateNewTeamViewController: UIPickerViewDataSource, UIPickerViewDeleg
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return TeamController.shared.sports.count
+        guard let sortedSports = sortedSports else {return 0}
+        return sortedSports.count
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return TeamController.shared.sports[row]
+        guard let sortedSports = sortedSports else {return ""}
+        return sortedSports[row]
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        sportPickerTextField.text = TeamController.shared.sports[row]
+        guard let sortedSports = sortedSports else {return}
+        sportPickerTextField.text = sortedSports[row]
     }
 }
 

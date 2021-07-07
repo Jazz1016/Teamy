@@ -11,11 +11,13 @@ import FirebaseAuth
 class JoinTeamViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var codeTextField: UITextField!
+    @IBOutlet weak var joinTeamButton: UIButton!
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        joinTeamButton.layer.cornerRadius = 10
         codeTextField.delegate = self
     }
     

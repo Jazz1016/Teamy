@@ -24,6 +24,7 @@ class EventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        openInMapsButton.layer.cornerRadius = 10
     }
     
     var event: Event?

@@ -18,6 +18,7 @@ class CodeModalViewController: UIViewController {
         super.viewDidLoad()
         
         teamCodeView.layer.cornerRadius = 15
+        resetCodeButton.layer.cornerRadius = 10
     }
     
     override func viewDidAppear(_ animated: Bool) {

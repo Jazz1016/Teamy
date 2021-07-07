@@ -125,6 +125,8 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
                 /// Manage Team Button Cell
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "manageCell", for: indexPath) as?  ManageTeamTableViewCell else {return UITableViewCell()}
                 cell.selectionStyle = .none
+                let index = 0
+                cell.index = index
                 return cell
             } else if indexPath.row == 2 && indexPath.section == 0 {
                 /// Roster Cell
@@ -149,6 +151,7 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
                 ///Create Event Cell
                 let cell = tableView.dequeueReusableCell(withIdentifier: "addEventCell", for: indexPath) as? AddEventTableViewCell
                 cell?.selectionStyle = .none
+                cell?.index = 0
                 return cell ?? UITableViewCell()
             } else if indexPath.row <= EventController.shared.events.count + 1 && indexPath.section == 2 {
                 /// Event Cell(s)
@@ -226,6 +229,19 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
                 let eventToSend = EventController.shared.events[indexPath.row]
                 destinationVC.event = eventToSend
             }
+        } else if segue.identifier == "toModalContact" {
+            
+            guard let indexPath = eventsTableView.indexPathForSelectedRow,
+            let destinationVC = segue.destination as? ModalContactViewController else {return}
+            
+            var contactToSend: Contact
+            if EventController.shared.isAdmin {
+                contactToSend = ContactController.shared.contacts[indexPath.row - 3]
+            } else {
+                contactToSend = ContactController.shared.contacts[indexPath.row - 2]
+            }
+            
+            destinationVC.contact = contactToSend
         }
     }
 }//End of extension
