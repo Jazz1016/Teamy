@@ -44,6 +44,8 @@
 		344A556C1CC49A28C2069EF5 /* Pods_TeamyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB8089433EFD9BD3ACCEF72 /* Pods_TeamyApp.framework */; };
 		79CF316D26864020005ECEC8 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CF316C26864020005ECEC8 /* PhotoPickerViewController.swift */; };
 		79D8F97C268D19E500691F2B /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D8F97B268D19E500691F2B /* UserSettingsViewController.swift */; };
+		79D8F9A3269375EF00691F2B /* Styleguide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D8F9A2269375EF00691F2B /* Styleguide.swift */; };
+		79D8F9A626961BD700691F2B /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D8F9A526961BD700691F2B /* PrimaryButton.swift */; };
 		AA5E56102686670E00A8C3E7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E560F2686670E00A8C3E7 /* SearchViewController.swift */; };
 		AA5E56122686671B00A8C3E7 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E56112686671B00A8C3E7 /* SearchTableViewController.swift */; };
 		AA662E6926838F670061145E /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA662E6826838F670061145E /* EventController.swift */; };
@@ -118,6 +120,8 @@
 		0D94E19426828E3C005602ED /* UserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserError.swift; sourceTree = "<group>"; };
 		79CF316C26864020005ECEC8 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		79D8F97B268D19E500691F2B /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
+		79D8F9A2269375EF00691F2B /* Styleguide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styleguide.swift; sourceTree = "<group>"; };
+		79D8F9A526961BD700691F2B /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrimaryButton.swift; sourceTree = "<group>"; };
 		AA5E560F2686670E00A8C3E7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AA5E56112686671B00A8C3E7 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		AA662E6826838F670061145E /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
@@ -236,6 +240,55 @@
 			path = "Custom Cells";
 			sourceTree = "<group>";
 		};
+		79D8F99D269374F900691F2B /* Style Guide */ = {
+			isa = PBXGroup;
+			children = (
+				79D8F9A2269375EF00691F2B /* Styleguide.swift */,
+				79D8F9A426961BB500691F2B /* Button */,
+				79D8F99E2693753700691F2B /* Custom Elements */,
+			);
+			path = "Style Guide";
+			sourceTree = "<group>";
+		};
+		79D8F99E2693753700691F2B /* Custom Elements */ = {
+			isa = PBXGroup;
+			children = (
+				79D8F9A12693759100691F2B /* TextFields */,
+				79D8F9A02693754B00691F2B /* Buttons */,
+				79D8F99F2693754400691F2B /* Labels */,
+			);
+			path = "Custom Elements";
+			sourceTree = "<group>";
+		};
+		79D8F99F2693754400691F2B /* Labels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Labels;
+			sourceTree = "<group>";
+		};
+		79D8F9A02693754B00691F2B /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		79D8F9A12693759100691F2B /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		79D8F9A426961BB500691F2B /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				79D8F9A526961BD700691F2B /* PrimaryButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
 		96C73D3C21842E8445D2D00C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -296,6 +349,7 @@
 		ACC9759526810FBA000C3593 /* TeamyApp */ = {
 			isa = PBXGroup;
 			children = (
+				79D8F99D269374F900691F2B /* Style Guide */,
 				ACC975BA268113BF000C3593 /* Models */,
 				ACC975B5268112FC000C3593 /* Views */,
 				ACC975AE26811178000C3593 /* Controllers */,
@@ -547,6 +601,8 @@
 				0D10323A26814C9800136C9A /* AuthViewController.swift in Sources */,
 				0D10323D26814CC500136C9A /* LoginViewController.swift in Sources */,
 				0D02DD5226854B340039EC0B /* ContactController.swift in Sources */,
+				79D8F9A3269375EF00691F2B /* Styleguide.swift in Sources */,
+				79D8F9A626961BD700691F2B /* PrimaryButton.swift in Sources */,
 				0D02DD4926853DBF0039EC0B /* Contact.swift in Sources */,
 				0D94E18726823F8E005602ED /* TeamController.swift in Sources */,
 				ACC9759926810FBA000C3593 /* SceneDelegate.swift in Sources */,
