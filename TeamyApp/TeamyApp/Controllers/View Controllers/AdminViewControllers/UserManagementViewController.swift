@@ -20,22 +20,13 @@ class UserManagementViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-        guard let team = EventController.shared.team else {return}
         
-        UserController.shared.fetchUsers(userIds: team.admins, access: "admin") { result in
-            self.accessTableView.reloadData()
-        }
-        UserController.shared.fetchUsers(userIds: team.members, access: "member") { result in
-            self.accessTableView.reloadData()
-        }
-        UserController.shared.fetchUsers(userIds: team.blocked, access: "blocked") { result in
-            self.accessTableView.reloadData()
-        }
     }
 }//End of class
 
 extension UserManagementViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
+        
         return 3
     }
     
@@ -57,29 +48,37 @@ extension UserManagementViewController: UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         guard let team = EventController.shared.team else {return []}
         let promoteAction = UITableViewRowAction(style: .default, title: "Promote") { action, indexPath in
-            let userId = UserController.shared.members[indexPath.row].userId
+            let user = UserController.shared.members[indexPath.row]
             var admins = team.admins
             var members = team.admins
-            let memberIndex = members.firstIndex { i in
-                if i == userId {
-                    return true
-                } else {
-                    return false
+            var memberIndex: Int = 0
+            for (i, el) in members.enumerated() {
+                if el == user.userId {
+                    memberIndex = i
                 }
             }
-            members.remove(at: memberIndex!)
-            admins.append(userId)
+            members.remove(at: memberIndex)
+            admins.append(user.userId)
+            UserController.shared.admins.append(user)
+            UserController.shared.members.remove(at: memberIndex)
             let teamToPass = Team(name: team.name, teamColor: team.teamColor, teamSport: team.teamSport, teamRecord: team.teamRecord, leagueName: team.leagueName, teamBio: team.teamBio, admins: admins, members: members, blocked: team.blocked, teamId: team.teamId, teamCode: team.teamCode, teamImage: team.teamImage)
             TeamController.shared.editTeam(oldTeam: team, team: teamToPass)
             tableView.reloadData()
         }
         let demoteAction = UITableViewRowAction(style: .default, title: "Demote") { action, indexPath in
-            let userId = UserController.shared.members[indexPath.row].userId
+            let user = UserController.shared.admins[indexPath.row]
             var admins = team.admins
             var members = team.members
-            let adminIndex = admins.firstIndex(of: userId)
-            admins.remove(at: adminIndex!)
-            members.append(userId)
+            var adminIndex: Int = 0
+            for (i, el) in admins.enumerated() {
+                if el == user.userId {
+                    adminIndex = i
+                }
+            }
+            UserController.shared.members.append(user)
+            UserController.shared.admins.remove(at: adminIndex)
+            admins.remove(at: adminIndex)
+            members.append(user.userId)
             let teamToPass = Team(name: team.name, teamColor: team.teamColor, teamSport: team.teamSport, teamRecord: team.teamRecord, leagueName: team.leagueName, teamBio: team.teamBio, admins: admins, members: members, blocked: team.blocked, teamId: team.teamId, teamCode: team.teamCode, teamImage: team.teamImage)
             TeamController.shared.editTeam(oldTeam: team, team: teamToPass)
             tableView.reloadData()
@@ -87,22 +86,36 @@ extension UserManagementViewController: UITableViewDelegate, UITableViewDataSour
         let blockAction = UITableViewRowAction(style: .default, title: "Block") { action, indexPath in
             if indexPath.section == 0 {
                 ///Admin ---> Blocked
-                let userId = UserController.shared.members[indexPath.row].userId
+                let user = UserController.shared.members[indexPath.row]
                 var admins = team.admins
                 var blocked = team.blocked
-                let adminIndex = admins.firstIndex(of: userId)
-                admins.remove(at: adminIndex!)
+                var adminIndex: Int = 0
+                for (i, el) in admins.enumerated() {
+                    if el == user.userId {
+                        adminIndex = i
+                    }
+                }
+                UserController.shared.blocked.append(user)
+                UserController.shared.admins.remove(at: adminIndex)
+                admins.remove(at: adminIndex)
                 let teamToPass = Team(name: team.name, teamColor: team.teamColor, teamSport: team.teamSport, teamRecord: team.teamRecord, leagueName: team.leagueName, teamBio: team.teamBio, admins: admins, members: team.members, blocked: blocked, teamId: team.teamId, teamCode: team.teamCode, teamImage: team.teamImage)
                 TeamController.shared.editTeam(oldTeam: team, team: teamToPass)
                 tableView.reloadData()
             } else {
                 ///Member ---> Blocked
-                let userId = UserController.shared.members[indexPath.row].userId
+                let user = UserController.shared.members[indexPath.row]
                 var blocked = team.blocked
                 var members = team.members
-                let memberIndex = members.firstIndex(of: userId)
-                members.remove(at: memberIndex!)
-                blocked.append(userId)
+                var memberIndex: Int = 0
+                for (i, el) in members.enumerated() {
+                    if el == user.userId {
+                        memberIndex = i
+                    }
+                }
+                UserController.shared.blocked.append(user)
+                UserController.shared.members.remove(at: memberIndex)
+                members.remove(at: memberIndex)
+                blocked.append(user.userId)
                 let teamToPass = Team(name: team.name, teamColor: team.teamColor, teamSport: team.teamSport, teamRecord: team.teamRecord, leagueName: team.leagueName, teamBio: team.teamBio, admins: team.admins, members: members, blocked: blocked, teamId: team.teamId, teamCode: team.teamCode, teamImage: team.teamImage)
                 TeamController.shared.editTeam(oldTeam: team, team: teamToPass)
                 tableView.reloadData()
@@ -110,12 +123,20 @@ extension UserManagementViewController: UITableViewDelegate, UITableViewDataSour
         }
         
         let unblockAction = UITableViewRowAction(style: .default, title: "Unblock") { action, indexPath in
-            let userId = UserController.shared.blocked[indexPath.row].userId
+            let user = UserController.shared.blocked[indexPath.row]
             var blocked = team.blocked
             var members = team.members
-            let blockedIndex = blocked.firstIndex(of: userId)
+            let blockedIndex = blocked.firstIndex { i in
+                if i == user.userId {
+                    return true
+                } else {
+                    return false
+                }
+            }
+            UserController.shared.members.append(user)
+            UserController.shared.blocked.remove(at: blockedIndex!)
             blocked.remove(at: blockedIndex!)
-            members.append(userId)
+            members.append(user.userId)
             let teamToPass = Team(name: team.name, teamColor: team.teamColor, teamSport: team.teamSport, teamRecord: team.teamRecord, leagueName: team.leagueName, teamBio: team.teamBio, admins: team.admins, members: members, blocked: blocked, teamId: team.teamId, teamCode: team.teamCode, teamImage: team.teamImage)
             TeamController.shared.editTeam(oldTeam: team, team: teamToPass)
             tableView.reloadData()
@@ -125,7 +146,11 @@ extension UserManagementViewController: UITableViewDelegate, UITableViewDataSour
         demoteAction.backgroundColor = .systemOrange
         blockAction.backgroundColor = .systemRed
         if indexPath.section == 0 {
-            return [demoteAction, blockAction]
+            if UserController.shared.user!.userId == UserController.shared.admins[indexPath.row].userId {
+                return []
+            } else {
+                return [demoteAction, blockAction]
+            }
         } else if indexPath.section == 1 {
             return [promoteAction, blockAction]
         } else {
