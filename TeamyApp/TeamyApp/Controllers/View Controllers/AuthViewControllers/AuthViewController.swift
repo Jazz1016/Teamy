@@ -8,11 +8,16 @@
 import UIKit
 
 class AuthViewController: UIViewController {
+    // MARK: - Outlets
+    @IBOutlet weak var signUpButton: UIButton!
+    @IBOutlet weak var loginButton: UIButton!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        signUpButton.layer.cornerRadius = 10
+        loginButton.layer.cornerRadius = 10
     }
     
 

@@ -18,16 +18,6 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewDidLoad()
         rosterTableView.delegate = self
         rosterTableView.dataSource = self
-        addNewPlayerButton.isHidden = true
-        if EventController.shared.isAdmin {
-            addNewPlayerButton.isHidden = false
-        }
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        if EventController.shared.isAdmin {
-            addNewPlayerButton.isHidden = false
-        }
     }
     
     // MARK: - Properties
@@ -71,7 +61,7 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        if EventController.shared.isAdmin {
+        if EventController.shared.isAdmin && indexPath.row > 0 {
             return true
         } else {
             return false
@@ -79,8 +69,10 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        guard let team = EventController.shared.team else {return []}
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { action, indexPath in
-            PlayerController.shared.players.remove(at: indexPath.row)
+            let player = PlayerController.shared.players[indexPath.row - 1]
+            PlayerController.shared.deletePlayer(player: player, teamId: team.teamId)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
         
@@ -95,20 +87,35 @@ class RosterViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return PlayerController.shared.players.count
+        if EventController.shared.isAdmin {
+            return PlayerController.shared.players.count + 1
+        } else {
+            return PlayerController.shared.players.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "addPlayerCell", for: indexPath)
-            return cell ?? UITableViewCell()
+        if EventController.shared.isAdmin {
+            if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "addPlayerCell", for: indexPath)
+                return cell ?? UITableViewCell()
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath) as? PlayerTableViewCell
+                let player = PlayerController.shared.players[indexPath.row - 1]
+                cell?.player = player
+                cell?.playerIndex = indexPath.row - 1
+                cell?.delegate = self
+                return cell ?? UITableViewCell()
+            }
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "playerCell", for: indexPath) as? PlayerTableViewCell
-            let player = PlayerController.shared.players[indexPath.row - 1]
-            cell?.player = player
-            cell?.playerIndex = indexPath.row - 1
-            cell?.delegate = self
+            //Ethan - BUG: indexpath out of range when trying to select the view players cell as a non-Admin
+            
+                let player = PlayerController.shared.players[indexPath.row]
+                cell?.player = player
+                cell?.playerIndex = indexPath.row
+                cell?.delegate = self
+            
             return cell ?? UITableViewCell()
         }
     }

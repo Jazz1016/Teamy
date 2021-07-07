@@ -9,7 +9,8 @@ import UIKit
 
 class RosterCellTableViewCell: UITableViewCell {
     // MARK: - Outlets
-    @IBOutlet weak var rosterCell: UILabel!
+    @IBOutlet weak var rosterLabel: UILabel!
+    @IBOutlet weak var teamColorView: UIView!
     
     // MARK: - Properties
     var num: Int? {
@@ -20,7 +21,16 @@ class RosterCellTableViewCell: UITableViewCell {
     
     // MARK: - Functions
     func updateViews(){
-        guard let num = num else {return}
-        rosterCell.text = "\(num) Players"
+        guard let num = num,
+              let team = EventController.shared.team else {return}
+        
+        teamColorView.backgroundColor = UIColor.init(hexString: team.teamColor)
+        teamColorView.layer.cornerRadius = 5
+        if num == 1 {
+            rosterLabel.text = "\(num) Player"
+        } else {
+            rosterLabel.text = "\(num) Players"
+        }
+        
     }
 }//End of class

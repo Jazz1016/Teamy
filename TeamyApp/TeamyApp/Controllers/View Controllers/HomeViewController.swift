@@ -15,13 +15,15 @@ class HomeViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationController?.navigationBar.prefersLargeTitles = true
+        let firebaseAuth = Auth.auth()
+//        do {
+//            try firebaseAuth.signOut()
+//        } catch let signOutError as NSError {
+//            print("Error signing out: %@", signOutError)
+//        }
         userTeamsTableView.delegate = self
         userTeamsTableView.dataSource = self
-//        do {
-//            try Auth.auth().signOut()
-//        } catch {
-//            print("error")
-//        }
         if Auth.auth().currentUser == nil {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let VC = storyboard.instantiateViewController(identifier: "AuthVC")
@@ -50,23 +52,29 @@ class HomeViewController: UIViewController {
         EventController.shared.isAdmin = false
     }
     
-    // MARK: - Functions
-    func reloadTeamsTable(){
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
         userTeamsTableView.reloadData()
     }
+    
+    // MARK: - Method
+    
     
 }//End of class
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return TeamController.shared.teams.count + 1
+        return TeamController.shared.teams.count + 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row == TeamController.shared.teams.count {
             let cell = userTeamsTableView.dequeueReusableCell(withIdentifier: "joinTeamCell") as? JoinTeamTableViewCell
-            
             return cell ?? UITableViewCell()
+        } else if indexPath.row == TeamController.shared.teams.count + 1 {
+            guard let cell = userTeamsTableView.dequeueReusableCell(withIdentifier: "createTeamCell", for: indexPath) as? CreateTeamTableViewCell else {return UITableViewCell()}
+            return cell
         } else {
             guard let cell = userTeamsTableView.dequeueReusableCell(withIdentifier: "teamCell", for: indexPath) as? TeamTableViewCell else {return UITableViewCell()}
             let team = TeamController.shared.teams[indexPath.row]
@@ -75,19 +83,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            let team = TeamController.shared.teams[indexPath.row]
-//            TeamController.shared.deleteTeam(team: team)
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        }
-//    }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toTeamVC" {
             guard let destination = segue.destination as? TeamViewController,
                   let indexPath = userTeamsTableView.indexPathForSelectedRow else {return}
             destination.team = TeamController.shared.teams[indexPath.row]
+        }
+        if segue.identifier == "toProfileSettingsVC" {
+            guard let destination = segue.destination as? UserSettingsViewController else {return}
+            destination.user = UserController.shared.user
+            
         }
     }
 }//End of extension

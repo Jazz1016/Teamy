@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 
-protocol HandleMapSearch {
+protocol HandleMapSearch: AnyObject {
     func dropPinZoomIn(placemark: MKPlacemark)
 }
 
@@ -20,9 +20,11 @@ class SearchViewController: UIViewController {
     
     //MARK: - Outlets
     @IBOutlet weak var mapView: MKMapView!
-
+    @IBOutlet weak var saveLocationButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        saveLocationButton.layer.cornerRadius = 10
         setupLocationManager()
         setupSearchTable()
     }

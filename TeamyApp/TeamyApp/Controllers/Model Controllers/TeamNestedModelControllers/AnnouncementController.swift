@@ -16,7 +16,7 @@ class AnnouncementController {
     let db = Firestore.firestore()
     
     // MARK: - CRUD
-    func createAnnouncement(announcement: Announcement, teamId: String){
+    func createAnnouncement(announcement: Announcement, teamId: String) {
         db.collection("teams").document(teamId).collection("announcements").document(announcement.announcementId).setData([
             "title" : announcement.title,
             "details" : announcement.details,
@@ -24,6 +24,14 @@ class AnnouncementController {
         ])
         announcements.append(announcement)
     }
+    
+    func updateAnnouncement(announcement: Announcement, teamId: String) {
+    db.collection("teams").document(teamId).collection("announcements").document(announcement.announcementId).setData([
+        "title" : announcement.title,
+        "details" : announcement.details,
+        "announcementId" : announcement.announcementId
+    ], merge: false)
+}
     
     func fetchAnnouncements(teamId: String){
         db.collection("teams").document(teamId).collection("announcements").addSnapshotListener { snap, error in
@@ -48,9 +56,6 @@ class AnnouncementController {
     }
     
     func deleteAnnouncement(announcement: Announcement, teamId: String){
-        guard let index = announcements.firstIndex(of: announcement) else {return}
-        
-        announcements.remove(at: index)
 
         db.collection("teams").document(teamId).collection("announcements").document(announcement.announcementId).delete() { error in
             if let error = error {

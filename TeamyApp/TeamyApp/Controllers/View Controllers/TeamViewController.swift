@@ -15,6 +15,20 @@ class TeamViewController: UIViewController {
         super.viewDidLoad()
         eventsTableView.delegate = self
         eventsTableView.dataSource = self
+        
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        eventsTableView.reloadData()
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        guard let team = EventController.shared.team else {return}
+        navigationController?.navigationBar.topItem?.title = "\(team.name)"
     }
     
     // MARK: - Properties
@@ -65,116 +79,128 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-            if section == 0 {
-                return nil
-            } else if section == 1 {
-                return "Announcements"
-            } else {
-                return "Events"
-            }
+        if section == 0 {
+            return nil
+        } else if section == 1 {
+            return "Announcements"
+        } else {
+            return "Events"
+        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if EventController.shared.isAdmin {
-            if AnnouncementController.shared.announcements.count > 0 {
-                if section == 0 {
-                    return ContactController.shared.contacts.count + 2
-                } else if section == 1 {
-                    return AnnouncementController.shared.announcements.count
-                } else if section == 2 {
-                    return EventController.shared.events.count
-                } else {
-                    return 0
-                }
+            if section == 0 {
+                return ContactController.shared.contacts.count + 3
+            } else if section == 1 {
+                return AnnouncementController.shared.announcements.count
+            } else if section == 2 {
+                return EventController.shared.events.count + 1
             } else {
-                if section == 0 {
-                    return ContactController.shared.contacts.count + 2
-                } else {
-                    return EventController.shared.events.count
-                }
+                return 0
             }
         } else {
-            if AnnouncementController.shared.announcements.count > 0 {
-                if section == 0 {
-                    return ContactController.shared.contacts.count + 1
-                } else if section == 1 {
-                    return AnnouncementController.shared.announcements.count
-                } else if section == 2 {
-                    return EventController.shared.events.count
-                } else {
-                    return 0
-                }
+            if section == 0 {
+                return ContactController.shared.contacts.count + 2
+            } else if section == 1 {
+                return AnnouncementController.shared.announcements.count
+            } else if section == 2 {
+                return EventController.shared.events.count
             } else {
-                if section == 0 {
-                    return ContactController.shared.contacts.count + 1
-                } else {
-                    return EventController.shared.events.count
-                }
+                return 0
             }
         }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if EventController.shared.isAdmin {
-                if indexPath.row == 0 && indexPath.section == 0 {
-                    /// Manage Team Button Cell
-                    guard let cell = tableView.dequeueReusableCell(withIdentifier: "manageCell", for: indexPath) as?  ManageTeamTableViewCell else {return UITableViewCell()}
-                    return cell
-                } else if indexPath.row <= 1 && indexPath.section == 0 {
-                    /// Roster Cell
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "rosterCell", for: indexPath) as? RosterCellTableViewCell
-                    return cell ?? UITableViewCell()
-                } else if indexPath.row <= ContactController.shared.contacts.count + 1 && indexPath.section == 0 {
-                    /// Contact Cell(s)
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as? ContactCellTableViewCell
-                    let contact = ContactController.shared.contacts[indexPath.row - 2]
-                    cell?.contact = contact
-                    return cell ?? UITableViewCell()
-                } else if indexPath.row <= AnnouncementController.shared.announcements.count && indexPath.section == 1 {
-                    /// Announcement Cell(s)
-                    let cell = tableView.dequeueReusableCell(withIdentifier: "announcementCell", for: indexPath) as? AnnounceTableViewCell
-                    return cell ?? UITableViewCell()
-                } else if indexPath.row == 0 && indexPath.section == 2 {
-                    
-                    
-                } else if indexPath.row <= EventController.shared.events.count && indexPath.section == 2 {
-                    /// Event Cell(s)
-                      guard let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? EventTableViewCell else {return UITableViewCell()}
-                    
-                    let event = EventController.shared.events[indexPath.row]
-                    cell.eventNameLabel.text = event.name
-                    cell.eventLocationLabel.text = event.locationName
-                    cell.eventDate.text = event.date.dateValue().formatToString()
-            
-                    return cell
-                } else {
-                    return UITableViewCell()
-            }
-        } else {
-            // JAMLEA: put non admin setup here
             if indexPath.row == 0 && indexPath.section == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "leagueDetailsCell", for: indexPath) as? LeagueDetailsTableViewCell
+                let index = indexPath.row
+                cell?.index = index
+                cell?.selectionStyle = .none
+                return cell ?? UITableViewCell()
+            } else if indexPath.row == 1 && indexPath.section == 0 {
+                /// Manage Team Button Cell
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "manageCell", for: indexPath) as?  ManageTeamTableViewCell else {return UITableViewCell()}
+                cell.selectionStyle = .none
+                let index = 0
+                cell.index = index
+                return cell
+            } else if indexPath.row == 2 && indexPath.section == 0 {
                 /// Roster Cell
                 let cell = tableView.dequeueReusableCell(withIdentifier: "rosterCell", for: indexPath) as? RosterCellTableViewCell
+                let playerCount = PlayerController.shared.players.count
+                cell?.num = playerCount
                 return cell ?? UITableViewCell()
-            } else if indexPath.row <= ContactController.shared.contacts.count && indexPath.section == 0 {
+            } else if indexPath.row <= ContactController.shared.contacts.count + 2 && indexPath.section == 0 {
                 /// Contact Cell(s)
                 let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as? ContactCellTableViewCell
-                let contact = ContactController.shared.contacts[indexPath.row - 1]
+                let contact = ContactController.shared.contacts[indexPath.row - 3]
                 cell?.contact = contact
                 return cell ?? UITableViewCell()
             } else if indexPath.row <= AnnouncementController.shared.announcements.count && indexPath.section == 1 {
                 /// Announcement Cell(s)
                 let cell = tableView.dequeueReusableCell(withIdentifier: "announcementCell", for: indexPath) as? AnnounceTableViewCell
+                let announcement = AnnouncementController.shared.announcements[indexPath.row]
+                cell?.announcement = announcement
+                cell?.selectionStyle = .none
+                return cell ?? UITableViewCell()
+            } else if indexPath.row == 0 && indexPath.section == 2 {
+                ///Create Event Cell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "addEventCell", for: indexPath) as? AddEventTableViewCell
+                cell?.selectionStyle = .none
+                cell?.index = 0
+                return cell ?? UITableViewCell()
+            } else if indexPath.row <= EventController.shared.events.count + 1 && indexPath.section == 2 {
+                /// Event Cell(s)
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? EventTableViewCell else {return UITableViewCell()}
+                let event = EventController.shared.events[indexPath.row - 1]
+                cell.eventNameLabel.text = event.name
+                cell.eventLocationLabel.text = event.locationName
+                cell.eventDate.text = event.date.dateValue().formatToCustomString()
+                cell.index = 0
+                return cell
+            } else {
+                return UITableViewCell()
+            }
+        } else {
+            // JAMLEA: put non admin setup here
+            if indexPath.row == 0 && indexPath.section == 0 {
+                ///League Details Cell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "leagueDetailsCell", for: indexPath) as? LeagueDetailsTableViewCell
+                let index = indexPath.row
+                cell?.index = index
+                cell?.selectionStyle = .none
+                return cell ?? UITableViewCell()
+            } else if indexPath.row == 1 && indexPath.section == 0 {
+                /// Roster Cell
+                let cell = tableView.dequeueReusableCell(withIdentifier: "rosterCell", for: indexPath) as? RosterCellTableViewCell
+                let playerCount = PlayerController.shared.players.count
+                cell?.num = playerCount
+                return cell ?? UITableViewCell()
+            } else if indexPath.row <= ContactController.shared.contacts.count + 1 && indexPath.section == 0 {
+                /// Contact Cell(s)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath) as? ContactCellTableViewCell
+                let contact = ContactController.shared.contacts[indexPath.row - 2]
+                cell?.contact = contact
+                return cell ?? UITableViewCell()
+            } else if indexPath.row <= AnnouncementController.shared.announcements.count && indexPath.section == 1 {
+                /// Announcement Cell(s)
+                let cell = tableView.dequeueReusableCell(withIdentifier: "announcementCell", for: indexPath) as? AnnounceTableViewCell
+                let announcement = AnnouncementController.shared.announcements[indexPath.row]
+                cell?.announcement = announcement
+                cell?.selectionStyle = .none
                 return cell ?? UITableViewCell()
             } else if indexPath.row <= EventController.shared.events.count && indexPath.section == 2 {
                 /// Event Cell(s)   
-              guard let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? EventTableViewCell else {return UITableViewCell()}
-            
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "eventCell", for: indexPath) as? EventTableViewCell else { return UITableViewCell() }
                 let event = EventController.shared.events[indexPath.row]
                 cell.eventNameLabel.text = event.name
                 cell.eventLocationLabel.text = event.locationName
-                cell.eventDate.text = event.date.dateValue().formatToString()
-            
+                cell.eventDate.text = event.date.dateValue().formatToCustomString()
+                cell.index = 0
+                
                 return cell
             } else {
                 return UITableViewCell()
@@ -183,22 +209,40 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
         return UITableViewCell()
     }
     
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        if editingStyle == .delete {
-//            let eventToDelete = EventController.shared.events[indexPath.row]
-//            guard let teamID = self.team?.teamId else {return}
-//            EventController.shared.deleteEvent(with: eventToDelete, teamID: teamID)
-//
-//            tableView.deleteRows(at: [indexPath], with: .fade)
-//        }
-//    }
+    //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    //        if editingStyle == .delete {
+    //            let eventToDelete = EventController.shared.events[indexPath.row]
+    //            guard let teamID = self.team?.teamId else {return}
+    //            EventController.shared.deleteEvent(with: eventToDelete, teamID: teamID)
+    //
+    //            tableView.deleteRows(at: [indexPath], with: .fade)
+    //        }
+    //    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toEventDetailVC" {
             guard let indexPath = eventsTableView.indexPathForSelectedRow else {return}
             guard let destinationVC = segue.destination as? EventDetailViewController else {return}
-            let eventToSend = EventController.shared.events[indexPath.row]
-            destinationVC.event = eventToSend
+            if EventController.shared.isAdmin {
+                let eventToSend = EventController.shared.events[indexPath.row - 1]
+                destinationVC.event = eventToSend
+            } else {
+                let eventToSend = EventController.shared.events[indexPath.row]
+                destinationVC.event = eventToSend
+            }
+        } else if segue.identifier == "toModalContact" {
+            
+            guard let indexPath = eventsTableView.indexPathForSelectedRow,
+            let destinationVC = segue.destination as? ModalContactViewController else {return}
+            
+            var contactToSend: Contact
+            if EventController.shared.isAdmin {
+                contactToSend = ContactController.shared.contacts[indexPath.row - 3]
+            } else {
+                contactToSend = ContactController.shared.contacts[indexPath.row - 2]
+            }
+            
+            destinationVC.contact = contactToSend
         }
     }
 }//End of extension

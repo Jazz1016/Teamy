@@ -15,11 +15,11 @@ class TeamController {
     
     var teams: [Team] = []
     let db = Firestore.firestore()
-    let sports: [String] = ["Basketball", "Hockey", "Baseball", "Soccer", "Football"]
+    let sports: [String] = ["Basketball", "Ice Hockey", "Baseball", "Soccer", "Football", "Track & Field", "Tennis", "Lacrosse", "Swimming", "Water Polo", "Pickleball", "Volleyball", "Gymnastics", "Cheerleading", "Field Hockey", "Dance", "Wrestling", "Fencing", "Rowing", "Bowling", "Surfing", "Golf", "Skiing", "Ice Skating", "Roller Skating", "Other",  "Cricket", "Rugby"]
     
     ///Fetching Team To Display on HomeVC
     func fetchTeamsForUser(teamIds: [String], completion: @escaping (Bool) -> Void) {
-        teams = []
+        var newTeams: [Team] = []
         var counter = 0
         for i in teamIds {
             print(i)
@@ -33,53 +33,47 @@ class TeamController {
                     let name = teamData["name"] as? String
                     let teamColor = teamData["teamColor"] as? String
                     let teamSport = teamData["teamSport"] as? String
+                    let teamRecord = teamData["teamRecord"] as? String
+                    let leagueName = teamData["leagueName"] as? String
+                    let teamBio = teamData["teamBio"] as? String
                     let admins = teamData["admins"] as? Array<String>
                     let members = teamData["members"] as? Array<String>
                     let teamId = teamData["teamId"] as? String
                     let teamCode = teamData["teamCode"] as? String
                     let blocked = teamData["blocked"] as? Array<String>
-                    let teamDescription = teamData["teamDesc"] as? [String:String] ?? [:]
                     let teamImageString = teamData["teamImage"] as? String
                     
                     guard let name1 = name,
                           let teamSport1 = teamSport,
+                          let teamRecord1 = teamRecord,
+                          let leagueName1 = leagueName,
+                          let teamBio1 = teamBio,
                           let admins1 = admins,
                           let teamId1 = teamId,
                           let members1 = members,
                           let teamCode1 = teamCode,
                           let blocked1 = blocked,
-                          let teamColor1 = teamColor
+                          let teamColor1 = teamColor,
+                          let teamImage = teamImageString
                           else {return}
                     
-                    print(teamDescription)
-                    var leagueName: String = ""
-                    var detail: String = ""
-                    for i in teamDescription {
-                        if i.key == "leagueName" {
-                            leagueName = i.value
-                        } else if i.key == "detail"{
-                            detail = i.value
-                        }
-                    }
+                    let teamToAdd = Team(name: name1, teamColor: teamColor1, teamSport: teamSport1, teamRecord: teamRecord1, leagueName: leagueName1, teamBio: teamBio1, admins: admins1, members: members1, blocked: blocked1, teamId: teamId1, teamCode: teamCode1, teamImage: teamImage)
                     
-                    let teamDescToPass = TeamDescription(leagueName: leagueName, detail: detail)
-                    
-                    let teamToAdd = Team(name: name1, teamColor: teamColor1, teamSport: teamSport1, admins: admins1, members: members1, blocked: blocked1, teamDesc: teamDescToPass , teamId: teamId1, teamCode: teamCode1, teamImage: "")
-                    
-                    self.teams.append(teamToAdd)
+                    newTeams.append(teamToAdd)
                     counter += 1
+                    
                     if counter == teamIds.count {
+                        self.teams = newTeams
                         completion(true)
                         return
                     }
                 }
             }
         }
-        print(self.teams)
     }
     
     ///Create's team and one nested Contact document
-    func createTeam(team: Team, contact: Contact, completion: @escaping (Result<Bool, TeamError>) -> Void){
+    func createTeam(team: Team, contact: Contact, completion: @escaping (Result<Bool, TeamError>) -> Void) {
         
         let teamRef = db.collection("teams").document(team.teamId)
         
@@ -87,10 +81,9 @@ class TeamController {
             "name" : team.name,
             "teamColor" : team.teamColor,
             "teamSport" : team.teamSport,
-            "teamDescription" : ([
-                "detail" : team.teamDesc.detail,
-                "leagueName" : team.teamDesc.leagueName
-            ]),
+            "teamRecord" : team.teamRecord,
+            "leagueName" : team.leagueName,
+            "teamBio" : team.teamBio,
             "admins" : team.admins,
             "members" : team.members,
             "blocked" : team.blocked,
@@ -108,7 +101,8 @@ class TeamController {
                 "contactId" : contact.contactId
             ])
         }
-        let baseAnnouncement = Announcement(title: "No Announcement", details: "there are no announcements at this time")
+        
+        let baseAnnouncement = Announcement(title: "No Announcements", details: "There are no announcements at this time")
         
         db.collection("teams").document(team.teamId).collection("announcements").document(baseAnnouncement.announcementId).setData([
             "title" : baseAnnouncement.title,
@@ -120,15 +114,16 @@ class TeamController {
     }
     
     ///Edit's existing team
-    func editTeam(team: Team) {
+    func editTeam(oldTeam: Team, team: Team) {
+        guard let teamIndex = teams.firstIndex(of: oldTeam) else {return}
+        
         db.collection("teams").document(team.teamId).setData([
             "name" : team.name,
             "teamColor" : team.teamColor,
             "teamSport" : team.teamSport,
-            "teamDescription" : ([
-                "detail" : team.teamDesc.detail,
-                "leagueName" : team.teamDesc.leagueName
-            ]),
+            "teamRecord" : team.teamRecord,
+            "leagueName" : team.leagueName,
+            "teamBio" : team.teamBio,
             "admins" : team.admins,
             "members" : team.members,
             "blocked" : team.blocked,
@@ -136,6 +131,8 @@ class TeamController {
             "teamCode" : team.teamCode,
             "teamImage" : team.teamImage
         ])
+        teams[teamIndex] = team
+        EventController.shared.team = team
     }
     
     ///Adds user to team's members array when entering team code
@@ -147,6 +144,7 @@ class TeamController {
             if snap.count == 1 {
                 let userData = snap.documents[0].data()
                 
+                let email = userData["email"] as? String
                 let firstName = userData["firstName"] as? String
                 let lastName = userData["lastName"] as? String
                 var teams = userData["teams"] as? Array ?? []
@@ -155,6 +153,7 @@ class TeamController {
                 teams.append(teamId)
                 
                 self.db.collection("users").document(userId!).setData([
+                    "email" : email,
                     "firstName" : firstName,
                     "lastName" : lastName,
                     "teams" : teams,

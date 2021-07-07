@@ -35,6 +35,21 @@ class EventController {
         events.append(eventToAdd)
     }
     
+    func updateEvent(event: Event, teamID: String) {
+        let eventToAdd: Event = event
+        guard let teamID = team?.teamId else {return}
+        
+        let eventRef = database.collection("teams").document(teamID).collection("events").document(eventToAdd.eventID)
+        eventRef.setData([
+            "name" : eventToAdd.name,
+            "date" : eventToAdd.date,
+            "locationAddress" : eventToAdd.locationAddress,
+            "locationName" : eventToAdd.locationName,
+            "notes" : eventToAdd.notes,
+            "eventID" : eventToAdd.eventID
+        ], merge: true)
+    }
+    
     func fetchEvents(teamID: String, completion: @escaping (Bool) -> Void) {
         database.collection("teams").document(teamID).collection("events").addSnapshotListener { snapshot, error in
             if let error = error {
@@ -93,4 +108,4 @@ class EventController {
         }
     }
   
-}
+}//End of class

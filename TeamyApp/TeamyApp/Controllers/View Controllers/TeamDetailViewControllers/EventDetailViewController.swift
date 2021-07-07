@@ -24,16 +24,20 @@ class EventDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
-        lookPretty()
-       showEditButton()
+        openInMapsButton.layer.cornerRadius = 10
     }
     
     var event: Event?
     
     @IBAction func editEventButtonTapped(_ sender: Any) {
-        
-        guard let vc = storyboard?.instantiateViewController(withIdentifier: "createEventVC") else {return}
-        present(vc, animated: true)
+    
+        guard let vc = storyboard?.instantiateViewController(withIdentifier: "createEventVC") as? CreateEventViewController else {return}
+        guard let event = event else {return}
+        let nav = UINavigationController.init(rootViewController: vc)
+        vc.event = event
+        vc.delegate = self
+        vc.modalPresentationStyle = .fullScreen
+        present(nav, animated: true)
   
     }
     
@@ -57,8 +61,10 @@ class EventDetailViewController: UIViewController {
         eventAddressLabel.text = event.locationAddress
         eventLocationNameLabel.text = event.locationName
         eventNotesTextView.text = event.notes
-        eventDateLabel.text = event.date.dateValue().formatToString()
+        eventDateLabel.text = event.date.dateValue().formatToFullString()
         displayOnMapView()
+        addNotesTextViewBorder()
+        showEditButton()
     }
     
     func displayOnMapView() {
@@ -80,7 +86,7 @@ class EventDetailViewController: UIViewController {
         }
     }
     
-    func lookPretty() {
+    func addNotesTextViewBorder() {
         eventNotesTextView.layer.borderWidth = 1
         eventNotesTextView.layer.borderColor = CGColor(gray: 0, alpha: 0.2)
         eventNotesTextView.layer.cornerRadius = 10
@@ -96,4 +102,10 @@ class EventDetailViewController: UIViewController {
         }
     }
 
+}
+
+extension EventDetailViewController: UpdateEventDetailDelegate {
+    func updateEventView() {
+        updateViews()
+    }
 }

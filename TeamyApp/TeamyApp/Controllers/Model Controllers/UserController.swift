@@ -13,6 +13,9 @@ class UserController {
     static let shared = UserController()
     
     var user: User?
+    var admins: [User] = []
+    var members: [User] = []
+    var blocked: [User] = []
     
     let db = Firestore.firestore()
     
@@ -53,6 +56,53 @@ class UserController {
         
     }
     
+    func fetchUsers(userIds: [String], access: String, completion: @escaping (Bool) -> Void) {
+        if access == "admin" {
+            self.admins = []
+        } else if access == "member" {
+            self.members = []
+        } else if access == "blocked" {
+            self.blocked = []
+        }
+        var counter = 0
+        for i in userIds {
+            
+            let fetchedUser = db.collection("users").whereField("userId", isEqualTo: i)
+            fetchedUser.getDocuments { snap, error in
+                
+                if snap?.count == 1 {
+                    guard let snap = snap else {return}
+                    let userData = snap.documents[0].data()
+                    
+                    let email = userData["email"] as? String
+                    let firstName = userData["firstName"] as? String
+                    let lastName = userData["lastName"] as? String
+                    let userId = userData["userId"] as? String
+                    
+                    guard let email1 = email,
+                          let firstName1 = firstName,
+                          let lastName1 = lastName,
+                          let id = userId else {return}
+                    
+                    let userToPass = User(email: email1, firstName: firstName1, lastName: lastName1, teams: [], userId: id)
+                    
+                    if access == "admin" {
+                        self.admins.append(userToPass)
+                    } else if access == "member" {
+                        self.members.append(userToPass)
+                    } else if access == "blocked" {
+                        self.blocked.append(userToPass)
+                    }
+                    counter += 1
+                    if counter == userIds.count {
+                        completion(true)
+                        return
+                    }
+                }
+            }
+        }
+    }
+    
     func updateUser(user: User) {
         db.collection("users").document(user.userId).setData([
             "email" : user.email,
@@ -86,6 +136,18 @@ class UserController {
                 completion(.success(true))
             }
         })
+    }
+    
+    func deleteUserInfo() {
+        guard let user = user else {return}
+        db.collection("users").document(user.userId).delete() { error in
+            if let error = error {
+                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+                print("Couldn't delete user info")
+            } else {
+                print("Successfully deleted user info")
+            }
+        }
     }
     
     func inviteUserToTeam(userEmail: String, teamId: String){
@@ -138,22 +200,16 @@ class UserController {
                 let name = teamData["name"] as? String
                 let teamColor = teamData["teamColor"] as? String
                 let teamSport = teamData["teamSport"] as? String
-                let teamDesc = teamData["teamDescription"] as? [String:String] ?? [:]
+                let teamRecord = teamData["teamRecord"] as? String
+                let leagueName = teamData["leagueName"] as? String
+                let teamBio = teamData["teamBio"] as? String
                 let admins = teamData["admins"] as? Array<String>
                 var members = teamData["members"] as? Array<String>
                 let blocked = teamData["blocked"] as? Array<String>
                 let teamId = teamData["teamId"] as? String
                 let teamCode = teamData["teamCode"] as? String
                 
-                var leagueName: String = ""
-                var detail: String = ""
-                for i in teamDesc {
-                    if i.key == "leagueName" {
-                        leagueName = i.value
-                    } else if i.key == "detail"{
-                        detail = i.value
-                    }
-                }
+                
                 
                 members?.append(userId)
                 self.user?.teams.append(teamId!)
@@ -161,22 +217,22 @@ class UserController {
                     "name" : name ?? "error",
                     "teamColor" : teamColor ?? "error",
                     "teamSport" : teamSport ?? "error",
-                    "teamDesc" : ([
-                        "leagueName" : leagueName,
-                        "detail" : detail
-                    ]),
+                    "teamRecord" : teamRecord ?? "error",
+                    "leagueName" : leagueName ?? "error",
+                    "teamBio" : teamBio ?? "error",
                     "admins" : admins ?? [],
                     "members" : members ?? [],
                     "blocked" : blocked ?? [],
                     "teamId" : teamId ?? "error",
                     "teamCode" : teamCode ?? "error"
-                ])
+                ], merge: true)
                 DispatchQueue.main.async {
                     self.fetchUser(userId: userId) { result in
                         switch result {
                         case .success(let user):
                             var userTeams = user.teams
                             userTeams.append(teamId!)
+                            
                             self.db.collection("users").document(user.userId).setData([
                                 "email" : user.email,
                                 "firstName" : user.firstName,

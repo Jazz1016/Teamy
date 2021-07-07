@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TeamEventsTableViewCell: UITableViewCell {
+class TeamContactsTableViewCell: UITableViewCell {
     
     //MARK: - Outlets
     @IBOutlet weak var teamAccentColorView: UIView!
@@ -20,7 +20,7 @@ class TeamEventsTableViewCell: UITableViewCell {
     }
     
     //MARK: - Properties
-    static let identifier = "TeamEventsTableViewCell"
+    static let identifier = "TeamContactsTableViewCell"
     
     //MARK: - Methods
     static func nib() -> UINib {
@@ -28,8 +28,9 @@ class TeamEventsTableViewCell: UITableViewCell {
     }
     
     func teamAccentColor() {
-        guard let accentColor = EventController.shared.team else { return }
-        teamAccentColorView.backgroundColor = UIColor.init(hexString: accentColor.teamColor)
+        guard let team = EventController.shared.team else { return }
+        teamAccentColorView.backgroundColor = UIColor.init(hexString: team.teamColor)
+        teamAccentColorView.layer.cornerRadius = 5
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {

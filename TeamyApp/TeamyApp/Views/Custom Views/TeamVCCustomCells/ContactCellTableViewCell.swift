@@ -9,7 +9,8 @@ import UIKit
 
 class ContactCellTableViewCell: UITableViewCell {
     // MARK: - Outlets
-    @IBOutlet weak var contactLabel: UILabel!
+    @IBOutlet weak var contactNameLabel: UILabel!
+    @IBOutlet weak var teamColorView: UIView!
     
     // MARK: - Properties
     var contact: Contact? {
@@ -20,7 +21,10 @@ class ContactCellTableViewCell: UITableViewCell {
     
     // MARK: - Functions
     func updateViews(){
-        guard let contact = contact else {return}
-        contactLabel.text = contact.contactName
+        guard let contact = contact,
+        let team = EventController.shared.team else {return}
+        teamColorView.backgroundColor = UIColor.init(hexString: team.teamColor)
+        teamColorView.layer.cornerRadius = 5
+        contactNameLabel.text = contact.contactName
     }
 }//End of class
