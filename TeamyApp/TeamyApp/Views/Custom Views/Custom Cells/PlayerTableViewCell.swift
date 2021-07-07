@@ -16,6 +16,7 @@ class PlayerTableViewCell: UITableViewCell {
     @IBOutlet weak var playerRoleTextField: UITextField!
     @IBOutlet weak var jerseyNumberTextField: UITextField!
     @IBOutlet weak var saveEditButton: UIButton!
+    @IBOutlet weak var accentTeamColorView: UIView!
     
     override class func awakeFromNib() {
         super.awakeFromNib()
@@ -36,6 +37,7 @@ class PlayerTableViewCell: UITableViewCell {
     var player: Player? {
         didSet {
             updateViews()
+            
             
         }
     }
@@ -65,6 +67,8 @@ class PlayerTableViewCell: UITableViewCell {
         jerseyNumberTextField.isHidden = true
         saveEditButton.isHidden = true
         jerseyNumberTextField.keyboardType = UIKeyboardType.numberPad
+        guard let team = EventController.shared.team else {return}
+        accentTeamColorView.backgroundColor = UIColor.init(hexString: team.teamColor)
     }
     
     func updateForEdit(){

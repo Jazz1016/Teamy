@@ -8,6 +8,15 @@
 import UIKit
 
 class AddEventTableViewCell: UITableViewCell {
+    // MARK: - Outlets
+    @IBOutlet weak var addEventButton: UIButton!
+    
+    var index: Int? {
+        didSet {
+            addEventButton.layer.cornerRadius = 10
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

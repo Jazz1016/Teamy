@@ -30,6 +30,7 @@ class CreateEventViewController: UIViewController {
         super.viewDidLoad()
         updateViews()
         addNotesTextViewBorder()
+        eventLocationNameTextField.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,7 +47,7 @@ class CreateEventViewController: UIViewController {
     @IBAction func saveEventButtonTapped(_ sender: Any) {
         guard let eventName = eventNameTextField.text, !eventName.isEmpty,
               let eventAddress = eventAddressLabel.text,
-              let eventLocationName = eventLocationNameTextField.text,
+              let eventLocationName = eventLocationNameLabel.text,
               let eventNotes = eventNotesTextView.text,
               let team = EventController.shared.team else {return}
         let date = Timestamp(date: datePicker.date)

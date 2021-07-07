@@ -18,11 +18,16 @@ class UserSettingsViewController: UIViewController {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var emailLabel: UILabel!
+    @IBOutlet weak var changePasswordButton: UIButton!
+    @IBOutlet weak var logOutButton: UIButton!
     
     //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         updateViews()
+        
+        changePasswordButton.layer.cornerRadius = 10
+        logOutButton.layer.cornerRadius = 10
     }
     
     //MARK: - Properties
@@ -44,6 +49,7 @@ class UserSettingsViewController: UIViewController {
         let firebaseAuth = Auth.auth()
         do {
             try firebaseAuth.signOut()
+            TeamController.shared.teams = []
             guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() else {return}
             vc.modalPresentationStyle = .fullScreen
             self.present(vc, animated: true, completion: nil)
