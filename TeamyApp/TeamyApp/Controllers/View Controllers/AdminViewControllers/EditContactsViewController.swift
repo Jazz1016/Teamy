@@ -66,18 +66,48 @@ extension EditContactsViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        if indexPath.row == 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "addContactCell", for: indexPath)
-            return cell
+        if EventController.shared.isAdmin {
+            if indexPath.row == 0 {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "addContactCell", for: indexPath)
+                return cell
+            } else {
+                let cell = tableView.dequeueReusableCell(withIdentifier: "editContactCell", for: indexPath) as? EditContactTableViewCell
+                
+                let contact = ContactController.shared.contacts[indexPath.row - 1]
+                cell?.contact = contact
+                cell?.contactIndex = indexPath.row - 1
+                
+                return cell ?? UITableViewCell()
+            }
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "editContactCell", for: indexPath) as? EditContactTableViewCell
             
             let contact = ContactController.shared.contacts[indexPath.row - 1]
             cell?.contact = contact
+            cell?.contactIndex = indexPath.row - 1
             
             return cell ?? UITableViewCell()
         }
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        guard let team = EventController.shared.team else { return [] }
+        
+        let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { action, indexPath in
+            let contactToDelete = ContactController.shared.contacts[indexPath.row - 1]
+            ContactController.shared.deleteContact(contact: contactToDelete, teamId: team.teamId)
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+        
+        let editAction = UITableViewRowAction(style: .default, title: "Edit") { action, indexPath in
+            if let cell = tableView.cellForRow(at: indexPath) as? EditContactTableViewCell {
+                cell.updateForEdit()
+            }
+        }
+        
+        editAction.backgroundColor = .systemBlue
+        return [deleteAction, editAction]
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
