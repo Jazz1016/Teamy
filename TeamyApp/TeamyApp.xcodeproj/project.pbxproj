@@ -53,6 +53,8 @@
 		344A556C1CC49A28C2069EF5 /* Pods_TeamyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BAB8089433EFD9BD3ACCEF72 /* Pods_TeamyApp.framework */; };
 		79CF316D26864020005ECEC8 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79CF316C26864020005ECEC8 /* PhotoPickerViewController.swift */; };
 		79D8F97C268D19E500691F2B /* UserSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D8F97B268D19E500691F2B /* UserSettingsViewController.swift */; };
+		79D8F9A926962CB000691F2B /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D8F9A826962CB000691F2B /* StyleGuide.swift */; };
+		79D8F9AC26962CD700691F2B /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 79D8F9AB26962CD700691F2B /* PrimaryButton.swift */; };
 		AA5E56102686670E00A8C3E7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E560F2686670E00A8C3E7 /* SearchViewController.swift */; };
 		AA5E56122686671B00A8C3E7 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5E56112686671B00A8C3E7 /* SearchTableViewController.swift */; };
 		AA662E6926838F670061145E /* EventController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA662E6826838F670061145E /* EventController.swift */; };
@@ -136,6 +138,8 @@
 		0DC5EA9A26936FEB000A7BAC /* addAnnouncementTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addAnnouncementTableViewCell.swift; sourceTree = "<group>"; };
 		79CF316C26864020005ECEC8 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
 		79D8F97B268D19E500691F2B /* UserSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsViewController.swift; sourceTree = "<group>"; };
+		79D8F9A826962CB000691F2B /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StyleGuide.swift; path = ../../../../../../Documents/StyleGuide.swift; sourceTree = "<group>"; };
+		79D8F9AB26962CD700691F2B /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrimaryButton.swift; path = ../../../../../../../Documents/PrimaryButton.swift; sourceTree = "<group>"; };
 		AA5E560F2686670E00A8C3E7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		AA5E56112686671B00A8C3E7 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		AA662E6826838F670061145E /* EventController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventController.swift; sourceTree = "<group>"; };
@@ -277,6 +281,23 @@
 			path = AdminCustomCells;
 			sourceTree = "<group>";
 		};
+		79D8F9A726962C9E00691F2B /* StyleGuide */ = {
+			isa = PBXGroup;
+			children = (
+				79D8F9A826962CB000691F2B /* StyleGuide.swift */,
+				79D8F9AA26962CC200691F2B /* Button */,
+			);
+			path = StyleGuide;
+			sourceTree = "<group>";
+		};
+		79D8F9AA26962CC200691F2B /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				79D8F9AB26962CD700691F2B /* PrimaryButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
 		96C73D3C21842E8445D2D00C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,6 +358,7 @@
 		ACC9759526810FBA000C3593 /* TeamyApp */ = {
 			isa = PBXGroup;
 			children = (
+				79D8F9A726962C9E00691F2B /* StyleGuide */,
 				ACC975BA268113BF000C3593 /* Models */,
 				ACC975B5268112FC000C3593 /* Views */,
 				ACC975AE26811178000C3593 /* Controllers */,
@@ -608,9 +630,11 @@
 				0D1032472681504100136C9A /* CreateNewTeamViewController.swift in Sources */,
 				0D70A97E268F643500F82081 /* AddEventTableViewCell.swift in Sources */,
 				0D02DD5626854B540039EC0B /* PlayerController.swift in Sources */,
+				79D8F9AC26962CD700691F2B /* PrimaryButton.swift in Sources */,
 				0D94E18D2682402E005602ED /* Event.swift in Sources */,
 				0D94E19526828E3C005602ED /* UserError.swift in Sources */,
 				0D94E18526823DEB005602ED /* JoinTeamTableViewCell.swift in Sources */,
+				79D8F9A926962CB000691F2B /* StyleGuide.swift in Sources */,
 				0DC5EA97269364FC000A7BAC /* EditAnnouncementTableViewCell.swift in Sources */,
 				0D02DD4B26853E6A0039EC0B /* Announcement.swift in Sources */,
 				0DC5EA9926936EAB000A7BAC /* AddContactTableViewCell.swift in Sources */,
