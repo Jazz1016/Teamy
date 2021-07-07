@@ -1314,12 +1314,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="contactInfo" destination="sxU-MD-cCC" id="SRa-wF-XfW"/>
                                             <outlet property="contactInfoLabel" destination="8jG-c0-tQm" id="ivB-vd-tt4"/>
+                                            <outlet property="contactInfoTextfield" destination="sxU-MD-cCC" id="SRa-wF-XfW"/>
                                             <outlet property="contactNameLabel" destination="YTI-4G-7k9" id="UR1-NC-q8d"/>
                                             <outlet property="contactNameTextfield" destination="jGe-7N-Lhp" id="BhC-pb-ed0"/>
-                                            <outlet property="contactType" destination="FzQ-NE-c9o" id="q8q-Ff-tli"/>
                                             <outlet property="contactTypeLabel" destination="isN-bl-Jbi" id="6XK-aa-KKr"/>
+                                            <outlet property="contactTypeTextfield" destination="FzQ-NE-c9o" id="q8q-Ff-tli"/>
                                             <outlet property="saveButton" destination="xZ3-ZE-wqG" id="Scn-I4-JZw"/>
                                         </connections>
                                     </tableViewCell>

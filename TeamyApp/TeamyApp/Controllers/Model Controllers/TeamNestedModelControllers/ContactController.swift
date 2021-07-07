@@ -27,6 +27,21 @@ class ContactController {
         contacts.append(contact)
     }
     
+    func updateContact(oldContact: Contact, contact: Contact, teamID: String, completion: @escaping (Bool) -> Void) {
+        
+        guard let index = contacts.firstIndex(of: oldContact) else { return }
+        
+        db.collection("teams").document(teamID).collection("contacts").document(contact.contactId).setData([
+            "contactName" : contact.contactName,
+            "contactType" : contact.contactType,
+            "contactInfo" : contact.contactInfo,
+            "contactId" : contact.contactId
+        ])
+        
+        contacts[index] = contact
+        completion(true)
+    }
+    
     func fetchContacts(teamId: String){
         db.collection("teams").document(teamId).collection("contacts").addSnapshotListener { snap, error in
             if let error = error {
