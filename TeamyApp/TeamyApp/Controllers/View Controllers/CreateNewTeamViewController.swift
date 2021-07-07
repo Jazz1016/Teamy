@@ -53,15 +53,23 @@ class CreateNewTeamViewController: UIViewController {
     
     ///Creates a new team and adds creating user as an admin
     @IBAction func createNewTeamTapped(_ sender: Any) {
+        guard let teamName = teamNameTextField.text else {return}
+        DispatchQueue.main.async {
+            self.saveImage(teamName: teamName) { result in
+                self.createTeam()
+            }
+        }
+    }
+    
+    // MARK: - Helper Functions
+    
+    func createTeam(){
         guard let teamName = teamNameTextField.text,
               let userId = Auth.auth().currentUser?.uid,
               let sport = sportPickerTextField.text,
               !sport.isEmpty
         else {return}
         addZeros()
-        DispatchQueue.main.async {
-            self.saveImage(teamName: teamName)
-        }
         let defaultAdmin = [userId]
         let newTeam = Team(name: teamName, teamColor: teamColorPicked, teamSport: sport, teamRecord: "0-0",leagueName: leagueNameTextField.text ?? "League", teamBio: leagueDetailsTextField.text ?? "Edit in manage team", admins: defaultAdmin, members: [], blocked: [], teamId: UUID().uuidString, teamCode: randomNumString, teamImage: imageURL)
         let newContact = Contact(contactName: coachNameTextField.text ?? "", contactType: "", contactInfo: "")
@@ -69,11 +77,9 @@ class CreateNewTeamViewController: UIViewController {
         TeamController.shared.createTeam(team: newTeam, contact: newContact) { result in
             print("new team \(newTeam.name) has been created")
         }
-        saveImage()
         navigationController?.popViewController(animated: true)
     }
     
-    // MARK: - Helper Functions
     func addZeros(){
         if randomNumString.count < 6 {
             randomNumString = "0" + randomNumString
@@ -92,31 +98,11 @@ class CreateNewTeamViewController: UIViewController {
         sportPickerTextField.inputAccessoryView = toolbar
     }//End of func
     
-    func saveImage() {
-        guard let image = self.image else {return}
-        
-        let storageRef = Storage.storage().reference().child("myImage.jpg")
-        if let uploadData = image.jpegData(compressionQuality: 0.75) {
-            storageRef.putData(uploadData, metadata: nil) { (metaData, error) in
-                if let error = error {
-                    print("")
-                }
-                print(metaData)
-                let size = metaData?.size
-                storageRef.downloadURL { (url, error) in
-                    guard let downloadurl = url else {return}
-                    self.imageURL = downloadurl.absoluteString
-                }
-            }
-        }
-    }
-    
     @objc func dismissKeyBoard() {
         view.endEditing(true)
     }//End of func
     
-    func saveImage(teamName: String) {
-        
+    func saveImage(teamName: String, completion: @escaping (Bool) -> Void) {
         guard let image = self.image else {return}
         
         let storageRef = Storage.storage().reference().child("\(teamName).jpg")
@@ -130,6 +116,7 @@ class CreateNewTeamViewController: UIViewController {
                     guard let downloadurl = url else {return}
                     print(downloadurl.absoluteURL)
                     self.imageURL = downloadurl.absoluteString
+                    completion(true)
                 }
             }
         }

@@ -17,7 +17,6 @@ class TeamViewController: UIViewController {
         eventsTableView.dataSource = self
         
         navigationController?.navigationBar.prefersLargeTitles = true
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -160,6 +159,7 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.eventNameLabel.text = event.name
                 cell.eventLocationLabel.text = event.locationName
                 cell.eventDate.text = event.date.dateValue().formatToCustomString()
+                cell.index = 0
                 return cell
             } else {
                 return UITableViewCell()
@@ -199,6 +199,7 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.eventNameLabel.text = event.name
                 cell.eventLocationLabel.text = event.locationName
                 cell.eventDate.text = event.date.dateValue().formatToCustomString()
+                cell.index = 0
                 
                 return cell
             } else {

@@ -20,8 +20,14 @@ class EventTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        guard let team = EventController.shared.team else {return}
-        teamColorView.backgroundColor = UIColor.init(hexString: team.teamColor)
+        
+    }
+    
+    var index: Int? {
+        didSet {
+            guard let team = EventController.shared.team else {return}
+            teamColorView.backgroundColor = UIColor.init(hexString: team.teamColor)
+        }
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

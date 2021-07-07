@@ -66,8 +66,10 @@ class UserController {
         }
         var counter = 0
         for i in userIds {
+            
             let fetchedUser = db.collection("users").whereField("userId", isEqualTo: i)
             fetchedUser.getDocuments { snap, error in
+                
                 if snap?.count == 1 {
                     guard let snap = snap else {return}
                     let userData = snap.documents[0].data()
@@ -230,6 +232,7 @@ class UserController {
                         case .success(let user):
                             var userTeams = user.teams
                             userTeams.append(teamId!)
+                            
                             self.db.collection("users").document(user.userId).setData([
                                 "email" : user.email,
                                 "firstName" : user.firstName,
