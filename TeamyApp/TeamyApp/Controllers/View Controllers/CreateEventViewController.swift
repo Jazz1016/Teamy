@@ -77,7 +77,7 @@ class CreateEventViewController: UIViewController {
         eventAddressLabel.text = event.locationAddress
         eventNotesTextView.text = event.notes
         datePicker.date = event.date.dateValue()
-//        eventLocationNameLabel.text = event.locationName
+        eventLocationNameLabel.text = event.locationName
         dropPin()
     }
     
