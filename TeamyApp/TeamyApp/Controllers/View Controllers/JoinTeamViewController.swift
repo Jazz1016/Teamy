@@ -35,8 +35,18 @@ class JoinTeamViewController: UIViewController {
         }
         
         if finalCode.count == 6 {
-            UserController.shared.userjoinsTeam(teamCode: finalCode, userId: userId)
-            navigationController?.popViewController(animated: true)
+            UserController.shared.userjoinsTeam(teamCode: finalCode, userId: userId) { result in
+                switch result {
+                case true:
+                    self.navigationController?.popViewController(animated: true)
+                case false:
+                    let errorController = UIAlertController(title: "Error", message: "Error joining team", preferredStyle: .alert)
+                    let doneAction = UIAlertAction(title: "Ok", style: .cancel, handler: nil)
+                    errorController.addAction(doneAction)
+                    self.present(errorController, animated: true, completion: nil)
+                }
+                
+            }
         } else {return}
     }
 }//End of class

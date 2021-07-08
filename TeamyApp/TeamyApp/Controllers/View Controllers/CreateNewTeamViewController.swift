@@ -128,7 +128,9 @@ class CreateNewTeamViewController: UIViewController {
     }//End of func
     
     func saveImage(teamName: String, completion: @escaping (Bool) -> Void) {
-        guard let image = self.image else {return}
+        guard let image = self.image else {
+            completion(true)
+            return}
         
         let storageRef = Storage.storage().reference().child("\(teamName).jpg")
         if let uploadData = image.jpegData(compressionQuality: 0.75) {
