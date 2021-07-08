@@ -14,16 +14,26 @@
         <scene sceneID="T53-nX-XoV">
             <objects>
                 <viewController storyboardIdentifier="AuthVC" id="K8V-NX-lGa" customClass="AuthViewController" customModule="TeamyApp" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="x1y-OX-9bG">
+                    <view key="view" contentMode="scaleAspectFit" id="x1y-OX-9bG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="gOV-f5-tae">
-                                <rect key="frame" x="41.5" y="419" width="331" height="68"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Teamy" translatesAutoresizingMaskIntoConstraints="NO" id="SlV-Gr-Ysp">
+                                <rect key="frame" x="-326" y="39" width="818" height="818"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="SlV-Gr-Ysp" secondAttribute="height" multiplier="1:1" id="pxC-9k-IKH"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="gOV-f5-tae">
+                                <rect key="frame" x="41.5" y="385" width="331" height="136"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liC-rs-01o">
-                                        <rect key="frame" x="0.0" y="0.0" width="331" height="30"/>
-                                        <color key="backgroundColor" name="AccentColor"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liC-rs-01o" customClass="PrimaryButton" customModule="TeamyApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="331" height="60"/>
+                                        <color key="backgroundColor" red="0.37378830070000002" green="0.66323695230000002" blue="0.44565704740000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="fDb-lL-HKQ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" systemColor="secondarySystemGroupedBackgroundColor"/>
                                         </state>
@@ -31,9 +41,13 @@
                                             <segue destination="BN9-e0-v64" kind="show" id="IrO-bJ-ySk"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6B-Ha-Ixf">
-                                        <rect key="frame" x="0.0" y="38" width="331" height="30"/>
-                                        <color key="backgroundColor" name="AccentColor"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6B-Ha-Ixf" customClass="PrimaryButton" customModule="TeamyApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="76" width="331" height="60"/>
+                                        <color key="backgroundColor" red="0.37254901960784315" green="0.66274509803921566" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="60" id="481-Ub-CAn"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                         <state key="normal" title="Login">
                                             <color key="titleColor" systemColor="systemBackgroundColor"/>
                                         </state>
@@ -43,13 +57,25 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEAMY" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o36-ml-pxf">
+                                <rect key="frame" x="138" y="305" width="138" height="48"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="highlightedColor" systemColor="placeholderTextColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XsD-K0-ayQ"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="gOV-f5-tae" firstAttribute="width" secondItem="x1y-OX-9bG" secondAttribute="width" multiplier="0.8" id="2Tz-6m-b71"/>
                             <constraint firstItem="gOV-f5-tae" firstAttribute="centerX" secondItem="XsD-K0-ayQ" secondAttribute="centerX" id="2VY-Yy-R4p"/>
+                            <constraint firstItem="SlV-Gr-Ysp" firstAttribute="centerY" secondItem="x1y-OX-9bG" secondAttribute="centerY" id="3IF-C1-T7j"/>
+                            <constraint firstItem="SlV-Gr-Ysp" firstAttribute="centerX" secondItem="XsD-K0-ayQ" secondAttribute="centerX" multiplier="0.4" id="6EE-Y3-BD4"/>
+                            <constraint firstItem="gOV-f5-tae" firstAttribute="top" secondItem="o36-ml-pxf" secondAttribute="bottom" constant="32" id="7qA-KU-zFo"/>
                             <constraint firstItem="gOV-f5-tae" firstAttribute="centerY" secondItem="XsD-K0-ayQ" secondAttribute="centerY" id="FJA-zh-L7u"/>
+                            <constraint firstItem="SlV-Gr-Ysp" firstAttribute="height" secondItem="XsD-K0-ayQ" secondAttribute="height" id="f3v-ri-j4h"/>
+                            <constraint firstItem="o36-ml-pxf" firstAttribute="centerX" secondItem="XsD-K0-ayQ" secondAttribute="centerX" id="gXd-HJ-Mp7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="GJq-ei-XjR"/>
@@ -71,7 +97,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fan-1O-gEv">
-                                <rect key="frame" x="41.5" y="273.5" width="331" height="261.5"/>
+                                <rect key="frame" x="41.5" y="268.5" width="331" height="271.5"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter first name.." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VAF-lp-N6d">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="30"/>
@@ -120,12 +146,13 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLp-2Q-1dt">
-                                        <rect key="frame" x="0.0" y="231.5" width="331" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HLp-2Q-1dt" customClass="PrimaryButton" customModule="TeamyApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="231.5" width="331" height="40"/>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="hMy-kQ-mCf"/>
+                                            <constraint firstAttribute="height" constant="40" id="hMy-kQ-mCf"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -185,9 +212,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mr1-Np-jdz">
-                                <rect key="frame" x="103.5" y="264" width="207" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mr1-Np-jdz" customClass="PrimaryButton" customModule="TeamyApp" customModuleProvider="target">
+                                <rect key="frame" x="103.5" y="264" width="207" height="40"/>
                                 <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2QX-U7-bRx"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Select team color">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -196,8 +227,8 @@
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Team Bio.. (optional)" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="CCy-jq-byP">
-                                <rect key="frame" x="41.5" y="460" width="331" height="100"/>
-                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <rect key="frame" x="41.5" y="470" width="331" height="100"/>
+                                <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="hoa-ku-ivr"/>
                                 </constraints>
@@ -206,7 +237,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sAM-HC-CDF">
-                                <rect key="frame" x="87" y="302" width="240" height="150"/>
+                                <rect key="frame" x="87" y="312" width="240" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="70b-Tc-Gf9"/>
                                 </constraints>
@@ -214,9 +245,13 @@
                                     <segue destination="KxV-mu-VO5" kind="embed" identifier="toPhotoPicker" id="zP7-RS-Q76"/>
                                 </connections>
                             </containerView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2S-aU-mRF">
-                                <rect key="frame" x="103.5" y="568" width="207" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W2S-aU-mRF" customClass="PrimaryButton" customModule="TeamyApp" customModuleProvider="target">
+                                <rect key="frame" x="103.5" y="578" width="207" height="40"/>
                                 <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="bxY-62-5w1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Create Team">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -303,9 +338,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="32"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2d-wt-h6Q">
-                                <rect key="frame" x="103.5" y="297.5" width="207" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c2d-wt-h6Q" customClass="PrimaryButton" customModule="TeamyApp" customModuleProvider="target">
+                                <rect key="frame" x="103.5" y="297.5" width="207" height="40"/>
                                 <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="IvI-Rx-jhN"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Join Team">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -603,12 +642,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ad0-qp-hWR">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ad0-qp-hWR" customClass="PrimaryButton" customModule="TeamyApp" customModuleProvider="target">
                                                     <rect key="frame" x="103.5" y="18" width="207" height="40"/>
                                                     <color key="backgroundColor" name="AccentColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="Izg-Ur-vir"/>
                                                     </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <state key="normal" title="Manage Team">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -893,12 +933,13 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="104"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INC-b6-ZuT">
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="INC-b6-ZuT" customClass="PrimaryButton" customModule="TeamyApp" customModuleProvider="target">
                                                     <rect key="frame" x="103.5" y="32" width="207" height="40"/>
                                                     <color key="backgroundColor" name="AccentColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="40" id="fT7-Po-NZx"/>
                                                     </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                     <state key="normal" title="Add New Event">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
@@ -967,7 +1008,7 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="xm2-hx-lmF">
-                                <rect key="frame" x="120" y="336" width="174" height="136"/>
+                                <rect key="frame" x="120" y="331" width="174" height="146"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Team Code: " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6qh-Gb-9Ex">
                                         <rect key="frame" x="0.0" y="0.0" width="174" height="38.5"/>
@@ -981,9 +1022,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTg-8t-Yxs">
-                                        <rect key="frame" x="0.0" y="106" width="174" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTg-8t-Yxs" customClass="PrimaryButton" customModule="TeamyApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="106" width="174" height="40"/>
                                         <color key="backgroundColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="NfO-PV-hts"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Reset Code">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -1099,14 +1144,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vdJ-2r-YAj">
-                                <rect key="frame" x="41.5" y="104" width="331" height="184"/>
+                                <rect key="frame" x="41.5" y="88" width="331" height="184"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Event Name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3bY-i5-u2u">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="RuR-XK-EdV"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1124,7 +1169,7 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="7hv-8c-zQk"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -1133,24 +1178,28 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="mVC-yT-RcZ"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="u9U-EN-swp">
-                                <rect key="frame" x="41.5" y="296" width="331" height="200"/>
+                                <rect key="frame" x="41.5" y="280" width="331" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="AOh-zc-82M"/>
                                 </constraints>
                             </mapView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="lJr-5t-tQx">
-                                <rect key="frame" x="41.5" y="504" width="331" height="163"/>
+                                <rect key="frame" x="41.5" y="488" width="331" height="123"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mYL-HL-308">
-                                        <rect key="frame" x="62" y="0.0" width="207" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mYL-HL-308" customClass="PrimaryButton" customModule="TeamyApp" customModuleProvider="target">
+                                        <rect key="frame" x="62" y="0.0" width="207" height="40"/>
                                         <color key="backgroundColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="wFV-UX-Jlf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Open In Maps">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -1159,10 +1208,10 @@
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="adfasdf" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="IZO-xd-ho1">
-                                        <rect key="frame" x="0.0" y="38" width="331" height="125"/>
+                                        <rect key="frame" x="0.0" y="48" width="331" height="75"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="125" id="09b-FS-d80"/>
+                                            <constraint firstAttribute="height" constant="75" id="09b-FS-d80"/>
                                         </constraints>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1176,7 +1225,7 @@
                         <constraints>
                             <constraint firstItem="u9U-EN-swp" firstAttribute="width" secondItem="sk0-cI-91Q" secondAttribute="width" multiplier="0.8" id="0vg-Na-sFa"/>
                             <constraint firstItem="u9U-EN-swp" firstAttribute="centerX" secondItem="bgl-2Q-HTS" secondAttribute="centerX" id="4Kb-iS-u5p"/>
-                            <constraint firstItem="vdJ-2r-YAj" firstAttribute="top" secondItem="bgl-2Q-HTS" secondAttribute="top" constant="16" id="4fk-4A-pp8"/>
+                            <constraint firstItem="vdJ-2r-YAj" firstAttribute="top" secondItem="bgl-2Q-HTS" secondAttribute="top" id="4fk-4A-pp8"/>
                             <constraint firstItem="vdJ-2r-YAj" firstAttribute="centerX" secondItem="bgl-2Q-HTS" secondAttribute="centerX" id="ADn-fI-JHO"/>
                             <constraint firstItem="lJr-5t-tQx" firstAttribute="centerX" secondItem="bgl-2Q-HTS" secondAttribute="centerX" id="Ax0-KL-FAj"/>
                             <constraint firstItem="vdJ-2r-YAj" firstAttribute="width" secondItem="sk0-cI-91Q" secondAttribute="width" multiplier="0.8" id="KsH-eb-6RK"/>
@@ -1776,7 +1825,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="0v8-y2-spw">
-                                <rect key="frame" x="65" y="112" width="284" height="213"/>
+                                <rect key="frame" x="65" y="112" width="284" height="233"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fFd-0k-ht8">
                                         <rect key="frame" x="0.0" y="0.0" width="284" height="48"/>
@@ -1796,9 +1845,13 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqa-fl-7Se">
-                                        <rect key="frame" x="38.5" y="137" width="207" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kqa-fl-7Se" customClass="PrimaryButton" customModule="TeamyApp" customModuleProvider="target">
+                                        <rect key="frame" x="38.5" y="137" width="207" height="40"/>
                                         <color key="backgroundColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="h8A-da-eo1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Change Password">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -1806,9 +1859,13 @@
                                             <action selector="changePasswordButtonTapped:" destination="Mes-Zw-jY8" eventType="touchUpInside" id="Ebl-NS-G84"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMy-QG-Dg6">
-                                        <rect key="frame" x="38.5" y="183" width="207" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yMy-QG-Dg6" customClass="PrimaryButton" customModule="TeamyApp" customModuleProvider="target">
+                                        <rect key="frame" x="38.5" y="193" width="207" height="40"/>
                                         <color key="backgroundColor" name="AccentColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="q4d-Rs-V12"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Log Out">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -1963,7 +2020,7 @@
                                     <constraint firstAttribute="height" constant="150" id="kHO-cb-C7g"/>
                                 </constraints>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OF0-GR-4mh">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OF0-GR-4mh" customClass="PrimaryButton" customModule="TeamyApp" customModuleProvider="target">
                                 <rect key="frame" x="103.5" y="144" width="207" height="40"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
@@ -2020,7 +2077,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbO-wl-wuW">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fbO-wl-wuW" customClass="PrimaryButton" customModule="TeamyApp" customModuleProvider="target">
                                 <rect key="frame" x="103.5" y="580" width="207" height="40"/>
                                 <color key="backgroundColor" name="AccentColor"/>
                                 <constraints>
@@ -2097,11 +2154,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pNw-ov-9Q3">
-                                <rect key="frame" x="0.0" y="88" width="414" height="712"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="702"/>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuC-ZZ-VHg">
-                                <rect key="frame" x="103.5" y="816" width="207" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WuC-ZZ-VHg" customClass="PrimaryButton" customModule="TeamyApp" customModuleProvider="target">
+                                <rect key="frame" x="103.5" y="806" width="207" height="40"/>
                                 <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="ce7-sn-Gku"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="Save Location">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -2185,7 +2246,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1mm-vD-t3h">
-                                <rect key="frame" x="41.5" y="333.5" width="331" height="141"/>
+                                <rect key="frame" x="41.5" y="328.5" width="331" height="151"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter email..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oit-YD-Hqz">
                                         <rect key="frame" x="0.0" y="0.0" width="331" height="30"/>
@@ -2211,12 +2272,13 @@
                                             <action selector="forgotPasswordButtonTapped:" destination="mk3-AR-dSw" eventType="touchUpInside" id="BVq-gf-hym"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2UO-qB-EeS">
-                                        <rect key="frame" x="0.0" y="111" width="331" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2UO-qB-EeS" customClass="PrimaryButton" customModule="TeamyApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="111" width="331" height="40"/>
                                         <color key="backgroundColor" name="AccentColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="H98-aa-HBe"/>
+                                            <constraint firstAttribute="height" constant="40" id="H98-aa-HBe"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                         <state key="normal" title="Login">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -2306,6 +2368,7 @@
         <segue reference="ey4-Wb-EaX"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="Teamy" width="4069" height="4069"/>
         <image name="arrow.right" catalog="system" width="128" height="98"/>
         <image name="gearshape" catalog="system" width="128" height="121"/>
         <image name="megaphone" catalog="system" width="128" height="111"/>
@@ -2313,10 +2376,13 @@
         <image name="photo" catalog="system" width="128" height="93"/>
         <image name="plus" catalog="system" width="128" height="113"/>
         <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </namedColor>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="placeholderTextColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="secondarySystemGroupedBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2327,8 +2393,8 @@
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemGrayColor">
             <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

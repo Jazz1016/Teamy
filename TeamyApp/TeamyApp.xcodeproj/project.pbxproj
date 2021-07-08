@@ -23,6 +23,8 @@
 		0D1032492681515100136C9A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1032482681515100136C9A /* HomeViewController.swift */; };
 		0D3A50502695366000C1FA6C /* ModalContactViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3A504F2695366000C1FA6C /* ModalContactViewController.swift */; };
 		0D3A505226960BF000C1FA6C /* GlobalFns.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3A505126960BF000C1FA6C /* GlobalFns.swift */; };
+		0D3A50542696598B00C1FA6C /* StyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3A50532696598B00C1FA6C /* StyleGuide.swift */; };
+		0D3A50562696599D00C1FA6C /* PrimaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D3A50552696599D00C1FA6C /* PrimaryButton.swift */; };
 		0D54C576268BD68400934307 /* PlayerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D54C575268BD68400934307 /* PlayerTableViewCell.swift */; };
 		0D59478A268AB76000A9DA0F /* RosterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D594789268AB76000A9DA0F /* RosterViewController.swift */; };
 		0D59478C268AB7FA00A9DA0F /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D59478B268AB7FA00A9DA0F /* EventDetailViewController.swift */; };
@@ -107,6 +109,8 @@
 		0D1032482681515100136C9A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		0D3A504F2695366000C1FA6C /* ModalContactViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalContactViewController.swift; sourceTree = "<group>"; };
 		0D3A505126960BF000C1FA6C /* GlobalFns.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalFns.swift; sourceTree = "<group>"; };
+		0D3A50532696598B00C1FA6C /* StyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StyleGuide.swift; path = "TeamyApp/Helpers and Extensions/StyleGuide.swift"; sourceTree = SOURCE_ROOT; };
+		0D3A50552696599D00C1FA6C /* PrimaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrimaryButton.swift; path = "TeamyApp/Helpers and Extensions/PrimaryButton.swift"; sourceTree = SOURCE_ROOT; };
 		0D54C575268BD68400934307 /* PlayerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerTableViewCell.swift; sourceTree = "<group>"; };
 		0D594789268AB76000A9DA0F /* RosterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RosterViewController.swift; sourceTree = "<group>"; };
 		0D59478B268AB7FA00A9DA0F /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
@@ -277,6 +281,23 @@
 			path = AdminCustomCells;
 			sourceTree = "<group>";
 		};
+		79D8F9A726962C9E00691F2B /* StyleGuide */ = {
+			isa = PBXGroup;
+			children = (
+				79D8F9AA26962CC200691F2B /* Button */,
+				0D3A50532696598B00C1FA6C /* StyleGuide.swift */,
+			);
+			path = StyleGuide;
+			sourceTree = "<group>";
+		};
+		79D8F9AA26962CC200691F2B /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				0D3A50552696599D00C1FA6C /* PrimaryButton.swift */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
 		96C73D3C21842E8445D2D00C /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -337,6 +358,7 @@
 		ACC9759526810FBA000C3593 /* TeamyApp */ = {
 			isa = PBXGroup;
 			children = (
+				79D8F9A726962C9E00691F2B /* StyleGuide */,
 				ACC975BA268113BF000C3593 /* Models */,
 				ACC975B5268112FC000C3593 /* Views */,
 				ACC975AE26811178000C3593 /* Controllers */,
@@ -604,9 +626,11 @@
 				AC08308D268CE409001C7D67 /* CoachsBioTableViewCell.swift in Sources */,
 				0D59478C268AB7FA00A9DA0F /* EventDetailViewController.swift in Sources */,
 				0D10323F26814CD300136C9A /* SignUpViewController.swift in Sources */,
+				0D3A50542696598B00C1FA6C /* StyleGuide.swift in Sources */,
 				79CF316D26864020005ECEC8 /* PhotoPickerViewController.swift in Sources */,
 				0D1032472681504100136C9A /* CreateNewTeamViewController.swift in Sources */,
 				0D70A97E268F643500F82081 /* AddEventTableViewCell.swift in Sources */,
+				0D3A50562696599D00C1FA6C /* PrimaryButton.swift in Sources */,
 				0D02DD5626854B540039EC0B /* PlayerController.swift in Sources */,
 				0D94E18D2682402E005602ED /* Event.swift in Sources */,
 				0D94E19526828E3C005602ED /* UserError.swift in Sources */,
