@@ -44,22 +44,6 @@ class TeamViewController: UIViewController {
             }
             fetchDetails()
             fetchEvents()
-            guard let team = team else {return}
-            UserController.shared.fetchUsers(userIds: team.admins, access: "admin") { result in
-                if !result {
-                    print("Error Fetching admins")
-                }
-            }
-            UserController.shared.fetchUsers(userIds: team.members, access: "member") { result in
-                if !result {
-                    print("Error Fetching members")
-                }
-            }
-            UserController.shared.fetchUsers(userIds: team.blocked, access: "blocked") { result in
-                if !result {
-                    print("Error Fetching blocked users")
-                }
-            }
         }
     }
     
