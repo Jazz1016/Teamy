@@ -12,7 +12,7 @@ import Firebase
 
 class UserSettingsViewController: UIViewController {
     //MARK: - Outlets
-    @IBOutlet weak var firstNameLabel: UILabel!
+    @IBOutlet weak var fullNameLabel: UILabel!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -34,12 +34,6 @@ class UserSettingsViewController: UIViewController {
     var user: User?
     
     //MARK: - Actions
-    @IBAction func editButtonTapped(_ sender: Any) {
-        firstNameLabel.isHidden.toggle()
-        lastNameLabel.isHidden.toggle()
-        firstNameTextField.isHidden.toggle()
-        lastNameTextField.isHidden.toggle()
-    }
     
     @IBAction func changePasswordButtonTapped(_ sender: Any) {
         presentAlertToChangePassword()
@@ -64,13 +58,7 @@ class UserSettingsViewController: UIViewController {
     
     func updateViews() {
         guard let user = user else {return}
-        firstNameLabel.text = "Welcome \(user.firstName)  \(user.lastName)"
-        emailLabel.text = user.email
-//        firstNameTextField.text = user.firstName
-//        lastNameLabel.text = user.lastName
-//        lastNameTextField.text = user.lastName
-//        firstNameTextField.isHidden = true
-//        lastNameTextField.isHidden = true
+        fullNameLabel.text = "Welcome \(user.firstName) \(user.lastName)"
     }
     
     func presentAlertToDeleteAccount() {
@@ -144,16 +132,5 @@ class UserSettingsViewController: UIViewController {
             }
         })
         
-    }
-    
-    @IBAction func saveChangesButtonTapped(_ sender: Any) {
-        guard let currentUser = user else {return}
-        let email = currentUser.email
-        let userId = currentUser.userId
-        guard let firstName = firstNameTextField.text,
-              let lastName = lastNameTextField.text else {return}
-        let user = User(email: email, firstName: firstName, lastName: lastName, userId: userId )
-        
-        UserController.shared.updateUser(user: user)
     }
 }//End of class

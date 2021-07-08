@@ -16,9 +16,10 @@ class PrimaryButton: UIButton {
     }
     
     func setupButton() {
-        self.backgroundColor = Colors.customGreen
         self.setTitleColor(.white, for: .normal)
         self.addCornerRadius()
+        self.layer.backgroundColor = Colors.customGreen.cgColor
+//        self.layer.borderColor = Colors.customGreen.cgColor
     }
     
 }
