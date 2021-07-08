@@ -25,7 +25,7 @@ class EventDetailViewController: UIViewController {
         super.viewDidLoad()
         updateViews()
         openInMapsButton.layer.cornerRadius = 10
-        print()
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     var event: Event?
@@ -108,5 +108,17 @@ class EventDetailViewController: UIViewController {
 extension EventDetailViewController: UpdateEventDetailDelegate {
     func updateEventView() {
         updateViews()
+    }
+}
+
+extension EventDetailViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(EventDetailViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
