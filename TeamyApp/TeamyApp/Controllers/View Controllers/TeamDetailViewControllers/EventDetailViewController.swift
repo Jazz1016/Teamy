@@ -28,10 +28,14 @@ class EventDetailViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = false
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        
+    }
+    
     var event: Event?
     
     @IBAction func editEventButtonTapped(_ sender: Any) {
-    
         guard let vc = storyboard?.instantiateViewController(withIdentifier: "createEventVC") as? CreateEventViewController else {return}
         guard let event = event else {return}
         let nav = UINavigationController.init(rootViewController: vc)
@@ -58,6 +62,7 @@ class EventDetailViewController: UIViewController {
     
     func updateViews() {
         guard let event = event else {return}
+        navigationController?.navigationBar.topItem?.title = "\(event.name)"
         eventNameLabel.text = event.name
         eventAddressLabel.text = event.locationAddress
         eventLocationNameLabel.text = event.locationName
