@@ -55,7 +55,6 @@ extension UserManagementViewController: UITableViewDelegate, UITableViewDataSour
                 }
             }
             
-            
             admins.append(user.userId)
             members.remove(at: memberIndex)
             
@@ -77,7 +76,6 @@ extension UserManagementViewController: UITableViewDelegate, UITableViewDataSour
                     adminIndex = i
                 }
             }
-            
             UserController.shared.members.append(user)
             UserController.shared.admins.remove(at: indexPath.row)
             
@@ -121,6 +119,7 @@ extension UserManagementViewController: UITableViewDelegate, UITableViewDataSour
                         memberIndex = i
                     }
                 }
+                
                 UserController.shared.blocked.append(user)
                 UserController.shared.members.remove(at: indexPath.row)
                 members.remove(at: memberIndex)

@@ -16,6 +16,9 @@ class CodeModalViewController: UIViewController {
     //MARK: - Lifecycles
     override func viewDidLoad() {
         super.viewDidLoad()
+        if EventController.shared.isAdmin {
+            resetCodeButton.isHidden = false
+        }
         
         teamCodeView.layer.cornerRadius = 15
         resetCodeButton.layer.cornerRadius = 10
@@ -26,10 +29,6 @@ class CodeModalViewController: UIViewController {
         guard let team = EventController.shared.team else {return}
         resetCodeButton.isHidden = true
         teamCodeLabel.text = team.teamCode
-        
-        if EventController.shared.isAdmin {
-            resetCodeButton.isHidden = false
-        }
     }
     
     // MARK: - Properties

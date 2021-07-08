@@ -22,7 +22,6 @@ class TeamViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         eventsTableView.reloadData()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,7 +38,6 @@ class TeamViewController: UIViewController {
                 guard let user = Auth.auth().currentUser else {return}
                 if EventController.shared.team!.admins.contains(user.uid) {
                     EventController.shared.isAdmin = true
-                    
                 }
             }
             fetchDetails()
@@ -200,7 +198,6 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.eventLocationLabel.text = event.locationName
                 cell.eventDate.text = event.date.dateValue().formatToCustomString()
                 cell.index = 0
-                
                 return cell
             } else {
                 return UITableViewCell()
@@ -208,16 +205,6 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return UITableViewCell()
     }
-    
-    //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    //        if editingStyle == .delete {
-    //            let eventToDelete = EventController.shared.events[indexPath.row]
-    //            guard let teamID = self.team?.teamId else {return}
-    //            EventController.shared.deleteEvent(with: eventToDelete, teamID: teamID)
-    //
-    //            tableView.deleteRows(at: [indexPath], with: .fade)
-    //        }
-    //    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toEventDetailVC" {
