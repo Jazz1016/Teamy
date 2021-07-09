@@ -15,7 +15,7 @@ class SearchTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        setupView()
     }
 
     var resultSearchController: UISearchController? = nil
@@ -23,6 +23,13 @@ class SearchTableViewController: UITableViewController {
     var mapView: MKMapView?
     var handleMapSearchDelegate: HandleMapSearch?
     
+    
+    //MARK: - Functions
+    func setupView() {
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
     
     // MARK: - Table view data source
 

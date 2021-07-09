@@ -26,11 +26,13 @@ class CreateNewTeamViewController: UIViewController {
         PhotoPickerViewController.delegate = self
         pickerView.dataSource = self
         pickerView.delegate = self
+        configureTextFields()
         sportPickerTextField.inputView = pickerView
         createToolBar()
         createTeamButton.layer.cornerRadius = 10
         selectColorButton.layer.cornerRadius = 10
         sortedSports = TeamController.shared.sports.sorted()
+        navigationController?.navigationBar.prefersLargeTitles = false
     }
     
     // MARK: - Properties
@@ -63,7 +65,7 @@ class CreateNewTeamViewController: UIViewController {
     
     // MARK: - Helper Functions
     
-    func createTeam(){
+    func createTeam() {
         guard let teamName = teamNameTextField.text,
               let userId = Auth.auth().currentUser?.uid,
               let sport = sportPickerTextField.text,
@@ -80,11 +82,37 @@ class CreateNewTeamViewController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    func addZeros(){
+    func addZeros() {
         if randomNumString.count < 6 {
             randomNumString = "0" + randomNumString
             print(randomNumString)
             addZeros()
+        }
+    }
+    
+    func configureTextFields() {
+        teamNameTextField.delegate = self
+        leagueNameTextField.delegate = self
+        coachNameTextField.delegate = self
+        hideKeyboardWhenTappedAround()
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+    }
+    
+    
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height / 4
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
         }
     }
     
@@ -103,7 +131,9 @@ class CreateNewTeamViewController: UIViewController {
     }//End of func
     
     func saveImage(teamName: String, completion: @escaping (Bool) -> Void) {
-        guard let image = self.image else {return}
+        guard let image = self.image else {
+            completion(true)
+            return}
         
         let storageRef = Storage.storage().reference().child("\(teamName).jpg")
         if let uploadData = image.jpegData(compressionQuality: 0.75) {
@@ -122,14 +152,6 @@ class CreateNewTeamViewController: UIViewController {
         }
     }
     
-    
-    //MARK: - Navigation
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "toPhotoPicker" {
-//            let destinationVC = segue.destination as? PhotoPickerViewController
-//            destinationVC?.delegate = self
-//        }
-//    }
 
 }//End of class
 
@@ -172,5 +194,24 @@ extension CreateNewTeamViewController: UIPickerViewDataSource, UIPickerViewDeleg
 extension CreateNewTeamViewController: PhotoSelectorDelegate {
     func photoPickerSelected(image: UIImage) {
         self.image = image
+    }
+}
+
+extension CreateNewTeamViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+extension CreateNewTeamViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(CreateNewTeamViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

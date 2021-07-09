@@ -150,43 +150,7 @@ class UserController {
         }
     }
     
-    func inviteUserToTeam(userEmail: String, teamId: String){
-        var userQueried = db.collection("users").whereField("email", isEqualTo: userEmail)
-        userQueried.getDocuments { snap, error in
-            if let error = error {
-                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
-            }
-            
-            guard let snap = snap else {return}
-            
-            if snap.count == 1 {
-                let userData = snap.documents[0].data()
-                
-                let email = userData["email"] as? String
-                let firstName = userData["firstName"] as? String
-                let lastName = userData["lastName"] as? String
-                var invites = userData["invites"] as? Array<String> ?? []
-                let teams = userData["teams"] as? Array<String> ?? []
-                
-                let userId = userData["userId"] as? String
-                
-                
-                invites.append(teamId)
-                
-                
-                self.db.collection("users").document(userId!).setData([
-                    
-                    "email" : email,
-                    "firstName" : firstName,
-                    "lastName" : lastName,
-                    "teams" : teams,
-                    "userId" : userId
-                ])
-            }
-        }
-    }
-    
-    func userjoinsTeam(teamCode: String, userId: String){
+    func userjoinsTeam(teamCode: String, userId: String, completion: @escaping (Bool) -> Void){
         
         let queriedTeam = db.collection("teams").whereField("teamCode", isEqualTo: teamCode)
         queriedTeam.getDocuments { snap, error in
@@ -209,6 +173,28 @@ class UserController {
                 let teamId = teamData["teamId"] as? String
                 let teamCode = teamData["teamCode"] as? String
                 
+                
+                
+                for i in blocked! {
+                    if i == userId {
+                        completion(false)
+                        return
+                    }
+                }
+                
+                for i in admins! {
+                    if i == userId {
+                        completion(false)
+                        return
+                    }
+                }
+                
+                for i in members! {
+                    if i == userId{
+                        completion(false)
+                        return
+                    }
+                }
                 
                 
                 members?.append(userId)
@@ -240,11 +226,51 @@ class UserController {
                                 "teams" : userTeams,
                                 "userId" : user.userId
                             ])
+                            completion(true)
                         case .failure(let error):
                             print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
                         }
                     }
                 }
+            }
+        }
+    }
+    
+    func blockUserFromTeam(teamId: String, userId: String){
+        let queriedUser = db.collection("users").whereField("userId", isEqualTo: userId)
+        
+        queriedUser.getDocuments { snap, error in
+//            if let error = error {
+//                print("Error in \(#function) : \(error.localizedDescription) \n---\n \(error)")
+//            }
+            
+            guard let snap = snap else {return}
+            if snap.count == 1 {
+                let userData = snap.documents[0].data()
+                let email = userData["email"] as? String
+                let firstName = userData["firstName"] as? String
+                let lastName = userData["lastName"] as? String
+                var teams = userData["teams"] as? Array<String> ?? []
+                let userId = userData["userId"] as? String
+                
+                var index = 0
+                
+                for (i, el) in teams.enumerated() {
+                    
+                    if el == teamId {
+                        index = i
+                    }
+                }
+                
+                teams.remove(at: index)
+                
+                self.db.collection("users").document(userId!).setData([
+                    "email" : email,
+                    "firstName" : firstName,
+                    "lastName" : lastName,
+                    "teams" : teams,
+                    "userId" : userId
+                ])
             }
         }
     }
