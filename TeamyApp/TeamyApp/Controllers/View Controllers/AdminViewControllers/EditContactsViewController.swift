@@ -99,9 +99,10 @@ extension EditContactsViewController: UITableViewDelegate, UITableViewDataSource
         
         let deleteAction = UITableViewRowAction(style: .default, title: "Delete") { action, indexPath in
             let contactToDelete = ContactController.shared.contacts[indexPath.row - 1]
-            ContactController.shared.deleteContact(contact: contactToDelete, teamId: team.teamId)
+            ContactController.shared.contacts.remove(at: indexPath.row - 1)
             
             tableView.deleteRows(at: [indexPath], with: .fade)
+            ContactController.shared.deleteContact(contact: contactToDelete, teamId: team.teamId)
         }
         
         let editAction = UITableViewRowAction(style: .default, title: "Edit") { action, indexPath in

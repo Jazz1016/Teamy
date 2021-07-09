@@ -22,7 +22,6 @@ class TeamViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         eventsTableView.reloadData()
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -39,27 +38,10 @@ class TeamViewController: UIViewController {
                 guard let user = Auth.auth().currentUser else {return}
                 if EventController.shared.team!.admins.contains(user.uid) {
                     EventController.shared.isAdmin = true
-                    
                 }
             }
             fetchDetails()
             fetchEvents()
-            guard let team = team else {return}
-            UserController.shared.fetchUsers(userIds: team.admins, access: "admin") { result in
-                if !result {
-                    print("Error Fetching admins")
-                }
-            }
-            UserController.shared.fetchUsers(userIds: team.members, access: "member") { result in
-                if !result {
-                    print("Error Fetching members")
-                }
-            }
-            UserController.shared.fetchUsers(userIds: team.blocked, access: "blocked") { result in
-                if !result {
-                    print("Error Fetching blocked users")
-                }
-            }
         }
     }
     
@@ -216,7 +198,6 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.eventLocationLabel.text = event.locationName
                 cell.eventDate.text = event.date.dateValue().formatToCustomString()
                 cell.index = 0
-                
                 return cell
             } else {
                 return UITableViewCell()
@@ -224,16 +205,6 @@ extension TeamViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return UITableViewCell()
     }
-    
-    //    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-    //        if editingStyle == .delete {
-    //            let eventToDelete = EventController.shared.events[indexPath.row]
-    //            guard let teamID = self.team?.teamId else {return}
-    //            EventController.shared.deleteEvent(with: eventToDelete, teamID: teamID)
-    //
-    //            tableView.deleteRows(at: [indexPath], with: .fade)
-    //        }
-    //    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toEventDetailVC" {

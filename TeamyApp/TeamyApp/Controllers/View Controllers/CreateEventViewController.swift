@@ -28,9 +28,7 @@ class CreateEventViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateViews()
-        addNotesTextViewBorder()
-        eventLocationNameTextField.isHidden = true
+        setupView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -113,6 +111,34 @@ class CreateEventViewController: UIViewController {
         mapView.layer.cornerRadius = 10
     }
     
+    func setupView() {
+        updateViews()
+        addNotesTextViewBorder()
+        eventNameTextField.delegate = self
+        eventLocationNameTextField.isHidden = true
+        if eventNameTextField.isSelected != true {
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        }
+        hideKeyboardWhenTappedAround()
+        navigationController?.navigationBar.prefersLargeTitles = false
+        
+    }
+
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height / 4
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
+    }
+    
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toLocationFinder" {
@@ -122,7 +148,7 @@ class CreateEventViewController: UIViewController {
     }
 }
 
-extension CreateEventViewController: SaveToEventDelegate {
+extension CreateEventViewController: SaveToEventDelegate, UITextFieldDelegate {
     
     func saveLocationInfo(placemark: MKPlacemark) {
         eventLocationNameLabel.text = placemark.name
@@ -141,5 +167,22 @@ extension CreateEventViewController: SaveToEventDelegate {
         let region = MKCoordinateRegion(center: placemark.coordinate, span: span)
         mapView.setRegion(region, animated: true)
         
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+}
+
+extension CreateEventViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(CreateEventViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }
