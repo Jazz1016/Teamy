@@ -70,8 +70,11 @@ class EventController {
                     
                     let event = Event(date: date, name: name, locationAddress: locationAddress, locationName: locationName, notes: notes, eventID: eventID)
                     
-                    self.events.append(event)
-                    self.events.sort(by: { $0.date.dateValue() < $1.date.dateValue() })
+                        self.events.append(event)
+                        self.events.sort(by: { $0.date.dateValue() < $1.date.dateValue() })
+                    if (self.events.first?.date.dateValue())! < Date() - 3600 {
+                        self.events.remove(at: 0)
+                    }
                 }
                 completion(true)
             }
