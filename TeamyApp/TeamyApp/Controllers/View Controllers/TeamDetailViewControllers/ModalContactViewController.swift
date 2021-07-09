@@ -26,7 +26,7 @@ class ModalContactViewController: UIViewController {
     
     // MARK: - Properties
     var contact: Contact? {
-        didSet{
+        didSet {
             print("hit")
         }
     }
